@@ -1,525 +1,1255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ed e Lorraine Warren - Investigadores Paranormais</title>
-
-<style>
-
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Arial', sans-serif;
-}
-
-body{
-
-    background:
-    linear-gradient(
-    135deg,
-    #050505,
-    #1b0000,
-    #330000
-    );
-
-    color:white;
-    line-height:1.8;
-
-}
-
-
-/* =========================
-   CABEÇALHO
-========================= */
-
-header{
-
-    height:500px;
-
-    background:
-
-    linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(90,0,0,0.8)
-    ),
-
-    url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ed_and_Lorraine_Warren.jpg/800px-Ed_and_Lorraine_Warren.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-}
-
-
-header h1{
-
-    font-size:60px;
-
-    color:#ffcc00;
-
-    text-shadow:
-
-    0 0 10px red,
-    0 0 20px orange,
-    0 0 30px black;
-
-}
-
-
-header p{
-
-    font-size:25px;
-
-    color:white;
-
-    margin-top:20px;
-
-}
-
-
-
-/* =========================
-   MENU
-========================= */
-
-
-nav{
-
-background:#000;
-
-padding:20px;
-
-text-align:center;
-
-position:sticky;
-
-top:0;
-
-z-index:10;
-
-}
-
-
-nav a{
-
-color:#ffcc00;
-
-text-decoration:none;
-
-font-size:18px;
-
-margin:15px;
-
-transition:.3s;
-
-}
-
-
-nav a:hover{
-
-color:red;
-
-text-shadow:0 0 10px yellow;
-
-}
-
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-
-.container{
-
-width:90%;
-
-max-width:1200px;
-
-margin:auto;
-
-padding:40px 0;
-
-}
-
-
-
-/* =========================
-   SEÇÕES
-========================= */
-
-
-section{
-
-background:
-
-linear-gradient(
-145deg,
-#111,
-#260000
-);
-
-
-padding:35px;
-
-margin-bottom:40px;
-
-border-radius:20px;
-
-
-box-shadow:
-
-0 0 20px rgba(255,0,0,0.5);
-
-
-border:2px solid #660000;
-
-
-}
-
-
-
-h2{
-
-font-size:35px;
-
-color:#ff9900;
-
-margin-bottom:20px;
-
-text-shadow:
-
-0 0 10px red;
-
-
-}
-
-
-p{
-
-font-size:18px;
-
-text-align:justify;
-
-margin-bottom:20px;
-
-}
-
-
-
-/* =========================
-   CARDS
-========================= */
-
-
-.cards{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:25px;
-
-justify-content:center;
-
-}
-
-
-
-.card{
-
-width:300px;
-
-background:#000;
-
-padding:25px;
-
-border-radius:15px;
-
-border:2px solid #ff9900;
-
-
-transition:.5s;
-
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-15px);
-
-box-shadow:
-
-0 0 25px orange;
-
-}
-
-
-
-.card h3{
-
-color:#14a384;
-
-margin-bottom:15px;
-
-}
-
-
-
-/* =========================
-   BOTÕES
-========================= */
-
-
-.botao{
-
-display:inline-block;
-
-padding:15px 30px;
-
-background:
-
-linear-gradient(
-45deg,
-rgb(82, 162, 154),
-rgba(70, 157, 234, 0.51)
-);
-
-
-color:white;
-
-border-radius:30px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.4s;
-
-
-}
-
-
-.botao:hover{
-
-background:
-
-linear-gradient(
-45deg,
-rgb(82, 156, 122),
-rgb(12, 12, 11)
-);
-
-
-color:black;
-
-}
-
-
-
-/* =========================
-   RODAPÉ
-========================= */
-
-
-footer{
-
-background:#04caf2;
-
-padding:30px;
-
-text-align:center;
-
-color:#065f96;
-
-font-size:16px;
-
-
-}
-
-
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ed e Lorraine Warren - História, Casos, Controvérsias e Legado</title>
+
+  <meta
+    name="description"
+    content="Conheça a trajetória de Ed e Lorraine Warren, seus casos paranormais mais famosos, as controvérsias, o museu ocultista e a influência do casal no cinema."
+  >
+
+  <style>
+    :root {
+      --preto: #090a0c;
+      --preto-claro: #101217;
+      --cinza-escuro: #171a20;
+      --cinza: #a9adb7;
+      --branco: #f4f1e8;
+      --vermelho: #8f1d1d;
+      --vermelho-claro: #c83b3b;
+      --dourado: #c8a867;
+      --borda: rgba(200, 168, 103, 0.22);
+      --sombra: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --largura: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--branco);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(143, 29, 29, 0.15), transparent 30%),
+        radial-gradient(circle at 85% 35%, rgba(200, 168, 103, 0.08), transparent 28%),
+        linear-gradient(180deg, #08090b 0%, #0e1014 55%, #08090b 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    a {
+      color: var(--dourado);
+    }
+
+    a:hover {
+      color: #ead199;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--largura));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 10px;
+      left: 10px;
+      padding: 10px 16px;
+      color: #111;
+      background: var(--dourado);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid var(--borda);
+      background: rgba(8, 9, 11, 0.9);
+      backdrop-filter: blur(15px);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--branco);
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--vermelho-claro);
+    }
+
+    .menu-button {
+      display: none;
+      padding: 8px 12px;
+      color: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 5px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #d6d2c9;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--dourado);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 88vh;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.56)),
+        radial-gradient(circle at 75% 30%, rgba(143, 29, 29, 0.26), transparent 30%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      padding-block: 100px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--dourado);
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+      font-weight: bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 0 22px;
+      font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: -0.045em;
+    }
+
+    h1 span {
+      color: var(--vermelho-claro);
+    }
+
+    .hero p {
+      max-width: 740px;
+      margin: 0;
+      color: #cfcbc2;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      color: var(--branco);
+      border: 1px solid var(--dourado);
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: bold;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .button.primary {
+      color: #16120a;
+      background: var(--dourado);
+    }
+
+    .button:hover {
+      color: #fff;
+      border-color: var(--vermelho-claro);
+      background: var(--vermelho);
+    }
+
+    main section {
+      padding-block: 90px;
+    }
+
+    .section-dark {
+      border-block: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(0, 0, 0, 0.17);
+    }
+
+    .section-title {
+      max-width: 850px;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2.1rem, 5vw, 4.3rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--cinza);
+      font-size: 1.08rem;
+    }
+
+    .notice {
+      margin: 30px 0;
+      padding: 22px;
+      color: #d4d0c8;
+      border: 1px solid rgba(200, 168, 103, 0.25);
+      border-left: 4px solid var(--dourado);
+      border-radius: 6px;
+      background: rgba(200, 168, 103, 0.06);
+    }
+
+    .notice strong {
+      color: var(--dourado);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+      box-shadow: var(--sombra);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--dourado);
+      font-size: 1.5rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .facts {
+      display: grid;
+      margin-top: 28px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .fact {
+      padding: 22px 16px;
+      text-align: center;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--vermelho-claro);
+      font-size: 1.9rem;
+    }
+
+    .fact span {
+      color: var(--cinza);
+      font-family: Arial, sans-serif;
+      font-size: 0.79rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+      padding-left: 34px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 8px;
+      width: 2px;
+      content: "";
+      background: linear-gradient(var(--vermelho-claro), var(--dourado));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 34px;
+      padding: 0 0 4px 28px;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 8px;
+      left: -32px;
+      width: 13px;
+      height: 13px;
+      content: "";
+      border: 3px solid #0d0f13;
+      border-radius: 50%;
+      background: var(--dourado);
+      box-shadow: 0 0 0 1px var(--dourado);
+    }
+
+    .timeline-item time {
+      color: var(--vermelho-claro);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin: 6px 0 8px;
+      font-size: 1.4rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #c8c5be;
+    }
+
+    .case {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case::after {
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      color: rgba(200, 168, 103, 0.08);
+      content: attr(data-number);
+      font-size: 7rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .case-tag {
+      display: inline-block;
+      margin-bottom: 13px;
+      padding: 5px 9px;
+      color: #e7c986;
+      border: 1px solid rgba(200, 168, 103, 0.3);
+      border-radius: 100px;
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    blockquote {
+      margin: 38px 0;
+      padding: 28px 32px;
+      color: #ece7dc;
+      border-left: 4px solid var(--vermelho-claro);
+      background: rgba(143, 29, 29, 0.08);
+      font-size: 1.22rem;
+      font-style: italic;
+    }
+
+    .comparison {
+      width: 100%;
+      margin-top: 28px;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 16px;
+      vertical-align: top;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .comparison th {
+      color: var(--dourado);
+      background: rgba(200, 168, 103, 0.08);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .comparison td {
+      color: #cecbc3;
+    }
+
+    .accordion {
+      border-top: 1px solid var(--borda);
+    }
+
+    details {
+      border-bottom: 1px solid var(--borda);
+    }
+
+    summary {
+      position: relative;
+      padding: 22px 44px 22px 0;
+      cursor: pointer;
+      list-style: none;
+      font-size: 1.14rem;
+      font-weight: bold;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      position: absolute;
+      top: 20px;
+      right: 6px;
+      color: var(--dourado);
+      content: "+";
+      font-size: 1.6rem;
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    details p {
+      max-width: 920px;
+      margin-top: 0;
+      padding-bottom: 22px;
+      color: var(--cinza);
+    }
+
+    .sources-list {
+      padding-left: 22px;
+    }
+
+    .sources-list li {
+      margin-bottom: 13px;
+      color: #cbc8c0;
+    }
+
+    .source-note {
+      color: var(--cinza);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      padding: 44px 0;
+      color: var(--cinza);
+      border-top: 1px solid var(--borda);
+      text-align: center;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .menu-button {
+        display: block;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 72px;
+        right: 20px;
+        left: 20px;
+        display: none;
+        padding: 20px;
+        align-items: stretch;
+        flex-direction: column;
+        border: 1px solid var(--borda);
+        border-radius: 8px;
+        background: #0d0f13;
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      .grid-three,
+      .facts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 26px), var(--largura));
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero-content {
+        padding-block: 72px;
+      }
+
+      main section {
+        padding-block: 68px;
+      }
+
+      .grid-two,
+      .grid-three,
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 23px;
+      }
+
+      .comparison {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 16vw, 5rem);
+      }
+    }
+  </style>
 </head>
 
-
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header id="topo">
+    <div class="container nav">
+      <a class="brand" href="#topo">Arquivo <span>Warren</span></a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
+        Menu
+      </button>
+
+      <nav aria-label="Navegação principal">
+        <ul id="menu">
+          <li><a href="#biografia">Biografia</a></li>
+          <li><a href="#cronologia">Cronologia</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#metodos">Métodos</a></li>
+          <li><a href="#controversias">Controvérsias</a></li>
+          <li><a href="#cinema">Cinema</a></li>
+          <li><a href="#fontes">Fontes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="container hero-content">
+        <span class="eyebrow">História, investigação e cultura popular</span>
+
+        <h1 id="titulo-principal">
+          Ed e Lorraine <span>Warren</span>
+        </h1>
+
+        <p>
+          A trajetória do casal de investigadores paranormais que transformou
+          relatos de assombrações, objetos supostamente amaldiçoados e alegações
+          de possessão em um dos legados mais conhecidos e controversos do
+          sobrenatural moderno.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#biografia">Conhecer a história</a>
+          <a class="button" href="#casos">Explorar os casos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="introducao">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Introdução</span>
+          <h2>Entre a fé, o medo e a controvérsia</h2>
+          <p>
+            Ed e Lorraine Warren foram autores, palestrantes e investigadores
+            norte-americanos ligados a numerosos relatos de atividade paranormal.
+            Suas histórias inspiraram livros, documentários e diversos filmes de
+            terror, especialmente a franquia <em>Invocação do Mal</em>.
+          </p>
+        </div>
+
+        <div class="notice">
+          <strong>Nota de contexto:</strong> as manifestações sobrenaturais
+          descritas nesta página correspondem a alegações do casal, de famílias
+          envolvidas e de outros participantes. A existência de fantasmas,
+          demônios, possessões e poderes psíquicos não foi estabelecida por
+          evidências científicas reproduzíveis. Por isso, relatos históricos e
+          interpretações sobrenaturais são apresentados separadamente.
+        </div>
+
+        <div class="facts">
+          <div class="fact">
+            <strong>1926</strong>
+            <span>Nascimento de Ed</span>
+          </div>
+
+          <div class="fact">
+            <strong>1927</strong>
+            <span>Nascimento de Lorraine</span>
+          </div>
+
+          <div class="fact">
+            <strong>1952</strong>
+            <span>Fundação da NESPR</span>
+          </div>
+
+          <div class="fact">
+            <strong>1</strong>
+            <span>Filha: Judy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="biografia">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Biografia</span>
+          <h2>Quem foram Ed e Lorraine?</h2>
+          <p>
+            O casal construiu uma carreira pública unindo religiosidade,
+            palestras, investigação de casas consideradas assombradas e produção
+            de livros sobre seus casos.
+          </p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Ed Warren</h3>
+
+            <p>
+              <strong>Edward Warren Miney</strong> nasceu em 7 de setembro de
+              1926, em Bridgeport, Connecticut. Serviu na Marinha dos Estados
+              Unidos durante a Segunda Guerra Mundial e, depois do serviço
+              militar, trabalhou como pintor.
+            </p>
+
+            <p>
+              Ed descrevia a si mesmo como um demonologista autodidata. Ele
+              afirmava ter crescido em uma residência onde ocorriam fenômenos
+              inexplicáveis, experiência que teria contribuído para seu interesse
+              pelo sobrenatural.
+            </p>
+
+            <p>
+              Nas investigações, costumava interpretar relatos por uma ótica
+              religiosa, sobretudo católica. Também ministrava palestras e
+              apresentava gravações, fotografias e objetos que considerava
+              relacionados aos fenômenos investigados.
+            </p>
+
+            <p>
+              Ed morreu em 23 de agosto de 2006, aos 79 anos, em Connecticut.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Lorraine Warren</h3>
+
+            <p>
+              <strong>Lorraine Rita Moran Warren</strong> nasceu em 31 de janeiro
+              de 1927, também em Bridgeport. Ela se apresentava como clarividente
+              e médium de transe leve.
+            </p>
+
+            <p>
+              Lorraine dizia perceber auras, presenças e impressões associadas a
+              pessoas, lugares e objetos. Durante as investigações, seu papel era
+              oferecer interpretações mediúnicas enquanto Ed organizava a
+              documentação e analisava os casos por sua perspectiva demonológica.
+            </p>
+
+            <p>
+              Após a morte do marido, Lorraine continuou concedendo entrevistas e
+              participando de produções sobre os casos do casal. Ela também fez
+              aparições relacionadas aos filmes de <em>Invocação do Mal</em>.
+            </p>
+
+            <p>
+              Lorraine morreu em abril de 2019, aos 92 anos.
+            </p>
+          </article>
+        </div>
+
+        <blockquote>
+          O fenômeno cultural criado pelos Warren é indiscutível; a explicação
+          sobrenatural oferecida por eles, porém, permanece uma questão de crença,
+          testemunho e debate.
+        </blockquote>
+
+        <h3>Vida familiar</h3>
+
+        <p>
+          Ed e Lorraine se conheceram ainda jovens em Bridgeport. Casaram-se
+          durante a década de 1940 e tiveram uma filha, Judy. A vida doméstica do
+          casal passou a se misturar com sua atuação pública, pois a residência em
+          Monroe, Connecticut, também serviu como base para suas atividades e para
+          a coleção de objetos ligados aos casos.
+        </p>
+
+        <p>
+          Tony Spera, marido de Judy, tornou-se uma figura importante na
+          preservação e divulgação do legado dos Warren. Com o passar dos anos, a
+          família continuou participando de palestras, entrevistas e eventos
+          relacionados à história do casal.
+        </p>
+      </div>
+    </section>
+
+    <section id="cronologia">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Cronologia</span>
+          <h2>Uma carreira atravessando décadas</h2>
+          <p>
+            Datas centrais da trajetória pessoal e profissional do casal.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <time datetime="1926">1926</time>
+            <h3>Nascimento de Ed Warren</h3>
+            <p>
+              Edward Warren Miney nasce em Bridgeport, Connecticut, em 7 de
+              setembro.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="1927">1927</time>
+            <h3>Nascimento de Lorraine Moran</h3>
+            <p>
+              Lorraine Rita Moran nasce em Bridgeport, em 31 de janeiro.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="1940">Década de 1940</time>
+            <h3>Casamento e formação da família</h3>
+            <p>
+              Ed serve na Marinha durante a Segunda Guerra Mundial. O casal se
+              casa e posteriormente tem sua única filha, Judy.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="1952">1952</time>
+            <h3>Fundação da NESPR</h3>
+            <p>
+              Ed e Lorraine fundam a New England Society for Psychic Research,
+              organização dedicada à investigação de alegações paranormais.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="1970">Década de 1970</time>
+            <h3>Casos de grande repercussão</h3>
+            <p>
+              Histórias como Annabelle, a família Perron e Amityville ajudam a
+              tornar o casal conhecido nacionalmente.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="1980">Década de 1980</time>
+            <h3>Enfield e o julgamento de Arne Johnson</h3>
+            <p>
+              O nome dos Warren aparece em casos que mais tarde seriam adaptados
+              pela franquia <em>Invocação do Mal</em>.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="2006">2006</time>
+            <h3>Morte de Ed Warren</h3>
+            <p>
+              Ed morre em 23 de agosto, encerrando a atuação conjunta do casal.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="2013">2013</time>
+            <h3>Estreia de Invocação do Mal</h3>
+            <p>
+              O filme dirigido por James Wan transforma versões ficcionais de Ed
+              e Lorraine em personagens mundialmente conhecidos.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <time datetime="2019">2019</time>
+            <h3>Morte de Lorraine Warren</h3>
+            <p>
+              Lorraine morre em abril, aos 92 anos, deixando uma ampla influência
+              na cultura do terror.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="nespr">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Organização</span>
+          <h2>A New England Society for Psychic Research</h2>
+          <p>
+            A NESPR foi apresentada pelos Warren como uma organização dedicada ao
+            estudo de assombrações e outros fenômenos considerados psíquicos.
+          </p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Objetivos declarados</h3>
+
+            <p>
+              Segundo a narrativa do grupo, a organização reunia investigadores,
+              religiosos, médicos, policiais, estudantes e outros colaboradores.
+              A intenção seria avaliar relatos, documentar ocorrências e ajudar
+              famílias que acreditavam estar sofrendo influência sobrenatural.
+            </p>
+
+            <p>
+              Os Warren alegavam ter participado de milhares de investigações.
+              Números como "mais de 10 mil casos" aparecem com frequência em
+              materiais promocionais, embora seja difícil confirmar de forma
+              independente o alcance e a natureza de cada atendimento.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Uma abordagem religiosa</h3>
+
+            <p>
+              Apesar do uso de termos como "pesquisa", a metodologia dos Warren
+              não correspondia aos padrões de experimentação científica
+              controlada. Suas conclusões frequentemente partiam de crenças
+              católicas sobre espíritos, infestação demoníaca, possessão e
+              libertação espiritual.
+            </p>
+
+            <p>
+              O casal também defendia que fenômenos psicológicos, fraudes e causas
+              físicas deveriam ser considerados. Entretanto, críticos apontavam
+              que as interpretações sobrenaturais muitas vezes recebiam destaque
+              sem documentação suficiente para sustentá-las.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Arquivos famosos</span>
+          <h2>Os principais casos associados aos Warren</h2>
+          <p>
+            Algumas ocorrências receberam adaptações cinematográficas muito
+            diferentes dos acontecimentos relatados pelas pessoas envolvidas.
+          </p>
+        </div>
+
+        <div class="grid-three">
+          <article class="card case" data-number="01">
+            <span class="case-tag">Década de 1970</span>
+            <h3>Annabelle</h3>
+
+            <p>
+              A verdadeira Annabelle não é uma boneca de porcelana, como nos
+              filmes, mas uma boneca de pano do tipo Raggedy Ann. Segundo o relato
+              divulgado pelos Warren, ela pertencia a uma jovem e teria começado a
+              mudar de posição, aparecer em locais diferentes e produzir
+              mensagens.
+            </p>
+
+            <p>
+              Ed e Lorraine afirmaram que não se tratava do espírito de uma
+              criança, mas de uma entidade manipuladora. A boneca foi colocada em
+              uma caixa protetora e tornou-se o item mais famoso da coleção do
+              casal. Não existe comprovação científica de que ela tenha
+              propriedades sobrenaturais.
+            </p>
+          </article>
+
+          <article class="card case" data-number="02">
+            <span class="case-tag">1971</span>
+            <h3>A família Perron</h3>
+
+            <p>
+              Roger e Carolyn Perron mudaram-se com as cinco filhas para uma antiga
+              casa de fazenda em Harrisville, Rhode Island. A família relatou
+              ruídos, cheiros, objetos deslocados e aparições.
+            </p>
+
+            <p>
+              Os Warren visitaram a propriedade e participaram de uma sessão
+              espiritual. O filme <em>Invocação do Mal</em> dramatizou o caso,
+              acrescentando possessão, exorcismo e confrontos que não ocorreram da
+              mesma forma nos relatos históricos.
+            </p>
+          </article>
+
+          <article class="card case" data-number="03">
+            <span class="case-tag">1975-1976</span>
+            <h3>Amityville</h3>
+
+            <p>
+              George e Kathy Lutz afirmaram ter abandonado uma casa em Amityville,
+              Nova York, após 28 dias de experiências perturbadoras. Antes da
+              mudança da família, Ronald DeFeo Jr. havia assassinado seis parentes
+              no imóvel.
+            </p>
+
+            <p>
+              Os Warren participaram de uma investigação e defenderam que havia
+              uma presença maligna no local. O caso tornou-se um fenômeno
+              editorial e cinematográfico, mas foi amplamente contestado. Críticos
+              apontaram inconsistências, exageros e possíveis interesses
+              comerciais.
+            </p>
+          </article>
+
+          <article class="card case" data-number="04">
+            <span class="case-tag">1977-1979</span>
+            <h3>Poltergeist de Enfield</h3>
+
+            <p>
+              Em Enfield, no norte de Londres, a família Hodgson relatou móveis em
+              movimento, batidas, levitações e uma voz grave que parecia vir de
+              Janet, uma das filhas.
+            </p>
+
+            <p>
+              Investigadores britânicos acompanharam o caso por um período muito
+              maior. A participação dos Warren foi breve e sua importância foi
+              ampliada no filme <em>Invocação do Mal 2</em>. Partes dos fenômenos
+              foram admitidas ou observadas como encenação, enquanto outros
+              episódios continuam debatidos.
+            </p>
+          </article>
+
+          <article class="card case" data-number="05">
+            <span class="case-tag">1981</span>
+            <h3>Arne Cheyenne Johnson</h3>
+
+            <p>
+              Arne Johnson matou Alan Bono em Connecticut. A defesa tentou
+              relacionar o crime a uma suposta possessão demoníaca associada ao
+              caso de David Glatzel, irmão da namorada de Johnson.
+            </p>
+
+            <p>
+              O tribunal não aceitou possessão como defesa jurídica. Johnson foi
+              condenado por homicídio culposo. Os Warren divulgaram a história,
+              que inspirou <em>Invocação do Mal 3: A Ordem do Demônio</em>.
+              Familiares posteriormente apresentaram versões conflitantes sobre os
+              acontecimentos.
+            </p>
+          </article>
+
+          <article class="card case" data-number="06">
+            <span class="case-tag">1986</span>
+            <h3>A família Snedeker</h3>
+
+            <p>
+              A família Snedeker morou em uma casa de Connecticut que havia
+              funcionado como funerária. Segundo seus relatos, ocorreram aparições,
+              ataques e experiências perturbadoras.
+            </p>
+
+            <p>
+              O caso inspirou o livro <em>In a Dark Place</em> e o filme
+              <em>Evocando Espíritos</em>. O autor Ray Garton, contratado para
+              escrever a história, mais tarde questionou a consistência dos
+              depoimentos e afirmou ter recebido orientações para organizar os
+              relatos em uma narrativa.
+            </p>
+          </article>
+
+          <article class="card case" data-number="07">
+            <span class="case-tag">Década de 1980</span>
+            <h3>A família Smurl</h3>
+
+            <p>
+              Jack e Janet Smurl alegaram que sua casa na Pensilvânia era
+              atormentada por odores, ruídos, aparições e agressões atribuídas a
+              entidades.
+            </p>
+
+            <p>
+              Os Warren classificaram o caso como demoníaco. A história virou
+              livro e filme para televisão, mas também recebeu críticas de
+              investigadores céticos e de pessoas que apontaram a ausência de
+              evidências verificáveis.
+            </p>
+          </article>
+
+          <article class="card case" data-number="08">
+            <span class="case-tag">1974</span>
+            <h3>O lobisomem de Londres</h3>
+
+            <p>
+              Bill Ramsey afirmava sofrer episódios de comportamento violento e
+              acreditava estar possuído por um espírito semelhante a um
+              lobisomem. Os Warren interpretaram o caso por uma perspectiva
+              demonológica.
+            </p>
+
+            <p>
+              A história foi publicada em <em>Werewolf: A True Story of Demonic
+              Possession</em>. Não há evidência científica de transformação física
+              ou licantropia sobrenatural.
+            </p>
+          </article>
+
+          <article class="card case" data-number="09">
+            <span class="case-tag">Coleção</span>
+            <h3>Outros objetos e relatos</h3>
+
+            <p>
+              A coleção atribuída aos Warren incluía máscaras, imagens religiosas,
+              brinquedos, lembranças e objetos que teriam sido removidos de locais
+              investigados.
+            </p>
+
+            <p>
+              As histórias sobre esses itens variam amplamente e dependem, em
+              geral, de testemunhos. A notoriedade da coleção ajudou a formar a
+              imagem dos Warren como guardiões de artefatos perigosos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="museu">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Objetos</span>
+          <h2>O museu ocultista</h2>
+          <p>
+            A coleção particular do casal tornou-se uma das partes mais conhecidas
+            de sua história.
+          </p>
+        </div>
+
+        <p>
+          O chamado <strong>Warrens' Occult Museum</strong> funcionava junto à
+          propriedade da família em Monroe. O espaço reunia objetos que, segundo
+          os Warren, estavam ligados a rituais, tragédias, assombrações ou
+          influências malignas.
+        </p>
+
+        <p>
+          A peça mais famosa era Annabelle, mantida em uma caixa com advertências
+          para que não fosse tocada. Relatos promocionais dizem que um sacerdote
+          realizava bênçãos periódicas no local. Essas práticas fazem parte do
+          sistema de crenças do casal e não demonstram que os objetos possuam
+          qualquer poder paranormal.
+        </p>
+
+        <div class="notice">
+          <strong>Importante:</strong> o museu não deve ser confundido com a sala
+          de artefatos mostrada nos filmes. A produção cinematográfica reconstruiu
+          e expandiu visualmente o espaço para criar suspense.
+        </div>
+      </div>
+    </section>
+
+    <section id="metodos">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Investigação</span>
+          <h2>Como os Warren diziam trabalhar</h2>
+          <p>
+            A abordagem combinava entrevistas, registros audiovisuais,
+            interpretações mediúnicas e crenças religiosas.
+          </p>
+        </div>
+
+        <div class="grid-three">
+          <article class="card">
+            <h3>Entrevistas</h3>
+            <p>
+              Famílias, vizinhos e testemunhas eram questionados sobre horários,
+              padrões e tipos de ocorrências. O valor desses relatos dependia da
+              memória, da interpretação e da confiabilidade dos participantes.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Registros</h3>
+            <p>
+              Fotografias, gravações de áudio e vídeos eram usados para documentar
+              ambientes. Imagens ambíguas e ruídos, entretanto, podem admitir
+              explicações técnicas ou naturais.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Clarividência</h3>
+            <p>
+              Lorraine afirmava sentir presenças e perceber informações
+              espirituais. Essas percepções eram subjetivas e não podiam ser
+              verificadas de maneira independente.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Demonologia</h3>
+            <p>
+              Ed classificava fenômenos conforme conceitos religiosos sobre
+              opressão, infestação e possessão. Demonologia é uma tradição
+              teológica e cultural, não uma disciplina científica reconhecida.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Participação religiosa</h3>
+            <p>
+              Quando julgavam necessário, os Warren procuravam sacerdotes para
+              bênçãos ou rituais. Exorcismos católicos formais dependem de
+              autorização e protocolos da Igreja.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Hipóteses naturais</h3>
+            <p>
+              Problemas estruturais, intoxicação, distúrbios do sono, sugestão,
+              fraude e sofrimento psicológico podem produzir experiências
+              interpretadas como sobrenaturais e devem ser investigados primeiro.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="controversias">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Debate</span>
+          <h2>Críticas, dúvidas e controvérsias</h2>
+          <p>
+            A fama dos Warren sempre esteve acompanhada de questionamentos sobre
+            evidência, metodologia, dramatização e exploração comercial.
+          </p>
+        </div>
 
-
-<header>
-
-<h1>
-Ed e Lorraine Warren
-</h1>
-
-
-<p>
-A história dos investigadores paranormais mais famosos do mundo
-</p>
-
-
-</header>
-
-
-
-<nav>
-
-<a href="#historia">História</a>
-
-<a href="#casos">Casos</a>
-
-<a href="#legado">Legado</a>
-
-<a href="#curiosidades">Curiosidades</a>
-
-
-</nav>
-
-
-
-<div class="container">
-
-
-
-<section id="historia">
-
-
-<h2>
-Quem foram Ed e Lorraine Warren?
-</h2>
-
-
-<p>
-
-Ed Warren e Lorraine Warren ficaram conhecidos mundialmente por suas
-investigações relacionadas a fenômenos paranormais. O casal americano
-dedicou grande parte da vida ao estudo de relatos envolvendo casas
-assombradas, supostas possessões demoníacas e acontecimentos
-considerados sobrenaturais.
-
-</p>
-
-
-<p>
-
-Edward Warren Miney nasceu em 1926 e ficou conhecido como investigador
-paranormal e demonologista. Lorraine Rita Warren nasceu em 1927 e
-afirmava possuir habilidades mediúnicas, dizendo conseguir perceber
-energias e acontecimentos espirituais.
-
-</p>
-
-
-<p>
-
-Juntos, eles fundaram a
-<strong style="color:#8df8e6">
-New England Society for Psychic Research
-</strong>,
-uma organização voltada para investigar relatos paranormais.
-
-</p>
-
-
-<p>
-
-Durante décadas, o casal participou de diversas investigações que
-posteriormente inspiraram livros, documentários e filmes de terror,
-principalmente a franquia cinematográfica "Invocação do Mal".
-
-</p>
-
-
-</section>
-
-
-
-<section>
-
-
-<h2>
-O casal e suas investigações
-</h2>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-Ed Warren
-</h3>
-
-<p>
-
-Ed estudava casos relacionados ao sobrenatural e afirmava atuar como
-demonologista. Ele participou de investigações envolvendo relatos de
-possessões e atividades inexplicáveis.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Lorraine Warren
-</h3>
-
-<p>
-
-Lorraine dizia possuir percepção extrassensorial e auxiliava nas
-investigações interpretando possíveis manifestações espirituais.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-O Museu dos Warren
-</h3>
-
-<p>
-
-O casal manteve uma coleção de objetos ligados aos casos investigados,
-incluindo a famosa boneca Annabelle.
-
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
