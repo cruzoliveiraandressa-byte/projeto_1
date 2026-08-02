@@ -1,1255 +1,1079 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-Men - O Universo dos Mutantes</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#101820;
+    color:white;
+    line-height:1.8;
+}
+
+header{
+    background:linear-gradient(90deg,#001F54,#0047AB,#0066CC);
+    padding:40px;
+    text-align:center;
+}
+
+header h1{
+    font-size:50px;
+}
+
+header p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+nav{
+    background:#111;
+    padding:15px;
+    position:sticky;
+    top:0;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav li{
+    margin:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:gold;
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 30px;
+}
+
+h2{
+    color:#3da9fc;
+    margin-bottom:20px;
+}
+
+.card{
+    background:#1b263b;
+    padding:20px;
+    border-radius:15px;
+    margin:25px 0;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table td,table th{
+    border:1px solid #555;
+    padding:10px;
+}
+
+table th{
+    background:#003566;
+}
 
-  <title>Ed e Lorraine Warren - História, Casos, Controvérsias e Legado</title>
+</style>
 
-  <meta
-    name="description"
-    content="Conheça a trajetória de Ed e Lorraine Warren, seus casos paranormais mais famosos, as controvérsias, o museu ocultista e a influência do casal no cinema."
-  >
-
-  <style>
-    :root {
-      --preto: #090a0c;
-      --preto-claro: #101217;
-      --cinza-escuro: #171a20;
-      --cinza: #a9adb7;
-      --branco: #f4f1e8;
-      --vermelho: #8f1d1d;
-      --vermelho-claro: #c83b3b;
-      --dourado: #c8a867;
-      --borda: rgba(200, 168, 103, 0.22);
-      --sombra: 0 20px 60px rgba(0, 0, 0, 0.45);
-      --largura: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    html {
-      scroll-padding-top: 88px;
-    }
-
-    body {
-      margin: 0;
-      color: var(--branco);
-      background:
-        radial-gradient(circle at 15% 10%, rgba(143, 29, 29, 0.15), transparent 30%),
-        radial-gradient(circle at 85% 35%, rgba(200, 168, 103, 0.08), transparent 28%),
-        linear-gradient(180deg, #08090b 0%, #0e1014 55%, #08090b 100%);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.75;
-    }
-
-    body::before {
-      position: fixed;
-      z-index: -1;
-      inset: 0;
-      content: "";
-      pointer-events: none;
-      opacity: 0.16;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-      background-size: 34px 34px;
-    }
-
-    a {
-      color: var(--dourado);
-    }
-
-    a:hover {
-      color: #ead199;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    .container {
-      width: min(calc(100% - 40px), var(--largura));
-      margin-inline: auto;
-    }
-
-    .skip-link {
-      position: fixed;
-      z-index: 1000;
-      top: 10px;
-      left: 10px;
-      padding: 10px 16px;
-      color: #111;
-      background: var(--dourado);
-      transform: translateY(-150%);
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    header {
-      position: sticky;
-      z-index: 100;
-      top: 0;
-      border-bottom: 1px solid var(--borda);
-      background: rgba(8, 9, 11, 0.9);
-      backdrop-filter: blur(15px);
-    }
-
-    .nav {
-      display: flex;
-      min-height: 72px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      color: var(--branco);
-      font-size: 1.1rem;
-      font-weight: bold;
-      letter-spacing: 0.15em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: var(--vermelho-claro);
-    }
-
-    .menu-button {
-      display: none;
-      padding: 8px 12px;
-      color: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 5px;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    nav ul {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      gap: 18px;
-      list-style: none;
-    }
-
-    nav a {
-      color: #d6d2c9;
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    nav a:hover {
-      color: var(--dourado);
-    }
-
-    .hero {
-      position: relative;
-      display: grid;
-      min-height: 88vh;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid var(--borda);
-    }
-
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      content: "";
-      background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.56)),
-        radial-gradient(circle at 75% 30%, rgba(143, 29, 29, 0.26), transparent 30%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 880px;
-      padding-block: 100px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--dourado);
-      font-family: Arial, sans-serif;
-      font-size: 0.77rem;
-      font-weight: bold;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.15;
-    }
-
-    h1 {
-      max-width: 900px;
-      margin: 0 0 22px;
-      font-size: clamp(3rem, 8vw, 7rem);
-      letter-spacing: -0.045em;
-    }
-
-    h1 span {
-      color: var(--vermelho-claro);
-    }
-
-    .hero p {
-      max-width: 740px;
-      margin: 0;
-      color: #cfcbc2;
-      font-size: clamp(1.05rem, 2vw, 1.28rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      margin-top: 36px;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 20px;
-      color: var(--branco);
-      border: 1px solid var(--dourado);
-      border-radius: 4px;
-      font-family: Arial, sans-serif;
-      font-size: 0.84rem;
-      font-weight: bold;
-      letter-spacing: 0.07em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .button.primary {
-      color: #16120a;
-      background: var(--dourado);
-    }
-
-    .button:hover {
-      color: #fff;
-      border-color: var(--vermelho-claro);
-      background: var(--vermelho);
-    }
-
-    main section {
-      padding-block: 90px;
-    }
-
-    .section-dark {
-      border-block: 1px solid rgba(255, 255, 255, 0.04);
-      background: rgba(0, 0, 0, 0.17);
-    }
-
-    .section-title {
-      max-width: 850px;
-      margin-bottom: 48px;
-    }
-
-    .section-title h2 {
-      margin: 0 0 16px;
-      font-size: clamp(2.1rem, 5vw, 4.3rem);
-      letter-spacing: -0.035em;
-    }
-
-    .section-title p {
-      margin: 0;
-      color: var(--cinza);
-      font-size: 1.08rem;
-    }
-
-    .notice {
-      margin: 30px 0;
-      padding: 22px;
-      color: #d4d0c8;
-      border: 1px solid rgba(200, 168, 103, 0.25);
-      border-left: 4px solid var(--dourado);
-      border-radius: 6px;
-      background: rgba(200, 168, 103, 0.06);
-    }
-
-    .notice strong {
-      color: var(--dourado);
-    }
-
-    .grid-two {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .grid-three {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      padding: 30px;
-      border: 1px solid var(--borda);
-      border-radius: 10px;
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
-      box-shadow: var(--sombra);
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      color: var(--dourado);
-      font-size: 1.5rem;
-    }
-
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .facts {
-      display: grid;
-      margin-top: 28px;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .fact {
-      padding: 22px 16px;
-      text-align: center;
-      border: 1px solid var(--borda);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.025);
-    }
-
-    .fact strong {
-      display: block;
-      color: var(--vermelho-claro);
-      font-size: 1.9rem;
-    }
-
-    .fact span {
-      color: var(--cinza);
-      font-family: Arial, sans-serif;
-      font-size: 0.79rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .timeline {
-      position: relative;
-      margin-top: 40px;
-      padding-left: 34px;
-    }
-
-    .timeline::before {
-      position: absolute;
-      top: 8px;
-      bottom: 8px;
-      left: 8px;
-      width: 2px;
-      content: "";
-      background: linear-gradient(var(--vermelho-claro), var(--dourado));
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 34px;
-      padding: 0 0 4px 28px;
-    }
-
-    .timeline-item::before {
-      position: absolute;
-      top: 8px;
-      left: -32px;
-      width: 13px;
-      height: 13px;
-      content: "";
-      border: 3px solid #0d0f13;
-      border-radius: 50%;
-      background: var(--dourado);
-      box-shadow: 0 0 0 1px var(--dourado);
-    }
-
-    .timeline-item time {
-      color: var(--vermelho-claro);
-      font-family: Arial, sans-serif;
-      font-size: 0.82rem;
-      font-weight: bold;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .timeline-item h3 {
-      margin: 6px 0 8px;
-      font-size: 1.4rem;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: #c8c5be;
-    }
-
-    .case {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .case::after {
-      position: absolute;
-      top: -30px;
-      right: -20px;
-      color: rgba(200, 168, 103, 0.08);
-      content: attr(data-number);
-      font-size: 7rem;
-      font-weight: bold;
-      line-height: 1;
-    }
-
-    .case-tag {
-      display: inline-block;
-      margin-bottom: 13px;
-      padding: 5px 9px;
-      color: #e7c986;
-      border: 1px solid rgba(200, 168, 103, 0.3);
-      border-radius: 100px;
-      font-family: Arial, sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    blockquote {
-      margin: 38px 0;
-      padding: 28px 32px;
-      color: #ece7dc;
-      border-left: 4px solid var(--vermelho-claro);
-      background: rgba(143, 29, 29, 0.08);
-      font-size: 1.22rem;
-      font-style: italic;
-    }
-
-    .comparison {
-      width: 100%;
-      margin-top: 28px;
-      border-collapse: collapse;
-      overflow: hidden;
-      border: 1px solid var(--borda);
-      border-radius: 8px;
-    }
-
-    .comparison th,
-    .comparison td {
-      padding: 16px;
-      vertical-align: top;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .comparison th {
-      color: var(--dourado);
-      background: rgba(200, 168, 103, 0.08);
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .comparison td {
-      color: #cecbc3;
-    }
-
-    .accordion {
-      border-top: 1px solid var(--borda);
-    }
-
-    details {
-      border-bottom: 1px solid var(--borda);
-    }
-
-    summary {
-      position: relative;
-      padding: 22px 44px 22px 0;
-      cursor: pointer;
-      list-style: none;
-      font-size: 1.14rem;
-      font-weight: bold;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      position: absolute;
-      top: 20px;
-      right: 6px;
-      color: var(--dourado);
-      content: "+";
-      font-size: 1.6rem;
-    }
-
-    details[open] summary::after {
-      content: "-";
-    }
-
-    details p {
-      max-width: 920px;
-      margin-top: 0;
-      padding-bottom: 22px;
-      color: var(--cinza);
-    }
-
-    .sources-list {
-      padding-left: 22px;
-    }
-
-    .sources-list li {
-      margin-bottom: 13px;
-      color: #cbc8c0;
-    }
-
-    .source-note {
-      color: var(--cinza);
-      font-size: 0.92rem;
-    }
-
-    footer {
-      padding: 44px 0;
-      color: var(--cinza);
-      border-top: 1px solid var(--borda);
-      text-align: center;
-    }
-
-    .back-top {
-      display: inline-block;
-      margin-top: 12px;
-      font-family: Arial, sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 900px) {
-      .menu-button {
-        display: block;
-      }
-
-      nav ul {
-        position: absolute;
-        top: 72px;
-        right: 20px;
-        left: 20px;
-        display: none;
-        padding: 20px;
-        align-items: stretch;
-        flex-direction: column;
-        border: 1px solid var(--borda);
-        border-radius: 8px;
-        background: #0d0f13;
-      }
-
-      nav ul.open {
-        display: flex;
-      }
-
-      .grid-three,
-      .facts {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 680px) {
-      .container {
-        width: min(calc(100% - 26px), var(--largura));
-      }
-
-      .hero {
-        min-height: 82vh;
-      }
-
-      .hero-content {
-        padding-block: 72px;
-      }
-
-      main section {
-        padding-block: 68px;
-      }
-
-      .grid-two,
-      .grid-three,
-      .facts {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 23px;
-      }
-
-      .comparison {
-        display: block;
-        overflow-x: auto;
-        white-space: normal;
-      }
-
-      h1 {
-        font-size: clamp(2.7rem, 16vw, 5rem);
-      }
-    }
-  </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <header id="topo">
-    <div class="container nav">
-      <a class="brand" href="#topo">Arquivo <span>Warren</span></a>
+<header>
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-expanded="false"
-        aria-controls="menu"
-      >
-        Menu
-      </button>
+<h1>X-MEN</h1>
 
-      <nav aria-label="Navegação principal">
-        <ul id="menu">
-          <li><a href="#biografia">Biografia</a></li>
-          <li><a href="#cronologia">Cronologia</a></li>
-          <li><a href="#casos">Casos</a></li>
-          <li><a href="#metodos">Métodos</a></li>
-          <li><a href="#controversias">Controvérsias</a></li>
-          <li><a href="#cinema">Cinema</a></li>
-          <li><a href="#fontes">Fontes</a></li>
-        </ul>
-      </nav>
+<p>O universo dos mutantes da Marvel Comics</p>
+
+</header>
+
+<nav>
+
+<ul>
+<li><a href="#historia">História</a></li>
+<li><a href="#gene">Gene X</a></li>
+<li><a href="#professorx">Professor X</a></li>
+<li><a href="#magneto">Magneto</a></li>
+<li><a href="#personagens">Personagens</a></li>
+<li><a href="#equipes">Equipes</a></li>
+<li><a href="#curiosidades">Curiosidades</a></li>
+</ul>
+
+</nav>
+
+<section id="historia">
+
+<h2>História dos X-Men</h2>
+
+<div class="card">
+
+<p>
+
+Os X-Men são uma equipe fictícia de super-heróis criada por Stan Lee e Jack Kirby em 1963 para a Marvel Comics.
+
+A equipe foi criada para representar pessoas diferentes da sociedade, utilizando os mutantes como metáfora para preconceito, discriminação, racismo e intolerância.
+
+Os mutantes nascem naturalmente com habilidades extraordinárias devido à presença de uma mutação genética conhecida como Gene X.
+
+Ao longo das décadas os X-Men se tornaram um dos grupos mais populares dos quadrinhos, desenhos, jogos e filmes.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="gene">
+
+<h2>O Gene X</h2>
+
+<div class="card">
+
+<p>
+
+Dentro do universo Marvel, o Gene X é uma mutação genética fictícia que permite que alguns humanos desenvolvam habilidades especiais.
+
+Esses poderes normalmente aparecem durante a adolescência ou após eventos de grande estresse emocional.
+
+Cada mutante possui um conjunto diferente de poderes.
+
+Alguns desenvolvem habilidades mentais.
+
+Outros manipulam elementos.
+
+Alguns possuem força extraordinária.
+
+Outros podem voar, controlar o clima, atravessar paredes, controlar metal ou modificar o próprio corpo.
+
+O Gene X não existe na biologia real. Ele é um elemento fictício criado para explicar os poderes dos mutantes nas histórias da Marvel.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="professorx">
+
+<h2>Professor Charles Xavier</h2>
+
+<div class="card">
+
+<p>
+
+Charles Xavier é considerado um dos telepatas mais poderosos da Terra.
+
+Seu sonho é que humanos e mutantes convivam em paz.
+
+Para isso criou a Escola para Jovens Superdotados, onde jovens mutantes aprendem a controlar seus poderes.
+
+Também fundou os X-Men.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="magneto">
+
+<h2>Magneto</h2>
+
+<div class="card">
+
+<p>
+
+Magneto acredita que humanos jamais aceitarão os mutantes.
+
+Por isso defende que os mutantes dominem o planeta antes que sejam exterminados.
+
+Ele controla completamente campos magnéticos e praticamente todo tipo de metal.
+
+Apesar de muitas vezes ser considerado um vilão, diversas histórias mostram Magneto como um personagem complexo.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="personagens">
+
+<h2>Principais Personagens</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Personagem</th>
+<th>Poder</th>
+</tr>
+
+<tr>
+<td>Wolverine</td>
+<td>Regeneração, garras de adamantium e sentidos aguçados.</td>
+</tr>
+
+<tr>
+<td>Ciclope</td>
+<td>Rajadas ópticas de energia.</td>
+</tr>
+
+<tr>
+<td>Jean Grey</td>
+<td>Telepatia e telecinese.</td>
+</tr>
+
+<tr>
+<td>Tempestade</td>
+<td>Controle completo do clima.</td>
+</tr>
+
+<tr>
+<td>Noturno</td>
+<td>Teletransporte.</td>
+</tr>
+
+<tr>
+<td>Fera</td>
+<td>Força, inteligência e agilidade.</td>
+</tr>
+
+<tr>
+<td>Vampira</td>
+<td>Absorção de poderes e memórias.</td>
+</tr>
+
+<tr>
+<td>Gambit</td>
+<td>Carrega objetos com energia cinética.</td>
+</tr>
+
+<tr>
+<td>Colossus</td>
+<td>Transforma o corpo em aço orgânico.</td>
+</tr>
+
+<tr>
+<td>Kitty Pryde</td>
+<td>Atravessa objetos sólidos.</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="equipes">
+
+<h2>Principais Equipes</h2>
+
+<div class="card">
+
+<ul>
+
+<li>X-Men Originais</li>
+
+<li>Novos X-Men</li>
+
+<li>X-Force</li>
+
+<li>Excalibur</li>
+
+<li>X-Factor</li>
+
+<li>Generation X</li>
+
+<li>Novos Mutantes</li>
+
+<li>Marauders</li>
+
+<li>Hellions</li>
+
+<li>X-Corp</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="curiosidades">
+
+<h2>Curiosidades</h2>
+
+<div class="card">
+
+<h3>1. Wolverine não era o personagem principal.</h3>
+
+<p>
+Inicialmente Ciclope era o líder absoluto da equipe.
+</p>
+
+<h3>2. Tempestade já derrotou o Ciclope.</h3>
+
+<p>
+Ela venceu um duelo oficial para assumir a liderança dos X-Men.
+</p>
+
+<h3>3. Jean Grey possui a Força Fênix.</h3>
+
+<p>
+Uma das entidades cósmicas mais poderosas do universo Marvel.
+</p>
+
+<h3>4. Magneto e Professor X são amigos.</h3>
+
+<p>
+Mesmo estando em lados opostos durante muitos anos.
+</p>
+
+<h3>5. Existem milhares de mutantes.</h3>
+
+<p>
+Ao longo dos quadrinhos centenas de novos mutantes foram apresentados.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Conclusão</h2>
+
+<div class="card">
+
+<p>
+
+Os X-Men continuam sendo uma das franquias mais importantes da Marvel.
+
+Além das batalhas contra supervilões, suas histórias abordam temas como preconceito, aceitação, diversidade, amizade, família, responsabilidade e esperança.
+
+Embora o Gene X seja fictício, ele serve como ponto de partida para explorar questões humanas e sociais por meio da ficção.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>X-Men</h2>
+
+<p>Projeto HTML demonstrativo sobre os mutantes da Marvel.</p>
+
+<p>© 2026</p>
+
+</footer>
+
+</body>
+</html>
+
+
+                                <section id="filmes">
+
+<h2>Filmes dos X-Men</h2>
+
+<div class="card">
+
+<p>
+Os X-Men tiveram diversas adaptações para o cinema desde o ano 2000. Os filmes ajudaram a popularizar os mutantes para uma nova geração de fãs.
+</p>
+
+<table>
+
+<tr>
+<th>Ano</th>
+<th>Filme</th>
+</tr>
+
+<tr>
+<td>2000</td>
+<td>X-Men</td>
+</tr>
+
+<tr>
+<td>2003</td>
+<td>X2: X-Men United</td>
+</tr>
+
+<tr>
+<td>2006</td>
+<td>X-Men: O Confronto Final</td>
+</tr>
+
+<tr>
+<td>2009</td>
+<td>X-Men Origens: Wolverine</td>
+</tr>
+
+<tr>
+<td>2011</td>
+<td>X-Men: Primeira Classe</td>
+</tr>
+
+<tr>
+<td>2013</td>
+<td>Wolverine: Imortal</td>
+</tr>
+
+<tr>
+<td>2014</td>
+<td>X-Men: Dias de um Futuro Esquecido</td>
+</tr>
+
+<tr>
+<td>2016</td>
+<td>Deadpool</td>
+</tr>
+
+<tr>
+<td>2016</td>
+<td>X-Men: Apocalipse</td>
+</tr>
+
+<tr>
+<td>2017</td>
+<td>Logan</td>
+</tr>
+
+<tr>
+<td>2018</td>
+<td>Deadpool 2</td>
+</tr>
+
+<tr>
+<td>2019</td>
+<td>X-Men: Fênix Negra</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="niveis">
+
+<h2>Níveis de Poder dos Mutantes</h2>
+
+<div class="card">
+
+<p>
+Nos quadrinhos existem diferentes classificações para o potencial dos mutantes. Embora variem entre histórias, algumas categorias são frequentemente mencionadas:
+</p>
+
+<ul>
+
+<li><strong>Classe I</strong> — poderes limitados.</li>
+
+<li><strong>Classe II</strong> — habilidades acima da média.</li>
+
+<li><strong>Classe III</strong> — mutantes altamente treinados.</li>
+
+<li><strong>Classe IV</strong> — poderes extremamente perigosos.</li>
+
+<li><strong>Classe Ômega</strong> — mutantes com potencial praticamente ilimitado.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="omega">
+
+<h2>Mutantes de Nível Ômega</h2>
+
+<div class="card">
+
+<p>
+Os mutantes classificados como Nível Ômega possuem um potencial extraordinário dentro de suas respectivas habilidades.
+</p>
+
+<table>
+
+<tr>
+
+<th>Mutante</th>
+
+<th>Poder</th>
+
+</tr>
+
+<tr>
+
+<td>Jean Grey</td>
+
+<td>Telepatia e Telecinese em escala imensa.</td>
+
+</tr>
+
+<tr>
+
+<td>Tempestade</td>
+
+<td>Controle climático planetário.</td>
+
+</tr>
+
+<tr>
+
+<td>Magneto</td>
+
+<td>Manipulação avançada de campos magnéticos.</td>
+
+</tr>
+
+<tr>
+
+<td>Iceman</td>
+
+<td>Controle total do gelo e da temperatura.</td>
+
+</tr>
+
+<tr>
+
+<td>Legion</td>
+
+<td>Múltiplas personalidades, cada uma com poderes distintos.</td>
+
+</tr>
+
+<tr>
+
+<td>Hope Summers</td>
+
+<td>Amplificação e sincronização de poderes mutantes.</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="escola">
+
+<h2>A Escola Xavier</h2>
+
+<div class="card">
+
+<p>
+
+A Escola Xavier para Jovens Superdotados foi criada para ensinar jovens mutantes a controlar seus poderes e viver em sociedade.
+
+Além das disciplinas tradicionais, os alunos aprendem:
+
+</p>
+
+<ul>
+
+<li>Controle dos poderes.</li>
+
+<li>Treinamento em combate.</li>
+
+<li>Estratégia.</li>
+
+<li>Primeiros socorros.</li>
+
+<li>História dos mutantes.</li>
+
+<li>Ética.</li>
+
+<li>Missões em equipe.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="viloes">
+
+<h2>Grandes Vilões</h2>
+
+<div class="card">
+
+<div class="card">
+
+<h3>Apocalipse</h3>
+
+<p>Um dos primeiros mutantes da Terra, com poderes de manipulação molecular, força sobre-humana e tecnologia avançada.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sentinelas</h3>
+
+<p>Robôs gigantes criados para localizar, capturar ou eliminar mutantes.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sr. Sinistro</h3>
+
+<p>Cientista obcecado por genética que realiza experimentos com mutantes.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Ônix Negro (Rei das Sombras)</h3>
+
+<p>Entidade psíquica extremamente poderosa que enfrenta os X-Men em diversas histórias.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="krakoa">
+
+<h2>Krakoa</h2>
+
+<div class="card">
+
+<p>
+
+Krakoa é uma ilha viva que se tornou a nação dos mutantes em histórias recentes dos quadrinhos.
+
+Ela oferece tecnologia avançada, medicamentos e portais biológicos capazes de transportar mutantes para diversas partes do mundo.
+
+A ilha representa um dos maiores avanços da civilização mutante dentro do universo Marvel.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="fim">
+
+<h2>O Legado dos X-Men</h2>
+
+<div class="card">
+
+<p>
+
+Ao longo de mais de seis décadas, os X-Men permaneceram entre os grupos de super-heróis mais influentes da cultura pop. Suas histórias abordam coragem, amizade, inclusão, preconceito, responsabilidade e esperança. Além da ação e da ficção científica, a série utiliza os mutantes como metáfora para diferentes formas de discriminação e para a busca por convivência entre pessoas com origens e características diversas.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<section id="texto-principal">
+
+    <h2>O Universo dos X-Men e o Significado do Gene X</h2>
+
+    <div class="card">
+
+        <p>
+            Os X-Men representam uma das equipes mais importantes da história dos quadrinhos. Criados pela Marvel Comics em 1963, eles revolucionaram o conceito de super-heróis ao apresentar personagens que não adquiriram seus poderes por acidentes científicos ou tecnologias avançadas, mas sim por nascerem diferentes. Essa diferença é explicada pela existência do <strong>Gene X</strong>, uma mutação genética fictícia responsável pelo surgimento das habilidades extraordinárias dos mutantes.
+        </p>
+
+        <p>
+            No universo Marvel, qualquer ser humano pode carregar o Gene X em seu DNA. Durante a infância ele normalmente permanece inativo, mas costuma despertar na adolescência ou em momentos de intenso estresse físico ou emocional. Quando isso acontece, o indivíduo passa por uma transformação única, desenvolvendo habilidades que podem variar desde capacidades físicas impressionantes até poderes capazes de alterar o clima, controlar matéria, manipular energia, ler pensamentos ou até modificar a realidade.
+        </p>
+
+        <p>
+            Uma das características mais interessantes dos mutantes é que nenhum deles possui exatamente o mesmo conjunto de habilidades. Cada Gene X se manifesta de maneira diferente, tornando cada personagem único. Enquanto alguns desenvolvem poderes considerados simples, outros atingem níveis praticamente ilimitados de poder, tornando-se conhecidos como Mutantes Ômega, capazes de influenciar acontecimentos em escala planetária ou até cósmica.
+        </p>
+
+        <p>
+            Entretanto, possuir poderes nunca significou ter uma vida fácil. Desde o surgimento dos primeiros mutantes, grande parte da humanidade passou a enxergá-los como uma ameaça. O medo do desconhecido gerou preconceito, perseguições e conflitos constantes. Governos criaram programas especiais para monitorar mutantes, empresas desenvolveram robôs gigantes conhecidos como Sentinelas e diversas organizações tentaram controlar ou eliminar qualquer pessoa que carregasse o Gene X.
+        </p>
+
+        <p>
+            Diante dessa realidade nasceu a Escola Xavier para Jovens Superdotados, fundada pelo Professor Charles Xavier. Muito mais do que uma simples escola, ela tornou-se um local de acolhimento para jovens mutantes aprenderem a controlar seus poderes, desenvolver disciplina, estudar e entender que suas diferenças não eram uma maldição, mas parte de quem eles realmente eram. Foi nessa instituição que surgiu oficialmente a equipe dos X-Men.
+        </p>
+
+        <p>
+            Charles Xavier acreditava que humanos e mutantes poderiam viver em paz, cooperando para construir uma sociedade baseada na igualdade. Seu maior sonho era provar que possuir poderes extraordinários não tornava ninguém superior nem inferior aos demais. Em oposição a essa filosofia estava Magneto, um dos mutantes mais poderosos já existentes. Após sofrer perseguições durante sua juventude, Magneto concluiu que os humanos jamais aceitariam os mutantes, defendendo que eles deveriam proteger sua própria espécie por qualquer meio necessário.
+        </p>
+
+        <p>
+            Esse conflito ideológico entre Xavier e Magneto tornou-se um dos elementos centrais das histórias dos X-Men. Ambos desejam proteger os mutantes, porém acreditam em caminhos completamente diferentes para alcançar esse objetivo. Enquanto Xavier luta pelo diálogo e pela convivência pacífica, Magneto acredita que apenas o poder pode garantir a sobrevivência de sua espécie.
+        </p>
+
+        <p>
+            Ao longo das décadas, centenas de mutantes passaram pela equipe dos X-Men. Personagens como Wolverine, Tempestade, Jean Grey, Ciclope, Fera, Vampira, Gambit, Colossus, Noturno, Kitty Pryde e muitos outros participaram de missões para proteger tanto humanos quanto mutantes das mais diversas ameaças. Muitos desses heróis enfrentaram desafios pessoais relacionados ao controle de seus poderes, ao preconceito e à responsabilidade de utilizá-los corretamente.
+        </p>
+
+        <p>
+            Os inimigos dos X-Men também estão entre os mais perigosos da Marvel. Apocalipse, um dos primeiros mutantes da história, acredita na sobrevivência apenas dos mais fortes. O Senhor Sinistro dedica sua vida a experimentos genéticos envolvendo o Gene X. As Sentinelas representam a intolerância humana transformada em máquinas de guerra. Já a Força Fênix, uma entidade cósmica, mostra como um poder praticamente infinito pode colocar todo o universo em risco quando não é controlado.
+        </p>
+
+        <p>
+            Apesar das inúmeras batalhas, o verdadeiro tema dos X-Men nunca foi apenas combater vilões. Suas histórias abordam assuntos extremamente humanos, como preconceito, inclusão, identidade, diversidade, medo, aceitação, amizade, responsabilidade e esperança. Os mutantes servem como uma metáfora para qualquer grupo que enfrente discriminação por ser diferente, tornando suas histórias relevantes para leitores de todas as idades.
+        </p>
+
+        <p>
+            O Gene X, embora seja completamente fictício, tornou-se um dos conceitos mais famosos da cultura pop. Ele simboliza o potencial escondido dentro de cada indivíduo e reforça a ideia de que diferenças não precisam ser motivo de medo ou exclusão. Em vez disso, elas podem representar novas possibilidades, talentos e formas de enxergar o mundo.
+        </p>
+
+        <p>
+            Mais de sessenta anos após sua criação, os X-Men continuam entre os maiores sucessos da Marvel Comics. Suas histórias influenciaram filmes, séries, animações, videogames e milhões de fãs ao redor do planeta. Muito além de uma equipe de super-heróis, eles representam a luta pela convivência, pelo respeito às diferenças e pela esperança de que pessoas distintas possam construir um futuro melhor juntas.
+        </p>
+
     </div>
-  </header>
 
-  <main id="conteudo">
-    <section class="hero" aria-labelledby="titulo-principal">
-      <div class="container hero-content">
-        <span class="eyebrow">História, investigação e cultura popular</span>
+</section>
 
-        <h1 id="titulo-principal">
-          Ed e Lorraine <span>Warren</span>
-        </h1>
 
-        <p>
-          A trajetória do casal de investigadores paranormais que transformou
-          relatos de assombrações, objetos supostamente amaldiçoados e alegações
-          de possessão em um dos legados mais conhecidos e controversos do
-          sobrenatural moderno.
-        </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#biografia">Conhecer a história</a>
-          <a class="button" href="#casos">Explorar os casos</a>
-        </div>
-      </div>
-    </section>
+   <section id="gene-x-detalhado">
 
-    <section id="introducao">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Introdução</span>
-          <h2>Entre a fé, o medo e a controvérsia</h2>
-          <p>
-            Ed e Lorraine Warren foram autores, palestrantes e investigadores
-            norte-americanos ligados a numerosos relatos de atividade paranormal.
-            Suas histórias inspiraram livros, documentários e diversos filmes de
-            terror, especialmente a franquia <em>Invocação do Mal</em>.
-          </p>
-        </div>
+    <h2>O Funcionamento do Gene X</h2>
 
-        <div class="notice">
-          <strong>Nota de contexto:</strong> as manifestações sobrenaturais
-          descritas nesta página correspondem a alegações do casal, de famílias
-          envolvidas e de outros participantes. A existência de fantasmas,
-          demônios, possessões e poderes psíquicos não foi estabelecida por
-          evidências científicas reproduzíveis. Por isso, relatos históricos e
-          interpretações sobrenaturais são apresentados separadamente.
-        </div>
-
-        <div class="facts">
-          <div class="fact">
-            <strong>1926</strong>
-            <span>Nascimento de Ed</span>
-          </div>
-
-          <div class="fact">
-            <strong>1927</strong>
-            <span>Nascimento de Lorraine</span>
-          </div>
-
-          <div class="fact">
-            <strong>1952</strong>
-            <span>Fundação da NESPR</span>
-          </div>
-
-          <div class="fact">
-            <strong>1</strong>
-            <span>Filha: Judy</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-dark" id="biografia">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Biografia</span>
-          <h2>Quem foram Ed e Lorraine?</h2>
-          <p>
-            O casal construiu uma carreira pública unindo religiosidade,
-            palestras, investigação de casas consideradas assombradas e produção
-            de livros sobre seus casos.
-          </p>
-        </div>
-
-        <div class="grid-two">
-          <article class="card">
-            <h3>Ed Warren</h3>
-
-            <p>
-              <strong>Edward Warren Miney</strong> nasceu em 7 de setembro de
-              1926, em Bridgeport, Connecticut. Serviu na Marinha dos Estados
-              Unidos durante a Segunda Guerra Mundial e, depois do serviço
-              militar, trabalhou como pintor.
-            </p>
-
-            <p>
-              Ed descrevia a si mesmo como um demonologista autodidata. Ele
-              afirmava ter crescido em uma residência onde ocorriam fenômenos
-              inexplicáveis, experiência que teria contribuído para seu interesse
-              pelo sobrenatural.
-            </p>
-
-            <p>
-              Nas investigações, costumava interpretar relatos por uma ótica
-              religiosa, sobretudo católica. Também ministrava palestras e
-              apresentava gravações, fotografias e objetos que considerava
-              relacionados aos fenômenos investigados.
-            </p>
-
-            <p>
-              Ed morreu em 23 de agosto de 2006, aos 79 anos, em Connecticut.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Lorraine Warren</h3>
-
-            <p>
-              <strong>Lorraine Rita Moran Warren</strong> nasceu em 31 de janeiro
-              de 1927, também em Bridgeport. Ela se apresentava como clarividente
-              e médium de transe leve.
-            </p>
-
-            <p>
-              Lorraine dizia perceber auras, presenças e impressões associadas a
-              pessoas, lugares e objetos. Durante as investigações, seu papel era
-              oferecer interpretações mediúnicas enquanto Ed organizava a
-              documentação e analisava os casos por sua perspectiva demonológica.
-            </p>
-
-            <p>
-              Após a morte do marido, Lorraine continuou concedendo entrevistas e
-              participando de produções sobre os casos do casal. Ela também fez
-              aparições relacionadas aos filmes de <em>Invocação do Mal</em>.
-            </p>
-
-            <p>
-              Lorraine morreu em abril de 2019, aos 92 anos.
-            </p>
-          </article>
-        </div>
-
-        <blockquote>
-          O fenômeno cultural criado pelos Warren é indiscutível; a explicação
-          sobrenatural oferecida por eles, porém, permanece uma questão de crença,
-          testemunho e debate.
-        </blockquote>
-
-        <h3>Vida familiar</h3>
+    <div class="card">
 
         <p>
-          Ed e Lorraine se conheceram ainda jovens em Bridgeport. Casaram-se
-          durante a década de 1940 e tiveram uma filha, Judy. A vida doméstica do
-          casal passou a se misturar com sua atuação pública, pois a residência em
-          Monroe, Connecticut, também serviu como base para suas atividades e para
-          a coleção de objetos ligados aos casos.
+            Dentro da continuidade da Marvel Comics, o Gene X é considerado uma mutação genética extremamente rara que diferencia os mutantes dos seres humanos comuns. Ele está presente no DNA desde o nascimento, porém permanece adormecido durante boa parte da infância. Seu despertar normalmente acontece durante a puberdade, quando o organismo passa por mudanças hormonais significativas, embora situações de extremo perigo ou forte impacto emocional também possam ativá-lo.
         </p>
 
         <p>
-          Tony Spera, marido de Judy, tornou-se uma figura importante na
-          preservação e divulgação do legado dos Warren. Com o passar dos anos, a
-          família continuou participando de palestras, entrevistas e eventos
-          relacionados à história do casal.
-        </p>
-      </div>
-    </section>
-
-    <section id="cronologia">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Cronologia</span>
-          <h2>Uma carreira atravessando décadas</h2>
-          <p>
-            Datas centrais da trajetória pessoal e profissional do casal.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item">
-            <time datetime="1926">1926</time>
-            <h3>Nascimento de Ed Warren</h3>
-            <p>
-              Edward Warren Miney nasce em Bridgeport, Connecticut, em 7 de
-              setembro.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="1927">1927</time>
-            <h3>Nascimento de Lorraine Moran</h3>
-            <p>
-              Lorraine Rita Moran nasce em Bridgeport, em 31 de janeiro.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="1940">Década de 1940</time>
-            <h3>Casamento e formação da família</h3>
-            <p>
-              Ed serve na Marinha durante a Segunda Guerra Mundial. O casal se
-              casa e posteriormente tem sua única filha, Judy.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="1952">1952</time>
-            <h3>Fundação da NESPR</h3>
-            <p>
-              Ed e Lorraine fundam a New England Society for Psychic Research,
-              organização dedicada à investigação de alegações paranormais.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="1970">Década de 1970</time>
-            <h3>Casos de grande repercussão</h3>
-            <p>
-              Histórias como Annabelle, a família Perron e Amityville ajudam a
-              tornar o casal conhecido nacionalmente.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="1980">Década de 1980</time>
-            <h3>Enfield e o julgamento de Arne Johnson</h3>
-            <p>
-              O nome dos Warren aparece em casos que mais tarde seriam adaptados
-              pela franquia <em>Invocação do Mal</em>.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="2006">2006</time>
-            <h3>Morte de Ed Warren</h3>
-            <p>
-              Ed morre em 23 de agosto, encerrando a atuação conjunta do casal.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="2013">2013</time>
-            <h3>Estreia de Invocação do Mal</h3>
-            <p>
-              O filme dirigido por James Wan transforma versões ficcionais de Ed
-              e Lorraine em personagens mundialmente conhecidos.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <time datetime="2019">2019</time>
-            <h3>Morte de Lorraine Warren</h3>
-            <p>
-              Lorraine morre em abril, aos 92 anos, deixando uma ampla influência
-              na cultura do terror.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-dark" id="nespr">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Organização</span>
-          <h2>A New England Society for Psychic Research</h2>
-          <p>
-            A NESPR foi apresentada pelos Warren como uma organização dedicada ao
-            estudo de assombrações e outros fenômenos considerados psíquicos.
-          </p>
-        </div>
-
-        <div class="grid-two">
-          <article class="card">
-            <h3>Objetivos declarados</h3>
-
-            <p>
-              Segundo a narrativa do grupo, a organização reunia investigadores,
-              religiosos, médicos, policiais, estudantes e outros colaboradores.
-              A intenção seria avaliar relatos, documentar ocorrências e ajudar
-              famílias que acreditavam estar sofrendo influência sobrenatural.
-            </p>
-
-            <p>
-              Os Warren alegavam ter participado de milhares de investigações.
-              Números como "mais de 10 mil casos" aparecem com frequência em
-              materiais promocionais, embora seja difícil confirmar de forma
-              independente o alcance e a natureza de cada atendimento.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Uma abordagem religiosa</h3>
-
-            <p>
-              Apesar do uso de termos como "pesquisa", a metodologia dos Warren
-              não correspondia aos padrões de experimentação científica
-              controlada. Suas conclusões frequentemente partiam de crenças
-              católicas sobre espíritos, infestação demoníaca, possessão e
-              libertação espiritual.
-            </p>
-
-            <p>
-              O casal também defendia que fenômenos psicológicos, fraudes e causas
-              físicas deveriam ser considerados. Entretanto, críticos apontavam
-              que as interpretações sobrenaturais muitas vezes recebiam destaque
-              sem documentação suficiente para sustentá-las.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="casos">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Arquivos famosos</span>
-          <h2>Os principais casos associados aos Warren</h2>
-          <p>
-            Algumas ocorrências receberam adaptações cinematográficas muito
-            diferentes dos acontecimentos relatados pelas pessoas envolvidas.
-          </p>
-        </div>
-
-        <div class="grid-three">
-          <article class="card case" data-number="01">
-            <span class="case-tag">Década de 1970</span>
-            <h3>Annabelle</h3>
-
-            <p>
-              A verdadeira Annabelle não é uma boneca de porcelana, como nos
-              filmes, mas uma boneca de pano do tipo Raggedy Ann. Segundo o relato
-              divulgado pelos Warren, ela pertencia a uma jovem e teria começado a
-              mudar de posição, aparecer em locais diferentes e produzir
-              mensagens.
-            </p>
-
-            <p>
-              Ed e Lorraine afirmaram que não se tratava do espírito de uma
-              criança, mas de uma entidade manipuladora. A boneca foi colocada em
-              uma caixa protetora e tornou-se o item mais famoso da coleção do
-              casal. Não existe comprovação científica de que ela tenha
-              propriedades sobrenaturais.
-            </p>
-          </article>
-
-          <article class="card case" data-number="02">
-            <span class="case-tag">1971</span>
-            <h3>A família Perron</h3>
-
-            <p>
-              Roger e Carolyn Perron mudaram-se com as cinco filhas para uma antiga
-              casa de fazenda em Harrisville, Rhode Island. A família relatou
-              ruídos, cheiros, objetos deslocados e aparições.
-            </p>
-
-            <p>
-              Os Warren visitaram a propriedade e participaram de uma sessão
-              espiritual. O filme <em>Invocação do Mal</em> dramatizou o caso,
-              acrescentando possessão, exorcismo e confrontos que não ocorreram da
-              mesma forma nos relatos históricos.
-            </p>
-          </article>
-
-          <article class="card case" data-number="03">
-            <span class="case-tag">1975-1976</span>
-            <h3>Amityville</h3>
-
-            <p>
-              George e Kathy Lutz afirmaram ter abandonado uma casa em Amityville,
-              Nova York, após 28 dias de experiências perturbadoras. Antes da
-              mudança da família, Ronald DeFeo Jr. havia assassinado seis parentes
-              no imóvel.
-            </p>
-
-            <p>
-              Os Warren participaram de uma investigação e defenderam que havia
-              uma presença maligna no local. O caso tornou-se um fenômeno
-              editorial e cinematográfico, mas foi amplamente contestado. Críticos
-              apontaram inconsistências, exageros e possíveis interesses
-              comerciais.
-            </p>
-          </article>
-
-          <article class="card case" data-number="04">
-            <span class="case-tag">1977-1979</span>
-            <h3>Poltergeist de Enfield</h3>
-
-            <p>
-              Em Enfield, no norte de Londres, a família Hodgson relatou móveis em
-              movimento, batidas, levitações e uma voz grave que parecia vir de
-              Janet, uma das filhas.
-            </p>
-
-            <p>
-              Investigadores britânicos acompanharam o caso por um período muito
-              maior. A participação dos Warren foi breve e sua importância foi
-              ampliada no filme <em>Invocação do Mal 2</em>. Partes dos fenômenos
-              foram admitidas ou observadas como encenação, enquanto outros
-              episódios continuam debatidos.
-            </p>
-          </article>
-
-          <article class="card case" data-number="05">
-            <span class="case-tag">1981</span>
-            <h3>Arne Cheyenne Johnson</h3>
-
-            <p>
-              Arne Johnson matou Alan Bono em Connecticut. A defesa tentou
-              relacionar o crime a uma suposta possessão demoníaca associada ao
-              caso de David Glatzel, irmão da namorada de Johnson.
-            </p>
-
-            <p>
-              O tribunal não aceitou possessão como defesa jurídica. Johnson foi
-              condenado por homicídio culposo. Os Warren divulgaram a história,
-              que inspirou <em>Invocação do Mal 3: A Ordem do Demônio</em>.
-              Familiares posteriormente apresentaram versões conflitantes sobre os
-              acontecimentos.
-            </p>
-          </article>
-
-          <article class="card case" data-number="06">
-            <span class="case-tag">1986</span>
-            <h3>A família Snedeker</h3>
-
-            <p>
-              A família Snedeker morou em uma casa de Connecticut que havia
-              funcionado como funerária. Segundo seus relatos, ocorreram aparições,
-              ataques e experiências perturbadoras.
-            </p>
-
-            <p>
-              O caso inspirou o livro <em>In a Dark Place</em> e o filme
-              <em>Evocando Espíritos</em>. O autor Ray Garton, contratado para
-              escrever a história, mais tarde questionou a consistência dos
-              depoimentos e afirmou ter recebido orientações para organizar os
-              relatos em uma narrativa.
-            </p>
-          </article>
-
-          <article class="card case" data-number="07">
-            <span class="case-tag">Década de 1980</span>
-            <h3>A família Smurl</h3>
-
-            <p>
-              Jack e Janet Smurl alegaram que sua casa na Pensilvânia era
-              atormentada por odores, ruídos, aparições e agressões atribuídas a
-              entidades.
-            </p>
-
-            <p>
-              Os Warren classificaram o caso como demoníaco. A história virou
-              livro e filme para televisão, mas também recebeu críticas de
-              investigadores céticos e de pessoas que apontaram a ausência de
-              evidências verificáveis.
-            </p>
-          </article>
-
-          <article class="card case" data-number="08">
-            <span class="case-tag">1974</span>
-            <h3>O lobisomem de Londres</h3>
-
-            <p>
-              Bill Ramsey afirmava sofrer episódios de comportamento violento e
-              acreditava estar possuído por um espírito semelhante a um
-              lobisomem. Os Warren interpretaram o caso por uma perspectiva
-              demonológica.
-            </p>
-
-            <p>
-              A história foi publicada em <em>Werewolf: A True Story of Demonic
-              Possession</em>. Não há evidência científica de transformação física
-              ou licantropia sobrenatural.
-            </p>
-          </article>
-
-          <article class="card case" data-number="09">
-            <span class="case-tag">Coleção</span>
-            <h3>Outros objetos e relatos</h3>
-
-            <p>
-              A coleção atribuída aos Warren incluía máscaras, imagens religiosas,
-              brinquedos, lembranças e objetos que teriam sido removidos de locais
-              investigados.
-            </p>
-
-            <p>
-              As histórias sobre esses itens variam amplamente e dependem, em
-              geral, de testemunhos. A notoriedade da coleção ajudou a formar a
-              imagem dos Warren como guardiões de artefatos perigosos.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-dark" id="museu">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Objetos</span>
-          <h2>O museu ocultista</h2>
-          <p>
-            A coleção particular do casal tornou-se uma das partes mais conhecidas
-            de sua história.
-          </p>
-        </div>
-
-        <p>
-          O chamado <strong>Warrens' Occult Museum</strong> funcionava junto à
-          propriedade da família em Monroe. O espaço reunia objetos que, segundo
-          os Warren, estavam ligados a rituais, tragédias, assombrações ou
-          influências malignas.
+            Após sua ativação, o organismo sofre alterações biológicas que podem afetar praticamente qualquer sistema do corpo. Alguns mutantes desenvolvem características físicas visíveis, como asas, pele azul, cauda, olhos diferenciados ou crescimento ósseo incomum. Outros mantêm aparência completamente humana, mas adquirem habilidades extraordinárias como telepatia, telecinese, manipulação de energia, velocidade sobre-humana, controle de elementos naturais ou regeneração acelerada.
         </p>
 
         <p>
-          A peça mais famosa era Annabelle, mantida em uma caixa com advertências
-          para que não fosse tocada. Relatos promocionais dizem que um sacerdote
-          realizava bênçãos periódicas no local. Essas práticas fazem parte do
-          sistema de crenças do casal e não demonstram que os objetos possuam
-          qualquer poder paranormal.
+            Cada manifestação do Gene X é única. Dois mutantes podem possuir poderes semelhantes, porém nunca exatamente iguais. Isso torna a população mutante extremamente diversificada e imprevisível, característica que desperta tanto fascínio quanto medo dentro do universo Marvel.
         </p>
 
-        <div class="notice">
-          <strong>Importante:</strong> o museu não deve ser confundido com a sala
-          de artefatos mostrada nos filmes. A produção cinematográfica reconstruiu
-          e expandiu visualmente o espaço para criar suspense.
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="metodos">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Investigação</span>
-          <h2>Como os Warren diziam trabalhar</h2>
-          <p>
-            A abordagem combinava entrevistas, registros audiovisuais,
-            interpretações mediúnicas e crenças religiosas.
-          </p>
-        </div>
+</section>
 
-        <div class="grid-three">
-          <article class="card">
-            <h3>Entrevistas</h3>
-            <p>
-              Famílias, vizinhos e testemunhas eram questionados sobre horários,
-              padrões e tipos de ocorrências. O valor desses relatos dependia da
-              memória, da interpretação e da confiabilidade dos participantes.
-            </p>
-          </article>
+<section id="evolucao-mutantes">
 
-          <article class="card">
-            <h3>Registros</h3>
-            <p>
-              Fotografias, gravações de áudio e vídeos eram usados para documentar
-              ambientes. Imagens ambíguas e ruídos, entretanto, podem admitir
-              explicações técnicas ou naturais.
-            </p>
-          </article>
+    <h2>A Evolução da Espécie Mutante</h2>
 
-          <article class="card">
-            <h3>Clarividência</h3>
-            <p>
-              Lorraine afirmava sentir presenças e perceber informações
-              espirituais. Essas percepções eram subjetivas e não podiam ser
-              verificadas de maneira independente.
-            </p>
-          </article>
+    <div class="card">
 
-          <article class="card">
-            <h3>Demonologia</h3>
-            <p>
-              Ed classificava fenômenos conforme conceitos religiosos sobre
-              opressão, infestação e possessão. Demonologia é uma tradição
-              teológica e cultural, não uma disciplina científica reconhecida.
-            </p>
-          </article>
+        <p>
+            Diversos cientistas da Marvel acreditam que os mutantes representam o próximo estágio da evolução humana. Essa teoria afirma que o Gene X surgiu naturalmente como parte da evolução da espécie, permitindo que determinadas pessoas desenvolvessem capacidades além dos limites humanos tradicionais.
+        </p>
 
-          <article class="card">
-            <h3>Participação religiosa</h3>
-            <p>
-              Quando julgavam necessário, os Warren procuravam sacerdotes para
-              bênçãos ou rituais. Exorcismos católicos formais dependem de
-              autorização e protocolos da Igreja.
-            </p>
-          </article>
+        <p>
+            Alguns personagens acreditam que, no futuro, os mutantes substituirão gradualmente a humanidade. Essa ideia é uma das principais razões pelas quais muitos governos e organizações demonstram receio em relação aos mutantes, imaginando que eles possam dominar o planeta ou tornar os humanos comuns uma espécie ultrapassada.
+        </p>
 
-          <article class="card">
-            <h3>Hipóteses naturais</h3>
-            <p>
-              Problemas estruturais, intoxicação, distúrbios do sono, sugestão,
-              fraude e sofrimento psicológico podem produzir experiências
-              interpretadas como sobrenaturais e devem ser investigados primeiro.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <p>
+            Outros pesquisadores defendem que humanos e mutantes pertencem à mesma espécie e podem coexistir normalmente. Esse debate aparece diversas vezes nas histórias dos quadrinhos e ajuda a construir um dos maiores conflitos filosóficos do universo dos X-Men.
+        </p>
 
-    <section class="section-dark" id="controversias">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Debate</span>
-          <h2>Críticas, dúvidas e controvérsias</h2>
-          <p>
-            A fama dos Warren sempre esteve acompanhada de questionamentos sobre
-            evidência, metodologia, dramatização e exploração comercial.
-          </p>
-        </div>
+    </div>
 
+</section>
+
+<section id="habilidades">
+
+    <h2>Tipos de Poderes Mutantes</h2>
+
+    <div class="card">
+
+        <p>
+            As habilidades concedidas pelo Gene X podem ser divididas em diferentes categorias. Embora muitos mutantes possuam poderes únicos, diversas capacidades apresentam características semelhantes.
+        </p>
+
+        <h3>Poderes Mentais</h3>
+
+        <p>
+            Incluem telepatia, telecinese, manipulação de memórias, leitura de pensamentos, ilusões mentais e controle psíquico.
+        </p>
+
+        <h3>Poderes Elementais</h3>
+
+        <p>
+            Permitem controlar elementos da natureza como gelo, fogo, vento, eletricidade, água, terra ou tempestades.
+        </p>
+
+        <h3>Poderes Biológicos</h3>
+
+        <p>
+            Alteram diretamente o corpo do mutante, proporcionando regeneração, força sobre-humana, velocidade, sentidos ampliados ou transformação física.
+        </p>
+
+        <h3>Poderes Energéticos</h3>
+
+        <p>
+            Permitem criar, absorver, armazenar ou disparar diferentes formas de energia, como raios ópticos, explosões cinéticas ou descargas elétricas.
+        </p>
+
+        <h3>Poderes Dimensionais</h3>
+
+        <p>
+            Alguns mutantes conseguem abrir portais, atravessar dimensões ou realizar teletransporte instantâneo entre diferentes locais.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="mutantes-famosos">
+
+    <h2>Os Mutantes Mais Conhecidos</h2>
+
+    <div class="card">
+
+        <h3>Wolverine</h3>
+
+        <p>
+            Logan é um dos membros mais populares dos X-Men. Seu fator de cura permite regenerar praticamente qualquer ferimento, enquanto seu esqueleto revestido de adamantium torna suas garras extremamente resistentes.
+        </p>
+
+        <h3>Jean Grey</h3>
+
+        <p>
+            Uma das telepatas mais poderosas da Marvel. Quando unida à Força Fênix, torna-se capaz de manipular energia cósmica em níveis quase ilimitados.
+        </p>
+
+        <h3>Tempestade</h3>
+
+        <p>
+            Ororo Munroe controla completamente os fenômenos climáticos, podendo criar tempestades, furacões, relâmpagos, neve, chuva e alterar a pressão atmosférica.
+        </p>
+
+        <h3>Ciclope</h3>
+
+        <p>
+            Scott Summers libera poderosas rajadas de energia pelos olhos. Seu visor especial permite controlar a intensidade dessas explosões.
+        </p>
+
+        <h3>Noturno</h3>
+
+        <p>
+            Kurt Wagner possui aparência demoníaca, mas personalidade gentil. Seu poder de teletransporte faz dele um dos combatentes mais eficientes dos X-Men.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+    <h2>Um Universo Muito Além dos Superpoderes</h2>
+
+    <div class="card">
+
+        <p>
+            O sucesso dos X-Men não se deve apenas às batalhas espetaculares ou aos incríveis poderes de seus personagens. O verdadeiro diferencial da equipe está na forma como suas histórias exploram questões sociais, emocionais e filosóficas. O medo do diferente, a busca por aceitação, a importância da amizade, o respeito às diferenças e a responsabilidade pelo uso do poder são temas presentes em praticamente todas as fases dos quadrinhos.
+        </p>
+
+        <p>
+            Ao longo de décadas, novas gerações de leitores acompanharam o crescimento dos mutantes, testemunhando suas vitórias, derrotas, perdas e conquistas. O universo dos X-Men continua em constante evolução, apresentando novos personagens, desafios e histórias que mantêm viva uma das franquias mais importantes e influentes da história dos quadrinhos.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="cronologia">
+
+    <h2>Cronologia do Universo dos X-Men</h2>
+
+    <div class="card">
+
+        <p>
+            A história dos X-Men atravessa décadas de publicações e centenas de eventos marcantes. Ao longo desse tempo, a equipe enfrentou inúmeras ameaças que colocaram em risco não apenas os mutantes, mas toda a humanidade. Cada fase trouxe novos personagens, alianças, conflitos e mudanças que transformaram completamente o universo mutante.
+        </p>
+
+        <h3>Década de 1960</h3>
+
+        <p>
+            Surge a primeira formação dos X-Men, composta por Ciclope, Jean Grey, Fera, Homem de Gelo e Anjo. Sob a liderança do Professor Charles Xavier, a equipe inicia sua missão de proteger humanos e mutantes enquanto combate o preconceito.
+        </p>
+
+        <h3>Década de 1970</h3>
+
+        <p>
+            Novos integrantes passam a fazer parte da equipe, incluindo Wolverine, Tempestade, Colossus, Noturno e Banshee. Essa formação se torna uma das mais famosas da história dos quadrinhos.
+        </p>
+
+        <h3>Década de 1980</h3>
+
+        <p>
+            Os X-Men enfrentam grandes eventos como a Saga da Fênix Negra, considerada uma das histórias mais importantes da Marvel Comics. Jean Grey torna-se hospedeira da Força Fênix e passa por uma transformação que altera completamente o destino da equipe.
+        </p>
+
+        <h3>Década de 1990</h3>
+
+        <p>
+            A popularidade dos X-Men cresce ainda mais graças às animações, videogames e novas histórias. Diversos grupos derivados são criados, como X-Force, Generation X e Excalibur.
+        </p>
+
+        <h3>Século XXI</h3>
+
+        <p>
+            Os mutantes passam por eventos globais como Dinastia M, Complexo de Messias, Cisma, Vingadores vs. X-Men, Guerras Secretas e a Era de Krakoa, que redefine completamente a sociedade mutante.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="tecnologia">
+
+    <h2>Tecnologias Utilizadas pelos X-Men</h2>
+
+    <div class="card">
+
+        <p>
+            Embora muitos membros dependam apenas de seus poderes naturais, os X-Men contam com equipamentos extremamente avançados desenvolvidos por cientistas e engenheiros aliados.
+        </p>
+
+        <ul>
+
+            <li><strong>Cérebro (Cerebro)</strong> — Amplificador psíquico capaz de localizar mutantes em qualquer parte do planeta.</li>
+
+            <li><strong>Blackbird</strong> — Avião supersônico utilizado para transporte da equipe em missões internacionais.</li>
+
+            <li><strong>Sala de Perigo (Danger Room)</strong> — Ambiente de treinamento equipado com hologramas e robôs para simular batalhas reais.</li>
+
+            <li><strong>Uniformes Inteligentes</strong> — Desenvolvidos com materiais resistentes que suportam diferentes tipos de poderes mutantes.</li>
+
+            <li><strong>Portais de Krakoa</strong> — Sistemas biológicos capazes de transportar mutantes instantaneamente entre diversos locais do mundo.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<section id="faccoes">
+
+    <h2>Principais Facções Mutantes</h2>
+
+    <div class="card">
+
+        <h3>X-Men</h3>
+
+        <p>
+            Liderados pelo Professor Xavier, defendem a coexistência pacífica entre humanos e mutantes.
+        </p>
+
+        <h3>Irmandade dos Mutantes</h3>
+
+        <p>
+            Organização frequentemente liderada por Magneto, composta por mutantes que acreditam na supremacia mutante ou em métodos mais agressivos para garantir sua sobrevivência.
+        </p>
+
+        <h3>X-Force</h3>
+
+        <p>
+            Grupo especializado em operações secretas e missões de alto risco, realizando tarefas que os X-Men tradicionais evitam.
+        </p>
+
+        <h3>Marauders</h3>
+
+        <p>
+            Equipe que, em diferentes fases dos quadrinhos, desempenha funções estratégicas ligadas à proteção e ao transporte de mutantes.
+        </p>
+
+        <h3>Hellfire Club</h3>
+
+        <p>
+            Sociedade extremamente influente composta por empresários, políticos e indivíduos poderosos que frequentemente entram em conflito com os X-Men.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="curiosidades2">
+
+    <h2>Curiosidades do Universo Mutante</h2>
+
+    <div class="card">
+
+        <ul>
+
+            <li>Existem milhares de mutantes registrados ao longo da história da Marvel.</li>
+
+            <li>O Wolverine possui mais de 150 anos em algumas versões dos quadrinhos.</li>
+
+            <li>Tempestade já foi considerada uma deusa em determinadas regiões da África.</li>
+
+            <li>O Professor Xavier fundou uma escola muito antes da criação de diversas equipes derivadas.</li>
+
+            <li>Magneto consegue controlar qualquer material que seja afetado por campos magnéticos.</li>
+
+            <li>Jean Grey é considerada uma das personagens mais poderosas da Marvel.</li>
+
+            <li>Noturno é um dos melhores espadachins entre os mutantes.</li>
+
+            <li>Fera possui diversos doutorados e está entre os cientistas mais inteligentes da Terra.</li>
+
+            <li>Vampira já absorveu permanentemente poderes em diferentes histórias.</li>
+
+            <li>Ciclope é reconhecido como um dos maiores estrategistas do universo Marvel.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<section id="legado">
+
+    <h2>O Legado dos Mutantes</h2>
+
+    <div class="card">
+
+        <p>
+            O impacto dos X-Men ultrapassa os quadrinhos. Seus personagens inspiraram filmes, séries animadas, videogames, livros, brinquedos e milhões de fãs ao redor do mundo. A equipe tornou-se um símbolo de coragem, perseverança e aceitação das diferenças, mostrando que a verdadeira força não está apenas nos poderes extraordinários, mas também na capacidade de proteger aqueles que precisam de ajuda.
+        </p>
+
+        <p>
+            Mesmo após mais de seis décadas de histórias, os X-Men continuam evoluindo. Novos mutantes surgem, antigas ameaças retornam e o universo Marvel segue expandindo a rica mitologia criada em torno do Gene X. Essa constante renovação garante que a franquia permaneça relevante para diferentes gerações de leitores e espectadores.
+        </p>
+
+        <p>
+            O futuro dos mutantes permanece cheio de desafios e possibilidades. Enquanto houver histórias para contar e personagens para evoluir, os X-Men continuarão representando a esperança de um mundo onde diferenças sejam vistas como fonte de força, aprendizado e união.
+        </p>
+
+    </div>
+
+</section>
