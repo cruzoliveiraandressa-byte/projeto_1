@@ -1,3 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arquivo Sombrio - Mistérios e Terror</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#050505;
+    color:#ddd;
+    font-family:Georgia, serif;
+    line-height:1.8;
+
+}
+
+
+/* MENU */
+
+nav{
+
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,.85);
+    padding:20px;
+    text-align:center;
+    z-index:10;
+
+}
+
+nav a{
+
+    color:#bbb;
+    text-decoration:none;
+    margin:0 20px;
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:red;
+
+}
+
+
+/* CAPA */
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.9)
+    ),
+    url("https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+.hero h1{
+
+    font-size:70px;
+    color:#b30000;
+    text-shadow:0 0 20px black;
+
+}
+
+
+.hero p{
+
+    font-size:25px;
+    margin-top:20px;
+
+}
+
+
+/* SEÇÕES */
+
+section{
+
+    max-width:1200px;
+    margin:auto;
+    padding:90px 30px;
+
+}
+
+
+h2{
+
+    color:#b30000;
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+
+}
+
+
+p{
+
+    margin-bottom:25px;
+
+}
+
+
+/* BOTÃO */
+
+.btn{
+
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 40px;
+
+    background:#900;
+    color:white;
+
+    text-decoration:none;
+    border-radius:5px;
+
+}
+
+
+/* CAPÍTULOS */
+
+
+.chapter{
+
+    background:#0d0d0d;
+    margin:40px auto;
+    border-radius:15px;
+
+    box-shadow:
+    0 0 30px rgba(255,0,0,.1);
+
+}
+
+
+.grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+
+.grid img{
+
+    width:100%;
+    border-radius:15px;
+
+}
+
+
+
+/* CARDS */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+
+.card{
+
+    background:#111;
+
+    padding:30px;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    transition:.4s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:red;
+
+}
+
+
+.card h3{
+
+    color:#b30000;
+
+}
+
+
+
+/* GALERIA */
+
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+}
+
+
+.gallery img{
+
+width:100%;
+height:300px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+filter:
+brightness(.7);
+
+transition:.4s;
+
+}
+
+
+.gallery img:hover{
+
+filter:
+brightness(1);
+
+transform:scale(1.05);
+
+}
+
+
+
+/* CITAÇÃO */
+
+
+.quote{
+
+background:#000;
+
+padding:80px;
+
+text-align:center;
+
+font-size:30px;
+
+font-style:italic;
+
+color:#999;
+
+}
+
+
+/* TABELA */
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+background:#111;
+
+}
+
+
+th{
+
+background:#900;
+color:white;
+
+}
+
+
+td,th{
+
+padding:15px;
+border:1px solid #333;
+
+}
+
+
+
+/* FINAL */
+
+
+footer{
+
+background:#000;
+
+padding:50px;
+
+text-align:center;
+
+color:#777;
+
+}
+
+
+
+/* RESPONSIVO */
+
+
+@media(max-width:800px){
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<a href="#inicio">Início</a>
+
+<a href="#historia">História</a>
+
+<a href="#casos">Casos</a>
+
+<a href="#galeria">Galeria</a>
+
+</nav>
+
+
+
+<header class="hero" id="inicio">
+
+<div>
+
+<h1>ARQUIVO SOMBRIO</h1>
+
+<p>
+Mistérios, lendas e histórias que desafiam a realidade
+</p>
+
+<a class="btn" href="#historia">
+Entrar no Arquivo
+</a>
+
+</div>
+
+</header>
+
+
+
+
+<section id="historia" class="chapter">
+
+
+<h2>O Começo do Mistério</h2>
+
+
+<p>
+Existem histórias que atravessam gerações. Relatos de casas abandonadas,
+objetos esquecidos e acontecimentos que permanecem sem explicação.
+</p>
+
+
+<p>
+Este arquivo reúne relatos, documentos e lendas que despertam a curiosidade
+sobre aquilo que existe além do nosso conhecimento.
+</p>
+
+
+</section>
+
+
+
+
+<section id="casos">
+
+
+<h2>Casos Misteriosos</h2>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Casa Abandonada</h3>
+
+<p>
+Uma residência esquecida pelo tempo onde moradores relatam sons durante a madrugada.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Objeto Perdido</h3>
+
+<p>
+Um item antigo encontrado em um local desconhecido carregando uma história sombria.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Arquivo Secreto</h3>
+
+<p>
+Documentos antigos revelam acontecimentos nunca totalmente explicados.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section>
+
+
+<h2>Relatos</h2>
+
+
+<div class="grid">
+
+
+<div>
+
+<p>
+"Durante anos ouvi passos no corredor vazio. Sempre pensei ser apenas a madeira antiga,
+até que encontrei marcas no chão."
+</p>
+
+
+<p>
+Relatos como esse fazem parte do imaginário do terror e continuam despertando
+perguntas sobre o desconhecido.
+</p>
+
+
+</div>
+
+
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80">
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section id="galeria">
+
+
+<h2>Galeria Sombria</h2>
+
+
+<div class="gallery">
+
+
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80">
+
+
+<img src="https://images.unsplash.com/photo-1520637836862-4d197d17c90a?auto=format&fit=crop&w=900&q=80">
+
+
+<img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>Classificação dos Mistérios</h2>
+
+
+<table>
+
+
+<tr>
+
+<th>Categoria</th>
+
+<th>Descrição</th>
+
+</tr>
+
+
+<tr>
+
+<td>Lendas</td>
+
+<td>Histórias transmitidas através das gerações.</td>
+
+</tr>
+
+
+<tr>
+
+<td>Relatos</td>
+
+<td>Experiências contadas por testemunhas.</td>
+
+</tr>
+
+
+<tr>
+
+<td>Investigações</td>
+
+<td>Pesquisas sobre acontecimentos incomuns.</td>
+
+</tr>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+<div class="quote">
+
+"Alguns mistérios desaparecem quando encontramos respostas.
+Outros permanecem vivos porque nunca deixam de ser questionados."
+
+</div>
+
+
+
+
+
+<footer>
+
+<h3>Arquivo Sombrio</h3>
+
+<p>
+Uma coleção de histórias, mistérios e lendas.
+</p>
+
+<p>
+© 2026 - Todos os direitos reservados
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <header class="hero">
     <div class="overlay">
         <h1>Os Arquivos Warren</h1>
@@ -16,9 +664,7 @@ Em uma noite marcada por tempestades, um pesquisador recebeu uma caixa antiga co
 
 <blockquote>
 "Nunca leia o último relatório depois da meia-noite."
-</blockquote>
 
-<p>
 A curiosidade venceu o medo. Assim que a última página foi aberta, as luzes da casa começaram a oscilar. Um relógio parou exatamente às 3h07. Um vento gelado atravessou o corredor, apesar de todas as janelas estarem fechadas.
 </p>
 
