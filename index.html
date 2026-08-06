@@ -1,2035 +1,812 @@
+Abaixo está um exemplo de um **HTML longo, moderno e responsivo** sobre a história da família Warren (Ed e Lorraine Warren), seus casos mais famosos, livros, filmes e legado. O conteúdo é apresentado como um site informativo.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Arquivo Sombrio - Mistérios e Terror</title>
+<title>Os Warren - História Completa</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-
-    background:#050505;
-    color:#ddd;
-    font-family:Georgia, serif;
+    background:#0d0d0d;
+    color:#eee;
     line-height:1.8;
-
 }
 
+header{
+    background:linear-gradient(90deg,#000,#1d1d1d,#000);
+    padding:70px;
+    text-align:center;
+    border-bottom:5px solid darkred;
+}
 
-/* MENU */
+header h1{
+    font-size:50px;
+    color:#ff4444;
+}
+
+header p{
+    margin-top:20px;
+    font-size:20px;
+    color:#ccc;
+}
 
 nav{
-
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(0,0,0,.85);
+    background:#111;
     padding:20px;
-    text-align:center;
-    z-index:10;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    list-style:none;
 }
 
 nav a{
-
-    color:#bbb;
+    color:white;
     text-decoration:none;
-    margin:0 20px;
     transition:.3s;
-
 }
 
 nav a:hover{
-
     color:red;
-
 }
-
-
-/* CAPA */
-
-.hero{
-
-    height:100vh;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,.7),
-    rgba(0,0,0,.9)
-    ),
-    url("https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=1600&q=80");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-}
-
-
-.hero h1{
-
-    font-size:70px;
-    color:#b30000;
-    text-shadow:0 0 20px black;
-
-}
-
-
-.hero p{
-
-    font-size:25px;
-    margin-top:20px;
-
-}
-
-
-/* SEÇÕES */
 
 section{
-
-    max-width:1200px;
+    max-width:1100px;
     margin:auto;
-    padding:90px 30px;
-
+    padding:60px 30px;
 }
-
 
 h2{
-
-    color:#b30000;
-    text-align:center;
-    font-size:40px;
-    margin-bottom:40px;
-
+    color:#ff4444;
+    margin-bottom:20px;
+    font-size:35px;
 }
 
-
-p{
-
-    margin-bottom:25px;
-
-}
-
-
-/* BOTÃO */
-
-.btn{
-
-    display:inline-block;
+h3{
     margin-top:30px;
-    padding:15px 40px;
-
-    background:#900;
-    color:white;
-
-    text-decoration:none;
-    border-radius:5px;
-
+    color:#ff6666;
 }
-
-
-/* CAPÍTULOS */
-
-
-.chapter{
-
-    background:#0d0d0d;
-    margin:40px auto;
-    border-radius:15px;
-
-    box-shadow:
-    0 0 30px rgba(255,0,0,.1);
-
-}
-
-
-.grid{
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:40px;
-
-    align-items:center;
-
-}
-
-
-.grid img{
-
-    width:100%;
-    border-radius:15px;
-
-}
-
-
-
-/* CARDS */
-
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
 
 .card{
-
-    background:#111;
-
+    background:#181818;
     padding:30px;
-
-    border:1px solid #333;
-
+    margin:30px 0;
+    border-left:5px solid crimson;
     border-radius:10px;
-
-    transition:.4s;
-
 }
-
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:red;
-
-}
-
-
-.card h3{
-
-    color:#b30000;
-
-}
-
-
-
-/* GALERIA */
-
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-
-}
-
-
-.gallery img{
-
-width:100%;
-height:300px;
-
-object-fit:cover;
-
-border-radius:15px;
-
-filter:
-brightness(.7);
-
-transition:.4s;
-
-}
-
-
-.gallery img:hover{
-
-filter:
-brightness(1);
-
-transform:scale(1.05);
-
-}
-
-
-
-/* CITAÇÃO */
-
-
-.quote{
-
-background:#000;
-
-padding:80px;
-
-text-align:center;
-
-font-size:30px;
-
-font-style:italic;
-
-color:#999;
-
-}
-
-
-/* TABELA */
-
-
-table{
-
-width:100%;
-border-collapse:collapse;
-
-background:#111;
-
-}
-
-
-th{
-
-background:#900;
-color:white;
-
-}
-
-
-td,th{
-
-padding:15px;
-border:1px solid #333;
-
-}
-
-
-
-/* FINAL */
-
 
 footer{
-
-background:#000;
-
-padding:50px;
-
-text-align:center;
-
-color:#777;
-
+    background:#000;
+    text-align:center;
+    padding:50px;
+    border-top:4px solid darkred;
 }
 
-
-
-/* RESPONSIVO */
-
-
-@media(max-width:800px){
-
-.hero h1{
-
-font-size:40px;
-
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
-.grid{
-
-grid-template-columns:1fr;
-
+table td,table th{
+    border:1px solid #444;
+    padding:15px;
 }
 
+table th{
+    background:#8b0000;
 }
 
+blockquote{
+    background:#151515;
+    padding:20px;
+    border-left:5px solid red;
+    margin:20px 0;
+    font-style:italic;
+}
 
+img{
+    width:100%;
+    border-radius:10px;
+    margin-top:20px;
+}
 </style>
 
 </head>
 
-
 <body>
 
+<header>
+
+<h1>Ed & Lorraine Warren</h1>
+
+<p>
+Uma jornada pela história dos investigadores paranormais mais famosos do mundo.
+</p>
+
+</header>
 
 <nav>
 
-<a href="#inicio">Início</a>
+<ul>
 
-<a href="#historia">História</a>
+<li><a href="#historia">História</a></li>
 
-<a href="#casos">Casos</a>
+<li><a href="#casos">Casos</a></li>
 
-<a href="#galeria">Galeria</a>
+<li><a href="#annabelle">Annabelle</a></li>
+
+<li><a href="#amityville">Amityville</a></li>
+
+<li><a href="#filmes">Filmes</a></li>
+
+<li><a href="#legado">Legado</a></li>
+
+</ul>
 
 </nav>
 
+<section id="historia">
 
+<h2>Quem foram os Warren?</h2>
 
-<header class="hero" id="inicio">
-
-<div>
-
-<h1>ARQUIVO SOMBRIO</h1>
+<div class="card">
 
 <p>
-Mistérios, lendas e histórias que desafiam a realidade
-</p>
 
-<a class="btn" href="#historia">
-Entrar no Arquivo
-</a>
+Edward Warren Miney nasceu em 1926.
+
+Lorraine Rita Warren nasceu em 1927.
+
+O casal ficou conhecido internacionalmente por investigar relatos de atividades paranormais durante várias décadas.
+
+Segundo eles, realizaram milhares de investigações envolvendo supostos fantasmas, possessões demoníacas e fenômenos sobrenaturais.
+
+Ed afirmava ser demonologista autodidata.
+
+Lorraine dizia possuir habilidades mediúnicas e clarividência.
+
+Juntos fundaram uma organização dedicada às investigações paranormais.
+
+</p>
 
 </div>
 
-</header>
-
-
-
-
-<section id="historia" class="chapter">
-
-
-<h2>O Começo do Mistério</h2>
-
+<h3>Início da carreira</h3>
 
 <p>
-Existem histórias que atravessam gerações. Relatos de casas abandonadas,
-objetos esquecidos e acontecimentos que permanecem sem explicação.
+
+Durante os anos 1950, começaram visitando casas consideradas assombradas.
+
+Com o passar do tempo, suas investigações chamaram atenção da imprensa.
+
+Eles concederam entrevistas, escreveram livros e participaram de programas de televisão.
+
+Seu nome tornou-se conhecido mundialmente.
+
 </p>
-
-
-<p>
-Este arquivo reúne relatos, documentos e lendas que despertam a curiosidade
-sobre aquilo que existe além do nosso conhecimento.
-</p>
-
 
 </section>
-
-
-
 
 <section id="casos">
 
-
-<h2>Casos Misteriosos</h2>
-
-
-<div class="cards">
-
+<h2>Os Casos Mais Conhecidos</h2>
 
 <div class="card">
 
-<h3>Casa Abandonada</h3>
+<h3>1. Annabelle</h3>
 
 <p>
-Uma residência esquecida pelo tempo onde moradores relatam sons durante a madrugada.
+
+Talvez o caso mais famoso dos Warren.
+
+Segundo eles, uma boneca de pano apresentava manifestações sobrenaturais.
+
+A boneca foi colocada em um museu paranormal criado pelo casal.
+
 </p>
 
 </div>
-
 
 <div class="card">
 
-<h3>Objeto Perdido</h3>
+<h3>2. Amityville</h3>
 
 <p>
-Um item antigo encontrado em um local desconhecido carregando uma história sombria.
+
+Um dos casos mais polêmicos da história.
+
+A família Lutz alegou viver diversos acontecimentos paranormais após se mudar para uma residência onde havia ocorrido um crime.
+
+Os Warren participaram da investigação.
+
+Até hoje existem debates sobre a veracidade dos acontecimentos.
+
 </p>
 
 </div>
-
 
 <div class="card">
 
-<h3>Arquivo Secreto</h3>
+<h3>3. Família Perron</h3>
 
 <p>
-Documentos antigos revelam acontecimentos nunca totalmente explicados.
+
+O casal investigou uma fazenda localizada em Rhode Island.
+
+A família relatava ouvir vozes, passos e presenças invisíveis.
+
+Esse caso inspirou o filme Invocação do Mal.
+
 </p>
 
 </div>
 
+<div class="card">
 
-</div>
-
-
-</section>
-
-
-
-
-<section>
-
-
-<h2>Relatos</h2>
-
-
-<div class="grid">
-
-
-<div>
+<h3>4. Arne Johnson</h3>
 
 <p>
-"Durante anos ouvi passos no corredor vazio. Sempre pensei ser apenas a madeira antiga,
-até que encontrei marcas no chão."
+
+Conhecido como o caso do "Demônio me fez fazer isso".
+
+A defesa alegava que Arne estava possuído quando ocorreu um homicídio.
+
+Foi um dos casos mais famosos ligados aos Warren.
+
 </p>
 
+</div>
+
+</section>
+
+<section id="annabelle">
+
+<h2>A Boneca Annabelle</h2>
 
 <p>
-Relatos como esse fazem parte do imaginário do terror e continuam despertando
-perguntas sobre o desconhecido.
+
+Ao contrário dos filmes, a verdadeira Annabelle era uma boneca Raggedy Ann.
+
+Segundo os Warren, ela apresentava comportamentos estranhos como:
+
 </p>
 
+<ul>
 
-</div>
+<li>Mudanças de posição.</li>
 
+<li>Bilhetes escritos misteriosamente.</li>
 
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80">
+<li>Movimentos sem explicação.</li>
 
+<li>Supostas manifestações demoníacas.</li>
 
-</div>
+</ul>
 
+<blockquote>
 
-</section>
+"A boneca não estaria possuída. Segundo os Warren, um espírito maligno estaria utilizando o objeto."
 
-
-
-
-<section id="galeria">
-
-
-<h2>Galeria Sombria</h2>
-
-
-<div class="gallery">
-
-
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80">
-
-
-<img src="https://images.unsplash.com/photo-1520637836862-4d197d17c90a?auto=format&fit=crop&w=900&q=80">
-
-
-<img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80">
-
-
-</div>
-
+</blockquote>
 
 </section>
 
+<section id="amityville">
 
+<h2>O Caso Amityville</h2>
 
+<p>
 
+Em 1974 ocorreu um assassinato envolvendo a família DeFeo.
 
-<section>
+Pouco tempo depois, outra família comprou a casa.
 
+Os novos moradores alegaram diversos acontecimentos paranormais.
 
-<h2>Classificação dos Mistérios</h2>
+Entre eles:
 
+</p>
+
+<ul>
+
+<li>Portas abrindo sozinhas.</li>
+
+<li>Cheiros estranhos.</li>
+
+<li>Barulhos durante a madrugada.</li>
+
+<li>Aparições misteriosas.</li>
+
+<li>Mudanças repentinas de temperatura.</li>
+
+</ul>
+
+<p>
+
+O caso virou livros, documentários e filmes.
+
+Até hoje divide opiniões entre céticos e defensores do sobrenatural.
+
+</p>
+
+</section>
+
+<section id="filmes">
+
+<h2>Filmes Inspirados nos Warren</h2>
 
 <table>
 
+<tr>
+
+<th>Filme</th>
+
+<th>Lançamento</th>
+
+<th>Tema</th>
+
+</tr>
 
 <tr>
 
-<th>Categoria</th>
+<td>Invocação do Mal</td>
 
-<th>Descrição</th>
+<td>2013</td>
+
+<td>Família Perron</td>
 
 </tr>
-
 
 <tr>
 
-<td>Lendas</td>
+<td>Invocação do Mal 2</td>
 
-<td>Histórias transmitidas através das gerações.</td>
+<td>2016</td>
+
+<td>Caso Enfield</td>
 
 </tr>
-
 
 <tr>
 
-<td>Relatos</td>
+<td>Invocação do Mal 3</td>
 
-<td>Experiências contadas por testemunhas.</td>
+<td>2021</td>
+
+<td>Arne Johnson</td>
 
 </tr>
-
 
 <tr>
 
-<td>Investigações</td>
+<td>Annabelle</td>
 
-<td>Pesquisas sobre acontecimentos incomuns.</td>
+<td>2014</td>
 
-</tr>
+<td>Boneca</td>
 
-
-</table>
-
-
-</section>
-
-
-
-
-
-<div class="quote">
-
-"Alguns mistérios desaparecem quando encontramos respostas.
-Outros permanecem vivos porque nunca deixam de ser questionados."
-
-</div>
-
-
-
-
-
-<footer>
-
-<h3>Arquivo Sombrio</h3>
-
-<p>
-Uma coleção de histórias, mistérios e lendas.
-</p>
-
-<p>
-© 2026 - Todos os direitos reservados
-</p>
-
-</footer>
-
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<header class="hero">
-    <div class="overlay">
-        <h1>Os Arquivos Warren</h1>
-        <p>Uma história fictícia inspirada na fama dos investigadores paranormais Ed e Lorraine Warren.</p>
-        <a href="#inicio" class="btn">Entrar, se tiver coragem...</a>
-    </div>
-</header>
-
-<section id="inicio">
-
-<h2>Prólogo</h2>
-
-<p>
-Em uma noite marcada por tempestades, um pesquisador recebeu uma caixa antiga contendo documentos, fotografias e gravações atribuídas a antigos casos investigados por Ed e Lorraine Warren. Entre papéis envelhecidos havia um aviso escrito à mão:
-</p>
-
-<blockquote>
-"Nunca leia o último relatório depois da meia-noite."
-
-A curiosidade venceu o medo. Assim que a última página foi aberta, as luzes da casa começaram a oscilar. Um relógio parou exatamente às 3h07. Um vento gelado atravessou o corredor, apesar de todas as janelas estarem fechadas.
-</p>
-
-<p>
-Aquilo era apenas o começo.
-</p>
-
-</section>
-
-
-<!-- ========================================= -->
-<!-- CONTINUAÇÃO 1 - A CASA ESQUECIDA -->
-<!-- Adicione após o prólogo -->
-<!-- ========================================= -->
-
-<section class="chapter">
-
-<h2>Capítulo I — A Casa Esquecida</h2>
-
-<div class="grid">
-
-<div>
-
-<p>
-Os documentos apontavam para uma residência abandonada construída no início do século XX. Localizada no alto de uma colina cercada por árvores antigas, a casa havia permanecido vazia durante décadas. Moradores da região evitavam até mencionar seu endereço, preferindo chamá-la apenas de "a casa esquecida".
-</p>
-
-<p>
-Segundo relatos locais, todas as noites, exatamente às três horas, uma luz surgia atrás da janela do segundo andar. Não havia energia elétrica funcionando no imóvel havia muitos anos.
-</p>
-
-<p>
-Curiosamente, quem observava a luz por muito tempo dizia ouvir passos atrás de si, mesmo estando completamente sozinho.
-</p>
-
-<p>
-Os arquivos indicavam que investigadores do paranormal visitaram o local décadas atrás para documentar acontecimentos incomuns. As anotações registravam sons inexplicáveis, mudanças repentinas de temperatura e objetos que pareciam mudar de lugar sem causa aparente.
-</p>
-
-</div>
-
-<img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=900&q=80"
-alt="Casa antiga">
-
-</div>
-
-</section>
-
-<section>
-
-<h2>O Diário Encontrado</h2>
-
-<p>
-Entre fotografias envelhecidas havia um pequeno diário de couro. Muitas páginas estavam danificadas pela umidade, mas algumas frases ainda podiam ser lidas.
-</p>
-
-<div class="card">
-
-<p><strong>12 de Outubro</strong></p>
-
-<p>
-"A casa faz barulhos durante a madrugada. Pensei que fosse o vento, mas hoje ouvi alguém caminhar no sótão."
-</p>
-
-<hr>
-
-<p><strong>17 de Outubro</strong></p>
-
-<p>
-"Os relógios pararam ao mesmo tempo. Não consegui explicar o motivo."
-</p>
-
-<hr>
-
-<p><strong>20 de Outubro</strong></p>
-
-<p>
-"Encontrei pegadas no corredor. Estava sozinho."
-</p>
-
-<hr>
-
-<p><strong>Última anotação</strong></p>
-
-<p>
-"Se alguém encontrar este diário... não permaneça aqui depois da meia-noite."
-</p>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Fotografias Antigas</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80">
-
-<img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80">
-
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-<p style="margin-top:40px;">
-As fotografias não mostravam nada incomum à primeira vista. Entretanto, quando comparadas lado a lado, detalhes pareciam mudar. Uma cadeira surgia em uma imagem e desaparecia na seguinte. Uma porta aparecia aberta em um registro e fechada no outro.
-</p>
-
-</section>
-
-<section>
-
-<h2>Objetos Catalogados</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>📖 Livro Antigo</h3>
-
-<p>
-Coberto por poeira e sem identificação. Algumas páginas estavam escritas em um idioma desconhecido.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🕰 Relógio de Parede</h3>
-
-<p>
-Parava sempre às 3h07, mesmo após diversos reparos.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🕯 Candelabro</h3>
-
-<p>
-Marcas de cera indicavam uso recente, apesar da casa permanecer abandonada havia anos.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>📷 Câmera Fotográfica</h3>
-
-<p>
-Encontrada com um filme parcialmente revelado mostrando corredores vazios.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>A Primeira Noite</h2>
-
-<p>
-Pouco antes da meia-noite, a chuva começou. O vento fazia as janelas vibrarem enquanto trovões iluminavam rapidamente os corredores escuros.
-</p>
-
-<p>
-Às 00h43, um estalo ecoou pelo andar superior.
-</p>
-
-<p>
-À 01h12, uma porta fechou sozinha.
-</p>
-
-<p>
-Às 02h35, todos os equipamentos de gravação desligaram simultaneamente.
-</p>
-
-<p>
-Às 03h07...
-</p>
-
-<p style="font-size:1.4rem;text-align:center;color:#b30000;font-weight:bold;">
-...o relógio voltou a funcionar sozinho.
-</p>
-
-</section>
-
-<section class="quote">
-
-<p>
-"Algumas portas permanecem fechadas por um motivo."
-</p>
-
-</section>
-
-
-<!-- ========================================= -->
-<!-- CONTINUAÇÃO 2 - A INVESTIGAÇÃO -->
-<!-- Adicione após o capítulo anterior -->
-<!-- ========================================= -->
-
-<section class="chapter">
-
-<h2>Capítulo II — Ecos no Corredor</h2>
-
-<div class="grid">
-
-<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=80"
-alt="Corredor antigo">
-
-<div>
-
-<p>
-Pouco antes do amanhecer, a equipe decidiu registrar cada cômodo da residência. Lanternas iluminavam apenas alguns metros à frente, enquanto o restante do corredor permanecia mergulhado na escuridão.
-</p>
-
-<p>
-As paredes revelavam marcas antigas de umidade, quadros tortos e móveis cobertos por grossas camadas de poeira. O silêncio era interrompido apenas pelo som da madeira rangendo sob os pés.
-</p>
-
-<p>
-Um dos pesquisadores encontrou uma porta escondida atrás de uma estante. As dobradiças estavam enferrujadas, como se ninguém a tivesse aberto durante muitos anos.
-</p>
-
-<p>
-Ao empurrá-la lentamente, surgiu uma pequena biblioteca esquecida pelo tempo.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>A Biblioteca Oculta</h2>
-
-<p>
-As prateleiras estavam repletas de livros deteriorados, jornais antigos e caixas de documentos. Muitos papéis relatavam histórias populares da região, misturando fatos conhecidos, rumores e lendas transmitidas entre gerações.
-</p>
-
-<p>
-Em uma mesa de madeira havia um gravador de fita cassete. Ao lado dele, um pequeno cartão trazia apenas uma frase:
-</p>
-
-<blockquote style="font-size:1.2rem;text-align:center;margin:40px;">
-"Nem tudo o que está registrado deve ser reproduzido."
-</blockquote>
-
-<p>
-A equipe decidiu catalogar o equipamento sem tentar acioná-lo, preservando o material para análise posterior.
-</p>
-
-</section>
-
-<section>
-
-<h2>Registros da Noite</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>22h14</h3>
-<p>
-A inspeção começou. Nenhuma alteração incomum foi observada.
-</p>
-</div>
-
-<div class="card">
-<h3>23h51</h3>
-<p>
-Um vento forte atravessou o corredor quando todas as janelas permaneciam fechadas.
-</p>
-</div>
-
-<div class="card">
-<h3>00h38</h3>
-<p>
-Uma estante apresentou um leve deslocamento, possivelmente devido ao piso irregular da construção.
-</p>
-</div>
-
-<div class="card">
-<h3>02h11</h3>
-<p>
-Ruídos foram registrados no sótão. A origem não pôde ser determinada durante a investigação.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>O Quarto Fechado</h2>
-
-<div class="grid">
-
-<div>
-
-<p>
-No fim do corredor havia um quarto cuja porta permanecia trancada por uma corrente antiga. Após remover cuidadosamente o cadeado enferrujado, os pesquisadores encontraram um ambiente praticamente intacto.
-</p>
-
-<p>
-Os móveis estavam cobertos por lençóis esbranquiçados. Sobre uma escrivaninha repousava uma fotografia em preto e branco mostrando uma família diante da própria casa décadas antes.
-</p>
-
-<p>
-No verso da fotografia estava escrito apenas:
-</p>
-
-<p style="text-align:center;font-size:1.3rem;font-style:italic;">
-"Nunca esquecemos este lugar."
-</p>
-
-<p>
-Nenhum nome acompanhava a mensagem.
-</p>
-
-</div>
-
-<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80"
-alt="Quarto antigo">
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Hipóteses da Equipe</h2>
-
-<p>
-Ao revisar os acontecimentos, os investigadores levantaram diferentes possibilidades para explicar os relatos registrados ao longo dos anos:
-</p>
-
-<ul style="max-width:900px;margin:auto;line-height:2;font-size:1.1rem;">
-<li>Estruturas antigas podem produzir sons devido à dilatação da madeira e às mudanças de temperatura.</li>
-
-<li>Correntes de ar em construções deterioradas podem mover portas e objetos leves.</li>
-
-<li>Relatos transmitidos ao longo do tempo podem influenciar a forma como as pessoas interpretam acontecimentos incomuns.</li>
-
-<li>Alguns registros permaneceram sem explicação conclusiva, sendo catalogados apenas como eventos não identificados.</li>
-</ul>
-
-<p style="margin-top:35px;">
-Mesmo com essas hipóteses, diversos detalhes continuavam despertando curiosidade e motivando novas pesquisas históricas sobre a propriedade.
-</p>
-
-</section>
-
-<section>
-
-<h2>Fim da Segunda Noite</h2>
-
-<p>
-Quando o primeiro raio de sol atravessou as janelas empoeiradas, a equipe encerrou a inspeção. Equipamentos foram guardados, fotografias catalogadas e anotações organizadas.
-</p>
-
-<p>
-Enquanto deixavam a residência, um dos pesquisadores percebeu algo curioso.
-</p>
-
-<p>
-A porta principal, que havia permanecido aberta durante toda a saída, fechou lentamente com o vento logo após o último integrante atravessar o portão.
-</p>
-
-<p>
-No silêncio da manhã, a casa voltou a parecer completamente abandonada.
-</p>
-
-</section>
-
-<section class="quote">
-
-<p>
-"A maior parte das histórias de terror nasce daquilo que não conseguimos explicar completamente."</p>
-
-</section>
-
-
-<!-- ========================================= -->
-<!-- CONTINUAÇÃO 3 - O PORÃO E O ÚLTIMO ARQUIVO -->
-<!-- Ficção inspirada no universo dos investigadores paranormais -->
-<!-- ========================================= -->
-
-<section class="chapter">
-
-<h2>Capítulo III — O Porão Esquecido</h2>
-
-<div class="grid">
-
-<div>
-
-<p>
-Na manhã seguinte, enquanto a equipe organizava os equipamentos, um detalhe chamou a atenção. A planta antiga da casa mostrava um cômodo que não existia na construção atual.
-</p>
-
-<p>
-Após algumas horas examinando o piso da cozinha, um dos pesquisadores encontrou um anel metálico preso entre as tábuas de madeira.
-</p>
-
-<p>
-Ao levantá-lo cuidadosamente, revelou-se um alçapão coberto por décadas de poeira.
-</p>
-
-<p>
-Uma escada estreita descia para um porão completamente escuro.
-</p>
-
-<p>
-O ar era frio, pesado e cheirava a madeira úmida. As paredes de pedra exibiam marcas do tempo, enquanto antigas prateleiras sustentavam caixas, livros e ferramentas enferrujadas.
-</p>
-
-</div>
-
-<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=80"
-alt="Porão antigo">
-
-</div>
-
-</section>
-
-<section>
-
-<h2>As Caixas Numeradas</h2>
-
-<p>
-Cada caixa possuía um número pintado à mão.
-</p>
-
-<div class="cards">
-
-<div class="card">
-<h3>Caixa 01</h3>
-
-<p>
-Fotografias antigas da propriedade antes da reforma realizada na década de 1950.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Caixa 02</h3>
-
-<p>
-Jornais locais relatando acontecimentos misteriosos atribuídos ao folclore da região.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Caixa 03</h3>
-
-<p>
-Cartas trocadas entre antigos moradores descrevendo medo constante de permanecer na residência durante tempestades.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Caixa 04</h3>
-
-<p>
-Um gravador portátil acompanhado por diversas fitas identificadas apenas por datas.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>O Último Arquivo</h2>
-
-<p>
-No fundo da estante havia um envelope lacrado pelo tempo.
-</p>
-
-<p>
-Na capa estava escrito:
-</p>
-
-<blockquote style="text-align:center;font-size:1.4rem;">
-"Arquivo Final — Não concluir sem revisar todos os registros."
-</blockquote>
-
-<p>
-Dentro dele havia dezenas de páginas cuidadosamente organizadas.
-</p>
-
-<p>
-O relatório descrevia entrevistas com moradores, plantas da construção, fotografias e observações realizadas ao longo de vários anos.
-</p>
-
-<p>
-Em vez de afirmar conclusões definitivas, os autores destacavam que muitos acontecimentos poderiam possuir diferentes explicações e que a documentação deveria ser preservada para futuras pesquisas.
-</p>
-
-</section>
-
-<section>
-
-<h2>Tempestade</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
-
-<img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-<p style="margin-top:40px;">
-Enquanto os documentos eram fotografados, uma forte tempestade começou do lado de fora.
-</p>
-
-<p>
-A chuva atingia o telhado com intensidade, e cada trovão fazia a estrutura antiga vibrar levemente.
-</p>
-
-<p>
-Mesmo assim, a equipe permaneceu concentrada no trabalho de catalogação.
-</p>
-
-</section>
-
-<section>
-
-<h2>O Corredor Silencioso</h2>
-
-<p>
-Ao final da inspeção, todos passaram novamente pelo longo corredor da casa.
-</p>
-
-<p>
-As paredes permaneciam imóveis.
-</p>
-
-<p>
-As portas continuavam fechadas.
-</p>
-
-<p>
-Os relógios estavam funcionando normalmente.
-</p>
-
-<p>
-Parecia que o imóvel havia voltado ao completo silêncio.
-</p>
-
-<p>
-Antes de sair, um dos pesquisadores olhou para trás apenas uma última vez.
-</p>
-
-<p>
-A janela do segundo andar refletia apenas a chuva e o céu escuro.
-</p>
-
-<p>
-Não havia qualquer movimento.
-</p>
-
-</section>
-
-<section>
-
-<h2>Epílogo</h2>
-
-<p>
-Os arquivos foram preservados e armazenados juntamente com outros documentos históricos relacionados ao estudo de relatos paranormais e investigações de campo.
-</p>
-
-<p>
-A antiga casa permaneceu fechada, aguardando futuras pesquisas que pudessem esclarecer definitivamente sua história.
-</p>
-
-<p>
-Alguns visitantes continuaram afirmando ouvir ruídos durante tempestades.
-Outros diziam nunca ter presenciado nada incomum.
-</p>
-
-<p>
-Como acontece com muitos relatos desse tipo, parte da história permanece envolta em mistério, alimentando debates entre pesquisadores, curiosos e admiradores do gênero de terror.
-</p>
-
-<p style="text-align:center;font-size:1.4rem;font-style:italic;margin-top:50px;">
-"E talvez seja justamente aquilo que não conseguimos explicar completamente que mantém essas histórias vivas."
-</p>
-
-</section>
-
-
-<!-- ============================================= -->
-<!-- CONTINUAÇÃO - DOSSIÊ WARREN: FATOS E CASOS -->
-<!-- Cole depois do conteúdo anterior -->
-<!-- ============================================= -->
-
-<section class="chapter">
-
-<h2>Capítulo IV — O Legado dos Warren: Entre Mistério e Controvérsia</h2>
-
-<p>
-Poucas duplas conseguiram alcançar tanta fama no universo paranormal quanto Ed e Lorraine Warren. Para alguns, eles foram investigadores dedicados que deram atenção a famílias que acreditavam estar passando por experiências inexplicáveis. Para outros, suas conclusões eram baseadas em crenças religiosas e relatos difíceis de comprovar.
-</p>
-
-<p>
-A história dos Warren permanece justamente nesse ponto de equilíbrio entre documentação, fé, medo e cultura popular.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>O Início da Jornada</h2>
-
-<div class="grid">
-
-<div>
-
-<p>
-Ed Warren nasceu em 1926 e cresceu interessado em histórias de fenômenos estranhos. Segundo seus próprios relatos, experiências durante a infância influenciaram sua futura carreira.
-</p>
-
-<p>
-Lorraine Warren afirmava ter percebido habilidades mediúnicas desde jovem, dizendo que conseguia sentir ambientes e perceber acontecimentos que outras pessoas não percebiam.
-</p>
-
-<p>
-O casal começou suas investigações na década de 1950, período em que histórias sobre fantasmas, casas assombradas e fenômenos paranormais ganharam grande popularidade nos Estados Unidos.
-</p>
-
-</div>
-
-<img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>A Metodologia dos Warren</h2>
-
-<p>
-Segundo seus relatos, as investigações seguiam algumas etapas:
-</p>
-
-<div class="cards">
-
-<div class="card">
-<h3>📋 Entrevistas</h3>
-<p>
-Conversavam com moradores, testemunhas e pessoas relacionadas ao caso.
-</p>
-</div>
-
-<div class="card">
-<h3>📷 Documentação</h3>
-<p>
-Registravam locais, objetos, fotografias e relatos escritos.
-</p>
-</div>
-
-<div class="card">
-<h3>✝ Análise Religiosa</h3>
-<p>
-Interpretavam alguns fenômenos dentro de uma visão cristã sobre espíritos e demônios.
-</p>
-</div>
-
-<div class="card">
-<h3>🔎 Investigação</h3>
-<p>
-Tentavam identificar possíveis explicações para os acontecimentos relatados.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>Caso: A Família Donovan</h2>
-
-<p>
-Um dos relatos associados aos arquivos paranormais envolve uma família que afirmava experimentar acontecimentos incomuns em sua residência.
-</p>
-
-<p>
-Segundo a narrativa paranormal, objetos apareciam fora do lugar, ruídos eram ouvidos durante a noite e moradores sentiam mudanças repentinas no ambiente.
-</p>
-
-<p>
-Os Warren teriam analisado o caso considerando a possibilidade de uma influência espiritual.
-</p>
-
-<h3>Visão dos crentes</h3>
-
-<p>
-Aqueles que acreditam no caso consideram que os acontecimentos apresentavam características semelhantes a outros relatos investigados pelo casal.
-</p>
-
-<h3>Visão dos céticos</h3>
-
-<p>
-Pesquisadores críticos apontam que relatos pessoais podem ser influenciados pelo medo, pelo ambiente e pela interpretação individual dos acontecimentos.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Caso: O Poltergeist de Harrisville</h2>
-
-<img src="https://images.unsplash.com/photo-1520637836862-4d197d17c90a?auto=format&fit=crop&w=1200&q=80"
-style="width:100%;border-radius:20px;"
-alt="Casa antiga">
-
-<p>
-O caso conhecido como "A Família Perron" tornou-se um dos mais famosos associados aos Warren.
-</p>
-
-<p>
-A família afirmou ter vivido em uma casa antiga onde aconteciam fenômenos estranhos durante a década de 1970.
-</p>
-
-<p>
-Os relatos incluíam:
-</p>
-
-<ul>
-<li>sons inexplicáveis;</li>
-<li>sensações de presença;</li>
-<li>mudanças de temperatura;</li>
-<li>objetos encontrados em locais diferentes;</li>
-<li>experiências emocionais intensas.</li>
-</ul>
-
-<p>
-O caso ganhou grande popularidade décadas depois com adaptações cinematográficas.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Ciência x Paranormalidade</h2>
-
-<table style="width:100%;border-collapse:collapse;background:white;">
-
-<tr style="background:#1e3d59;color:white;">
-<th style="padding:15px;">Perspectiva</th>
-<th style="padding:15px;">Interpretação</th>
 </tr>
 
 <tr>
-<td style="padding:15px;">Paranormal</td>
-<td style="padding:15px;">
-Os eventos podem envolver espíritos, energias ou entidades.
-</td>
-</tr>
 
-<tr style="background:#eee;">
-<td style="padding:15px;">Psicológica</td>
-<td style="padding:15px;">
-Medo, memória, ansiedade e percepção podem influenciar experiências.
-</td>
+<td>Annabelle 2</td>
+
+<td>2017</td>
+
+<td>Origem</td>
+
 </tr>
 
 <tr>
-<td style="padding:15px;">Ambiental</td>
-<td style="padding:15px;">
-Ruídos, estruturas antigas, gases e condições físicas podem explicar fenômenos.
-</td>
+
+<td>Annabelle 3</td>
+
+<td>2019</td>
+
+<td>Museu dos Warren</td>
+
 </tr>
 
-<tr style="background:#eee;">
-<td style="padding:15px;">Cultural</td>
-<td style="padding:15px;">
-Histórias locais e crenças podem moldar a interpretação dos acontecimentos.
-</td>
+<tr>
+
+<td>A Freira</td>
+
+<td>2018</td>
+
+<td>Valak</td>
+
+</tr>
+
+<tr>
+
+<td>A Freira 2</td>
+
+<td>2023</td>
+
+<td>Continuação</td>
+
 </tr>
 
 </table>
 
 </section>
 
-
-<section>
-
-<h2>O Que os Documentos Mostram?</h2>
-
-<p>
-Grande parte do material relacionado aos Warren consiste em relatos, entrevistas, fotografias e registros pessoais.
-</p>
-
-<p>
-Esses documentos são importantes para compreender a história cultural do paranormal, mas não são considerados provas científicas de acontecimentos sobrenaturais.
-</p>
-
-<p>
-Para pesquisadores acadêmicos, testemunhos são importantes como registros humanos, porém precisam de métodos controlados para confirmar fenômenos extraordinários.
-</p>
-
-</section>
-
-
-<section class="quote">
-
-<h2>O Mistério Continua</h2>
-
-<p>
-"Entre aquilo que acreditamos, aquilo que tememos e aquilo que conseguimos provar existe um território onde nascem as grandes histórias de terror."
-</p>
-
-</section>
-
-
-<section>
-
-<h2>Curiosidades Sobre os Warren</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🎬 Cinema</h3>
-<p>
-Suas histórias deram origem a uma das franquias de terror mais populares do cinema moderno.
-</p>
-</div>
-
-<div class="card">
-<h3>🏚 Casas Antigas</h3>
-<p>
-Muitos casos investigados envolviam construções antigas com histórias familiares complexas.
-</p>
-</div>
-
-<div class="card">
-<h3>📚 Livros</h3>
-<p>
-Diversos relatos foram publicados em livros escritos por autores que trabalharam com o casal.
-</p>
-</div>
-
-<div class="card">
-<h3>🕯 Religião</h3>
-<p>
-A interpretação espiritual fazia parte central da visão dos Warren sobre fenômenos paranormais.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="dossie-warren">
-
-<h1>Os Warren: Entre Mistérios, Casos Paranormais e Controvérsias</h1>
-
-<p>
-Ed e Lorraine Warren estão entre os nomes mais conhecidos da história dos fenômenos paranormais.
-Durante décadas, o casal afirmou investigar casas assombradas, supostas possessões e acontecimentos
-inexplicáveis. Suas histórias inspiraram livros, documentários e uma das maiores franquias de terror
-do cinema.
-</p>
-
-<p>
-Porém, quando analisamos a trajetória dos Warren, encontramos uma mistura de fatos históricos,
-relatos pessoais, crenças religiosas, interpretações paranormais e críticas de pesquisadores.
-Algumas pessoas consideram o casal importantes investigadores do desconhecido, enquanto outras
-questionam suas conclusões e a falta de provas científicas.
-</p>
-
-
-<h2>Quem eram Ed e Lorraine Warren?</h2>
-
-<p>
-Ed Warren nasceu em 1926 nos Estados Unidos. Ele se apresentava como demonologista e investigador
-de fenômenos paranormais. Desde jovem demonstrava interesse por histórias envolvendo casas antigas,
-espíritos e acontecimentos misteriosos.
-</p>
-
-<p>
-Lorraine Warren nasceu em 1927 e afirmava possuir habilidades mediúnicas, dizendo conseguir perceber
-energias e presenças que outras pessoas não conseguiam identificar.
-</p>
-
-<p>
-O casal fundou a New England Society for Psychic Research, uma organização dedicada ao estudo de
-relatos paranormais. Ao longo dos anos, afirmaram ter participado de milhares de investigações.
-</p>
-
-
-<h2>O que é comprovado sobre os Warren?</h2>
-
-<ul>
-
-<li>
-Ed e Lorraine Warren realmente existiram e atuaram publicamente como investigadores paranormais.
-</li>
-
-<li>
-Eles realizaram palestras, entrevistas e participaram de diversos programas de televisão.
-</li>
-
-<li>
-Mantiveram uma coleção de objetos que consideravam ligados a eventos sobrenaturais.
-</li>
-
-<li>
-Seus arquivos influenciaram diversas obras de terror e cultura popular.
-</li>
-
-</ul>
-
-
-<h2>O que não possui comprovação científica?</h2>
-
-<p>
-Apesar da fama, muitas conclusões apresentadas pelos Warren não possuem comprovação científica.
-Afirmações sobre demônios, espíritos ou possessões permanecem no campo da crença religiosa e da
-interpretação pessoal.
-</p>
-
-<p>
-Pesquisadores céticos argumentam que muitos acontecimentos podem ter explicações psicológicas,
-ambientais ou naturais, como ilusões de percepção, sons estruturais, expectativas e influência do
-medo.
-</p>
-
-
-<h2>Caso Annabelle</h2>
-
-<p>
-Um dos objetos mais famosos associados aos Warren é a boneca Annabelle.
-Segundo o casal, a boneca estaria ligada a acontecimentos sobrenaturais e teria sido investigada
-após relatos de comportamentos estranhos envolvendo o objeto.
-</p>
-
-<p>
-A história ganhou enorme popularidade após os filmes de terror, porém a boneca real associada ao
-caso é diferente da representação cinematográfica. Ela é uma boneca de pano do tipo Raggedy Ann.
-</p>
-
-<p>
-Para os seguidores dos Warren, Annabelle representa um objeto perigoso ligado ao mundo espiritual.
-Para críticos, trata-se de uma história sem evidências verificáveis.
-</p>
-
-
-<h2>Caso Amityville</h2>
-
-<p>
-A casa de Amityville é um dos casos paranormais mais famosos do mundo.
-O local ficou conhecido após um crime real ocorrido na residência em 1974.
-</p>
-
-<p>
-Posteriormente, uma família que viveu na casa afirmou ter presenciado fenômenos estranhos,
-incluindo sons, mudanças de temperatura e acontecimentos inexplicáveis.
-</p>
-
-<p>
-Os Warren investigaram o caso e afirmaram que havia uma forte presença sobrenatural.
-</p>
-
-<p>
-Entretanto, jornalistas e pesquisadores questionaram vários detalhes da história, apontando
-inconsistências nos relatos e possíveis exageros.
-</p>
-
-
-<h2>Caso da Família Perron</h2>
-
-<p>
-A família Perron ficou famosa por relatar acontecimentos estranhos em uma antiga casa localizada
-em Rhode Island.
-</p>
-
-<p>
-Segundo os relatos, os moradores teriam presenciado:
-</p>
-
-<ul>
-
-<li>barulhos inexplicáveis;</li>
-<li>sensações de presença;</li>
-<li>objetos mudando de lugar;</li>
-<li>fenômenos durante a noite;</li>
-<li>mudanças repentinas no ambiente.</li>
-
-</ul>
-
-<p>
-O caso se tornou a principal inspiração para o filme "Invocação do Mal".
-</p>
-
-
-<h2>O Caso Arne Johnson</h2>
-
-<p>
-Conhecido como "O Demônio me Fez Fazer Isso", esse caso envolveu um julgamento criminal nos Estados
-Unidos.
-</p>
-
-<p>
-A defesa tentou argumentar que o acusado estava sob influência demoníaca, uma alegação que não foi
-aceita pelo tribunal.
-</p>
-
-<p>
-O caso chamou atenção mundial por envolver questões sobre religião, responsabilidade criminal e
-crenças sobrenaturais.
-</p>
-
-
-<h2>O Museu dos Warren</h2>
-
-<p>
-Os Warren mantinham um museu particular com objetos que, segundo eles, estavam ligados a casos
-paranormais.
-</p>
-
-<p>
-Entre os objetos mais conhecidos estavam:
-</p>
-
-<ul>
-
-<li>A boneca Annabelle;</li>
-<li>objetos religiosos;</li>
-<li>artefatos de supostos rituais;</li>
-<li>itens relacionados a investigações antigas.</li>
-
-</ul>
-
-<p>
-Para os admiradores, o museu era uma coleção histórica de casos paranormais. Para críticos, os
-objetos não apresentavam evidências de propriedades sobrenaturais.
-</p>
-
-
-<h2>Opiniões sobre os Warren</h2>
-
-
-<h3>Pessoas que acreditam no trabalho deles dizem:</h3>
-
-<p>
-Os defensores afirmam que os Warren ajudaram famílias assustadas, documentaram histórias esquecidas
-e trataram os relatos paranormais com seriedade dentro de suas crenças.
-</p>
-
-
-<h3>Pessoas que criticam dizem:</h3>
-
-<p>
-Os críticos afirmam que muitos casos dependiam apenas de testemunhos pessoais, sem experimentos
-controlados ou provas verificáveis. Também apontam que filmes e livros aumentaram o aspecto
-dramático das histórias.
-</p>
-
-
-<h2>Ciência e Paranormalidade</h2>
-
-<p>
-A ciência exige testes repetíveis, observações controladas e evidências verificáveis. Até hoje,
-não existe comprovação científica aceita de fantasmas, demônios ou possessões.
-</p>
-
-<p>
-Isso não impede que relatos paranormais continuem sendo estudados como fenômenos culturais,
-psicológicos e históricos.
-</p>
-
+<section id="legado">
 
 <h2>O Legado dos Warren</h2>
 
-<p>
-Independentemente das opiniões sobre suas investigações, Ed e Lorraine Warren tiveram enorme impacto
-na cultura popular. Eles ajudaram a transformar histórias de casas assombradas e fenômenos
-paranormais em um dos gêneros mais populares do entretenimento moderno.
-</p>
+<div class="card">
 
 <p>
-Seus casos continuam despertando curiosidade porque ficam entre dois mundos: o mundo das crenças e
-o mundo das evidências.
+
+Independentemente das controvérsias envolvendo seus casos, Ed e Lorraine Warren se tornaram ícones da cultura popular.
+
+Sua influência pode ser vista em:
+
 </p>
 
+<ul>
 
-<h2>Conclusão</h2>
+<li>Filmes de terror.</li>
+
+<li>Séries.</li>
+
+<li>Livros.</li>
+
+<li>Documentários.</li>
+
+<li>Podcasts.</li>
+
+<li>Jogos.</li>
+
+<li>Investigações paranormais modernas.</li>
+
+</ul>
+
+</div>
+
+<h3>Críticas</h3>
 
 <p>
-Os Warren representam um dos capítulos mais famosos da história do paranormal. Para alguns, foram
-investigadores corajosos que enfrentaram situações assustadoras. Para outros, suas histórias são
-exemplos de como medo, crença e narrativa podem transformar acontecimentos comuns em grandes
-mistérios.
+
+Muitos pesquisadores e céticos questionaram diversos relatos apresentados pelos Warren, apontando falta de evidências verificáveis para vários casos. Ao mesmo tempo, seus apoiadores afirmam que eles ajudaram famílias que acreditavam enfrentar fenômenos inexplicáveis. Por isso, suas investigações permanecem tema de debate.
+
 </p>
 
-<p>
-A verdade sobre muitos casos permanece debatida. E talvez seja justamente essa mistura de fatos,
-dúvidas e mistérios que mantém o interesse pelo legado dos Warren até hoje.
-</p>
+<h3>Curiosidades</h3>
+
+<ul>
+
+<li>Mais de 10.000 investigações alegadamente realizadas.</li>
+
+<li>Museu com objetos considerados amaldiçoados.</li>
+
+<li>Diversos livros publicados.</li>
+
+<li>Universo cinematográfico de enorme sucesso.</li>
+
+<li>Reconhecidos mundialmente no gênero do terror.</li>
+
+</ul>
 
 </section>
-
-
-<!-- ============================================= -->
-<!-- FINALIZAÇÃO - DOSSIÊ WARREN -->
-<!-- Coloque antes do fechamento do footer -->
-<!-- ============================================= -->
-
-<section class="final-warren">
-
-<h2>O Último Registro</h2>
-
-<p>
-Durante décadas, os nomes de Ed e Lorraine Warren permaneceram ligados a histórias que desafiam a
-fronteira entre realidade e imaginação. Seus arquivos reúnem relatos de pessoas que afirmavam ter
-vivido experiências incomuns, locais cercados por lendas e objetos que ganharam fama por causa das
-histórias associadas a eles.
-</p>
-
-<p>
-Independentemente da interpretação de cada pessoa, o fenômeno Warren revela algo importante sobre
-a humanidade: nossa curiosidade pelo desconhecido. Desde os tempos antigos, seres humanos contam
-histórias sobre mistérios, lugares sombrios e acontecimentos que parecem escapar da compreensão.
-</p>
-
-<p>
-Para alguns, os casos investigados pelo casal representam sinais de uma realidade espiritual que
-ainda não compreendemos completamente. Para outros, são exemplos de como memória, medo, cultura e
-imaginação podem transformar acontecimentos em grandes lendas.
-</p>
-
-
-<h2>Entre a Fé e a Evidência</h2>
-
-<p>
-O trabalho dos Warren sempre esteve relacionado à fé religiosa. Suas interpretações eram baseadas
-em uma visão espiritual do mundo, onde forças sobrenaturais poderiam influenciar pessoas e lugares.
-</p>
-
-<p>
-Já pesquisadores céticos defendem que acontecimentos extraordinários precisam de provas
-extraordinárias. Sem evidências verificáveis, muitos fenômenos continuam classificados apenas como
-relatos ou experiências pessoais.
-</p>
-
-<p>
-Esse contraste tornou os Warren uma das figuras mais debatidas do universo paranormal.
-</p>
-
-
-<h2>O Mistério Permanece</h2>
-
-<div class="quote-box">
-
-<p>
-"Algumas histórias sobrevivem não porque possuem todas as respostas, mas porque continuam fazendo
-perguntas."
-</p>
-
-</div>
-
-
-<h2>O Impacto na Cultura do Terror</h2>
-
-<p>
-A influência dos Warren ultrapassou as investigações paranormais. Seus casos ajudaram a popularizar
-um estilo de terror baseado em documentos, relatos familiares e supostas experiências reais.
-</p>
-
-<p>
-Filmes, livros, podcasts e documentários continuam explorando seus arquivos, apresentando novas
-gerações ao universo das casas assombradas, objetos misteriosos e investigações sobrenaturais.
-</p>
-
-<p>
-Mesmo quem não acredita em fenômenos paranormais reconhece que as histórias dos Warren tiveram um
-papel importante na construção do imaginário moderno do terror.
-</p>
-
-
-<h2>Arquivo Encerrado</h2>
-
-<p>
-Os documentos foram guardados. As histórias continuam sendo contadas. As perguntas permanecem.
-</p>
-
-<p>
-Entre fatos comprovados, relatos pessoais e lendas que atravessaram décadas, o caso dos Warren
-continua sendo um dos maiores exemplos de como o medo e a curiosidade podem transformar simples
-histórias em verdadeiros fenômenos culturais.
-</p>
-
-<p>
-Talvez nunca exista uma resposta definitiva para todos os mistérios associados aos Warren.
-Entretanto, enquanto existirem pessoas interessadas no desconhecido, essas histórias continuarão
-sendo investigadas, discutidas e lembradas.
-</p>
-
-
-<div class="warning-box">
-
-<h3>⚠ Aviso Final</h3>
-
-<p>
-Este conteúdo apresenta informações históricas, relatos e interpretações relacionadas aos Warren.
-Afirmações sobre fenômenos sobrenaturais permanecem como crenças ou alegações e não possuem
-comprovação científica aceita.
-</p>
-
-</div>
-
-
-<div class="end-message">
-
-<h2>Fim do Dossiê</h2>
-
-<p>
-Obrigado por entrar neste arquivo de mistérios.</p>
-
-<p>
-Apague as luzes, feche a porta...
-e lembre-se:
-</p>
-
-<h3>
-Algumas histórias terminam no papel.<br>
-Outras continuam na imaginação.
-</h3>
-
-</div>
-
-</section>
-
-
-<style>
-
-.final-warren{
-    max-width:1200px;
-    margin:auto;
-    padding:90px 30px;
-    color:#ddd;
-    background:#080808;
-    font-family:Georgia,serif;
-    line-height:1.9;
-}
-
-.final-warren h2{
-    color:#b30000;
-    text-align:center;
-    font-size:2.5rem;
-    margin:50px 0 25px;
-    text-transform:uppercase;
-}
-
-.final-warren p{
-    margin-bottom:25px;
-    font-size:1.15rem;
-}
-
-.quote-box{
-
-    background:#111;
-    border-left:5px solid #b30000;
-    padding:40px;
-    margin:50px 0;
-    text-align:center;
-    font-size:1.5rem;
-    font-style:italic;
-
-}
-
-
-.warning-box{
-
-    margin-top:60px;
-    padding:35px;
-    background:#220000;
-    border:1px solid #700000;
-    border-radius:15px;
-
-}
-
-.warning-box h3{
-
-    color:#ff4444;
-    margin-bottom:15px;
-
-}
-
-
-.end-message{
-
-    text-align:center;
-    margin-top:80px;
-    padding:70px 30px;
-    background:
-    radial-gradient(circle,#222,#000);
-    border-radius:20px;
-
-}
-
-
-.end-message h3{
-
-    margin-top:30px;
-    color:#ccc;
-    font-size:1.8rem;
-    font-style:italic;
-
-}
-
-
-</style>
 
 <footer>
 
-<div style="
-background:#050505;
-color:#888;
-text-align:center;
-padding:40px;
-">
-
-<h3 style="color:#b30000;">
-Arquivo Warren - Encerrado
-</h3>
+<h2>Ed & Lorraine Warren</h2>
 
 <p>
-Dossiê de terror inspirado em relatos, histórias e investigações paranormais.
+
+Um dos casais mais famosos da história das investigações paranormais. Seus relatos inspiraram livros, filmes e debates que continuam até hoje, embora muitos dos casos permaneçam controversos e sem comprovação científica conclusiva.
+
 </p>
 
-<p>
-Todos os mistérios permanecem sob investigação.
-</p>
+<br>
 
-</div>
+<p>Desenvolvido em HTML e CSS.</p>
 
 </footer>
 
 </body>
 </html>
+```
+
+Esse arquivo possui um visual moderno, menu de navegação, seções detalhadas, tabela, cartões de conteúdo e CSS integrado, totalizando mais de 300 linhas de código.
+
+
+<!-- ================= MUSEU ================= -->
+
+<section id="museu">
+
+<h2>O Museu dos Warren</h2>
+
+<div class="card">
+
+<p>
+
+Durante muitos anos, Ed e Lorraine Warren mantiveram um museu particular localizado em Monroe, Connecticut.
+
+O local armazenava centenas de objetos que, segundo o casal, estavam ligados a eventos paranormais.
+
+Cada item era catalogado e mantido sob cuidados especiais.
+
+Lorraine afirmava que diversos objetos possuíam uma energia negativa e, por isso, deveriam permanecer isolados.
+
+</p>
+
+<p>
+
+Entre os objetos mais conhecidos estavam:
+
+</p>
+
+<ul>
+
+<li>A boneca Annabelle.</li>
+<li>Brinquedos considerados amaldiçoados.</li>
+<li>Crucifixos.</li>
+<li>Máscaras rituais.</li>
+<li>Objetos religiosos.</li>
+<li>Espelhos antigos.</li>
+<li>Caixas de madeira.</li>
+<li>Livros de ocultismo.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ================= CASO ENFIELD ================= -->
+
+<section id="enfield">
+
+<h2>O Caso Enfield</h2>
+
+<div class="card">
+
+<p>
+
+Entre 1977 e 1979 ocorreu um dos episódios paranormais mais famosos da Inglaterra.
+
+A família Hodgson relatava diversos acontecimentos estranhos em sua residência.
+
+Os fenômenos incluíam:
+
+</p>
+
+<ul>
+
+<li>Batidas nas paredes.</li>
+<li>Móveis se movendo.</li>
+<li>Objetos voando.</li>
+<li>Vozes misteriosas.</li>
+<li>Supostas possessões.</li>
+
+</ul>
+
+<p>
+
+Embora investigadores britânicos tenham conduzido a maior parte da investigação, Ed e Lorraine Warren afirmaram ter visitado o local.
+
+O caso inspirou o filme "Invocação do Mal 2".
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= LIVROS ================= -->
+
+<section id="livros">
+
+<h2>Livros Publicados</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Livro</th>
+<th>Ano</th>
+<th>Tema</th>
+</tr>
+
+<tr>
+<td>The Demonologist</td>
+<td>1980</td>
+<td>Casos sobrenaturais</td>
+</tr>
+
+<tr>
+<td>Graveyard</td>
+<td>1988</td>
+<td>Investigações paranormais</td>
+</tr>
+
+<tr>
+<td>Ghost Hunters</td>
+<td>1989</td>
+<td>Relatos de fantasmas</td>
+</tr>
+
+<tr>
+<td>Werewolf</td>
+<td>1991</td>
+<td>Suposta possessão</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ================= CRONOLOGIA ================= -->
+
+<section id="cronologia">
+
+<h2>Cronologia</h2>
+
+<div class="card">
+
+<h3>1926</h3>
+<p>Nascimento de Ed Warren.</p>
+
+<h3>1927</h3>
+<p>Nascimento de Lorraine Warren.</p>
+
+<h3>1952</h3>
+<p>Fundação da New England Society for Psychic Research.</p>
+
+<h3>1971</h3>
+<p>Caso Annabelle.</p>
+
+<h3>1974</h3>
+<p>Caso Amityville.</p>
+
+<h3>1977</h3>
+<p>Caso Enfield.</p>
+
+<h3>1981</h3>
+<p>Caso Arne Johnson.</p>
+
+<h3>2006</h3>
+<p>Falecimento de Ed Warren.</p>
+
+<h3>2013</h3>
+<p>Lançamento do filme "Invocação do Mal".</p>
+
+<h3>2019</h3>
+<p>Falecimento de Lorraine Warren.</p>
+
+</div>
+
+</section>
+
+<!-- ================= CURIOSIDADES ================= -->
+
+<section id="curiosidades">
+
+<h2>Curiosidades</h2>
+
+<div class="card">
+
+<p>
+
+Algumas curiosidades sobre os Warren:
+
+</p>
+
+<ul>
+
+<li>Mais de 10 mil casos investigados segundo o casal.</li>
+
+<li>Centenas de entrevistas para televisão.</li>
+
+<li>Participações em documentários internacionais.</li>
+
+<li>Inspiração para dezenas de filmes.</li>
+
+<li>Objetos do museu ficaram famosos mundialmente.</li>
+
+<li>Diversos pesquisadores continuam estudando seus casos.</li>
+
+<li>Seu trabalho influenciou gerações de investigadores paranormais.</li>
+
+<li>O universo "Invocação do Mal" tornou-se uma das franquias de terror de maior sucesso da história do cinema.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ================= POLÊMICAS ================= -->
+
+<section id="controversias">
+
+<h2>Controvérsias</h2>
+
+<div class="card">
+
+<p>
+
+Os casos dos Warren sempre dividiram opiniões.
+
+Pesquisadores céticos argumentam que muitos relatos não possuem comprovação científica suficiente e podem ter explicações naturais, psicológicas ou sociológicas.
+
+Por outro lado, apoiadores do casal acreditam que eles ajudaram diversas famílias que enfrentavam situações que consideravam inexplicáveis.
+
+Independentemente da posição adotada, Ed e Lorraine Warren permanecem figuras marcantes da cultura popular e da história do gênero de terror.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= FRASES ================= -->
+
+<section id="frases">
+
+<h2>Frases Marcantes</h2>
+
+<div class="card">
+
+<blockquote>
+
+"Existem pessoas que acreditam no sobrenatural e pessoas que já tiveram uma experiência."
+
+</blockquote>
+
+<blockquote>
+
+"Nem tudo pode ser explicado pela ciência."
+
+</blockquote>
+
+<blockquote>
+
+"O medo pode ser tão poderoso quanto aquilo que o provoca."
+
+</blockquote>
+
+</div>
+
+</section>
+
+<!-- ================= CONCLUSÃO ================= -->
+
+<section id="conclusao">
+
+<h2>Conclusão</h2>
+
+<div class="card">
+
+<p>
+
+Mais de meio século após iniciarem suas investigações, Ed e Lorraine Warren continuam sendo lembrados como alguns dos mais conhecidos investigadores do paranormal. Seus relatos inspiraram livros, documentários, filmes e séries, mantendo vivo o interesse por histórias de assombrações, possessões e fenômenos considerados inexplicáveis. Embora muitas de suas alegações sejam contestadas e não tenham comprovação científica, sua influência na cultura do terror permanece significativa.
+
+</p>
+
+</div>
+
+</section>
