@@ -1,812 +1,2811 @@
-Abaixo está um exemplo de um **HTML longo, moderno e responsivo** sobre a história da família Warren (Ed e Lorraine Warren), seus casos mais famosos, livros, filmes e legado. O conteúdo é apresentado como um site informativo.
+Claro. Abaixo está um **HTML longo, completo e responsivo**, com biografia, cronologia, principais casos, Annabelle, Amityville, Enfield, família Perron, museu, controvérsias, relação com *Invocação do Mal* e uma seção separando **as alegações dos Warrens das críticas e evidências céticas**.
+
+As informações biográficas e sobre a NESPR foram conferidas em fontes do próprio grupo e referências biográficas; é importante tratar os fenômenos sobrenaturais como **alegações**, pois vários dos casos foram contestados por investigadores e participantes. ([Nespr Brasil][1])
 
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Os Warren - História Completa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    <title>Ed e Lorraine Warren — Biografia, Casos e Legado</title>
 
-body{
-    background:#0d0d0d;
-    color:#eee;
-    line-height:1.8;
-}
+    <meta name="description"
+          content="Um guia completo sobre Ed e Lorraine Warren, suas vidas, investigações paranormais, casos famosos, Annabelle, Amityville, Enfield, a família Perron e o legado dos Warren.">
 
-header{
-    background:linear-gradient(90deg,#000,#1d1d1d,#000);
-    padding:70px;
-    text-align:center;
-    border-bottom:5px solid darkred;
-}
+    <meta name="keywords"
+          content="Ed Warren, Lorraine Warren, Ed e Lorraine Warren, Annabelle, Amityville, Enfield, Invocação do Mal, paranormal, demonologia, NESPR">
 
-header h1{
-    font-size:50px;
-    color:#ff4444;
-}
+    <style>
+        :root {
+            --bg: #090909;
+            --bg-soft: #111111;
+            --bg-card: #171717;
+            --bg-card-2: #1d1d1d;
+            --text: #eeeeee;
+            --muted: #aaaaaa;
+            --red: #b71c1c;
+            --red-light: #e53935;
+            --gold: #c8a45d;
+            --border: #303030;
+            --shadow: 0 15px 45px rgba(0,0,0,.45);
+        }
 
-header p{
-    margin-top:20px;
-    font-size:20px;
-    color:#ccc;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-nav{
-    background:#111;
-    padding:20px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-nav ul{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    list-style:none;
-}
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, #222 0%, #090909 40%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-nav a:hover{
-    color:red;
-}
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:60px 30px;
-}
+        /* =========================
+           HEADER
+        ========================= */
 
-h2{
-    color:#ff4444;
-    margin-bottom:20px;
-    font-size:35px;
-}
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.72),
+                    rgba(0,0,0,.88)
+                ),
+                radial-gradient(
+                    circle at 50% 40%,
+                    #3b1616 0%,
+                    #100909 45%,
+                    #050505 100%
+                );
+        }
 
-h3{
-    margin-top:30px;
-    color:#ff6666;
-}
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: .35;
+        }
 
-.card{
-    background:#181818;
-    padding:30px;
-    margin:30px 0;
-    border-left:5px solid crimson;
-    border-radius:10px;
-}
+        .hero {
+            width: min(1100px, 92%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+        }
 
-footer{
-    background:#000;
-    text-align:center;
-    padding:50px;
-    border-top:4px solid darkred;
-}
+        .hero-symbol {
+            font-size: 70px;
+            color: var(--red-light);
+            margin-bottom: 20px;
+            text-shadow: 0 0 35px rgba(229,57,53,.35);
+        }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: .95;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
 
-table td,table th{
-    border:1px solid #444;
-    padding:15px;
-}
+        .hero h1 span {
+            display: block;
+            color: var(--red-light);
+        }
 
-table th{
-    background:#8b0000;
-}
+        .hero p {
+            max-width: 800px;
+            margin: auto;
+            color: #d0d0d0;
+            font-size: 1.2rem;
+        }
 
-blockquote{
-    background:#151515;
-    padding:20px;
-    border-left:5px solid red;
-    margin:20px 0;
-    font-style:italic;
-}
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 35px;
+        }
 
-img{
-    width:100%;
-    border-radius:10px;
-    margin-top:20px;
-}
-</style>
+        .hero-meta span {
+            border: 1px solid #555;
+            padding: 8px 18px;
+            border-radius: 50px;
+            color: #ccc;
+            background: rgba(255,255,255,.04);
+        }
 
+        .scroll {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #888;
+            font-size: .8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           NAV
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8,8,8,.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            width: min(1200px, 94%);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            padding: 12px 0;
+        }
+
+        nav a {
+            color: #aaa;
+            padding: 8px 12px;
+            font-size: .86rem;
+            transition: .2s;
+        }
+
+        nav a:hover {
+            color: white;
+            background: #222;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: var(--red-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: .75rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 750px;
+            margin-top: 15px;
+        }
+
+        .lead {
+            font-size: 1.18rem;
+            color: #ddd;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1b1b1b, #101010);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            color: #fff;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #bbb;
+        }
+
+        .card .icon {
+            font-size: 2rem;
+            color: var(--red-light);
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .profile-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--red);
+        }
+
+        .profile-box h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-box .role {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .75rem;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3a3a3a;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--red);
+            border: 4px solid #0b0b0b;
+            box-shadow: 0 0 0 2px #555;
+        }
+
+        .timeline-year {
+            color: var(--red-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item h3 {
+            margin: 5px 0;
+            font-size: 1.5rem;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+        }
+
+        /* =========================
+           CASES
+        ========================= */
+
+        .case {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .case-header {
+            padding: 35px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(130,0,0,.5),
+                    rgba(0,0,0,.2)
+                );
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-header span {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: .75rem;
+            letter-spacing: 3px;
+        }
+
+        .case-header h3 {
+            font-size: 2.3rem;
+            margin-top: 5px;
+        }
+
+        .case-body {
+            padding: 35px;
+        }
+
+        .case-body h4 {
+            color: #ddd;
+            margin: 25px 0 10px;
+        }
+
+        .case-body p {
+            color: #bbb;
+        }
+
+        .claim {
+            border-left: 4px solid var(--red);
+            background: #120909;
+            padding: 20px 25px;
+            margin: 25px 0;
+            color: #ddd;
+        }
+
+        .warning {
+            border-left: 4px solid var(--gold);
+            background: #17130b;
+            padding: 20px 25px;
+            margin: 25px 0;
+            color: #ccc;
+        }
+
+        /* =========================
+           FACT TABLE
+        ========================= */
+
+        .facts {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        .facts th,
+        .facts td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .facts th {
+            color: var(--gold);
+            width: 30%;
+            background: #151515;
+        }
+
+        .facts td {
+            color: #ccc;
+        }
+
+        /* =========================
+           ANNABELLE
+        ========================= */
+
+        .annabelle {
+            background:
+                radial-gradient(circle at center, #351313 0%, #100909 55%, #090909 100%);
+            border: 1px solid #522323;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(0,0,0,.5);
+        }
+
+        .doll {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .annabelle h3 {
+            font-size: 3rem;
+            color: #eee;
+        }
+
+        .annabelle p {
+            max-width: 800px;
+            margin: 15px auto;
+            color: #bbb;
+        }
+
+        /* =========================
+           MOVIES
+        ========================= */
+
+        .movie {
+            border: 1px solid var(--border);
+            padding: 25px;
+            background: #141414;
+            border-radius: 10px;
+        }
+
+        .movie-year {
+            color: var(--red-light);
+            font-weight: bold;
+        }
+
+        .movie h3 {
+            margin: 5px 0 12px;
+        }
+
+        .movie p {
+            color: #aaa;
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           MYTH VS FACT
+        ========================= */
+
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .compare > div {
+            padding: 30px;
+        }
+
+        .compare .claim-side {
+            background: #170b0b;
+        }
+
+        .compare .critical-side {
+            background: #111;
+        }
+
+        .compare h3 {
+            margin-bottom: 15px;
+        }
+
+        .compare .claim-side h3 {
+            color: #e57373;
+        }
+
+        .compare .critical-side h3 {
+            color: #aaa;
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        details {
+            background: #151515;
+            border: 1px solid var(--border);
+            margin-bottom: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        details p {
+            padding: 0 20px 20px;
+            color: #aaa;
+        }
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        blockquote {
+            border-left: 4px solid var(--red);
+            padding: 30px;
+            margin: 30px 0;
+            background: #121212;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: #ddd;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #050505;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #777;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .footer-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 850px) {
+            .grid,
+            .grid-2,
+            .profile {
+                grid-template-columns: 1fr;
+            }
+
+            .compare {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: 1px;
+            }
+
+            .annabelle {
+                padding: 30px 20px;
+            }
+
+            .nav-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+            }
+
+            nav a {
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 500px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .card,
+            .profile-box,
+            .case-body,
+            .case-header {
+                padding: 22px;
+            }
+
+            .hero-symbol {
+                font-size: 50px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<h1>Ed & Lorraine Warren</h1>
+<header id="inicio">
 
-<p>
-Uma jornada pela história dos investigadores paranormais mais famosos do mundo.
-</p>
+    <div class="hero">
+
+        <div class="hero-symbol">✦</div>
+
+        <h1>
+            Ed & Lorraine
+            <span>Warren</span>
+        </h1>
+
+        <p>
+            A história de um dos casais mais conhecidos da investigação
+            paranormal moderna, suas principais investigações, suas crenças,
+            seus casos controversos e o legado que chegou ao cinema.
+        </p>
+
+        <div class="hero-meta">
+            <span>Ed Warren • 1926–2006</span>
+            <span>Lorraine Warren • 1927–2019</span>
+            <span>Investigação paranormal</span>
+            <span>NESPR</span>
+        </div>
+
+    </div>
+
+    <div class="scroll">
+        Role para explorar
+    </div>
 
 </header>
 
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+
 <nav>
 
-<ul>
+    <div class="nav-container">
 
-<li><a href="#historia">História</a></li>
+        <a href="#quem-eram">Quem eram</a>
+        <a href="#biografias">Biografias</a>
+        <a href="#cronologia">Cronologia</a>
+        <a href="#casos">Casos</a>
+        <a href="#annabelle">Annabelle</a>
+        <a href="#amityville">Amityville</a>
+        <a href="#enfield">Enfield</a>
+        <a href="#perron">Perron</a>
+        <a href="#cinema">Cinema</a>
+        <a href="#controversias">Controvérsias</a>
+        <a href="#legado">Legado</a>
+        <a href="#faq">FAQ</a>
 
-<li><a href="#casos">Casos</a></li>
-
-<li><a href="#annabelle">Annabelle</a></li>
-
-<li><a href="#amityville">Amityville</a></li>
-
-<li><a href="#filmes">Filmes</a></li>
-
-<li><a href="#legado">Legado</a></li>
-
-</ul>
+    </div>
 
 </nav>
 
-<section id="historia">
 
-<h2>Quem foram os Warren?</h2>
+<main>
 
-<div class="card">
+<!-- =========================================================
+     QUEM ERAM
+========================================================= -->
 
-<p>
+<section id="quem-eram">
 
-Edward Warren Miney nasceu em 1926.
+    <div class="section-title">
 
-Lorraine Rita Warren nasceu em 1927.
+        <small>Introdução</small>
 
-O casal ficou conhecido internacionalmente por investigar relatos de atividades paranormais durante várias décadas.
+        <h2>Quem foram Ed e Lorraine Warren?</h2>
 
-Segundo eles, realizaram milhares de investigações envolvendo supostos fantasmas, possessões demoníacas e fenômenos sobrenaturais.
+        <p>
+            Ed e Lorraine Warren foram um casal norte-americano conhecido
+            principalmente por investigar relatos de casas assombradas,
+            fenômenos paranormais e supostas manifestações demoníacas.
+        </p>
 
-Ed afirmava ser demonologista autodidata.
+    </div>
 
-Lorraine dizia possuir habilidades mediúnicas e clarividência.
+    <p class="lead">
+        Edward Warren Miney e Lorraine Rita Warren passaram décadas
+        associados ao estudo e à investigação de fenômenos que eles
+        interpretavam como sobrenaturais. Ed se apresentava como
+        demonologista, enquanto Lorraine dizia possuir habilidades
+        mediúnicas e clarividência.
+    </p>
 
-Juntos fundaram uma organização dedicada às investigações paranormais.
+    <p>
+        O casal ganhou enorme notoriedade nos Estados Unidos e,
+        posteriormente, internacionalmente. Entre os casos associados
+        aos dois estão Amityville, a família Perron, Annabelle,
+        o poltergeist de Enfield, a família Smurl, a família Snedeker
+        e o caso de Arne Cheyenne Johnson.
+    </p>
 
-</p>
+    <p>
+        Em 1952, Ed e Lorraine fundaram a New England Society for Psychic
+        Research, conhecida pela sigla NESPR. A organização continuou
+        associada à investigação paranormal mesmo após a morte do casal.
+    </p>
 
-</div>
+    <div class="grid">
 
-<h3>Início da carreira</h3>
+        <article class="card">
+            <div class="icon">✦</div>
+            <h3>Ed Warren</h3>
+            <p>
+                Autodidata em demonologia, investigador paranormal,
+                escritor, conferencista e veterano da Marinha dos
+                Estados Unidos.
+            </p>
+        </article>
 
-<p>
+        <article class="card">
+            <div class="icon">◉</div>
+            <h3>Lorraine Warren</h3>
+            <p>
+                Associada pelos próprios relatos a habilidades de
+                clarividência, percepção espiritual e mediunidade
+                em transe leve.
+            </p>
+        </article>
 
-Durante os anos 1950, começaram visitando casas consideradas assombradas.
+        <article class="card">
+            <div class="icon">⌁</div>
+            <h3>NESPR</h3>
+            <p>
+                Organização criada pelo casal em 1952 para investigar
+                e documentar alegações de atividade paranormal.
+            </p>
+        </article>
 
-Com o passar do tempo, suas investigações chamaram atenção da imprensa.
-
-Eles concederam entrevistas, escreveram livros e participaram de programas de televisão.
-
-Seu nome tornou-se conhecido mundialmente.
-
-</p>
+    </div>
 
 </section>
+
+
+<!-- =========================================================
+     BIOGRAFIAS
+========================================================= -->
+
+<section id="biografias">
+
+    <div class="section-title">
+
+        <small>Biografia</small>
+
+        <h2>Ed e Lorraine</h2>
+
+        <p>
+            Duas personalidades diferentes que construíram uma parceria
+            profissional e pessoal de várias décadas.
+        </p>
+
+    </div>
+
+    <div class="profile">
+
+        <article class="profile-box">
+
+            <h3>Edward Warren</h3>
+
+            <div class="role">
+                Demonologista e investigador paranormal
+            </div>
+
+            <p>
+                Edward Warren Miney nasceu em 7 de setembro de 1926,
+                em Bridgeport, Connecticut.
+            </p>
+
+            <p>
+                Durante a Segunda Guerra Mundial, Ed serviu na Marinha
+                dos Estados Unidos. Depois da guerra, trabalhou como
+                pintor de casas e letreiros.
+            </p>
+
+            <p>
+                Segundo a própria NESPR, seu interesse por casas
+                supostamente assombradas começou a se desenvolver
+                ainda jovem. Ele teria visitado locais relatados como
+                assombrados e produzido pinturas de casas consideradas
+                assustadoras.
+            </p>
+
+            <p>
+                Posteriormente, passou a se dedicar cada vez mais à
+                investigação paranormal ao lado de Lorraine.
+            </p>
+
+            <table class="facts">
+
+                <tr>
+                    <th>Nome</th>
+                    <td>Edward Warren Miney</td>
+                </tr>
+
+                <tr>
+                    <th>Nascimento</th>
+                    <td>7 de setembro de 1926</td>
+                </tr>
+
+                <tr>
+                    <th>Local</th>
+                    <td>Bridgeport, Connecticut</td>
+                </tr>
+
+                <tr>
+                    <th>Falecimento</th>
+                    <td>23 de agosto de 2006</td>
+                </tr>
+
+                <tr>
+                    <th>Atuação</th>
+                    <td>Demonologia, investigação paranormal e escrita</td>
+                </tr>
+
+            </table>
+
+        </article>
+
+
+        <article class="profile-box">
+
+            <h3>Lorraine Warren</h3>
+
+            <div class="role">
+                Médium e investigadora paranormal
+            </div>
+
+            <p>
+                Lorraine Rita Moran Warren nasceu em 1927 e se tornou
+                conhecida mundialmente através das investigações
+                realizadas com seu marido.
+            </p>
+
+            <p>
+                Lorraine dizia possuir capacidade de perceber espíritos,
+                energias e presenças que outras pessoas não conseguiriam
+                perceber.
+            </p>
+
+            <p>
+                Sua participação era complementar à abordagem de Ed:
+                enquanto ele se concentrava principalmente na demonologia
+                e nos aspectos religiosos dos casos, Lorraine dizia
+                utilizar sua percepção espiritual para interpretar
+                determinados ambientes e acontecimentos.
+            </p>
+
+            <p>
+                Lorraine morreu em 18 de abril de 2019, aos 92 anos.
+            </p>
+
+            <table class="facts">
+
+                <tr>
+                    <th>Nome</th>
+                    <td>Lorraine Rita Warren</td>
+                </tr>
+
+                <tr>
+                    <th>Nascimento</th>
+                    <td>1927</td>
+                </tr>
+
+                <tr>
+                    <th>Falecimento</th>
+                    <td>18 de abril de 2019</td>
+                </tr>
+
+                <tr>
+                    <th>Atuação</th>
+                    <td>Mediunidade, investigação paranormal e pesquisa</td>
+                </tr>
+
+            </table>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RELACIONAMENTO
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Vida pessoal</small>
+
+        <h2>Ed e Lorraine como casal</h2>
+
+    </div>
+
+    <p>
+        De acordo com a NESPR, Ed conheceu Lorraine quando os dois ainda
+        eram adolescentes. Ed trabalhava como lanterninha em um teatro
+        em Bridgeport, Connecticut, frequentado por Lorraine e sua mãe.
+    </p>
+
+    <p>
+        O relacionamento evoluiu rapidamente. Durante o período em que
+        Ed serviu na Marinha, o casal se casou em 1945.
+    </p>
+
+    <p>
+        Mais tarde, eles tiveram uma filha, Judy, que permaneceu
+        associada à história da família Warren e à continuidade do
+        trabalho relacionado à NESPR.
+    </p>
+
+    <blockquote>
+        A parceria entre Ed e Lorraine tornou-se a característica
+        central de sua trajetória: Ed assumia principalmente o papel
+        de demonologista, enquanto Lorraine se apresentava como médium.
+    </blockquote>
+
+</section>
+
+
+<!-- =========================================================
+     CRONOLOGIA
+========================================================= -->
+
+<section id="cronologia">
+
+    <div class="section-title">
+
+        <small>Linha do tempo</small>
+
+        <h2>Uma vida dedicada ao paranormal</h2>
+
+        <p>
+            Principais acontecimentos associados à trajetória do casal.
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1926</div>
+
+            <h3>Nascimento de Ed</h3>
+
+            <p>
+                Edward Warren Miney nasce em Bridgeport, Connecticut.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1927</div>
+
+            <h3>Nascimento de Lorraine</h3>
+
+            <p>
+                Lorraine nasce e posteriormente se tornaria conhecida
+                por seu trabalho junto a Ed.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1944</div>
+
+            <h3>Ed e Lorraine se conhecem</h3>
+
+            <p>
+                Os dois se conhecem em Bridgeport e começam um
+                relacionamento.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1945</div>
+
+            <h3>Casamento</h3>
+
+            <p>
+                Ed e Lorraine se casam.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1951</div>
+
+            <h3>Arte e casas assombradas</h3>
+
+            <p>
+                Ed passa a desenvolver sua habilidade artística,
+                produzindo pinturas relacionadas a casas e temas
+                considerados sobrenaturais.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1952</div>
+
+            <h3>Fundação da NESPR</h3>
+
+            <p>
+                Ed e Lorraine fundam a New England Society for Psychic
+                Research, organização dedicada à investigação de
+                alegações paranormais.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1960–1970</div>
+
+            <h3>Expansão das investigações</h3>
+
+            <p>
+                O casal passa a ganhar notoriedade por investigações
+                envolvendo supostas assombrações e objetos considerados
+                possuídos.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1971</div>
+
+            <h3>Família Perron</h3>
+
+            <p>
+                Os Warren investigam a casa da família Perron em
+                Harrisville, Rhode Island.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1975</div>
+
+            <h3>Amityville</h3>
+
+            <p>
+                O casal se envolve na investigação da casa dos Lutz,
+                em Amityville, Nova York.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">1977</div>
+
+            <h3>Enfield</h3>
+
+            <p>
+                Os Warren visitam o caso envolvendo a família Hodgson,
+                em Enfield, Londres.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2006</div>
+
+            <h3>Morte de Ed</h3>
+
+            <p>
+                Ed Warren morre em Connecticut aos 79 anos.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">2019</div>
+
+            <h3>Morte de Lorraine</h3>
+
+            <p>
+                Lorraine Warren morre aos 92 anos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CASOS
+========================================================= -->
 
 <section id="casos">
 
-<h2>Os Casos Mais Conhecidos</h2>
+    <div class="section-title">
 
-<div class="card">
+        <small>Investigações</small>
 
-<h3>1. Annabelle</h3>
+        <h2>Os casos mais famosos</h2>
 
-<p>
+        <p>
+            Alguns dos episódios que transformaram os Warren em
+            figuras conhecidas da cultura paranormal.
+        </p>
 
-Talvez o caso mais famoso dos Warren.
+    </div>
 
-Segundo eles, uma boneca de pano apresentava manifestações sobrenaturais.
 
-A boneca foi colocada em um museu paranormal criado pelo casal.
+    <article class="case">
 
-</p>
+        <div class="case-header">
 
-</div>
+            <span>Caso 01</span>
 
-<div class="card">
+            <h3>Annabelle</h3>
 
-<h3>2. Amityville</h3>
+        </div>
 
-<p>
+        <div class="case-body">
 
-Um dos casos mais polêmicos da história.
+            <p>
+                Annabelle é provavelmente o objeto mais famoso associado
+                aos Warren. Diferentemente da boneca apresentada nos
+                filmes, a Annabelle real é uma boneca Raggedy Ann.
+            </p>
 
-A família Lutz alegou viver diversos acontecimentos paranormais após se mudar para uma residência onde havia ocorrido um crime.
+            <div class="claim">
 
-Os Warren participaram da investigação.
+                <strong>Segundo os Warren:</strong>
 
-Até hoje existem debates sobre a veracidade dos acontecimentos.
+                <p>
+                    A boneca teria apresentado comportamentos
+                    inexplicáveis depois de ser entregue a uma estudante
+                    de enfermagem. Mensagens e acontecimentos estranhos
+                    teriam levado as jovens a procurar ajuda.
+                </p>
 
-</p>
+            </div>
 
-</div>
+            <p>
+                Os Warren concluíram que o objeto não estaria simplesmente
+                relacionado ao espírito de uma menina, mas a uma presença
+                que eles classificaram como inumana.
+            </p>
 
-<div class="card">
+            <p>
+                Ed e Lorraine levaram a boneca para sua coleção e
+                posteriormente a mantiveram em uma caixa de vidro.
+            </p>
 
-<h3>3. Família Perron</h3>
+        </div>
 
-<p>
+    </article>
 
-O casal investigou uma fazenda localizada em Rhode Island.
 
-A família relatava ouvir vozes, passos e presenças invisíveis.
+    <article class="case">
 
-Esse caso inspirou o filme Invocação do Mal.
+        <div class="case-header">
 
-</p>
+            <span>Caso 02</span>
 
-</div>
+            <h3>Família Perron</h3>
 
-<div class="card">
+        </div>
 
-<h3>4. Arne Johnson</h3>
+        <div class="case-body">
 
-<p>
+            <p>
+                A família Perron viveu em uma antiga propriedade em
+                Harrisville, Rhode Island. Os moradores relataram uma
+                série de acontecimentos que interpretaram como
+                sobrenaturais.
+            </p>
 
-Conhecido como o caso do "Demônio me fez fazer isso".
+            <p>
+                Os Warren foram chamados para investigar o local.
+                Lorraine teria identificado diferentes presenças
+                espirituais, enquanto Ed interpretou parte dos
+                acontecimentos dentro de uma estrutura demonológica.
+            </p>
 
-A defesa alegava que Arne estava possuído quando ocorreu um homicídio.
+            <div class="claim">
 
-Foi um dos casos mais famosos ligados aos Warren.
+                <strong>Um dos relatos mais conhecidos:</strong>
 
-</p>
+                <p>
+                    Os Warren associaram a propriedade à história de
+                    Bathsheba Sherman, personagem que posteriormente
+                    se tornou central na narrativa cinematográfica
+                    de <em>Invocação do Mal</em>.
+                </p>
 
-</div>
+            </div>
+
+            <div class="warning">
+
+                <strong>Importante:</strong>
+
+                <p>
+                    A versão cinematográfica apresenta muitos elementos
+                    dramatizados. A história real da propriedade e a
+                    narrativa sobre Bathsheba Sherman são mais complexas
+                    do que o filme sugere.
+                </p>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="case">
+
+        <div class="case-header">
+
+            <span>Caso 03</span>
+
+            <h3>Amityville</h3>
+
+        </div>
+
+        <div class="case-body">
+
+            <p>
+                Amityville é um dos casos paranormais mais famosos do
+                século XX.
+            </p>
+
+            <p>
+                A casa localizada em Long Island havia sido palco do
+                assassinato de seis integrantes da família DeFeo em 1974.
+                No ano seguinte, George e Kathy Lutz se mudaram para
+                a residência.
+            </p>
+
+            <p>
+                A família Lutz afirmou ter experimentado fenômenos
+                assustadores e deixou a casa depois de aproximadamente
+                28 dias.
+            </p>
+
+            <p>
+                Os Warren investigaram o imóvel e defenderam a hipótese
+                de que havia uma presença sobrenatural associada ao local.
+            </p>
+
+            <div class="warning">
+
+                <strong>Controvérsia:</strong>
+
+                <p>
+                    O caso de Amityville foi fortemente questionado.
+                    Investigações posteriores e pessoas relacionadas
+                    ao episódio contestaram diversos aspectos da história.
+                    O caso acabou se tornando um exemplo clássico da
+                    dificuldade de separar acontecimentos documentados,
+                    relatos pessoais, publicidade e narrativa popular.
+                </p>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="case">
+
+        <div class="case-header">
+
+            <span>Caso 04</span>
+
+            <h3>Poltergeist de Enfield</h3>
+
+        </div>
+
+        <div class="case-body">
+
+            <p>
+                Em 1977, acontecimentos estranhos foram relatados na
+                residência da família Hodgson, em Enfield, no norte de
+                Londres.
+            </p>
+
+            <p>
+                Entre os relatos estavam sons, objetos aparentemente
+                movimentados e comportamentos incomuns envolvendo
+                principalmente uma das crianças da família.
+            </p>
+
+            <p>
+                O caso recebeu enorme atenção da imprensa britânica.
+                Ed e Lorraine Warren também se interessaram pelo episódio.
+            </p>
+
+            <div class="warning">
+
+                <strong>A participação dos Warren é controversa:</strong>
+
+                <p>
+                    Pesquisadores que investigaram o caso de Enfield
+                    afirmaram posteriormente que a participação dos
+                    Warren foi muito menor do que a representação
+                    apresentada no cinema.
+                </p>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="case">
+
+        <div class="case-header">
+
+            <span>Caso 05</span>
+
+            <h3>Família Smurl</h3>
+
+        </div>
+
+        <div class="case-body">
+
+            <p>
+                A família Smurl, na Pensilvânia, relatou diversos
+                acontecimentos que interpretou como fenômenos
+                sobrenaturais.
+            </p>
+
+            <p>
+                Os Warren se envolveram no caso e defenderam a hipótese
+                de atividade demoníaca.
+            </p>
+
+            <p>
+                O episódio posteriormente ganhou notoriedade através
+                de livros, reportagens e programas sobre fenômenos
+                paranormais.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <article class="case">
+
+        <div class="case-header">
+
+            <span>Caso 06</span>
+
+            <h3>Arne Cheyenne Johnson</h3>
+
+        </div>
+
+        <div class="case-body">
+
+            <p>
+                O caso de Arne Cheyenne Johnson ficou conhecido
+                mundialmente depois que ele matou Alan Bono em 1981,
+                em Connecticut.
+            </p>
+
+            <p>
+                A história ganhou atenção porque a defesa tentou
+                argumentar que Johnson estaria sob influência
+                demoníaca.
+            </p>
+
+            <p>
+                Ed Warren se envolveu na narrativa relacionada ao caso,
+                defendendo a existência de uma influência sobrenatural.
+            </p>
+
+            <div class="warning">
+
+                <strong>Contexto jurídico:</strong>
+
+                <p>
+                    A chamada "defesa do demônio" ficou famosa na cultura
+                    popular, mas não significa que um tribunal tenha
+                    reconhecido oficialmente uma possessão demoníaca
+                    como fato.
+                </p>
+
+            </div>
+
+        </div>
+
+    </article>
 
 </section>
+
+
+<!-- =========================================================
+     ANNABELLE
+========================================================= -->
 
 <section id="annabelle">
 
-<h2>A Boneca Annabelle</h2>
+    <div class="section-title">
 
-<p>
+        <small>O objeto mais famoso</small>
 
-Ao contrário dos filmes, a verdadeira Annabelle era uma boneca Raggedy Ann.
+        <h2>Annabelle</h2>
 
-Segundo os Warren, ela apresentava comportamentos estranhos como:
+    </div>
 
-</p>
+    <div class="annabelle">
 
-<ul>
+        <div class="doll">🪆</div>
 
-<li>Mudanças de posição.</li>
+        <h3>A verdadeira Annabelle</h3>
 
-<li>Bilhetes escritos misteriosamente.</li>
+        <p>
+            A Annabelle real não é a boneca de porcelana mostrada nos
+            filmes. Trata-se de uma boneca Raggedy Ann.
+        </p>
 
-<li>Movimentos sem explicação.</li>
+        <p>
+            Segundo a narrativa dos Warren, duas jovens que viviam
+            juntas começaram a perceber acontecimentos incomuns
+            envolvendo a boneca.
+        </p>
 
-<li>Supostas manifestações demoníacas.</li>
+        <p>
+            Depois de consultar uma médium, elas receberam a informação
+            de que a boneca estaria associada ao espírito de uma criança
+            chamada Annabelle Higgins.
+        </p>
 
-</ul>
+        <p>
+            Os Warren, entretanto, afirmaram que o fenômeno não era
+            simplesmente a presença de uma criança falecida. Para eles,
+            tratava-se de uma entidade inumana que estaria utilizando
+            a boneca como instrumento.
+        </p>
 
-<blockquote>
+        <p>
+            A boneca acabou incorporada à coleção dos Warren e ficou
+            associada ao seu famoso museu de objetos considerados
+            assombrados.
+        </p>
 
-"A boneca não estaria possuída. Segundo os Warren, um espírito maligno estaria utilizando o objeto."
-
-</blockquote>
+    </div>
 
 </section>
+
+
+<!-- =========================================================
+     AMITYVILLE
+========================================================= -->
 
 <section id="amityville">
 
-<h2>O Caso Amityville</h2>
+    <div class="section-title">
 
-<p>
+        <small>Long Island</small>
 
-Em 1974 ocorreu um assassinato envolvendo a família DeFeo.
+        <h2>O caso Amityville</h2>
 
-Pouco tempo depois, outra família comprou a casa.
+    </div>
 
-Os novos moradores alegaram diversos acontecimentos paranormais.
+    <p class="lead">
+        Poucos casos contribuíram tanto para a fama dos Warren quanto
+        a história da casa de Amityville.
+    </p>
 
-Entre eles:
+    <p>
+        Em novembro de 1974, Ronald DeFeo Jr. matou seis membros de sua
+        família na residência localizada em Amityville, Nova York.
+    </p>
 
-</p>
+    <p>
+        Aproximadamente um ano depois, George e Kathy Lutz compraram
+        a propriedade e se mudaram para o local com os filhos.
+    </p>
 
-<ul>
+    <p>
+        Os Lutz posteriormente afirmaram que a residência apresentava
+        fenômenos assustadores. Eles deixaram a casa depois de apenas
+        28 dias.
+    </p>
 
-<li>Portas abrindo sozinhas.</li>
+    <p>
+        A história ganhou enorme repercussão e foi transformada em
+        livro e posteriormente em filmes.
+    </p>
 
-<li>Cheiros estranhos.</li>
+    <div class="compare">
 
-<li>Barulhos durante a madrugada.</li>
+        <div class="claim-side">
 
-<li>Aparições misteriosas.</li>
+            <h3>Versão dos Warren</h3>
 
-<li>Mudanças repentinas de temperatura.</li>
+            <p>
+                Os Warren acreditavam que os acontecimentos relatados
+                pelos Lutz eram evidência de uma presença sobrenatural
+                ou demoníaca associada à residência.
+            </p>
 
-</ul>
+        </div>
 
-<p>
+        <div class="critical-side">
 
-O caso virou livros, documentários e filmes.
+            <h3>Questionamentos</h3>
 
-Até hoje divide opiniões entre céticos e defensores do sobrenatural.
+            <p>
+                O caso foi contestado por pesquisadores e críticos,
+                que apontaram inconsistências e possíveis razões para
+                considerar a história exagerada ou fabricada.
+            </p>
 
-</p>
+        </div>
+
+    </div>
 
 </section>
 
-<section id="filmes">
 
-<h2>Filmes Inspirados nos Warren</h2>
+<!-- =========================================================
+     ENFIELD
+========================================================= -->
 
-<table>
+<section id="enfield">
 
-<tr>
+    <div class="section-title">
 
-<th>Filme</th>
+        <small>Londres</small>
 
-<th>Lançamento</th>
+        <h2>O poltergeist de Enfield</h2>
 
-<th>Tema</th>
+    </div>
 
-</tr>
+    <p>
+        O caso de Enfield começou em 1977, quando a família Hodgson,
+        residente em uma casa no norte de Londres, relatou acontecimentos
+        inexplicáveis.
+    </p>
 
-<tr>
+    <p>
+        O episódio chamou a atenção de pesquisadores, jornalistas
+        e investigadores paranormais.
+    </p>
 
-<td>Invocação do Mal</td>
+    <p>
+        Um dos investigadores mais associados ao caso foi Maurice Grosse,
+        acompanhado posteriormente por Guy Lyon Playfair.
+    </p>
 
-<td>2013</td>
+    <p>
+        Os Warren também apareceram na história, mas sua importância
+        foi posteriormente muito ampliada pela representação popular
+        e especialmente pelo filme <em>Invocação do Mal 2</em>.
+    </p>
 
-<td>Família Perron</td>
+    <div class="warning">
 
-</tr>
+        <strong>Filme x realidade</strong>
 
-<tr>
+        <p>
+            No cinema, Ed e Lorraine são apresentados como figuras
+            centrais da investigação. Na história documentada do caso,
+            porém, sua participação foi muito mais limitada.
+        </p>
 
-<td>Invocação do Mal 2</td>
-
-<td>2016</td>
-
-<td>Caso Enfield</td>
-
-</tr>
-
-<tr>
-
-<td>Invocação do Mal 3</td>
-
-<td>2021</td>
-
-<td>Arne Johnson</td>
-
-</tr>
-
-<tr>
-
-<td>Annabelle</td>
-
-<td>2014</td>
-
-<td>Boneca</td>
-
-</tr>
-
-<tr>
-
-<td>Annabelle 2</td>
-
-<td>2017</td>
-
-<td>Origem</td>
-
-</tr>
-
-<tr>
-
-<td>Annabelle 3</td>
-
-<td>2019</td>
-
-<td>Museu dos Warren</td>
-
-</tr>
-
-<tr>
-
-<td>A Freira</td>
-
-<td>2018</td>
-
-<td>Valak</td>
-
-</tr>
-
-<tr>
-
-<td>A Freira 2</td>
-
-<td>2023</td>
-
-<td>Continuação</td>
-
-</tr>
-
-</table>
+    </div>
 
 </section>
+
+
+<!-- =========================================================
+     PERRON
+========================================================= -->
+
+<section id="perron">
+
+    <div class="section-title">
+
+        <small>Rhode Island</small>
+
+        <h2>A família Perron</h2>
+
+    </div>
+
+    <p>
+        A família Perron mudou-se para uma antiga fazenda em Harrisville,
+        Rhode Island, em 1971.
+    </p>
+
+    <p>
+        Os integrantes da família relataram acontecimentos estranhos
+        durante os anos em que viveram na propriedade.
+    </p>
+
+    <p>
+        Os Warren foram chamados e interpretaram alguns acontecimentos
+        como manifestações de espíritos e forças demoníacas.
+    </p>
+
+    <p>
+        A história serviu de inspiração para o filme
+        <em>Invocação do Mal</em>, lançado em 2013.
+    </p>
+
+    <div class="warning">
+
+        <strong>Sobre Bathsheba Sherman</strong>
+
+        <p>
+            A personagem de Bathsheba Sherman apresentada no filme
+            foi transformada em uma figura essencialmente sobrenatural.
+            A documentação histórica sobre a mulher real não sustenta
+            necessariamente todas as acusações apresentadas na narrativa
+            cinematográfica.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     OUTROS CASOS
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Outros episódios</small>
+
+        <h2>Outras investigações associadas aos Warren</h2>
+
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <h3>Família Snedeker</h3>
+
+            <p>
+                Caso que ficou conhecido através do livro
+                <em>The Haunting in Connecticut</em> e posteriormente
+                inspirou uma adaptação cinematográfica.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Família Perron</h3>
+
+            <p>
+                Um dos casos que mais contribuiu para a criação da
+                mitologia moderna envolvendo os Warren.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Smurl</h3>
+
+            <p>
+                Uma família da Pensilvânia que afirmou ter sofrido
+                uma série de acontecimentos paranormais.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Amityville</h3>
+
+            <p>
+                Um dos casos paranormais mais famosos e controversos
+                da história contemporânea.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Enfield</h3>
+
+            <p>
+                Caso britânico envolvendo a família Hodgson e relatos
+                de atividade poltergeist.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Objetos supostamente assombrados</h3>
+
+            <p>
+                Ao longo das décadas, os Warren reuniram diversos objetos
+                que acreditavam estar relacionados a fenômenos paranormais.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MUSEU
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Objetos</small>
+
+        <h2>O Occult Museum</h2>
+
+    </div>
+
+    <p>
+        Uma parte importante do legado dos Warren foi sua coleção de
+        objetos considerados por eles como ligados a fenômenos
+        sobrenaturais.
+    </p>
+
+    <p>
+        A coleção ficou conhecida como Warren's Occult Museum e incluía
+        objetos relacionados a vários casos investigados pelo casal.
+    </p>
+
+    <p>
+        Entre os itens mais famosos estava a boneca Annabelle.
+    </p>
+
+    <p>
+        O museu que funcionava em Monroe, Connecticut, deixou de receber
+        o público de forma regular. A coleção, entretanto, continuou
+        sendo associada ao legado dos Warren.
+    </p>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <div class="icon">🪆</div>
+
+            <h3>Annabelle</h3>
+
+            <p>
+                A famosa boneca Raggedy Ann associada às investigações.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">✦</div>
+
+            <h3>Objetos religiosos</h3>
+
+            <p>
+                Cruzes, artefatos religiosos e itens relacionados
+                às crenças dos investigadores.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">☽</div>
+
+            <h3>Artefatos paranormais</h3>
+
+            <p>
+                Diversos objetos que, segundo os Warren, apresentavam
+                histórias de atividade sobrenatural.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     METODOLOGIA
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Como trabalhavam</small>
+
+        <h2>A abordagem dos Warren</h2>
+
+    </div>
+
+    <p>
+        Os Warren não se apresentavam simplesmente como "caçadores de
+        fantasmas". A estrutura de interpretação deles era fortemente
+        influenciada pelo cristianismo e pela demonologia.
+    </p>
+
+    <p>
+        Ed se concentrava especialmente na classificação de fenômenos
+        que considerava demoníacos.
+    </p>
+
+    <p>
+        Lorraine, por sua vez, afirmava utilizar habilidades de percepção
+        espiritual para identificar presenças e interpretar ambientes.
+    </p>
+
+    <div class="grid-2">
+
+        <article class="card">
+
+            <h3>1. Relato inicial</h3>
+
+            <p>
+                A família ou pessoa afetada descrevia os acontecimentos
+                que considerava inexplicáveis.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>2. Investigação</h3>
+
+            <p>
+                Os Warren visitavam a residência ou local para avaliar
+                os acontecimentos relatados.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>3. Interpretação</h3>
+
+            <p>
+                Os fenômenos eram interpretados dentro de uma estrutura
+                paranormal, espiritual ou demonológica.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>4. Apoio religioso</h3>
+
+            <p>
+                Em determinados casos, os Warren procuravam envolver
+                autoridades religiosas ou sacerdotes.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CINEMA
+========================================================= -->
+
+<section id="cinema">
+
+    <div class="section-title">
+
+        <small>Cultura pop</small>
+
+        <h2>Ed e Lorraine no cinema</h2>
+
+        <p>
+            A imagem dos Warren foi profundamente transformada por
+            Hollywood.
+        </p>
+
+    </div>
+
+    <div class="grid-2">
+
+        <article class="movie">
+
+            <div class="movie-year">2013</div>
+
+            <h3>Invocação do Mal</h3>
+
+            <p>
+                Apresenta os Warren investigando a casa da família
+                Perron em Rhode Island.
+            </p>
+
+        </article>
+
+
+        <article class="movie">
+
+            <div class="movie-year">2016</div>
+
+            <h3>Invocação do Mal 2</h3>
+
+            <p>
+                Coloca os Warren no centro de uma versão dramatizada
+                do caso de Enfield.
+            </p>
+
+        </article>
+
+
+        <article class="movie">
+
+            <div class="movie-year">2019</div>
+
+            <h3>Annabelle Comes Home</h3>
+
+            <p>
+                Explora a coleção de objetos sobrenaturais associada
+                aos Warren e à boneca Annabelle.
+            </p>
+
+        </article>
+
+
+        <article class="movie">
+
+            <div class="movie-year">2021</div>
+
+            <h3>Invocação do Mal 3</h3>
+
+            <p>
+                Baseia-se livremente no caso de Arne Cheyenne Johnson.
+            </p>
+
+        </article>
+
+
+        <article class="movie">
+
+            <div class="movie-year">2023</div>
+
+            <h3>A Freira 2</h3>
+
+            <p>
+                Expande o universo ficcional derivado da franquia
+                iniciada por Invocação do Mal.
+            </p>
+
+        </article>
+
+
+        <article class="movie">
+
+            <div class="movie-year">2025</div>
+
+            <h3>Invocação do Mal 4: O Último Ritual</h3>
+
+            <p>
+                Continuação da franquia cinematográfica que transformou
+                Ed e Lorraine em ícones modernos do horror.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REALIDADE VS CINEMA
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Importante</small>
+
+        <h2>O que é realidade e o que é cinema?</h2>
+
+    </div>
+
+    <p>
+        Um dos maiores erros ao estudar os Warren é tratar todos os
+        acontecimentos mostrados nos filmes como documentação histórica.
+    </p>
+
+    <p>
+        Os filmes da franquia <em>Invocação do Mal</em> são obras de
+        entretenimento. Eles utilizam casos reais como inspiração,
+        mas alteram personagens, cronologia, eventos, diálogos e
+        acontecimentos para construir narrativas de terror.
+    </p>
+
+    <div class="compare">
+
+        <div class="claim-side">
+
+            <h3>O que os Warren afirmavam</h3>
+
+            <ul>
+                <li>Existência de espíritos.</li>
+                <li>Existência de entidades demoníacas.</li>
+                <li>Possessão espiritual.</li>
+                <li>Objetos capazes de servir como foco paranormal.</li>
+                <li>Fenômenos sobrenaturais em residências.</li>
+            </ul>
+
+        </div>
+
+        <div class="critical-side">
+
+            <h3>O que críticos apontaram</h3>
+
+            <ul>
+                <li>Falta de evidências científicas conclusivas.</li>
+                <li>Relatos contraditórios.</li>
+                <li>Possíveis exageros.</li>
+                <li>Influência da imprensa e do entretenimento.</li>
+                <li>Possibilidade de explicações psicológicas ou naturais.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTROVÉRSIAS
+========================================================= -->
+
+<section id="controversias">
+
+    <div class="section-title">
+
+        <small>Debate</small>
+
+        <h2>Controvérsias e críticas</h2>
+
+        <p>
+            A história dos Warren não pode ser analisada apenas pelo
+            ponto de vista dos admiradores.
+        </p>
+
+    </div>
+
+    <p>
+        Ao longo das décadas, diversos investigadores céticos
+        questionaram as conclusões apresentadas pelos Warren.
+    </p>
+
+    <p>
+        Críticos argumentaram que algumas evidências apresentadas
+        como paranormais poderiam possuir explicações naturais,
+        psicológicas ou relacionadas ao comportamento humano.
+    </p>
+
+    <p>
+        Alguns casos famosos também tiveram suas narrativas questionadas
+        por participantes, jornalistas ou investigadores independentes.
+    </p>
+
+    <div class="warning">
+
+        <strong>Uma distinção importante:</strong>
+
+        <p>
+            Dizer que um caso foi contestado não significa automaticamente
+            que todos os acontecimentos relatados sejam falsos.
+            Significa que as conclusões sobrenaturais não possuem,
+            necessariamente, consenso ou comprovação científica.
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <h3>Ausência de consenso científico</h3>
+
+            <p>
+                As alegações de fantasmas e demônios defendidas pelos
+                Warren não são aceitas como fatos estabelecidos pela
+                ciência convencional.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Testemunhos</h3>
+
+            <p>
+                Grande parte dos casos depende de relatos de pessoas
+                que vivenciaram ou afirmaram ter vivenciado os fenômenos.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Influência da mídia</h3>
+
+            <p>
+                Livros, televisão e cinema ajudaram a transformar
+                determinadas histórias em lendas modernas.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LEGADO
+========================================================= -->
 
 <section id="legado">
 
-<h2>O Legado dos Warren</h2>
+    <div class="section-title">
 
-<div class="card">
+        <small>Influência</small>
 
-<p>
+        <h2>O legado dos Warren</h2>
 
-Independentemente das controvérsias envolvendo seus casos, Ed e Lorraine Warren se tornaram ícones da cultura popular.
+    </div>
 
-Sua influência pode ser vista em:
+    <p class="lead">
+        Independentemente da interpretação dos fenômenos que investigaram,
+        Ed e Lorraine Warren tiveram um impacto enorme na cultura popular.
+    </p>
 
-</p>
+    <p>
+        Eles ajudaram a popularizar a ideia do investigador paranormal
+        como personagem especializado em casas assombradas,
+        possessões e objetos supostamente amaldiçoados.
+    </p>
 
-<ul>
+    <p>
+        O cinema ampliou esse legado. A franquia <em>Invocação do Mal</em>
+        transformou o casal em personagens conhecidos mundialmente,
+        especialmente através das interpretações de Patrick Wilson
+        como Ed Warren e Vera Farmiga como Lorraine Warren.
+    </p>
 
-<li>Filmes de terror.</li>
+    <p>
+        A NESPR também continuou a divulgar e investigar relatos de
+        fenômenos paranormais depois da morte do casal.
+    </p>
 
-<li>Séries.</li>
+    <div class="grid">
 
-<li>Livros.</li>
+        <article class="card">
 
-<li>Documentários.</li>
+            <div class="icon">🎬</div>
 
-<li>Podcasts.</li>
+            <h3>Hollywood</h3>
 
-<li>Jogos.</li>
+            <p>
+                Os Warren se tornaram personagens centrais de uma das
+                maiores franquias modernas de horror.
+            </p>
 
-<li>Investigações paranormais modernas.</li>
+        </article>
 
-</ul>
 
-</div>
+        <article class="card">
 
-<h3>Críticas</h3>
+            <div class="icon">📚</div>
 
-<p>
+            <h3>Livros</h3>
 
-Muitos pesquisadores e céticos questionaram diversos relatos apresentados pelos Warren, apontando falta de evidências verificáveis para vários casos. Ao mesmo tempo, seus apoiadores afirmam que eles ajudaram famílias que acreditavam enfrentar fenômenos inexplicáveis. Por isso, suas investigações permanecem tema de debate.
+            <p>
+                Seus casos foram apresentados em livros, relatos,
+                entrevistas e publicações sobre paranormalidade.
+            </p>
 
-</p>
+        </article>
 
-<h3>Curiosidades</h3>
 
-<ul>
+        <article class="card">
 
-<li>Mais de 10.000 investigações alegadamente realizadas.</li>
+            <div class="icon">🔎</div>
 
-<li>Museu com objetos considerados amaldiçoados.</li>
+            <h3>Paranormalidade</h3>
 
-<li>Diversos livros publicados.</li>
+            <p>
+                O trabalho do casal influenciou a maneira como o público
+                imagina investigadores paranormais.
+            </p>
 
-<li>Universo cinematográfico de enorme sucesso.</li>
+        </article>
 
-<li>Reconhecidos mundialmente no gênero do terror.</li>
-
-</ul>
+    </div>
 
 </section>
 
+
+<!-- =========================================================
+     FAMÍLIA E CONTINUIDADE
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Depois dos Warren</small>
+
+        <h2>Judy e Tony Spera</h2>
+
+    </div>
+
+    <p>
+        A filha de Ed e Lorraine, Judy Warren, permaneceu ligada ao
+        legado da família.
+    </p>
+
+    <p>
+        Tony Spera, marido de Judy, trabalhou com os Warren durante
+        décadas e posteriormente assumiu funções relacionadas à
+        continuidade da NESPR e à coleção dos Warren.
+    </p>
+
+    <p>
+        A organização fundada pelo casal continuou a apresentar
+        investigações, eventos e conteúdos relacionados à
+        paranormalidade.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     CRÍTICA HISTÓRICA
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Como estudar os Warren</small>
+
+        <h2>Uma perspectiva equilibrada</h2>
+
+    </div>
+
+    <p>
+        Estudar Ed e Lorraine Warren exige separar pelo menos três
+        camadas diferentes:
+    </p>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <h3>1. O acontecimento</h3>
+
+            <p>
+                O que testemunhas afirmaram ter acontecido em determinado
+                local ou situação.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>2. A interpretação</h3>
+
+            <p>
+                A explicação dada pelos Warren, pelas famílias,
+                pela imprensa ou por outros investigadores.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>3. A dramatização</h3>
+
+            <p>
+                A versão apresentada em livros, documentários,
+                programas de televisão e filmes.
+            </p>
+
+        </article>
+
+    </div>
+
+    <p style="margin-top:30px;">
+        Essa distinção é especialmente importante quando se analisa
+        a franquia cinematográfica, pois acontecimentos reais serviram
+        apenas como ponto de partida para narrativas de ficção.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     CURIOSIDADES
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Curiosidades</small>
+
+        <h2>Fatos interessantes</h2>
+
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
+
+            <h3>Ed era pintor</h3>
+
+            <p>
+                Antes de se tornar conhecido pelo paranormal, Ed
+                trabalhou como pintor e desenvolveu interesse artístico
+                por casas antigas e consideradas assustadoras.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Os dois tinham funções diferentes</h3>
+
+            <p>
+                A própria NESPR descreve Ed como demonologista e Lorraine
+                como médium em transe.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>NESPR foi fundada em 1952</h3>
+
+            <p>
+                A organização criada pelo casal tornou-se parte central
+                de seu legado.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Annabelle real é diferente</h3>
+
+            <p>
+                A boneca verdadeira é uma Raggedy Ann, muito diferente
+                da boneca demoníaca apresentada nos filmes.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Amityville virou fenômeno cultural</h3>
+
+            <p>
+                O caso passou de um relato local para livros, filmes,
+                documentários e inúmeras discussões sobre paranormalidade.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>Enfield foi dramatizado</h3>
+
+            <p>
+                A participação dos Warren no caso real foi muito menor
+                do que aquela mostrada em <em>Invocação do Mal 2</em>.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section id="faq">
+
+    <div class="section-title">
+
+        <small>Perguntas frequentes</small>
+
+        <h2>FAQ sobre Ed e Lorraine Warren</h2>
+
+    </div>
+
+
+    <details>
+
+        <summary>Ed e Lorraine Warren realmente existiram?</summary>
+
+        <p>
+            Sim. Eles foram pessoas reais e ficaram conhecidos por
+            investigações paranormais realizadas principalmente
+            nos Estados Unidos.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Ed Warren era padre?</summary>
+
+        <p>
+            Não. Ed Warren não era sacerdote católico. Ele se
+            apresentava como demonologista leigo.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Lorraine Warren era médium?</summary>
+
+        <p>
+            Lorraine afirmava possuir habilidades mediúnicas e
+            clarividência. Essa é uma alegação relacionada à sua
+            própria prática e não uma habilidade comprovada
+            cientificamente.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Annabelle é uma boneca real?</summary>
+
+        <p>
+            Existe uma boneca real associada ao caso dos Warren.
+            Ela é uma Raggedy Ann, e não a boneca de porcelana
+            apresentada nos filmes.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Amityville foi comprovadamente assombrada?</summary>
+
+        <p>
+            Não existe consenso científico que estabeleça que a casa
+            tenha sido assombrada. O caso foi fortemente contestado
+            e continua sendo objeto de debate.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>O caso de Enfield aconteceu exatamente como no filme?</summary>
+
+        <p>
+            Não. O filme dramatiza significativamente os acontecimentos
+            e aumenta o papel de Ed e Lorraine Warren.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>A família Perron realmente existiu?</summary>
+
+        <p>
+            Sim. A família existiu e viveu na propriedade de Rhode Island
+            que posteriormente inspirou <em>Invocação do Mal</em>.
+            Entretanto, diversos elementos do filme foram dramatizados.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Os Warren provaram cientificamente a existência de demônios?</summary>
+
+        <p>
+            Não. Os Warren apresentaram relatos, testemunhos, objetos
+            e interpretações que consideravam evidências paranormais,
+            mas isso não constitui comprovação científica da existência
+            de demônios.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Os filmes são histórias verdadeiras?</summary>
+
+        <p>
+            Eles são inspirados em casos que foram apresentados como
+            reais, mas são filmes de terror e utilizam liberdade
+            artística, dramatização e ficção.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>Quem interpreta Ed e Lorraine nos filmes?</summary>
+
+        <p>
+            Patrick Wilson interpreta Ed Warren e Vera Farmiga interpreta
+            Lorraine Warren na principal série cinematográfica
+            associada a eles.
+        </p>
+
+    </details>
+
+</section>
+
+
+<!-- =========================================================
+     CONCLUSÃO
+========================================================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>Conclusão</small>
+
+        <h2>Por que os Warren continuam famosos?</h2>
+
+    </div>
+
+    <p class="lead">
+        Ed e Lorraine Warren representam uma combinação rara de
+        investigação paranormal, religião, cultura popular, mídia
+        e entretenimento.
+    </p>
+
+    <p>
+        Para seus admiradores, eles foram investigadores que tentaram
+        ajudar famílias que acreditavam estar enfrentando fenômenos
+        inexplicáveis.
+    </p>
+
+    <p>
+        Para seus críticos, algumas de suas interpretações foram
+        exageradas ou não apresentaram evidências suficientes para
+        sustentar conclusões sobrenaturais.
+    </p>
+
+    <p>
+        Independentemente da interpretação, o impacto cultural é
+        inegável. Seus nomes estão ligados a alguns dos casos
+        paranormais mais conhecidos do século XX e inspiraram uma
+        das franquias de terror mais populares do cinema moderno.
+    </p>
+
+    <p>
+        A melhor maneira de estudar sua história é manter uma distinção
+        clara entre fatos históricos documentados, testemunhos,
+        interpretações paranormais e dramatizações cinematográficas.
+    </p>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-<h2>Ed & Lorraine Warren</h2>
+    <h2>Ed & Lorraine Warren</h2>
 
-<p>
+    <p>
+        Página informativa criada para apresentar a trajetória,
+        os principais casos e o impacto cultural do casal Warren.
+    </p>
 
-Um dos casais mais famosos da história das investigações paranormais. Seus relatos inspiraram livros, filmes e debates que continuam até hoje, embora muitos dos casos permaneçam controversos e sem comprovação científica conclusiva.
+    <div class="footer-links">
 
-</p>
+        <a href="#inicio">Início</a>
+        <a href="#biografias">Biografias</a>
+        <a href="#casos">Casos</a>
+        <a href="#controversias">Controvérsias</a>
+        <a href="#legado">Legado</a>
 
-<br>
+    </div>
 
-<p>Desenvolvido em HTML e CSS.</p>
+    <p style="margin-top:30px; font-size:.8rem;">
+        Conteúdo informativo. Alegações de fenômenos sobrenaturais
+        devem ser distinguidas de fatos cientificamente comprovados.
+    </p>
 
 </footer>
+
 
 </body>
 </html>
 ```
 
-Esse arquivo possui um visual moderno, menu de navegação, seções detalhadas, tabela, cartões de conteúdo e CSS integrado, totalizando mais de 300 linhas de código.
-
-
-<!-- ================= MUSEU ================= -->
-
-<section id="museu">
-
-<h2>O Museu dos Warren</h2>
-
-<div class="card">
-
-<p>
-
-Durante muitos anos, Ed e Lorraine Warren mantiveram um museu particular localizado em Monroe, Connecticut.
-
-O local armazenava centenas de objetos que, segundo o casal, estavam ligados a eventos paranormais.
-
-Cada item era catalogado e mantido sob cuidados especiais.
-
-Lorraine afirmava que diversos objetos possuíam uma energia negativa e, por isso, deveriam permanecer isolados.
-
-</p>
-
-<p>
-
-Entre os objetos mais conhecidos estavam:
-
-</p>
-
-<ul>
-
-<li>A boneca Annabelle.</li>
-<li>Brinquedos considerados amaldiçoados.</li>
-<li>Crucifixos.</li>
-<li>Máscaras rituais.</li>
-<li>Objetos religiosos.</li>
-<li>Espelhos antigos.</li>
-<li>Caixas de madeira.</li>
-<li>Livros de ocultismo.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<!-- ================= CASO ENFIELD ================= -->
-
-<section id="enfield">
-
-<h2>O Caso Enfield</h2>
-
-<div class="card">
-
-<p>
-
-Entre 1977 e 1979 ocorreu um dos episódios paranormais mais famosos da Inglaterra.
-
-A família Hodgson relatava diversos acontecimentos estranhos em sua residência.
-
-Os fenômenos incluíam:
-
-</p>
-
-<ul>
-
-<li>Batidas nas paredes.</li>
-<li>Móveis se movendo.</li>
-<li>Objetos voando.</li>
-<li>Vozes misteriosas.</li>
-<li>Supostas possessões.</li>
-
-</ul>
-
-<p>
-
-Embora investigadores britânicos tenham conduzido a maior parte da investigação, Ed e Lorraine Warren afirmaram ter visitado o local.
-
-O caso inspirou o filme "Invocação do Mal 2".
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= LIVROS ================= -->
-
-<section id="livros">
-
-<h2>Livros Publicados</h2>
-
-<div class="card">
-
-<table>
-
-<tr>
-<th>Livro</th>
-<th>Ano</th>
-<th>Tema</th>
-</tr>
-
-<tr>
-<td>The Demonologist</td>
-<td>1980</td>
-<td>Casos sobrenaturais</td>
-</tr>
-
-<tr>
-<td>Graveyard</td>
-<td>1988</td>
-<td>Investigações paranormais</td>
-</tr>
-
-<tr>
-<td>Ghost Hunters</td>
-<td>1989</td>
-<td>Relatos de fantasmas</td>
-</tr>
-
-<tr>
-<td>Werewolf</td>
-<td>1991</td>
-<td>Suposta possessão</td>
-</tr>
-
-</table>
-
-</div>
-
-</section>
-
-<!-- ================= CRONOLOGIA ================= -->
-
-<section id="cronologia">
-
-<h2>Cronologia</h2>
-
-<div class="card">
-
-<h3>1926</h3>
-<p>Nascimento de Ed Warren.</p>
-
-<h3>1927</h3>
-<p>Nascimento de Lorraine Warren.</p>
-
-<h3>1952</h3>
-<p>Fundação da New England Society for Psychic Research.</p>
-
-<h3>1971</h3>
-<p>Caso Annabelle.</p>
-
-<h3>1974</h3>
-<p>Caso Amityville.</p>
-
-<h3>1977</h3>
-<p>Caso Enfield.</p>
-
-<h3>1981</h3>
-<p>Caso Arne Johnson.</p>
-
-<h3>2006</h3>
-<p>Falecimento de Ed Warren.</p>
-
-<h3>2013</h3>
-<p>Lançamento do filme "Invocação do Mal".</p>
-
-<h3>2019</h3>
-<p>Falecimento de Lorraine Warren.</p>
-
-</div>
-
-</section>
-
-<!-- ================= CURIOSIDADES ================= -->
-
-<section id="curiosidades">
-
-<h2>Curiosidades</h2>
-
-<div class="card">
-
-<p>
-
-Algumas curiosidades sobre os Warren:
-
-</p>
-
-<ul>
-
-<li>Mais de 10 mil casos investigados segundo o casal.</li>
-
-<li>Centenas de entrevistas para televisão.</li>
-
-<li>Participações em documentários internacionais.</li>
-
-<li>Inspiração para dezenas de filmes.</li>
-
-<li>Objetos do museu ficaram famosos mundialmente.</li>
-
-<li>Diversos pesquisadores continuam estudando seus casos.</li>
-
-<li>Seu trabalho influenciou gerações de investigadores paranormais.</li>
-
-<li>O universo "Invocação do Mal" tornou-se uma das franquias de terror de maior sucesso da história do cinema.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<!-- ================= POLÊMICAS ================= -->
-
-<section id="controversias">
-
-<h2>Controvérsias</h2>
-
-<div class="card">
-
-<p>
-
-Os casos dos Warren sempre dividiram opiniões.
-
-Pesquisadores céticos argumentam que muitos relatos não possuem comprovação científica suficiente e podem ter explicações naturais, psicológicas ou sociológicas.
-
-Por outro lado, apoiadores do casal acreditam que eles ajudaram diversas famílias que enfrentavam situações que consideravam inexplicáveis.
-
-Independentemente da posição adotada, Ed e Lorraine Warren permanecem figuras marcantes da cultura popular e da história do gênero de terror.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= FRASES ================= -->
-
-<section id="frases">
-
-<h2>Frases Marcantes</h2>
-
-<div class="card">
-
-<blockquote>
-
-"Existem pessoas que acreditam no sobrenatural e pessoas que já tiveram uma experiência."
-
-</blockquote>
-
-<blockquote>
-
-"Nem tudo pode ser explicado pela ciência."
-
-</blockquote>
-
-<blockquote>
-
-"O medo pode ser tão poderoso quanto aquilo que o provoca."
-
-</blockquote>
-
-</div>
-
-</section>
-
-<!-- ================= CONCLUSÃO ================= -->
-
-<section id="conclusao">
-
-<h2>conclusao</h2>
-
-<div class="card">
-
-<p>
-
-Mais de meio século após iniciarem suas investigações, Ed e Lorraine Warren continuam sendo lembrados como alguns dos mais conhecidos investigadores do paranormal. Seus relatos inspiraram livros, documentários, filmes e séries, mantendo vivo o interesse por histórias de assombrações, possessões e fenômenos considerados inexplicáveis. Embora muitas de suas alegações sejam contestadas e não tenham comprovação científica, sua influência na cultura do terror permanece significativa.
-
-</p>
-
-</div>
-
-</section>
+### Fontes principais para aprofundar
+
+* [New England Society for Psychic Research — site oficial](https://warrens.net/?utm_source=chatgpt.com) — apresenta a história da NESPR e a versão institucional sobre Ed e Lorraine. ([Nespr Brasil][2])
+* A biografia de Ed registra seu nascimento em 1926, serviço na Marinha, carreira como investigador e sua associação com Lorraine. ([imdb.com][3])
+* As principais controvérsias envolvendo Amityville e Enfield são documentadas em referências que também registram as críticas às versões apresentadas pelos Warren. ([Wikipedia][4])
+
+[1]: https://warrens.net/about/?utm_source=chatgpt.com "About - NESPR"
+[2]: https://warrens.net/?utm_source=chatgpt.com "NESPR - Founded by Ed and Lorraine Warren"
+[3]: https://www.imdb.com/name/nm0912814/bio/?utm_source=chatgpt.com "Ed Warren - Biography - IMDb"
+[4]: https://en.wikipedia.org/wiki/Ed_and_Lorraine_Warren?utm_source=chatgpt.com "Ed and Lorraine Warren"
