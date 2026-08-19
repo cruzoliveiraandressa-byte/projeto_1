@@ -1,1343 +1,367 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Página especial sobre Ed e Lorraine Warren, suas vidas, investigações paranormais, casos famosos e legado.">
-  <title>Ed & Lorraine Warren — Além do Desconhecido</title>
-
-  <style>
-    :root {
-      --bg: #070709;
-      --bg-soft: #101014;
-      --card: #15151b;
-      --card-2: #1b1b22;
-      --text: #eeeae2;
-      --muted: #aaa6a0;
-      --red: #9d1d27;
-      --red-light: #d34a55;
-      --gold: #c7a96b;
-      --border: rgba(255,255,255,.09);
-      --shadow: 0 20px 60px rgba(0,0,0,.5);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background:
-        radial-gradient(circle at 50% 0%, rgba(120,0,10,.16), transparent 35%),
-        linear-gradient(180deg, #050507 0%, #0a0a0d 50%, #050507 100%);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .035;
-      background-image:
-        repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 4px);
-      z-index: 999;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(4,4,6,.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      font-size: 1.35rem;
-      font-weight: bold;
-      letter-spacing: 3px;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: #eee;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    nav a {
-      font-size: .86rem;
-      color: #ccc;
-      transition: .3s;
-    }
-
-    nav a:hover {
-      color: var(--red-light);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 120px 20px 80px;
-      background:
-        linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.86)),
-        radial-gradient(circle at center, rgba(130,20,25,.22), transparent 45%);
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(1px);
-      pointer-events: none;
-    }
-
-    .hero::before {
-      width: 500px;
-      height: 500px;
-      background: rgba(100,0,10,.08);
-      box-shadow: 0 0 150px rgba(130,0,10,.15);
-    }
-
-    .hero-content {
-      max-width: 850px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      color: var(--red-light);
-      text-transform: uppercase;
-      letter-spacing: 7px;
-      font-size: .8rem;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.2rem, 9vw, 7.5rem);
-      line-height: .95;
-      letter-spacing: -3px;
-      margin-bottom: 28px;
-      text-shadow: 0 10px 40px rgba(0,0,0,.9);
-    }
-
-    .hero h1 span {
-      display: block;
-      color: var(--gold);
-      font-size: .35em;
-      letter-spacing: 10px;
-      margin: 25px 0;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #c3bfba;
-      font-size: 1.15rem;
-    }
-
-    .hero-button {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 14px 30px;
-      border: 1px solid var(--red);
-      background: rgba(120,0,10,.15);
-      color: #eee;
-      transition: .3s;
-    }
-
-    .hero-button:hover {
-      background: var(--red);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(150,0,15,.3);
-    }
-
-    /* =========================
-       SECTIONS
-    ========================= */
-
-    section {
-      padding: 100px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .section-title small {
-      color: var(--red-light);
-      letter-spacing: 5px;
-      text-transform: uppercase;
-    }
-
-    .section-title h2 {
-      margin-top: 12px;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-    }
-
-    .section-title p {
-      max-width: 700px;
-      margin: 15px auto 0;
-      color: var(--muted);
-    }
-
-    /* =========================
-       INTRO
-    ========================= */
-
-    .intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .intro-text p {
-      margin-bottom: 20px;
-      color: #c8c4bd;
-    }
-
-    .quote {
-      padding: 35px;
-      border-left: 3px solid var(--red);
-      background: linear-gradient(90deg, rgba(120,0,10,.12), transparent);
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #e5ded4;
-    }
-
-    .quote small {
-      display: block;
-      color: var(--gold);
-      font-size: .75rem;
-      margin-top: 15px;
-      font-style: normal;
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
-
-    .people {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-
-    .person {
-      position: relative;
-      background: linear-gradient(145deg, var(--card-2), var(--card));
-      padding: 45px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .person::after {
-      content: attr(data-number);
-      position: absolute;
-      right: 20px;
-      bottom: -40px;
-      font-size: 10rem;
-      color: rgba(255,255,255,.025);
-      font-weight: bold;
-    }
-
-    .person h3 {
-      font-size: 2.2rem;
-      margin-bottom: 5px;
-    }
-
-    .person .role {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .75rem;
-      margin-bottom: 25px;
-    }
-
-    .person p {
-      color: var(--muted);
-    }
-
-    /* =========================
-       TIMELINE
-    ========================= */
-
-    .timeline {
-      position: relative;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      background: linear-gradient(var(--red), transparent);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .event {
-      width: 50%;
-      padding: 20px 45px;
-      position: relative;
-    }
-
-    .event:nth-child(odd) {
-      left: 0;
-      text-align: right;
-    }
-
-    .event:nth-child(even) {
-      left: 50%;
-    }
-
-    .event::after {
-      content: "";
-      position: absolute;
-      top: 28px;
-      width: 13px;
-      height: 13px;
-      background: var(--red);
-      border: 3px solid #08080a;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px var(--red);
-    }
-
-    .event:nth-child(odd)::after {
-      right: -7px;
-    }
-
-    .event:nth-child(even)::after {
-      left: -6px;
-    }
-
-    .year {
-      color: var(--gold);
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .event h3 {
-      margin: 5px 0;
-      font-size: 1.3rem;
-    }
-
-    .event p {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    /* =========================
-       CASES
-    ========================= */
-
-    .cases {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .case {
-      min-height: 300px;
-      padding: 35px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background:
-        linear-gradient(transparent, rgba(0,0,0,.95)),
-        radial-gradient(circle at 50% 20%, rgba(100,100,100,.08), transparent 45%),
-        #111116;
-      border: 1px solid var(--border);
-      transition: .4s;
-    }
-
-    .case:hover {
-      transform: translateY(-7px);
-      border-color: rgba(170,30,40,.5);
-    }
-
-    .case-number {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      color: rgba(255,255,255,.2);
-      font-size: 2rem;
-    }
-
-    .case h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .case p {
-      color: #aaa6a0;
-      font-size: .95rem;
-    }
-
-    .case .tag {
-      display: inline-block;
-      color: var(--red-light);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
-    }
-
-    /* =========================
-       FACTS
-    ========================= */
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .fact {
-      text-align: center;
-      padding: 35px 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-    }
-
-    .fact strong {
-      display: block;
-      color: var(--gold);
-      font-size: 2.5rem;
-      margin-bottom: 5px;
-    }
-
-    .fact span {
-      color: var(--muted);
-      font-size: .85rem;
-    }
-
-    /* =========================
-       MUSEU
-    ========================= */
-
-    .museum {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .museum-box {
-      min-height: 430px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px;
-      background:
-        radial-gradient(circle, rgba(130,0,15,.2), transparent 55%),
-        #0c0c10;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .doll {
-      width: 170px;
-      height: 230px;
-      border-radius: 50% 50% 45% 45%;
-      background:
-        radial-gradient(circle at 35% 40%, #111 0 5px, transparent 6px),
-        radial-gradient(circle at 65% 40%, #111 0 5px, transparent 6px),
-        linear-gradient(#d9b49c 0 42%, #85202a 42% 100%);
-      position: relative;
-      box-shadow: 0 0 70px rgba(150,0,15,.25);
-      opacity: .85;
-    }
-
-    .doll::before,
-    .doll::after {
-      content: "";
-      position: absolute;
-      top: 85px;
-      width: 5px;
-      height: 5px;
-      background: #211;
-      border-radius: 50%;
-    }
-
-    .doll::before {
-      left: 55px;
-    }
-
-    .doll::after {
-      right: 55px;
-    }
-
-    .museum-text p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .warning {
-      padding: 20px;
-      margin-top: 25px;
-      border: 1px solid rgba(199,169,107,.25);
-      color: #c7bda9;
-      background: rgba(199,169,107,.05);
-      font-size: .9rem;
-    }
-
-    /* =========================
-       LEGACY
-    ========================= */
-
-    .legacy {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .legacy p {
-      color: #bdb8b1;
-      margin-bottom: 25px;
-      font-size: 1.05rem;
-    }
-
-    .legacy-highlight {
-      color: var(--gold);
-      font-size: 1.8rem;
-      margin: 40px 0;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 70px 20px;
-      text-align: center;
-      background: #040406;
-    }
-
-    footer h2 {
-      color: var(--gold);
-      letter-spacing: 4px;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #777;
-      max-width: 700px;
-      margin: auto;
-      font-size: .85rem;
-    }
-
-    .sources {
-      margin-top: 30px;
-      color: #666;
-      font-size: .75rem;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 800px) {
-      nav {
-        padding: 12px 0;
-        flex-direction: column;
-      }
-
-      nav ul {
-        justify-content: center;
-        gap: 14px;
-      }
-
-      .intro,
-      .people,
-      .cases,
-      .museum {
-        grid-template-columns: 1fr;
-      }
-
-      .facts {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .timeline::before {
-        left: 10px;
-      }
-
-      .event,
-      .event:nth-child(even) {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding-left: 40px;
-        padding-right: 10px;
-      }
-
-      .event::after,
-      .event:nth-child(odd)::after,
-      .event:nth-child(even)::after {
-        left: 3px;
-        right: auto;
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .facts {
-        grid-template-columns: 1fr;
-      }
-
-      .person,
-      .case {
-        padding: 28px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trap Runner</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  #game {
+    display: block;
+    margin: auto;
+    background: #8ed6ff;
+    image-rendering: pixelated;
+  }
+
+  #ui {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    font-size: 18px;
+    text-shadow: 2px 2px #000;
+  }
+
+  #message {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    font-size: 42px;
+    font-weight: bold;
+    text-shadow: 3px 3px #000;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    color: #ddd;
+  }
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       NAVEGAÇÃO
-  ========================== -->
-
-  <header>
-    <nav class="container">
-      <a href="#inicio" class="logo">
-        E<span>&</span>L
-      </a>
-
-      <ul>
-        <li><a href="#historia">História</a></li>
-        <li><a href="#ed-lorraine">Ed & Lorraine</a></li>
-        <li><a href="#linha-do-tempo">Linha do tempo</a></li>
-        <li><a href="#casos">Casos</a></li>
-        <li><a href="#legado">Legado</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <main>
-
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <div class="eyebrow">Além do desconhecido</div>
-
-        <h1>
-          Ed & Lorraine
-          <span>Warren</span>
-        </h1>
-
-        <p>
-          Uma jornada pela vida do casal que se tornou uma das duplas
-          mais conhecidas da história da investigação paranormal,
-          entre relatos sobrenaturais, fé, controvérsias e cultura popular.
-        </p>
-
-        <a href="#historia" class="hero-button">
-          Entrar na história
-        </a>
-      </div>
-    </section>
-
-    <!-- =========================
-         INTRODUÇÃO
-    ========================== -->
-
-    <section id="historia">
-      <div class="container">
-
-        <div class="section-title">
-          <small>Uma história incomum</small>
-          <h2>Quem foram os Warren?</h2>
-          <p>
-            Ed e Lorraine Warren dedicaram décadas à investigação de
-            relatos envolvendo casas assombradas, fenômenos religiosos
-            e supostas manifestações sobrenaturais.
-          </p>
-        </div>
-
-        <div class="intro">
-
-          <div class="intro-text">
-            <p>
-              Edward Warren Miney nasceu em 1926, em Bridgeport,
-              Connecticut. Lorraine Rita Moran nasceu na mesma cidade
-              em 1927. Os dois se conheceram ainda jovens e se casaram
-              em 1945.
-            </p>
-
-            <p>
-              Ed serviu na Marinha dos Estados Unidos durante a Segunda
-              Guerra Mundial e posteriormente estudou arte. Lorraine,
-              por sua vez, afirmava possuir capacidades de clarividência
-              e atuar como médium de transe leve.
-            </p>
-
-            <p>
-              Em 1952, o casal fundou a <strong>New England Society for
-              Psychic Research (NESPR)</strong>, organização que se
-              tornou parte importante de sua trajetória.
-            </p>
-
-            <p>
-              Ao longo das décadas seguintes, os dois ficaram associados
-              a diversos casos que ganharam enorme repercussão e,
-              posteriormente, foram adaptados para livros, televisão e
-              cinema.
-            </p>
-          </div>
-
-          <div class="quote">
-            "Para os Warren, investigar o desconhecido também significava
-            tentar ajudar as famílias que acreditavam estar enfrentando
-            algo inexplicável."
-            <small>— Síntese do legado atribuído ao casal</small>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         ED E LORRAINE
-    ========================== -->
-
-    <section id="ed-lorraine">
-      <div class="container">
-
-        <div class="section-title">
-          <small>Duas personalidades</small>
-          <h2>Ed & Lorraine</h2>
-          <p>
-            O casal apresentava papéis diferentes dentro da abordagem
-            que utilizava para investigar relatos paranormais.
-          </p>
-        </div>
-
-        <div class="people">
-
-          <article class="person" data-number="01">
-            <div class="role">Demonologista</div>
-            <h3>Ed Warren</h3>
-
-            <p>
-              Edward Warren Miney era conhecido como demonologista,
-              autor, conferencista e artista. Segundo relatos da própria
-              NESPR, sua curiosidade pelo sobrenatural começou ainda
-              antes de sua carreira de investigador.
-            </p>
-
-            <br>
-
-            <p>
-              Depois da Segunda Guerra Mundial, Ed estudou arte e
-              chegou a pintar casas consideradas assombradas. A
-              atividade artística acabou se conectando ao interesse
-              que ele desenvolveu por fenômenos paranormais.
-            </p>
-
-            <br>
-
-            <p>
-              Ed morreu em 2006, aos 79 anos, deixando para Lorraine e
-              para os colaboradores da organização a continuidade de
-              parte do trabalho iniciado pelo casal.
-            </p>
-          </article>
-
-          <article class="person" data-number="02">
-            <div class="role">Médium e pesquisadora</div>
-            <h3>Lorraine Warren</h3>
-
-            <p>
-              Lorraine Warren dizia ser clarividente e médium de transe
-              leve. Em suas investigações, afirmava utilizar essas
-              percepções para interpretar ambientes e experiências
-              relatadas pelas famílias.
-            </p>
-
-            <br>
-
-            <p>
-              Sua personalidade pública também ajudou a aproximar os
-              relatos dos Warren de um público muito maior.
-            </p>
-
-            <br>
-
-            <p>
-              Após a morte de Ed, em 2006, Lorraine continuou participando
-              de palestras e atividades relacionadas ao paranormal.
-              Ela morreu em 2019, aos 92 anos.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         LINHA DO TEMPO
-    ========================== -->
-
-    <section id="linha-do-tempo">
-      <div class="container">
-
-        <div class="section-title">
-          <small>Décadas de investigação</small>
-          <h2>Linha do tempo</h2>
-          <p>
-            Alguns dos principais momentos associados à trajetória
-            pública do casal.
-          </p>
-        </div>
-
-        <div class="timeline">
-
-          <div class="event">
-            <div class="year">1926–1927</div>
-            <h3>Os primeiros anos</h3>
-            <p>
-              Ed e Lorraine nascem em Bridgeport, Connecticut,
-              com menos de um ano de diferença.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1944</div>
-            <h3>O encontro</h3>
-            <p>
-              Segundo a NESPR, os dois se conheceram quando eram
-              adolescentes, em Bridgeport.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1945</div>
-            <h3>O casamento</h3>
-            <p>
-              Ed e Lorraine se casam e iniciam a vida juntos.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1951</div>
-            <h3>Judy Warren</h3>
-            <p>
-              Nasce Judy, a única filha do casal.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1952</div>
-            <h3>Fundação da NESPR</h3>
-            <p>
-              Ed e Lorraine estabelecem a New England Society for
-              Psychic Research.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1968</div>
-            <h3>Annabelle</h3>
-            <p>
-              Surge o caso da boneca Raggedy Ann que posteriormente
-              ficaria conhecida popularmente como Annabelle.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1971</div>
-            <h3>Família Perron</h3>
-            <p>
-              Os Warren investigam a residência da família Perron
-              em Harrisville, Rhode Island.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">1970s</div>
-            <h3>Amityville</h3>
-            <p>
-              O casal se envolve em um dos relatos paranormais mais
-              famosos dos Estados Unidos.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">2006</div>
-            <h3>Fim da trajetória de Ed</h3>
-            <p>
-              Ed Warren morre aos 79 anos.
-            </p>
-          </div>
-
-          <div class="event">
-            <div class="year">2019</div>
-            <h3>Despedida de Lorraine</h3>
-            <p>
-              Lorraine Warren morre aos 92 anos, encerrando uma era
-              da dupla que havia se tornado símbolo da investigação
-              paranormal americana.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         CASOS
-    ========================== -->
-
-    <section id="casos">
-      <div class="container">
-
-        <div class="section-title">
-          <small>Arquivos conhecidos</small>
-          <h2>Casos famosos</h2>
-          <p>
-            Alguns dos relatos associados ao casal ganharam vida
-            própria na cultura popular.
-          </p>
-        </div>
-
-        <div class="cases">
-
-          <article class="case">
-            <div class="case-number">01</div>
-            <span class="tag">1968</span>
-            <h3>Annabelle</h3>
-            <p>
-              Segundo o relato dos Warren, duas colegas de quarto
-              acreditavam que sua boneca Raggedy Ann apresentava
-              comportamentos inexplicáveis. O casal posteriormente
-              associou o objeto a uma suposta presença inumana.
-            </p>
-          </article>
-
-          <article class="case">
-            <div class="case-number">02</div>
-            <span class="tag">1971</span>
-            <h3>Família Perron</h3>
-            <p>
-              A residência da família Perron, em Harrisville,
-              Rhode Island, tornou-se uma das histórias mais famosas
-              associadas aos Warren e serviu de inspiração para
-              "The Conjuring".
-            </p>
-          </article>
-
-          <article class="case">
-            <div class="case-number">03</div>
-            <span class="tag">Amityville</span>
-            <h3>O Horror de Amityville</h3>
-            <p>
-              O casal esteve ligado à investigação da casa onde
-              a família Lutz afirmou ter vivenciado fenômenos
-              perturbadores após se mudar para a propriedade.
-            </p>
-          </article>
-
-          <article class="case">
-            <div class="case-number">04</div>
-            <span class="tag">Enfield</span>
-            <h3>O Poltergeist de Enfield</h3>
-            <p>
-              O caso britânico envolvendo a família Hodgson tornou-se
-              outro episódio frequentemente associado à história
-              pública dos Warren e posteriormente à cultura popular.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         NÚMEROS
-    ========================== -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <small>Uma carreira extraordinária</small>
-          <h2>Em números</h2>
-        </div>
-
-        <div class="facts">
-
-          <div class="fact">
-            <strong>1952</strong>
-            <span>Ano de fundação da NESPR</span>
-          </div>
-
-          <div class="fact">
-            <strong>1945</strong>
-            <span>Ano do casamento de Ed e Lorraine</span>
-          </div>
-
-          <div class="fact">
-            <strong>1</strong>
-            <span>Filha: Judy Warren</span>
-          </div>
-
-          <div class="fact">
-            <strong>50+</strong>
-            <span>Anos associados à investigação paranormal</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         MUSEU
-    ========================== -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <small>Objetos e memória</small>
-          <h2>O Museu Oculto</h2>
-          <p>
-            Entre os elementos mais conhecidos do legado Warren estão
-            os objetos que eles afirmavam estar relacionados a casos
-            paranormais.
-          </p>
-        </div>
-
-        <div class="museum">
-
-          <div class="museum-box">
-            <div>
-              <div class="doll"></div>
-              <p style="margin-top:25px;color:#777;">
-                Representação visual inspirada no imaginário associado
-                à famosa boneca Annabelle.
-              </p>
-            </div>
-          </div>
-
-          <div class="museum-text">
-
-            <p>
-              Durante décadas, Ed e Lorraine mantiveram uma coleção
-              de objetos que, segundo seus relatos, possuíam alguma
-              relação com experiências paranormais.
-            </p>
-
-            <p>
-              Entre eles estava a boneca que ficou conhecida como
-              Annabelle. A história desse objeto acabou se tornando
-              uma das partes mais reconhecíveis da cultura popular
-              ligada aos Warren.
-            </p>
-
-            <p>
-              É importante distinguir os relatos atribuídos aos Warren
-              das representações cinematográficas. O cinema modificou
-              personagens, acontecimentos e elementos das histórias
-              para criar narrativas de terror.
-            </p>
-
-            <div class="warning">
-              <strong>Nota:</strong> fenômenos paranormais descritos
-              nos casos Warren são alegações e relatos históricos,
-              não fatos científicos comprovados. Algumas histórias
-              também foram contestadas por pesquisadores, testemunhas
-              e críticos.
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         CULTURA POP
-    ========================== -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <small>Do arquivo para Hollywood</small>
-          <h2>O legado no cinema</h2>
-          <p>
-            A imagem de Ed e Lorraine foi transformada em uma das
-            duplas mais reconhecíveis do horror contemporâneo.
-          </p>
-        </div>
-
-        <div class="intro">
-
-          <div class="intro-text">
-
-            <p>
-              Histórias associadas aos Warren inspiraram uma grande
-              quantidade de livros, documentários e filmes.
-            </p>
-
-            <p>
-              A franquia cinematográfica iniciada por
-              <strong>The Conjuring</strong> transformou o casal em
-              personagens conhecidos mundialmente. No cinema,
-              Ed e Lorraine foram interpretados por Patrick Wilson
-              e Vera Farmiga.
-            </p>
-
-            <p>
-              A versão cinematográfica, porém, não deve ser confundida
-              integralmente com os relatos históricos. Filmes de terror
-              condensam acontecimentos, criam personagens e aumentam
-              o suspense para fins narrativos.
-            </p>
-
-          </div>
-
-          <div class="quote">
-            Entre arquivos, testemunhos e lendas, os Warren passaram
-            de investigadores conhecidos regionalmente a personagens
-            permanentes da cultura do horror.
-            <small>O fenômeno Warren</small>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         CONTROVÉRSIAS
-    ========================== -->
-
-    <section>
-      <div class="container">
-
-        <div class="section-title">
-          <small>Além da lenda</small>
-          <h2>Fé, relatos e controvérsias</h2>
-          <p>
-            Conhecer os Warren também significa compreender que suas
-            histórias não são aceitas de forma unânime.
-          </p>
-        </div>
-
-        <div class="legacy">
-
-          <p>
-            Os Warren apresentavam suas investigações a partir de uma
-            perspectiva fortemente ligada à fé católica e à existência
-            de fenômenos sobrenaturais.
-          </p>
-
-          <p>
-            Entretanto, diversos casos relacionados ao casal foram
-            questionados ao longo dos anos. Críticos apontaram
-            inconsistências, ausência de evidências verificáveis e
-            possíveis explicações alternativas para alguns relatos.
-          </p>
-
-          <p>
-            Por isso, uma abordagem responsável é separar três coisas:
-            o que os Warren afirmavam ter acontecido, o que outras
-            testemunhas disseram e aquilo que foi efetivamente
-            demonstrado por evidências independentes.
-          </p>
-
-          <div class="legacy-highlight">
-            A história dos Warren está justamente no espaço entre
-            crença, testemunho, investigação e cultura popular.
-          </div>
-
-          <p>
-            Essa distinção torna a trajetória do casal ainda mais
-            interessante: independentemente de acreditar ou não em
-            fenômenos paranormais, é inegável que Ed e Lorraine
-            ajudaram a moldar a maneira como o público moderno
-            imagina casas assombradas, demonologia e investigação
-            sobrenatural.
-          </p>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================
-         LEGADO
-    ========================== -->
-
-    <section id="legado">
-      <div class="container">
-
-        <div class="section-title">
-          <small>O que permanece</small>
-          <h2>O legado Warren</h2>
-        </div>
-
-        <div class="legacy">
-
-          <p>
-            Ed Warren morreu em 2006. Lorraine continuou envolvida
-            com palestras e com a preservação do trabalho do casal
-            até sua morte em 2019.
-          </p>
-
-          <p>
-            A NESPR continuou associada à preservação de arquivos e
-            à divulgação da história dos Warren. A filha do casal,
-            Judy Spera, e seu marido, Tony Spera, também passaram a
-            desempenhar papéis importantes na continuidade dessa
-            memória.
-          </p>
-
-          <p>
-            Hoje, o nome Warren ultrapassa a própria carreira dos dois.
-            Ele representa uma mistura de investigação paranormal,
-            religiosidade, mistério, controvérsia e entretenimento.
-          </p>
-
-          <div class="legacy-highlight">
-            "O desconhecido começa onde termina a certeza."
-          </div>
-
-          <p>
-            Talvez seja justamente essa fronteira que explique por
-            que a história de Ed e Lorraine Warren continua despertando
-            curiosidade décadas depois de suas primeiras investigações.
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <h2>ED & LORRAINE WARREN</h2>
-
-    <p>
-      Página temática criada para fins informativos e de entretenimento.
-      Os acontecimentos paranormais apresentados são descritos como
-      alegações, relatos ou histórias associadas aos Warren e não devem
-      ser interpretados automaticamente como fatos cientificamente
-      comprovados.
-    </p>
-
-    <div class="sources">
-      Referências consultadas: New England Society for Psychic Research
-      (NESPR) e Connecticut Post.
-    </div>
-
-    <p style="margin-top:30px;">
-      © 2026 — Além do Desconhecido
-    </p>
-
-  </footer>
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script>
-    // Efeito simples de aparição das seções ao entrar na tela
-
-    const elements = document.querySelectorAll(
-      '.person, .case, .event, .fact, .museum-box, .museum-text'
-    );
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12
-    });
-
-    elements.forEach(element => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(25px)';
-      element.style.transition = 'opacity .8s ease, transform .8s ease';
-      observer.observe(element);
-    });
-  </script>
+<div id="ui">
+  Nível: <span id="level">1</span> |
+  Mortes: <span id="deaths">0</span>
+</div>
+
+<div id="message"></div>
+
+<canvas id="game" width="900" height="500"></canvas>
+
+<div class="hint">
+  ← → / A D para andar • Espaço para pular • R para reiniciar
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const levelText = document.getElementById("level");
+const deathText = document.getElementById("deaths");
+const message = document.getElementById("message");
+
+const gravity = 0.7;
+const speed = 4.5;
+const jump = -12;
+
+let keys = {};
+let deaths = 0;
+let level = 0;
+let won = false;
+
+const levels = [
+  {
+    spawn: {x: 50, y: 400},
+    goal: {x: 820, y: 410, w: 35, h: 50},
+    platforms: [
+      {x: 0, y: 450, w: 900, h: 50},
+      {x: 180, y: 360, w: 130, h: 20},
+      {x: 400, y: 300, w: 130, h: 20},
+      {x: 620, y: 360, w: 120, h: 20}
+    ],
+    traps: [
+      {x: 315, y: 430, w: 55, h: 20},
+      {x: 540, y: 430, w: 80, h: 20}
+    ]
+  },
+
+  {
+    spawn: {x: 50, y: 400},
+    goal: {x: 820, y: 210, w: 35, h: 50},
+    platforms: [
+      {x: 0, y: 450, w: 180, h: 50},
+      {x: 250, y: 450, w: 130, h: 50},
+      {x: 450, y: 380, w: 120, h: 20},
+      {x: 650, y: 300, w: 120, h: 20},
+      {x: 780, y: 260, w: 120, h: 20}
+    ],
+    traps: [
+      {x: 180, y: 430, w: 70, h: 20},
+      {x: 380, y: 430, w: 70, h: 20},
+      {x: 570, y: 430, w: 70, h: 20}
+    ]
+  },
+
+  {
+    spawn: {x: 50, y: 400},
+    goal: {x: 820, y: 400, w: 35, h: 50},
+    platforms: [
+      {x: 0, y: 450, w: 900, h: 50},
+      {x: 100, y: 350, w: 100, h: 20},
+      {x: 300, y: 280, w: 100, h: 20},
+      {x: 500, y: 350, w: 100, h: 20},
+      {x: 700, y: 280, w: 100, h: 20}
+    ],
+    traps: [
+      {x: 200, y: 430, w: 100, h: 20},
+      {x: 600, y: 430, w: 100, h: 20}
+    ]
+  }
+];
+
+let player = {
+  x: 0,
+  y: 0,
+  w: 30,
+  h: 40,
+  vx: 0,
+  vy: 0,
+  grounded: false
+};
+
+function loadLevel() {
+  const l = levels[level];
+
+  player.x = l.spawn.x;
+  player.y = l.spawn.y;
+  player.vx = 0;
+  player.vy = 0;
+
+  won = false;
+  message.textContent = "";
+  levelText.textContent = level + 1;
+}
+
+function reset() {
+  loadLevel();
+}
+
+function die() {
+  deaths++;
+  deathText.textContent = deaths;
+
+  message.textContent = "💀";
+  
+  setTimeout(() => {
+    loadLevel();
+  }, 500);
+}
+
+function nextLevel() {
+  level++;
+
+  if (level >= levels.length) {
+    won = true;
+    message.textContent = "VOCÊ VENCEU! 🎉";
+    return;
+  }
+
+  message.textContent = "NÍVEL " + (level + 1);
+
+  setTimeout(() => {
+    loadLevel();
+  }, 700);
+}
+
+function collide(a, b) {
+  return (
+    a.x < b.x + b.w &&
+    a.x + a.w > b.x &&
+    a.y < b.y + b.h &&
+    a.y + a.h > b.y
+  );
+}
+
+function update() {
+  if (won) return;
+
+  const l = levels[level];
+
+  player.vx = 0;
+
+  if (keys["ArrowLeft"] || keys["a"]) {
+    player.vx = -speed;
+  }
+
+  if (keys["ArrowRight"] || keys["d"]) {
+    player.vx = speed;
+  }
+
+  if (
+    (keys[" "] || keys["ArrowUp"] || keys["w"]) &&
+    player.grounded
+  ) {
+    player.vy = jump;
+    player.grounded = false;
+  }
+
+  player.vy += gravity;
+
+  player.x += player.vx;
+
+  // Limites da tela
+  if (player.x < 0) player.x = 0;
+  if (player.x + player.w > canvas.width)
+    player.x = canvas.width - player.w;
+
+  const oldY = player.y;
+
+  player.y += player.vy;
+  player.grounded = false;
+
+  // Plataformas
+  for (const p of l.platforms) {
+    if (collide(player, p)) {
+
+      // Somente pouso pela parte superior
+      if (
+        oldY + player.h <= p.y &&
+        player.vy >= 0
+      ) {
+        player.y = p.y - player.h;
+        player.vy = 0;
+        player.grounded = true;
+      }
+    }
+  }
+
+  // Espinhos / armadilhas
+  for (const trap of l.traps) {
+    if (collide(player, trap)) {
+      die();
+      return;
+    }
+  }
+
+  // Caiu fora do mapa
+  if (player.y > canvas.height + 100) {
+    die();
+    return;
+  }
+
+  // Objetivo
+  if (collide(player, l.goal)) {
+    nextLevel();
+  }
+}
+
+function drawPlayer() {
+  ctx.fillStyle = "#222";
+  ctx.fillRect(player.x, player.y, player.w, player.h);
+
+  // Olhos
+  ctx.fillStyle = "white";
+  ctx.fillRect(player.x + 7, player.y + 8, 5, 5);
+  ctx.fillRect(player.x + 19, player.y + 8, 5, 5);
+}
+
+function draw() {
+  const l = levels[level];
+
+  // Fundo
+  ctx.fillStyle = "#8ed6ff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Nuvens decorativas
+  ctx.fillStyle = "rgba(255,255,255,.7)";
+  ctx.fillRect(100, 80, 120, 25);
+  ctx.fillRect(150, 65, 60, 30);
+  ctx.fillRect(600, 100, 140, 25);
+
+  // Plataformas
+  for (const p of l.platforms) {
+    ctx.fillStyle = "#3b3b3b";
+    ctx.fillRect(p.x, p.y, p.w, p.h);
+
+    ctx.fillStyle = "#555";
+    ctx.fillRect(p.x, p.y, p.w, 5);
+  }
+
+  // Armadilhas
+  for (const trap of l.traps) {
+    ctx.fillStyle = "#e33";
+
+    const count = Math.floor(trap.w / 15);
+
+    for (let i = 0; i < count; i++) {
+      const x = trap.x + i * 15;
+
+      ctx.beginPath();
+      ctx.moveTo(x, trap.y + trap.h);
+      ctx.lineTo(x + 7.5, trap.y);
+      ctx.lineTo(x + 15, trap.y + trap.h);
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  // Objetivo
+  ctx.fillStyle = "#20c878";
+  ctx.fillRect(
+    l.goal.x,
+    l.goal.y,
+    l.goal.w,
+    l.goal.h
+  );
+
+  ctx.fillStyle = "white";
+  ctx.fillRect(
+    l.goal.x + 8,
+    l.goal.y + 8,
+    19,
+    8
+  );
+
+  drawPlayer();
+}
+
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+window.addEventListener("keydown", e => {
+  keys[e.key] = true;
+
+  if (e.key.toLowerCase() === "r") {
+    reset();
+  }
+});
+
+window.addEventListener("keyup", e => {
+  keys[e.key] = false;
+});
+
+loadLevel();
+gameLoop();
+</script>
 
 </body>
-</html
+</html>
