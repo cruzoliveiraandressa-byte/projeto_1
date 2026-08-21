@@ -1,446 +1,551 @@
-Claro — aqui está um jogo de tiro em HTML personalizado, estilo arcade, com inimigos, mira, tiros, vida, pontuação, munição, recarga, ondas e tela de game over. Funciona diretamente no navegador, sem bibliotecas externas.
-
-Salve como index.html e abra no navegador:
+Posso fazer. Para não misturar alegações sobrenaturais com fatos comprovados, o HTML abaixo separa biografia, casos atribuídos aos Warren, controvérsias e informações dos filmes. Também inclui fotos com fontes identificadas: há registros no Wikimedia Commons de Lorraine em 2013 e de Ed e Lorraine juntos em 1978. 
+W
+Wikimedia Commons
++1
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Strike</title>
+
+<title>Ed & Lorraine Warren — Arquivo Paranormal</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    user-select: none;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    overflow: hidden;
-    background: #050509;
-    color: white;
-    font-family: Arial, sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
-#game {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    cursor: crosshair;
+body{
+    background:#080808;
+    color:#eee;
+    font-family:Georgia, "Times New Roman", serif;
+    line-height:1.7;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:.06;
     background:
-        radial-gradient(circle at center, #15152a 0%, #080812 55%, #020204 100%);
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            #fff 4px
+        );
 }
 
-/* FUNDO */
+/* =========================
+   HEADER
+========================= */
 
-.grid {
-    position: absolute;
-    inset: 0;
-    opacity: .25;
-    background-image:
-        linear-gradient(#25255a 1px, transparent 1px),
-        linear-gradient(90deg, #25255a 1px, transparent 1px);
-    background-size: 50px 50px;
-    transform: perspective(400px) rotateX(55deg) scale(1.8);
-    transform-origin: center bottom;
-}
-
-.stars {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    opacity: .6;
-}
-
-/* HUD */
-
-#hud {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    pointer-events: none;
-}
-
-.panel {
-    min-width: 150px;
-    padding: 12px 18px;
-    background: rgba(5,5,15,.85);
-    border: 2px solid #3030ff;
-    box-shadow: 0 0 15px rgba(40,40,255,.3);
-}
-
-.panel span {
-    display: block;
-    color: #7070ff;
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 4px;
-}
-
-.panel strong {
-    font-size: 24px;
-}
-
-/* VIDA */
-
-#healthBar {
-    width: 200px;
-    height: 16px;
-    margin-top: 5px;
-    border: 2px solid white;
-}
-
-#healthFill {
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg,#ff2020,#ff6b00);
-    transition: width .2s;
-}
-
-/* MUNIÇÃO */
-
-#ammo {
-    color: #ffe600;
-}
-
-/* PLAYER */
-
-#player {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    left: 50%;
-    top: 70%;
-    transform: translate(-50%,-50%);
-    z-index: 20;
-}
-
-.playerBody {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    left: 11px;
-    top: 11px;
-    background: #2424ff;
-    border: 3px solid #8c8cff;
-    border-radius: 50%;
-    box-shadow:
-        0 0 15px #3333ff,
-        0 0 40px rgba(40,40,255,.4);
-}
-
-.playerBody::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background: #fff;
-    border-radius: 50%;
-    left: 12px;
-    top: 12px;
-    box-shadow: 0 0 12px white;
-}
-
-#gun {
-    position: absolute;
-    width: 45px;
-    height: 12px;
-    background: #aaa;
-    border: 2px solid #111;
-    right: -22px;
-    top: 29px;
-    transform-origin: left center;
-    border-radius: 3px;
-}
-
-/* INIMIGOS */
-
-.enemy {
-    position: absolute;
-    width: 58px;
-    height: 58px;
-    z-index: 15;
-    border-radius: 50%;
-    background: #b3133b;
-    border: 3px solid #ff406c;
-    box-shadow:
-        0 0 15px #ff174f,
-        0 0 35px rgba(255,0,60,.35);
-}
-
-.enemy::before,
-.enemy::after {
-    content: "";
-    position: absolute;
-    width: 9px;
-    height: 9px;
-    background: #fff;
-    border-radius: 50%;
-    top: 14px;
-    box-shadow: 0 0 8px white;
-}
-
-.enemy::before {
-    left: 11px;
-}
-
-.enemy::after {
-    right: 11px;
-}
-
-.enemy .hp {
-    position: absolute;
-    width: 70px;
-    height: 5px;
-    background: #222;
-    top: -12px;
-    left: -9px;
-}
-
-.enemy .hp div {
-    height: 100%;
-    width: 100%;
-    background: #ff3333;
-}
-
-/* TIROS */
-
-.bullet {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow:
-        0 0 8px #00eaff,
-        0 0 20px #00eaff;
-    z-index: 30;
-}
-
-.enemyBullet {
-    background: #ff3b3b;
-    box-shadow:
-        0 0 8px red,
-        0 0 20px red;
-}
-
-/* EXPLOSÃO */
-
-.explosion {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow:
-        0 0 15px #fff,
-        0 0 30px #ff8c00,
-        0 0 60px red;
-    z-index: 50;
-    animation: explode .35s forwards;
-}
-
-@keyframes explode {
-    from {
-        transform: scale(.3);
-        opacity: 1;
-    }
-    to {
-        transform: scale(5);
-        opacity: 0;
-    }
-}
-
-/* MIRA */
-
-#crosshair {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    pointer-events: none;
-    z-index: 200;
-    transform: translate(-50%,-50%);
-}
-
-#crosshair::before,
-#crosshair::after {
-    content: "";
-    position: absolute;
-    background: #00eaff;
-    box-shadow: 0 0 8px #00eaff;
-}
-
-#crosshair::before {
-    width: 35px;
-    height: 2px;
-    top: 17px;
-}
-
-#crosshair::after {
-    height: 35px;
-    width: 2px;
-    left: 17px;
-}
-
-.crossDot {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: white;
-    border-radius: 50%;
-    left: 15px;
-    top: 15px;
-}
-
-/* MENSAGENS */
-
-#message {
-    position: absolute;
-    top: 120px;
-    width: 100%;
-    text-align: center;
-    z-index: 150;
-    font-size: 30px;
-    font-weight: bold;
-    color: #00eaff;
-    text-shadow: 0 0 15px #00eaff;
-    opacity: 0;
-    transition: .3s;
-}
-
-/* MENU */
-
-.screen {
-    position: absolute;
-    inset: 0;
-    z-index: 500;
+header{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 20px;
     background:
-        radial-gradient(circle, rgba(20,20,70,.85), rgba(0,0,0,.97));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.92)
+        ),
+        radial-gradient(
+            circle at center,
+            #3a3030,
+            #090909 70%
+        );
+    border-bottom:1px solid #493c32;
 }
 
-.screen h1 {
-    font-size: clamp(50px,9vw,110px);
-    letter-spacing: 10px;
-    color: white;
+header .eyebrow{
+    color:#b99869;
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+}
+
+header h1{
+    margin-top:20px;
+    font-size:clamp(55px,10vw,125px);
+    line-height:.95;
+    color:#f2e9d9;
     text-shadow:
-        0 0 10px #3030ff,
-        0 0 30px #3030ff,
-        5px 5px #ff174f;
+        4px 4px 0 #16100c,
+        0 0 35px rgba(190,150,90,.25);
 }
 
-.screen p {
-    margin: 20px;
-    color: #aaa;
-    max-width: 550px;
-    line-height: 1.6;
+header h1 span{
+    display:block;
+    color:#b99869;
+    font-size:.42em;
+    letter-spacing:10px;
+    margin-top:20px;
 }
 
-button {
-    border: 2px solid #00eaff;
-    color: white;
-    background: #08081a;
-    padding: 16px 50px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .2s;
-    box-shadow: 0 0 15px rgba(0,234,255,.3);
+header p{
+    max-width:750px;
+    margin:35px auto;
+    color:#bdbdbd;
+    font-size:19px;
 }
 
-button:hover {
-    background: #00a8bd;
-    box-shadow: 0 0 30px #00eaff;
-    transform: scale(1.05);
+.scroll{
+    margin-top:30px;
+    color:#b99869;
+    font-family:Arial,sans-serif;
+    letter-spacing:3px;
+    font-size:12px;
 }
 
-.hidden {
-    display: none !important;
+/* =========================
+   NAV
+========================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,5,5,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #322a24;
 }
 
-/* DANO */
-
-#damage {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,0,0,.3);
-    z-index: 300;
-    pointer-events: none;
-    opacity: 0;
+nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    list-style:none;
 }
 
-@keyframes shake {
-    0%,100% { transform: translate(0); }
-    25% { transform: translate(-8px,4px); }
-    50% { transform: translate(8px,-4px); }
-    75% { transform: translate(-4px,-5px); }
+nav a{
+    display:block;
+    padding:16px 18px;
+    color:#aaa;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:.2s;
 }
 
-.shake {
-    animation: shake .15s;
+nav a:hover{
+    color:#d2ad78;
+    background:#15110e;
 }
 
-/* CONTROLES */
+/* =========================
+   SEÇÕES
+========================= */
 
-#mobileControls {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    z-index: 400;
-    display: none;
-    justify-content: space-between;
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:100px 25px;
 }
 
-.mobileButton {
-    width: 75px;
-    height: 75px;
-    padding: 0;
-    border-radius: 50%;
-    opacity: .7;
+.section-title{
+    margin-bottom:50px;
 }
 
-@media(max-width:700px) {
-    #mobileControls {
-        display: flex;
+.section-title small{
+    display:block;
+    color:#a9855b;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+.section-title h2{
+    color:#eee4d4;
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.1;
+}
+
+.section-title h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:3px;
+    background:#a9855b;
+    margin-top:20px;
+}
+
+p{
+    color:#c3c3c3;
+    margin-bottom:20px;
+}
+
+strong{
+    color:#eee;
+}
+
+/* =========================
+   HERO DO CASAL
+========================= */
+
+.couple{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.person{
+    background:#111;
+    border:1px solid #332c27;
+    padding:30px;
+    position:relative;
+}
+
+.person h3{
+    color:#d2ad78;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.person .role{
+    color:#777;
+    font-family:Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:11px;
+    margin-bottom:20px;
+}
+
+.fact{
+    border-left:3px solid #92704b;
+    padding-left:15px;
+    margin-top:25px;
+}
+
+/* =========================
+   GALERIA
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.photo{
+    background:#111;
+    border:1px solid #332c27;
+    overflow:hidden;
+}
+
+.photo img{
+    display:block;
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    filter:grayscale(20%);
+    transition:.4s;
+}
+
+.photo:hover img{
+    transform:scale(1.04);
+    filter:grayscale(0%);
+}
+
+.photo figcaption{
+    padding:15px;
+    color:#999;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+}
+
+.photo a{
+    color:#b99869;
+}
+
+/* =========================
+   LINHA DO TEMPO
+========================= */
+
+.timeline{
+    position:relative;
+    margin-top:30px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:20px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:#4b3a2b;
+}
+
+.event{
+    position:relative;
+    padding-left:65px;
+    margin-bottom:45px;
+}
+
+.event::before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:8px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#b99869;
+    box-shadow:0 0 0 5px #18130f;
+}
+
+.year{
+    color:#b99869;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+
+.event h3{
+    font-size:25px;
+    color:#eee;
+    margin-bottom:8px;
+}
+
+/* =========================
+   CASOS
+========================= */
+
+.cases{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.case{
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #0d0d0d
+        );
+    border:1px solid #342b24;
+    padding:30px;
+    transition:.25s;
+}
+
+.case:hover{
+    transform:translateY(-4px);
+    border-color:#8e6b46;
+}
+
+.case-number{
+    color:#715538;
+    font-size:12px;
+    font-family:Arial,sans-serif;
+    letter-spacing:3px;
+}
+
+.case h3{
+    color:#d4b27f;
+    font-size:27px;
+    margin:10px 0 15px;
+}
+
+.case .status{
+    display:inline-block;
+    padding:4px 8px;
+    border:1px solid #59442f;
+    color:#ad8b60;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   DESTAQUE
+========================= */
+
+.quote{
+    margin:60px 0;
+    padding:45px;
+    background:#110f0d;
+    border-left:5px solid #a9855b;
+    text-align:center;
+}
+
+.quote p{
+    font-size:25px;
+    font-style:italic;
+    color:#ddd;
+}
+
+.quote small{
+    color:#987b59;
+}
+
+/* =========================
+   FILMES
+========================= */
+
+.movies{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.movie{
+    padding:25px;
+    background:#121212;
+    border:1px solid #302922;
+}
+
+.movie h3{
+    color:#d4b27f;
+    margin-bottom:10px;
+}
+
+/* =========================
+   ALERTA FACTUAL
+========================= */
+
+.notice{
+    padding:25px;
+    margin:30px 0;
+    background:#17120e;
+    border:1px solid #62482e;
+}
+
+.notice h3{
+    color:#d3a86e;
+    margin-bottom:10px;
+}
+
+.notice p{
+    margin:0;
+}
+
+/* =========================
+   FICHA
+========================= */
+
+.profile{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.profile-box{
+    background:#111;
+    border:1px solid #302922;
+    padding:20px;
+}
+
+.profile-box span{
+    display:block;
+    color:#806344;
+    font-family:Arial,sans-serif;
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.profile-box strong{
+    display:block;
+    margin-top:5px;
+    font-size:18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#050505;
+    border-top:1px solid #302922;
+    padding:60px 25px;
+    text-align:center;
+}
+
+footer h2{
+    color:#b99869;
+    margin-bottom:15px;
+}
+
+footer p{
+    max-width:750px;
+    margin:10px auto;
+    font-size:13px;
+    color:#777;
+}
+
+.sources{
+    margin-top:30px;
+}
+
+.sources a{
+    display:block;
+    color:#a9855b;
+    margin:8px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:800px){
+
+    .couple,
+    .cases{
+        grid-template-columns:1fr;
     }
 
-    #hud {
-        padding: 8px;
+    .gallery{
+        grid-template-columns:1fr;
     }
 
-    .panel {
-        min-width: 90px;
-        padding: 8px;
+    .movies{
+        grid-template-columns:1fr;
     }
 
-    .panel strong {
-        font-size: 17px;
+    .profile{
+        grid-template-columns:1fr 1fr;
     }
 
-    #healthBar {
-        width: 120px;
+    section{
+        padding:70px 20px;
+    }
+
+    nav a{
+        padding:12px 8px;
+        font-size:9px;
+    }
+}
+
+@media(max-width:450px){
+
+    .profile{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        letter-spacing:4px;
     }
 }
 </style>
@@ -448,1009 +553,977 @@ button:hover {
 
 <body>
 
-<div id="game">
+<header id="inicio">
 
-    <div class="grid"></div>
-    <div class="stars" id="stars"></div>
-
-    <div id="hud">
-
-        <div class="panel">
-            <span>PONTUAÇÃO</span>
-            <strong id="score">0</strong>
-        </div>
-
-        <div class="panel">
-            <span>VIDA</span>
-            <div id="healthBar">
-                <div id="healthFill"></div>
-            </div>
-        </div>
-
-        <div class="panel">
-            <span>ONDA</span>
-            <strong id="wave">1</strong>
-        </div>
-
-        <div class="panel">
-            <span>MUNIÇÃO</span>
-            <strong id="ammo">12 / 12</strong>
-        </div>
-
+    <div class="eyebrow">
+        Arquivo histórico e cultural
     </div>
 
-    <div id="message"></div>
+    <h1>
+        ED & LORRAINE
+        <span>WARREN</span>
+    </h1>
 
-    <div id="damage"></div>
+    <p>
+        A história do casal americano que ficou conhecido
+        mundialmente por investigar relatos de casas assombradas,
+        possessões e fenômenos paranormais.
+    </p>
 
-    <div id="crosshair">
-        <div class="crossDot"></div>
+    <div class="scroll">
+        ROLE PARA EXPLORAR ↓
     </div>
 
-    <div id="player">
-        <div class="playerBody"></div>
-        <div id="gun"></div>
+</header>
+
+
+<nav>
+
+<ul>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#ed">Ed</a></li>
+    <li><a href="#lorraine">Lorraine</a></li>
+    <li><a href="#fotos">Fotos</a></li>
+    <li><a href="#linha">Linha do tempo</a></li>
+    <li><a href="#casos">Casos</a></li>
+    <li><a href="#filmes">Filmes</a></li>
+    <li><a href="#fatos">Fatos</a></li>
+</ul>
+
+</nav>
+
+
+<!-- =========================
+     HISTÓRIA
+========================= -->
+
+<section id="historia">
+
+<div class="section-title">
+    <small>01 — O casal</small>
+    <h2>Quem foram Ed e Lorraine Warren?</h2>
+</div>
+
+<p>
+    Edward Warren Miney e Lorraine Rita Warren ficaram conhecidos
+    internacionalmente como investigadores de fenômenos paranormais.
+    O casal afirmava investigar relatos de fantasmas, assombrações,
+    possessões e outros acontecimentos considerados sobrenaturais.
+</p>
+
+<p>
+    De acordo com a organização New England Society for Psychic Research
+    (NESPR), associada ao legado dos Warren, Ed atuava como demonologista
+    e Lorraine era descrita pela organização como médium de transe.
+</p>
+
+<p>
+    É importante distinguir essas descrições das conclusões científicas:
+    alegações de fenômenos paranormais atribuídas aos Warren não constituem,
+    por si só, evidência científica de que fantasmas ou demônios existam.
+</p>
+
+<div class="notice">
+
+<h3>⚠️ Fato histórico x alegação paranormal</h3>
+
+<p>
+    Este site usa expressões como "segundo os Warren", "a família relatou"
+    ou "os investigadores afirmaram" quando trata de fenômenos sobrenaturais.
+    Isso significa que o acontecimento é apresentado como uma alegação
+    ou relato, e não como um fato científico comprovado.
+</p>
+
+</div>
+
+<div class="couple">
+
+<div class="person" id="ed">
+
+    <h3>Ed Warren</h3>
+
+    <div class="role">
+        Demonologista • Autor • Investigador
     </div>
 
-    <div id="startScreen" class="screen">
+    <p>
+        Edward Warren Miney nasceu em 7 de setembro de 1926,
+        em Bridgeport, Connecticut.
+    </p>
 
-        <h1>NEON STRIKE</h1>
+    <p>
+        Antes de se tornar conhecido pelo trabalho paranormal,
+        Ed serviu na Marinha dos Estados Unidos durante a Segunda
+        Guerra Mundial. Depois da guerra, trabalhou como pintor.
+    </p>
 
-        <p>
-            Um jogo de tiro arcade em que você precisa sobreviver
-            às ondas de inimigos e conseguir a maior pontuação possível.
-        </p>
-
-        <p>
-            <b>Mouse</b> para mirar e atirar •
-            <b>WASD</b> para movimentar •
-            <b>R</b> para recarregar
-        </p>
-
-        <button onclick="startGame()">INICIAR MISSÃO</button>
-
-    </div>
-
-    <div id="gameOver" class="screen hidden">
-
-        <h1>GAME OVER</h1>
-
-        <p>
-            A missão terminou.
-        </p>
-
-        <p>
-            Pontuação final:
-            <strong id="finalScore">0</strong>
-        </p>
-
-        <p>
-            Onda alcançada:
-            <strong id="finalWave">1</strong>
-        </p>
-
-        <button onclick="restartGame()">JOGAR NOVAMENTE</button>
-
-    </div>
-
-    <div id="mobileControls">
-
-        <button
-            class="mobileButton"
-            id="upBtn">▲</button>
-
-        <button
-            class="mobileButton"
-            id="shootBtn">●</button>
-
+    <div class="fact">
+        Ed ficou especialmente conhecido por sua participação
+        nas investigações que o casal realizou ao longo de décadas.
     </div>
 
 </div>
 
-<script>
 
-/* =========================================
-   CONFIGURAÇÃO
-========================================= */
+<div class="person" id="lorraine">
 
-const game = document.getElementById("game");
-const player = document.getElementById("player");
-const gun = document.getElementById("gun");
-const crosshair = document.getElementById("crosshair");
+    <h3>Lorraine Warren</h3>
 
-const scoreElement = document.getElementById("score");
-const waveElement = document.getElementById("wave");
-const ammoElement = document.getElementById("ammo");
-const healthFill = document.getElementById("healthFill");
+    <div class="role">
+        Médium • Investigadora • Consultora
+    </div>
 
-let playing = false;
+    <p>
+        Lorraine Rita Moran Warren nasceu em 31 de janeiro de 1927,
+        em Bridgeport, Connecticut.
+    </p>
 
-let score = 0;
-let wave = 1;
+    <p>
+        Segundo relatos biográficos, Lorraine conheceu Ed ainda
+        na adolescência, quando ele trabalhava como lanterninha
+        em um cinema frequentado por ela.
+    </p>
 
-let health = 100;
+    <div class="fact">
+        Lorraine permaneceu associada ao trabalho paranormal do casal
+        durante décadas e continuou aparecendo publicamente em eventos
+        mesmo após a morte de Ed.
+    </div>
 
-const maxAmmo = 12;
-let ammo = maxAmmo;
+</div>
 
-let reloading = false;
+</div>
 
-let enemies = [];
-let bullets = [];
-let enemyBullets = [];
+</section>
 
-let keys = {};
 
-let mouseX = innerWidth / 2;
-let mouseY = innerHeight / 2;
+<!-- =========================
+     FOTOS
+========================= -->
 
-let playerX = innerWidth / 2;
-let playerY = innerHeight * .7;
+<section id="fotos">
 
-let lastShot = 0;
+<div class="section-title">
+    <small>02 — Galeria</small>
+    <h2>Fotos históricas</h2>
+</div>
 
-const shootDelay = 170;
+<p>
+    As imagens abaixo são referências disponíveis no Wikimedia Commons.
+    Verifique sempre a licença indicada na página original antes de
+    reutilizar as fotografias em um projeto público.
+</p>
 
-let enemySpawnTimer = 0;
+<div class="gallery">
 
+<figure class="photo">
 
-/* =========================================
-   ESTRELAS
-========================================= */
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/7/76/Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_%281978%29.jpg"
+alt="Ed e Lorraine Warren em 1978">
 
-for(let i = 0; i < 100; i++){
+<figcaption>
+    Ed e Lorraine Warren em uma apresentação no
+    Northern Essex Community College, outubro de 1978.
+    <br><br>
+    <a
+    href="https://commons.wikimedia.org/wiki/File:Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_(1978).jpg"
+    target="_blank">
+    Fonte e informações da fotografia
+    </a>
+</figcaption>
 
-    const star = document.createElement("div");
+</figure>
 
-    star.className = "star";
 
-    star.style.left =
-        Math.random() * 100 + "%";
+<figure class="photo">
 
-    star.style.top =
-        Math.random() * 100 + "%";
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Lorraine_Warren.jpg"
+alt="Lorraine Warren em 2013">
 
-    star.style.opacity =
-        Math.random();
+<figcaption>
+    Lorraine Warren durante a WonderCon, em Anaheim,
+    Califórnia, em 2013.
+    <br><br>
+    Fotografia de Gage Skidmore.
+    <br><br>
+    <a
+    href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren.jpg"
+    target="_blank">
+    Fonte e licença
+    </a>
+</figcaption>
 
-    document
-        .getElementById("stars")
-        .appendChild(star);
-}
+</figure>
 
 
-/* =========================================
-   TECLADO
-========================================= */
+<figure class="photo">
 
-document.addEventListener("keydown", e => {
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/4/45/Lorraine_Warren_%288608455671%29_%28cropped%29.jpg"
+alt="Lorraine Warren">
 
-    keys[e.key.toLowerCase()] = true;
+<figcaption>
+    Retrato de Lorraine Warren durante a WonderCon 2013.
+    <br><br>
+    Fotografia de Gage Skidmore.
+    <br><br>
+    <a
+    href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren_(8608455671)_(cropped).jpg"
+    target="_blank">
+    Ver detalhes e licença
+    </a>
+</figcaption>
 
-    if(e.key.toLowerCase() === "r"){
-        reload();
-    }
-});
+</figure>
 
-document.addEventListener("keyup", e => {
+</div>
 
-    keys[e.key.toLowerCase()] = false;
-});
+</section>
 
 
-/* =========================================
-   MOUSE
-========================================= */
+<!-- =========================
+     PERFIL
+========================= -->
 
-document.addEventListener("mousemove", e => {
+<section>
 
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+<div class="section-title">
+    <small>03 — Dados biográficos</small>
+    <h2>Ficha do casal</h2>
+</div>
 
-    crosshair.style.left = mouseX + "px";
-    crosshair.style.top = mouseY + "px";
+<div class="profile">
 
-    rotateGun();
-});
+<div class="profile-box">
+<span>Ed nasceu</span>
+<strong>1926</strong>
+</div>
 
-document.addEventListener("mousedown", e => {
+<div class="profile-box">
+<span>Lorraine nasceu</span>
+<strong>1927</strong>
+</div>
 
-    if(e.button === 0){
+<div class="profile-box">
+<span>Casamento</span>
+<strong>1945</strong>
+</div>
 
-        shoot();
-    }
-});
+<div class="profile-box">
+<span>Filha</span>
+<strong>Judy</strong>
+</div>
 
+<div class="profile-box">
+<span>Ed faleceu</span>
+<strong>2006</strong>
+</div>
 
-/* =========================================
-   PLAYER
-========================================= */
+<div class="profile-box">
+<span>Lorraine faleceu</span>
+<strong>2019</strong>
+</div>
 
-function updatePlayer(){
+<div class="profile-box">
+<span>Organização</span>
+<strong>NESPR</strong>
+</div>
 
-    const speed = 6;
+<div class="profile-box">
+<span>País</span>
+<strong>Estados Unidos</strong>
+</div>
 
-    if(keys["w"] || keys["arrowup"]){
-        playerY -= speed;
-    }
+</div>
 
-    if(keys["s"] || keys["arrowdown"]){
-        playerY += speed;
-    }
+</section>
 
-    if(keys["a"] || keys["arrowleft"]){
-        playerX -= speed;
-    }
 
-    if(keys["d"] || keys["arrowright"]){
-        playerX += speed;
-    }
+<!-- =========================
+     LINHA DO TEMPO
+========================= -->
 
-    playerX =
-        Math.max(35,
-        Math.min(innerWidth - 35, playerX));
+<section id="linha">
 
-    playerY =
-        Math.max(100,
-        Math.min(innerHeight - 70, playerY));
+<div class="section-title">
+    <small>04 — Cronologia</small>
+    <h2>Uma vida juntos</h2>
+</div>
 
-    player.style.left =
-        playerX + "px";
+<div class="timeline">
 
-    player.style.top =
-        playerY + "px";
+<div class="event">
 
-    rotateGun();
-}
+<div class="year">1944</div>
 
+<h3>O primeiro encontro</h3>
 
-function rotateGun(){
+<p>
+    Segundo a NESPR, Ed e Lorraine se conheceram quando Ed,
+    então adolescente, trabalhava no Colonial Theater,
+    em Bridgeport, Connecticut.
+</p>
 
-    const dx = mouseX - playerX;
-    const dy = mouseY - playerY;
+</div>
 
-    const angle =
-        Math.atan2(dy,dx) * 180 / Math.PI;
 
-    gun.style.transform =
-        `rotate(${angle}deg)`;
-}
+<div class="event">
 
+<div class="year">1945</div>
 
-/* =========================================
-   TIRO
-========================================= */
+<h3>O casamento</h3>
 
-function shoot(){
+<p>
+    Depois do serviço militar de Ed, o casal se casou.
+    A relação duraria mais de seis décadas.
+</p>
 
-    if(!playing || reloading) return;
+</div>
 
-    if(Date.now() - lastShot < shootDelay){
-        return;
-    }
 
-    if(ammo <= 0){
+<div class="event">
 
-        reload();
+<div class="year">1950s</div>
 
-        return;
-    }
+<h3>As primeiras investigações</h3>
 
-    lastShot = Date.now();
+<p>
+    A NESPR relata que o interesse do casal por casas
+    supostamente assombradas cresceu durante os anos 1950.
+</p>
 
-    ammo--;
+</div>
 
-    updateAmmo();
 
-    const dx = mouseX - playerX;
-    const dy = mouseY - playerY;
+<div class="event">
 
-    const distance =
-        Math.sqrt(dx*dx + dy*dy);
+<div class="year">1952</div>
 
-    const speed = 14;
+<h3>Fundação da NESPR</h3>
 
-    const bullet = {
-        x: playerX,
-        y: playerY,
-        vx: dx / distance * speed,
-        vy: dy / distance * speed
-    };
+<p>
+    A New England Society for Psychic Research passou a
+    fazer parte da história associada aos Warren.
+</p>
 
-    const element =
-        document.createElement("div");
+</div>
 
-    element.className = "bullet";
 
-    game.appendChild(element);
+<div class="event">
 
-    bullet.element = element;
+<div class="year">1970s</div>
 
-    bullets.push(bullet);
-}
+<h3>Casos que ganharam notoriedade</h3>
 
+<p>
+    Casos como Amityville, Enfield e a família Perron
+    ajudaram a transformar o casal em figuras conhecidas
+    dentro da cultura paranormal.
+</p>
 
-/* =========================================
-   ATUALIZAR TIROS
-========================================= */
+</div>
 
-function updateBullets(){
 
-    for(let i = bullets.length - 1; i >= 0; i--){
+<div class="event">
 
-        const b = bullets[i];
+<div class="year">1978</div>
 
-        b.x += b.vx;
-        b.y += b.vy;
+<h3>Ed e Lorraine em palestra</h3>
 
-        b.element.style.left =
-            b.x + "px";
+<p>
+    Uma fotografia preservada no Wikimedia Commons registra
+    os dois juntos no Northern Essex Community College.
+</p>
 
-        b.element.style.top =
-            b.y + "px";
+</div>
 
-        let hit = false;
 
-        for(let j = enemies.length - 1; j >= 0; j--){
+<div class="event">
 
-            const enemy = enemies[j];
+<div class="year">2006</div>
 
-            const dx = b.x - enemy.x;
-            const dy = b.y - enemy.y;
+<h3>Morte de Ed Warren</h3>
 
-            const distance =
-                Math.sqrt(dx*dx + dy*dy);
+<p>
+    Ed morreu em 23 de agosto de 2006.
+</p>
 
-            if(distance < 35){
+</div>
 
-                enemy.hp -= 35;
 
-                hit = true;
+<div class="event">
 
-                updateEnemyHealth(enemy);
+<div class="year">2013</div>
 
-                if(enemy.hp <= 0){
+<h3>O casal chega ao cinema</h3>
 
-                    destroyEnemy(j);
+<p>
+    O lançamento de "The Conjuring" levou uma versão
+    dramatizada de Ed e Lorraine a um público mundial.
+</p>
 
-                    score += 100;
+</div>
 
-                    if(Math.random() < .3){
-                        score += 50;
-                    }
 
-                    scoreElement.textContent =
-                        score;
-                }
+<div class="event">
 
-                break;
-            }
-        }
+<div class="year">2019</div>
 
-        if(hit || b.x < -50 ||
-           b.x > innerWidth + 50 ||
-           b.y < -50 ||
-           b.y > innerHeight + 50){
+<h3>Morte de Lorraine Warren</h3>
 
-            b.element.remove();
+<p>
+    Lorraine morreu em 18 de abril de 2019,
+    encerrando uma das fases mais conhecidas da história
+    do casal.
+</p>
 
-            bullets.splice(i,1);
-        }
-    }
-}
+</div>
 
+</div>
 
-/* =========================================
-   INIMIGOS
-========================================= */
+</section>
 
-function spawnEnemy(){
 
-    const enemyElement =
-        document.createElement("div");
+<!-- =========================
+     CASOS
+========================= -->
 
-    enemyElement.className = "enemy";
+<section id="casos">
 
-    const hpBar =
-        document.createElement("div");
+<div class="section-title">
+    <small>05 — Arquivos famosos</small>
+    <h2>Casos associados aos Warren</h2>
+</div>
 
-    hpBar.className = "hp";
+<div class="cases">
 
-    const hpFill =
-        document.createElement("div");
 
-    hpBar.appendChild(hpFill);
+<article class="case">
 
-    enemyElement.appendChild(hpBar);
+<div class="case-number">ARQUIVO 001</div>
 
-    game.appendChild(enemyElement);
+<h3>Amityville</h3>
 
-    let x;
-    let y;
+<div class="status">
+Relato controverso
+</div>
 
-    const side =
-        Math.floor(Math.random() * 4);
+<p>
+    Em 1974, Ronald DeFeo Jr. matou seis membros de sua família
+    na residência de Amityville, em Long Island.
+</p>
 
-    if(side === 0){
-        x = -50;
-        y = Math.random() * innerHeight;
-    }
+<p>
+    No ano seguinte, George e Kathy Lutz se mudaram para a casa
+    e posteriormente relataram uma série de acontecimentos
+    sobrenaturais.
+</p>
 
-    if(side === 1){
-        x = innerWidth + 50;
-        y = Math.random() * innerHeight;
-    }
+<p>
+    Os Warren investigaram a residência e defenderam a interpretação
+    paranormal do caso.
+</p>
 
-    if(side === 2){
-        x = Math.random() * innerWidth;
-        y = -50;
-    }
+<p>
+    A história, porém, é altamente controversa e foi contestada
+    por investigadores e outras fontes.
+</p>
 
-    if(side === 3){
-        x = Math.random() * innerWidth;
-        y = innerHeight + 50;
-    }
+</article>
 
-    const enemy = {
 
-        x,
-        y,
+<article class="case">
 
-        hp: 100 + wave * 15,
+<div class="case-number">ARQUIVO 002</div>
 
-        maxHp: 100 + wave * 15,
+<h3>Família Perron</h3>
 
-        speed:
-            1 + wave * .08 +
-            Math.random() * .5,
+<div class="status">
+Base de "Invocação do Mal"
+</div>
 
-        element:
-            enemyElement,
+<p>
+    A família Perron afirmou ter experimentado fenômenos estranhos
+    depois de se mudar para uma casa em Rhode Island.
+</p>
 
-        hpFill
-    };
+<p>
+    O caso se tornou a principal inspiração para o filme
+    "The Conjuring", lançado em 2013.
+</p>
 
-    enemies.push(enemy);
-}
+<p>
+    A versão cinematográfica acrescentou e alterou vários elementos
+    para criar uma narrativa de terror.
+</p>
 
+</article>
 
-/* =========================================
-   ATUALIZAR INIMIGOS
-========================================= */
 
-function updateEnemies(){
+<article class="case">
 
-    enemies.forEach(enemy => {
+<div class="case-number">ARQUIVO 003</div>
 
-        const dx =
-            playerX - enemy.x;
+<h3>Enfield</h3>
 
-        const dy =
-            playerY - enemy.y;
+<div class="status">
+Caso britânico controverso
+</div>
 
-        const distance =
-            Math.sqrt(dx*dx + dy*dy);
+<p>
+    Em 1977, uma família em Enfield, Londres, relatou fenômenos
+    que ficaram conhecidos como o poltergeist de Enfield.
+</p>
 
-        if(distance > 60){
+<p>
+    Os Warren estiveram envolvidos no caso e interpretaram
+    os acontecimentos como atividade demoníaca.
+</p>
 
-            enemy.x +=
-                dx / distance *
-                enemy.speed;
+<p>
+    Outras pessoas envolvidas na investigação questionaram
+    os acontecimentos e algumas acusações de fraude foram feitas.
+</p>
 
-            enemy.y +=
-                dy / distance *
-                enemy.speed;
-        }
+</article>
 
-        enemy.element.style.left =
-            enemy.x - 29 + "px";
 
-        enemy.element.style.top =
-            enemy.y - 29 + "px";
+<article class="case">
 
-        if(distance < 60){
+<div class="case-number">ARQUIVO 004</div>
 
-            damagePlayer(.4);
-        }
+<h3>Annabelle</h3>
 
-        /* chance de atirar */
+<div class="status">
+Objeto paranormal associado aos Warren
+</div>
 
-        if(distance < 550 &&
-           Math.random() < .006 + wave * .0004){
+<p>
+    Annabelle é uma boneca Raggedy Ann que se tornou um dos
+    objetos mais famosos associados à coleção dos Warren.
+</p>
 
-            enemyShoot(enemy);
-        }
-    });
-}
+<p>
+    Segundo o relato divulgado pelos Warren, uma estudante de
+    enfermagem teria recebido a boneca e acontecimentos estranhos
+    começaram a ocorrer.
+</p>
 
+<p>
+    A boneca ganhou enorme fama depois de aparecer na franquia
+    cinematográfica "The Conjuring".
+</p>
 
-/* =========================================
-   VIDA DOS INIMIGOS
-========================================= */
+</article>
 
-function updateEnemyHealth(enemy){
 
-    const percent =
-        Math.max(0, enemy.hp / enemy.maxHp * 100);
+<article class="case">
 
-    enemy.hpFill.style.width =
-        percent + "%";
-}
+<div class="case-number">ARQUIVO 005</div>
 
+<h3>Arne Cheyenne Johnson</h3>
 
-/* =========================================
-   DESTRUIR INIMIGO
-========================================= */
+<div class="status">
+"The Devil Made Me Do It"
+</div>
 
-function destroyEnemy(index){
+<p>
+    Em 1981, Arne Johnson matou Alan Bono em Connecticut.
+</p>
 
-    const enemy = enemies[index];
+<p>
+    O caso ganhou notoriedade porque a defesa tentou argumentar
+    que Johnson estava sob influência demoníaca.
+</p>
 
-    createExplosion(
-        enemy.x,
-        enemy.y
-    );
+<p>
+    A tese ficou conhecida popularmente como "The Devil Made Me Do It".
+</p>
 
-    enemy.element.remove();
+</article>
 
-    enemies.splice(index,1);
-}
 
+<article class="case">
 
-/* =========================================
-   EXPLOSÃO
-========================================= */
+<div class="case-number">ARQUIVO 006</div>
 
-function createExplosion(x,y){
+<h3>Outros relatos</h3>
 
-    const explosion =
-        document.createElement("div");
+<div class="status">
+Décadas de investigação
+</div>
 
-    explosion.className =
-        "explosion";
+<p>
+    A NESPR afirma que os Warren investigaram mais de cem casos
+    conhecidos e reuniram relatos, objetos e outros materiais.
+</p>
 
-    explosion.style.left =
-        x - 10 + "px";
+<p>
+    A quantidade exata de investigações e a natureza de suas
+    evidências são temas que dependem da fonte consultada.
+</p>
 
-    explosion.style.top =
-        y - 10 + "px";
+</article>
 
-    game.appendChild(explosion);
+</div>
 
-    setTimeout(() => {
+</section>
 
-        explosion.remove();
 
-    },350);
-}
+<!-- =========================
+     CITAÇÃO
+========================= -->
 
+<section>
 
-/* =========================================
-   TIRO DOS INIMIGOS
-========================================= */
+<div class="quote">
 
-function enemyShoot(enemy){
+<p>
+    "A história dos Warren está na fronteira entre
+    investigação paranormal, religião, cultura popular
+    e entretenimento."
+</p>
 
-    const dx =
-        playerX - enemy.x;
+<small>
+    Síntese editorial — não uma citação atribuída ao casal
+</small>
 
-    const dy =
-        playerY - enemy.y;
+</div>
 
-    const distance =
-        Math.sqrt(dx*dx + dy*dy);
+</section>
 
-    const bullet = {
 
-        x: enemy.x,
-        y: enemy.y,
+<!-- =========================
+     FILMES
+========================= -->
 
-        vx: dx / distance * 5,
-        vy: dy / distance * 5
-    };
+<section id="filmes">
 
-    const element =
-        document.createElement("div");
+<div class="section-title">
+    <small>06 — Cultura pop</small>
+    <h2>Ed e Lorraine no cinema</h2>
+</div>
 
-    element.className =
-        "bullet enemyBullet";
+<p>
+    O casal se tornou uma das principais inspirações para a franquia
+    "The Conjuring". Os filmes usam casos reais ou alegados como ponto
+    de partida, mas são obras de ficção e não documentários.
+</p>
 
-    game.appendChild(element);
+<div class="movies">
 
-    bullet.element = element;
+<div class="movie">
 
-    enemyBullets.push(bullet);
-}
+<h3>Invocação do Mal</h3>
 
+<p>
+    2013. Patrick Wilson interpreta Ed Warren e Vera Farmiga interpreta
+    Lorraine Warren.
+</p>
 
-/* =========================================
-   ATUALIZAR TIROS INIMIGOS
-========================================= */
+<p>
+    A história é inspirada principalmente nos relatos da família Perron.
+</p>
 
-function updateEnemyBullets(){
+</div>
 
-    for(
-        let i = enemyBullets.length - 1;
-        i >= 0;
-        i--
-    ){
 
-        const b =
-            enemyBullets[i];
+<div class="movie">
 
-        b.x += b.vx;
-        b.y += b.vy;
+<h3>Invocação do Mal 2</h3>
 
-        b.element.style.left =
-            b.x + "px";
+<p>
+    2016. O filme apresenta uma versão dramatizada da investigação
+    de Enfield, na Inglaterra.
+</p>
 
-        b.element.style.top =
-            b.y + "px";
+</div>
 
-        const dx =
-            b.x - playerX;
 
-        const dy =
-            b.y - playerY;
+<div class="movie">
 
-        const distance =
-            Math.sqrt(dx*dx + dy*dy);
+<h3>Invocação do Mal 3</h3>
 
-        if(distance < 35){
+<p>
+    2021. A história utiliza o caso de Arne Johnson como uma de suas
+    principais inspirações.
+</p>
 
-            damagePlayer(12);
+</div>
 
-            b.element.remove();
 
-            enemyBullets.splice(i,1);
+<div class="movie">
 
-            continue;
-        }
+<h3>Annabelle</h3>
 
-        if(
-            b.x < -30 ||
-            b.x > innerWidth + 30 ||
-            b.y < -30 ||
-            b.y > innerHeight + 30
-        ){
+<p>
+    A boneca associada aos Warren ganhou uma franquia própria.
+</p>
 
-            b.element.remove();
+</div>
 
-            enemyBullets.splice(i,1);
-        }
-    }
-}
 
+<div class="movie">
 
-/* =========================================
-   DANO
-========================================= */
+<h3>Annabelle 2</h3>
 
-function damagePlayer(amount){
+<p>
+    Expande a mitologia cinematográfica relacionada à boneca.
+</p>
 
-    if(!playing) return;
+</div>
 
-    health -= amount;
 
-    health =
-        Math.max(0,health);
+<div class="movie">
 
-    healthFill.style.width =
-        health + "%";
+<h3>Annabelle 3</h3>
 
-    const damage =
-        document.getElementById("damage");
+<p>
+    Apresenta uma versão ficcionalizada da coleção de objetos
+    associados aos Warren.
+</p>
 
-    damage.style.opacity = ".8";
+</div>
 
-    setTimeout(() => {
+</div>
 
-        damage.style.opacity = "0";
+</section>
 
-    },80);
 
-    game.classList.add("shake");
+<!-- =========================
+     FATOS
+========================= -->
 
-    setTimeout(() => {
+<section id="fatos">
 
-        game.classList.remove("shake");
+<div class="section-title">
+    <small>07 — Curiosidades</small>
+    <h2>Fatos importantes</h2>
+</div>
 
-    },150);
+<div class="cases">
 
-    if(health <= 0){
+<article class="case">
 
-        gameOver();
-    }
-}
+<h3>Mais de 60 anos juntos</h3>
 
+<p>
+    Ed e Lorraine se conheceram ainda adolescentes e permaneceram
+    casados até a morte de Ed em 2006.
+</p>
 
-/* =========================================
-   RECARGAR
-========================================= */
+</article>
 
-function reload(){
 
-    if(reloading ||
-       ammo === maxAmmo ||
-       !playing){
+<article class="case">
 
-        return;
-    }
+<h3>Uma filha</h3>
 
-    reloading = true;
+<p>
+    O casal teve uma filha chamada Judy, que posteriormente se
+    tornou parte da história pública associada à família Warren.
+</p>
 
-    showMessage("RECARREGANDO...");
+</article>
 
-    setTimeout(() => {
 
-        ammo = maxAmmo;
+<article class="case">
 
-        reloading = false;
+<h3>Ed era pintor</h3>
 
-        updateAmmo();
+<p>
+    Antes da fama paranormal, Ed tinha interesse artístico e
+    pintava casas consideradas assombradas.
+</p>
 
-    },900);
-}
+</article>
 
 
-/* =========================================
-   HUD
-========================================= */
+<article class="case">
 
-function updateAmmo(){
+<h3>Lorraine no cinema</h3>
 
-    ammoElement.textContent =
-        ammo + " / " + maxAmmo;
-}
+<p>
+    Lorraine participou da produção relacionada a "The Conjuring"
+    e apareceu em uma pequena participação no filme.
+</p>
 
+</article>
 
-/* =========================================
-   ONDAS
-========================================= */
 
-function updateWave(){
+<article class="case">
 
-    const required =
-        wave * 8;
+<h3>O museu</h3>
 
-    if(
-        score >= required * 100 &&
-        enemies.length === 0
-    ){
+<p>
+    Durante décadas, objetos associados às investigações dos Warren
+    foram mantidos em sua coleção conhecida como Occult Museum.
+</p>
 
-        wave++;
+</article>
 
-        waveElement.textContent =
-            wave;
 
-        showMessage(
-            "ONDA " + wave
-        );
-    }
-}
+<article class="case">
 
+<h3>Legado</h3>
 
-/* =========================================
-   GAME OVER
-========================================= */
+<p>
+    Após a morte de Ed e Lorraine, a NESPR continuou associando
+    sua atuação ao legado do casal.
+</p>
 
-function gameOver(){
+</article>
 
-    playing = false;
+</div>
 
-    document.getElementById(
-        "finalScore"
-    ).textContent = score;
+</section>
 
-    document.getElementById(
-        "finalWave"
-    ).textContent = wave;
 
-    document.getElementById(
-        "gameOver"
-    ).classList.remove("hidden");
-}
+<!-- =========================
+     CONTROVÉRSIAS
+========================= -->
 
+<section>
 
-/* =========================================
-   INICIAR
-========================================= */
+<div class="section-title">
+    <small>08 — Análise crítica</small>
+    <h2>O que é fato e o que é alegação?</h2>
+</div>
 
-function startGame(){
+<p>
+    A existência de Ed e Lorraine Warren, seu casamento, suas aparições
+    públicas, seus livros, organizações e participação em determinados
+    casos são fatos históricos documentáveis.
+</p>
 
-    document.getElementById(
-        "startScreen"
-    ).classList.add("hidden");
+<p>
+    Já as conclusões sobre demônios, possessões e espíritos pertencem
+    ao campo das crenças e alegações paranormais. Alguns dos casos
+    mais famosos atribuídos ao casal foram contestados por jornalistas,
+    investigadores, testemunhas ou outras pessoas envolvidas.
+</p>
 
-    playing = true;
+<div class="notice">
 
-    score = 0;
-    wave = 1;
-    health = 100;
-    ammo = maxAmmo;
+<h3>Exemplo: Amityville</h3>
 
-    scoreElement.textContent = "0";
-    waveElement.textContent = "1";
+<p>
+    A família Lutz afirmou ter experimentado fenômenos sobrenaturais.
+    Os Warren defenderam a interpretação paranormal, mas a história
+    posteriormente foi alvo de fortes contestações e acusações de fraude.
+    Portanto, é incorreto apresentar todos os acontecimentos do caso
+    como fatos comprovados.
+</p>
 
-    healthFill.style.width = "100%";
+</div>
 
-    updateAmmo();
+<div class="notice">
 
-    showMessage("MISSÃO INICIADA!");
-}
+<h3>Por que isso importa?</h3>
 
+<p>
+    Diferenciar "o Warren afirmou que aconteceu" de "foi comprovado
+    que aconteceu" torna a pesquisa histórica mais precisa e evita
+    transformar alegações em fatos.
+</p>
 
-/* =========================================
-   REINICIAR
-========================================= */
+</div>
 
-function restartGame(){
+</section>
 
-    enemies.forEach(e =>
-        e.element.remove()
-    );
 
-    bullets.forEach(b =>
-        b.element.remove()
-    );
+<!-- =========================
+     LEGADO
+========================= -->
 
-    enemyBullets.forEach(b =>
-        b.element.remove()
-    );
+<section>
 
-    enemies = [];
-    bullets = [];
-    enemyBullets = [];
+<div class="section-title">
+    <small>09 — Legado</small>
+    <h2>O impacto cultural</h2>
+</div>
 
-    document.getElementById(
-        "gameOver"
-    ).classList.add("hidden");
+<p>
+    Independentemente da interpretação dos fenômenos investigados,
+    Ed e Lorraine Warren tiveram um impacto enorme na cultura popular.
+</p>
 
-    playerX = innerWidth / 2;
-    playerY = innerHeight * .7;
+<p>
+    Seus relatos ajudaram a popularizar a figura do casal de investigadores
+    paranormais e forneceram material para livros, documentários,
+    programas televisivos e grandes produções de Hollywood.
+</p>
 
-    startGame();
-}
+<p>
+    O personagem cinematográfico de Ed, interpretado por Patrick Wilson,
+    e Lorraine, interpretada por Vera Farmiga, tornou-se uma das duplas
+    mais reconhecidas do cinema de terror contemporâneo.
+</p>
 
+</section>
 
-/* =========================================
-   MENSAGEM
-========================================= */
 
-let messageTimeout;
+<!-- =========================
+     FONTES
+========================= -->
 
-function showMessage(text){
+<footer>
 
-    const message =
-        document.getElementById("message");
+<h2>Fontes e referências</h2>
 
-    message.textContent = text;
+<p>
+    Este projeto é uma página informativa independente.
+    Para informações históricas, imagens e detalhes adicionais,
+    consulte as fontes abaixo.
+</p>
 
-    message.style.opacity = "1";
+<div class="sources">
 
-    clearTimeout(messageTimeout);
+<a
+href="https://warrens.net/about/"
+target="_blank">
+NESPR — About / Ed & Lorraine Warren
+</a>
 
-    messageTimeout = setTimeout(() => {
+<a
+href="https://warrens.net/"
+target="_blank">
+NESPR — New England Society for Psychic Research
+</a>
 
-        message.style.opacity = "0";
+<a
+href="https://commons.wikimedia.org/wiki/File:Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_(1978).jpg"
+target="_blank">
+Wikimedia Commons — Ed e Lorraine Warren, 1978
+</a>
 
-    },1200);
-}
+<a
+href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren.jpg"
+target="_blank">
+Wikimedia Commons — Lorraine Warren, 2013
+</a>
 
+<a
+href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren_(8608455671)_(cropped).jpg"
+target="_blank">
+Wikimedia Commons — Lorraine Warren, 2013
+</a>
 
-/* =========================================
-   SPAWN
-========================================= */
+</div>
 
-function spawnManager(){
+<p style="margin-top:40px;">
+    © Página educativa independente — Ed & Lorraine Warren
+</p>
 
-    if(!playing) return;
-
-    enemySpawnTimer--;
-
-    const maxEnemies =
-        3 + wave * 2;
-
-    if(
-        enemySpawnTimer <= 0 &&
-        enemies.length < maxEnemies
-    ){
-
-        spawnEnemy();
-
-        enemySpawnTimer =
-            Math.max(
-                15,
-                70 - wave * 4
-            );
-    }
-}
-
-
-/* =========================================
-   LOOP PRINCIPAL
-========================================= */
-
-function gameLoop(){
-
-    if(playing){
-
-        updatePlayer();
-
-        updateBullets();
-
-        updateEnemies();
-
-        updateEnemyBullets();
-
-        spawnManager();
-
-        updateWave();
-    }
-
-    requestAnimationFrame(gameLoop);
-}
-
-gameLoop();
-
-
-/* =========================================
-   BOTÃO MOBILE
-========================================= */
-
-document
-    .getElementById("shootBtn")
-    .addEventListener("touchstart", e => {
-
-        e.preventDefault();
-
-        shoot();
-    });
-
-
-document
-    .getElementById("upBtn")
-    .addEventListener("touchstart", e => {
-
-        e.preventDefault();
-
-        keys["w"] = true;
-    });
-
-
-document
-    .getElementById("upBtn")
-    .addEventListener("touchend", e => {
-
-        e.preventDefault();
-
-        keys["w"] = false;
-    });
-
-
-/* =========================================
-   RESIZE
-========================================= */
-
-window.addEventListener("resize", () => {
-
-    playerX =
-        Math.min(
-            playerX,
-            innerWidth - 35
-        );
-
-    playerY =
-        Math.min(
-            playerY,
-            innerHeight - 70
-        );
-});
-
-</script>
+</footer>
 
 </body>
 </html>
 
 
-Controles: mouse para mirar/atirar, WASD ou setas para movimentar e R para recarregar. O jogo também possui controles básicos para celular.
+:::
+
+W
+Fontes
