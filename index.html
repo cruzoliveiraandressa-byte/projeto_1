@@ -1,731 +1,1703 @@
-Claro. A série original Teen Wolf teve 6 temporadas e 100 episódios, exibidos de 2011 a 2017. As temporadas 1, 2 e 4 têm 12 episódios cada, enquanto 3, 5 e 6 têm 24, 20 e 20, respectivamente. 
-E
-Epguides
+Sim. Abaixo está um gene-x.html longo, totalmente em azul, com visual de laboratório futurista e conteúdo organizado sobre o X-Gene/Gene X no universo dos X-Men. O conceito de mutantes como humanos portadores do X-gene é parte da mitologia da Marvel; os poderes normalmente são inatos e podem se manifestar em diferentes momentos. 
+X
+X-Men Wiki
 +1
 
-Abaixo está uma versão longa e personalizada, com todas as temporadas, os 100 episódios, personagens, criaturas, poderes, famílias, vilões, cronologia, casais, divisão 3A/3B, 5A/5B e 6A/6B, além de busca e filtros. Os títulos dos episódios foram conferidos em guias de episódios. 
-S
-Springfield! Springfield!
-+1
+O arquivo também diferencia Gene X fictício de genética real: não existe um “X-Gene” real capaz de produzir superpoderes.
 
-Teen Wolf — Arquivo Completo da Série
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teen Wolf — Arquivo Completo</title>
+<title>GENE X — Arquivo Mutante | X-Men</title>
 
 <style>
-:root{
-    --bg:#05070a;
-    --bg2:#0b1015;
-    --card:#101820;
-    --card2:#151e27;
-    --blue:#35b8ff;
-    --blue2:#0879b8;
-    --red:#e53b45;
-    --gold:#d8b36a;
-    --text:#e9f1f5;
-    --muted:#8d9ba5;
-    --line:#26343e;
-    --green:#45d483;
-}
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
     scroll-behavior:smooth;
 }
 
+:root{
+
+    --blue-1:#00111f;
+    --blue-2:#00263d;
+    --blue-3:#003d61;
+    --blue-4:#006fae;
+    --blue-5:#00a8ff;
+    --blue-6:#52d5ff;
+    --blue-7:#a8efff;
+
+    --black:#010508;
+    --white:#eafaff;
+    --gray:#8ba6b5;
+    --gray2:#587382;
+
+    --border:#0b4e70;
+
+    --shadow:
+        0 20px 70px rgba(0,0,0,.55);
+
+}
+
 body{
+
     background:
-        radial-gradient(circle at 50% 0%,#142331 0,#05070a 45%);
-    color:var(--text);
-    font-family:Arial,Helvetica,sans-serif;
-    line-height:1.65;
+        radial-gradient(
+            circle at 50% 0%,
+            #003452 0,
+            #001724 25%,
+            #010508 70%
+        );
+
+    color:var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
 }
 
-a{
-    color:inherit;
-}
 
-button,
-input,
-select{
-    font:inherit;
-}
-
-/* =========================
-   FUNDO
-========================= */
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
-    opacity:.07;
-    z-index:999;
+
+    opacity:.12;
+
     background-image:
+
         linear-gradient(
-            rgba(255,255,255,.5) 1px,
+            rgba(0,168,255,.13) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,168,255,.13) 1px,
             transparent 1px
         );
-    background-size:100% 5px;
+
+    background-size:
+        50px 50px;
+
+    z-index:-3;
+
 }
 
-/* =========================
-   HEADER
-========================= */
+body::after{
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 20px;
-    position:relative;
-    overflow:hidden;
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 20%,
+            rgba(0,0,0,.65) 100%
+        );
+
+    z-index:-2;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#00070b;
+}
+
+::-webkit-scrollbar-thumb{
+
     background:
         linear-gradient(
-            rgba(0,0,0,.35),
-            rgba(0,0,0,.8)
-        ),
-        radial-gradient(
-            circle at 50% 45%,
-            #17334a,
-            #06090d 68%
+            #006fae,
+            #00a8ff
         );
+
+    border-radius:20px;
+
 }
 
-.moon{
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+
+/* =========================================================
+   DNA
+========================================================= */
+
+.dna{
+
     position:absolute;
-    width:420px;
-    height:420px;
+
+    width:180px;
+
+    height:700px;
+
+    right:8%;
+
+    top:50%;
+
+    transform:
+        translateY(-50%)
+        rotate(15deg);
+
+    opacity:.25;
+
+}
+
+.dna::before,
+.dna::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+
+    height:100%;
+
     border-radius:50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--blue-5),
+            var(--blue-7),
+            var(--blue-4),
+            transparent
+        );
+
+}
+
+.dna::before{
+    left:35px;
+}
+
+.dna::after{
+    right:35px;
+}
+
+.dna span{
+
+    position:absolute;
+
+    left:35px;
+
+    width:110px;
+
+    height:3px;
+
+    background:
+        var(--blue-5);
+
+    box-shadow:
+        0 0 15px var(--blue-5);
+
+}
+
+.dna span:nth-child(1){top:5%;}
+.dna span:nth-child(2){top:15%;}
+.dna span:nth-child(3){top:25%;}
+.dna span:nth-child(4){top:35%;}
+.dna span:nth-child(5){top:45%;}
+.dna span:nth-child(6){top:55%;}
+.dna span:nth-child(7){top:65%;}
+.dna span:nth-child(8){top:75%;}
+.dna span:nth-child(9){top:85%;}
+.dna span:nth-child(10){top:95%;}
+
+
+/* =========================================================
+   HERO GLOW
+========================================================= */
+
+.hero-glow{
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
     background:
         radial-gradient(
-            circle at 35% 30%,
-            #fff 0,
-            #dce8ef 35%,
-            #7190a0 65%,
-            #2d404b 100%
+            circle,
+            rgba(0,168,255,.3),
+            transparent 65%
         );
-    opacity:.16;
-    right:7%;
-    top:9%;
-    box-shadow:0 0 80px #5ca4ca;
+
+    filter:blur(5px);
+
+    animation:
+        pulse 5s infinite alternate;
+
 }
+
+@keyframes pulse{
+
+    from{
+        transform:scale(.85);
+        opacity:.5;
+    }
+
+    to{
+        transform:scale(1.15);
+        opacity:1;
+    }
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
 
 .hero-content{
+
     position:relative;
-    z-index:2;
-    max-width:1000px;
+
+    z-index:5;
+
+    max-width:1100px;
+
 }
 
-.kicker{
-    color:var(--blue);
-    letter-spacing:6px;
+.system{
+
+    color:var(--blue-6);
+
     font-size:12px;
+
+    letter-spacing:7px;
+
     text-transform:uppercase;
-    font-weight:bold;
+
+    margin-bottom:25px;
+
 }
 
-.hero h1{
-    font-size:clamp(70px,13vw,170px);
-    line-height:.85;
-    letter-spacing:-5px;
-    margin:25px 0;
+.hero-content h1{
+
+    font-size:
+        clamp(
+            80px,
+            17vw,
+            190px
+        );
+
+    line-height:.8;
+
+    letter-spacing:-10px;
+
+    color:white;
+
     text-shadow:
-        0 0 15px #218bc1,
-        0 0 50px rgba(53,184,255,.3);
+
+        0 0 10px
+        rgba(0,168,255,.9),
+
+        0 0 50px
+        rgba(0,168,255,.6),
+
+        0 0 100px
+        rgba(0,168,255,.3);
+
 }
 
-.hero h1 span{
-    color:var(--blue);
+.hero-content h1 span{
+
+    color:
+        var(--blue-5);
+
 }
 
-.hero p{
-    max-width:780px;
-    margin:auto;
-    color:#b9c8d0;
-    font-size:19px;
+.hero-subtitle{
+
+    max-width:800px;
+
+    margin:
+        35px
+        auto
+        0;
+
+    color:
+        #a9c6d4;
+
+    font-size:18px;
+
 }
 
 .hero-buttons{
+
     display:flex;
-    justify-content:center;
-    gap:15px;
+
     flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
     margin-top:35px;
+
 }
 
 .btn{
-    border:1px solid var(--blue);
-    background:#07131c;
+
+    padding:
+        14px
+        25px;
+
+    border:
+        1px solid
+        var(--blue-5);
+
+    background:
+        rgba(0,25,40,.8);
+
     color:white;
-    padding:14px 24px;
+
+    text-transform:uppercase;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
     cursor:pointer;
-    text-decoration:none;
-    transition:.2s;
-    box-shadow:0 0 20px rgba(53,184,255,.12);
+
+    transition:.25s;
+
 }
 
 .btn:hover{
-    background:var(--blue);
-    color:#001018;
-    transform:translateY(-2px);
-}
 
-/* =========================
-   NAV
-========================= */
-
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(4,7,10,.94);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
-}
-
-.navbar ul{
-    list-style:none;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.navbar a{
-    display:block;
-    padding:15px 14px;
-    text-decoration:none;
-    color:#94a4ae;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-size:11px;
-}
-
-.navbar a:hover{
-    color:white;
-    background:#101a22;
-}
-
-/* =========================
-   SEÇÕES
-========================= */
-
-section{
-    max-width:1250px;
-    margin:auto;
-    padding:90px 25px;
-}
-
-.section-head{
-    margin-bottom:45px;
-}
-
-.section-head small{
-    color:var(--blue);
-    text-transform:uppercase;
-    letter-spacing:4px;
-    font-weight:bold;
-    font-size:11px;
-}
-
-.section-head h2{
-    font-size:clamp(34px,5vw,60px);
-    margin-top:8px;
-}
-
-.section-head p{
-    color:var(--muted);
-    max-width:800px;
-    margin-top:12px;
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.025),
-            rgba(255,255,255,.005)
-        ),
-        var(--card);
-    border:1px solid var(--line);
-    padding:25px;
-    transition:.25s;
+        var(--blue-5);
+
+    color:
+        #00111f;
+
+    box-shadow:
+        0 0 30px
+        rgba(0,168,255,.5);
+
+    transform:
+        translateY(-4px);
+
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#3d718c;
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-}
+.hero-stats{
 
-.card h3{
-    color:#dff5ff;
-    margin-bottom:10px;
-    font-size:22px;
-}
+    display:flex;
 
-.card p{
-    color:#9eabb3;
-}
+    flex-wrap:wrap;
 
-.tag{
-    display:inline-block;
-    border:1px solid #31566a;
-    color:#65c9f4;
-    padding:4px 8px;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:12px;
-}
+    justify-content:center;
 
-/* =========================
-   ESTATÍSTICAS
-========================= */
+    gap:50px;
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-top:30px;
-}
+    margin-top:60px;
 
-.stat{
-    text-align:center;
-    background:#0b1117;
-    border:1px solid var(--line);
-    padding:25px;
 }
 
 .stat strong{
+
     display:block;
-    color:var(--blue);
-    font-size:38px;
+
+    color:
+        var(--blue-5);
+
+    font-size:32px;
+
 }
 
 .stat span{
-    color:#788993;
+
+    display:block;
+
+    color:
+        var(--gray2);
+
+    font-size:9px;
+
     text-transform:uppercase;
-    font-size:10px;
+
     letter-spacing:2px;
+
 }
 
-/* =========================
-   TEMPORADAS
-========================= */
 
-.season{
-    margin-bottom:55px;
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+        rgba(0,8,13,.92);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
 }
 
-.season-header{
+.nav-inner{
+
+    max-width:1450px;
+
+    margin:auto;
+
     display:flex;
-    justify-content:space-between;
-    align-items:end;
+
+    justify-content:center;
+
+    overflow-x:auto;
+
+}
+
+nav a{
+
+    padding:
+        17px
+        13px;
+
+    color:
+        #668897;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+    transition:.2s;
+
+}
+
+nav a:hover{
+
+    color:white;
+
+    background:
+        #00253a;
+
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:
+        100px
+        25px;
+
+}
+
+.label{
+
+    color:
+        var(--blue-5);
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+.section h2{
+
+    font-size:
+        clamp(
+            40px,
+            6vw,
+            72px
+        );
+
+    line-height:1;
+
+    margin-top:10px;
+
+    color:white;
+
+    text-shadow:
+        0 0 25px
+        rgba(0,168,255,.25);
+
+}
+
+.section-intro{
+
+    max-width:850px;
+
+    color:
+        var(--gray);
+
+    margin-top:20px;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card{
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,55,82,.55),
+            rgba(0,10,17,.9)
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    padding:30px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+.card h3{
+
+    color:
+        var(--blue-7);
+
+    font-size:23px;
+
+    margin-bottom:12px;
+
+}
+
+.card p{
+
+    color:
+        var(--gray);
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   SOBRE O GENE X
+========================================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr
+        .6fr;
+
     gap:20px;
-    padding:25px;
+
+    margin-top:45px;
+
+}
+
+.about-main p{
+
+    margin-bottom:18px;
+
+    color:#91adba;
+
+}
+
+.about-main strong{
+
+    color:
+        var(--blue-6);
+
+}
+
+.info-list{
+
+    list-style:none;
+
+}
+
+.info-list li{
+
+    padding:13px 0;
+
+    border-bottom:
+        1px solid
+        #07354b;
+
+    color:
+        var(--gray);
+
+}
+
+.info-list b{
+
+    color:
+        var(--blue-5);
+
+}
+
+
+/* =========================================================
+   GENÉTICA FICTÍCIA
+========================================================= */
+
+.gene-diagram{
+
+    margin-top:50px;
+
+    padding:40px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        #010c13;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.gene-line{
+
+    height:2px;
+
     background:
         linear-gradient(
             90deg,
-            #0d1b24,
-            #0a1117
+            transparent,
+            var(--blue-5),
+            transparent
         );
-    border:1px solid var(--line);
-    border-bottom:3px solid var(--blue2);
+
+    margin:
+        25px
+        0;
+
 }
 
-.season-header h3{
-    font-size:34px;
+.gene-code{
+
+    font-family:
+        monospace;
+
+    color:
+        var(--blue-6);
+
+    font-size:13px;
+
+    line-height:2;
+
+    word-break:break-all;
+
 }
 
-.season-header p{
-    color:var(--muted);
-    max-width:600px;
+.gene-center{
+
+    text-align:center;
+
+    margin:25px 0;
+
 }
 
-.season-count{
-    color:var(--blue);
-    font-weight:bold;
-    white-space:nowrap;
+.gene-center strong{
+
+    display:inline-block;
+
+    padding:
+        20px
+        35px;
+
+    border:
+        2px solid
+        var(--blue-5);
+
+    color:
+        var(--blue-7);
+
+    box-shadow:
+        0 0 35px
+        rgba(0,168,255,.3);
+
 }
 
-.arc{
-    margin-top:20px;
-    color:var(--gold);
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
 
-.episodes{
+/* =========================================================
+   MUTANTES
+========================================================= */
+
+.mutant-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-top:15px;
-}
 
-.episode{
-    background:#0b1116;
-    border:1px solid #1d2931;
-    padding:15px 18px;
-    display:flex;
-    align-items:center;
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:15px;
-    transition:.2s;
+
+    margin-top:45px;
+
 }
 
-.episode:hover{
-    background:#101c24;
-    border-color:#31566a;
+.mutant{
+
+    min-height:260px;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #00334e,
+            #00101a
+        );
+
+    border:
+        1px solid
+        #075273;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.3s;
+
 }
 
-.ep-number{
-    min-width:55px;
-    color:#4ebfe9;
-    font-size:12px;
+.mutant:hover{
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--blue-5);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,130,200,.25);
+
+}
+
+.mutant-number{
+
+    color:
+        rgba(82,213,255,.25);
+
+    font-size:60px;
+
     font-weight:bold;
+
+    position:absolute;
+
+    right:10px;
+
+    top:-5px;
+
 }
 
-.ep-info{
-    flex:1;
-}
+.mutant-icon{
 
-.ep-title{
-    color:#e5edf1;
-    font-weight:bold;
-}
-
-.ep-date{
-    color:#697984;
-    font-size:11px;
-    margin-top:2px;
-}
-
-/* =========================
-   BUSCA
-========================= */
-
-.search-box{
-    position:sticky;
-    top:57px;
-    z-index:50;
-    padding:15px;
-    background:rgba(5,8,11,.95);
-    border:1px solid var(--line);
-    margin-bottom:30px;
-}
-
-.search-box input{
-    width:100%;
-    background:#090e13;
-    border:1px solid #29404d;
-    color:white;
-    padding:15px;
-    outline:none;
-}
-
-.search-box input:focus{
-    border-color:var(--blue);
-}
-
-.filters{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:12px;
-}
-
-.filters button{
-    border:1px solid #29404d;
-    color:#9aaab3;
-    background:#0a1015;
-    padding:8px 13px;
-    cursor:pointer;
-}
-
-.filters button.active,
-.filters button:hover{
-    background:#123246;
-    color:#fff;
-    border-color:var(--blue);
-}
-
-/* =========================
-   PERSONAGENS
-========================= */
-
-.character-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.character{
-    background:#0d141a;
-    border:1px solid var(--line);
-    padding:22px;
-}
-
-.character .initial{
     width:55px;
     height:55px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:#102c3b;
-    border:1px solid #32657c;
-    color:var(--blue);
+
+    border:
+        1px solid
+        var(--blue-5);
+
+    color:
+        var(--blue-6);
+
+    margin-bottom:18px;
+
     font-size:22px;
-    font-weight:bold;
-    margin-bottom:15px;
+
 }
 
-.character h3{
-    margin-bottom:5px;
+.mutant h3{
+
+    color:white;
+
+    font-size:20px;
+
 }
 
-.character small{
-    color:var(--blue);
+.mutant small{
+
+    color:
+        var(--blue-5);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:9px;
+
 }
 
-.character p{
-    color:#8999a3;
-    font-size:14px;
+.mutant p{
+
+    color:
+        #7895a4;
+
+    font-size:12px;
+
     margin-top:10px;
+
 }
 
-/* =========================
-   CRIATURAS
-========================= */
 
-.creatures{
+/* =========================================================
+   CLASSES DE PODER
+========================================================= */
+
+.power-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-top:45px;
+
 }
 
-.creature{
-    padding:25px;
-    min-height:190px;
+.power{
+
+    padding:30px;
+
     background:
-        radial-gradient(circle at 100% 0,#172c39,#0b1116 55%);
-    border:1px solid #253944;
+        #03131e;
+
+    border:
+        1px solid
+        #084b68;
+
 }
 
-.creature h3{
-    color:#78d2f5;
+.power-bar{
+
+    height:6px;
+
+    background:#062331;
+
+    margin-top:18px;
+
 }
 
-/* =========================
-   LINHA DO TEMPO
-========================= */
+.power-fill{
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #006fae,
+            #52d5ff
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0,168,255,.5);
+
+}
+
+
+/* =========================================================
+   PERSONAGENS
+========================================================= */
+
+.character-list{
+
+    margin-top:45px;
+
+}
+
+.character-row{
+
+    display:grid;
+
+    grid-template-columns:
+        180px
+        1fr
+        180px;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:22px;
+
+    border-bottom:
+        1px solid
+        #073348;
+
+    background:
+        rgba(0,22,34,.45);
+
+}
+
+.character-row:hover{
+
+    background:
+        rgba(0,72,105,.25);
+
+}
+
+.character-name{
+
+    color:white;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+}
+
+.character-type{
+
+    color:
+        var(--blue-5);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.character-power{
+
+    color:
+        var(--gray);
+
+    font-size:13px;
+
+}
+
+.character-level{
+
+    text-align:right;
+
+    color:
+        var(--blue-6);
+
+}
+
+
+/* =========================================================
+   HISTÓRIA
+========================================================= */
 
 .timeline{
-    border-left:2px solid #254454;
-    margin-left:20px;
+
+    margin-top:50px;
+
+    border-left:
+        2px solid
+        #075273;
+
 }
 
 .timeline-item{
+
     position:relative;
-    padding:0 0 35px 35px;
+
+    padding:
+        0
+        0
+        50px
+        40px;
+
 }
 
 .timeline-item::before{
+
     content:"";
+
     position:absolute;
-    width:13px;
-    height:13px;
-    border-radius:50%;
-    background:var(--blue);
+
     left:-8px;
-    top:5px;
-    box-shadow:0 0 12px var(--blue);
+
+    top:3px;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:
+        var(--blue-5);
+
+    box-shadow:
+        0 0 20px
+        var(--blue-5);
+
 }
 
-.timeline-item .year{
-    color:var(--gold);
-    font-weight:bold;
-    margin-bottom:4px;
-}
+.timeline-year{
 
-/* =========================
-   RELAÇÕES
-========================= */
+    color:
+        var(--blue-6);
 
-.relationships{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
+    font-size:10px;
 
-.relationship{
-    background:#0d1419;
-    border:1px solid var(--line);
-    padding:20px;
-}
+    letter-spacing:3px;
 
-.relationship span{
-    color:var(--red);
-    font-size:11px;
     text-transform:uppercase;
-    letter-spacing:2px;
+
 }
 
-/* =========================
-   ALERTA
-========================= */
+.timeline-item h3{
+
+    color:white;
+
+    font-size:27px;
+
+    margin:5px 0;
+
+}
+
+.timeline-item p{
+
+    color:
+        var(--gray);
+
+    max-width:850px;
+
+}
+
+
+/* =========================================================
+   APOCALIPSES
+========================================================= */
+
+.event-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:45px;
+
+}
+
+.event{
+
+    padding:28px;
+
+    border:
+        1px solid
+        #073d58;
+
+    background:
+        linear-gradient(
+            120deg,
+            #031d2d,
+            #020b10
+        );
+
+}
+
+.event h3{
+
+    color:
+        var(--blue-7);
+
+}
+
+.event p{
+
+    color:
+        var(--gray);
+
+    margin-top:10px;
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   MITOS
+========================================================= */
+
+.myth-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:45px;
+
+}
+
+.myth{
+
+    padding:25px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        #02111b;
+
+}
+
+.myth-icon{
+
+    font-size:35px;
+
+    margin-bottom:10px;
+
+}
+
+.myth h3{
+
+    color:white;
+
+}
+
+.myth p{
+
+    color:
+        var(--gray);
+
+    font-size:13px;
+
+    margin-top:8px;
+
+}
+
+
+/* =========================================================
+   TERMINOLOGIA
+========================================================= */
+
+.terms{
+
+    margin-top:45px;
+
+}
+
+.term{
+
+    padding:20px;
+
+    border-bottom:
+        1px solid
+        #07364c;
+
+}
+
+.term strong{
+
+    color:
+        var(--blue-5);
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+.term span{
+
+    color:
+        var(--gray);
+
+}
+
+
+/* =========================================================
+   SIMULADOR
+========================================================= */
+
+.simulator{
+
+    margin-top:50px;
+
+    padding:40px;
+
+    border:
+        1px solid
+        var(--blue-4);
+
+    background:
+        radial-gradient(
+            circle at center,
+            #003653,
+            #010a10
+        );
+
+    text-align:center;
+
+}
+
+.simulator h3{
+
+    color:
+        var(--blue-7);
+
+    font-size:30px;
+
+}
+
+.simulator p{
+
+    color:
+        var(--gray);
+
+    max-width:700px;
+
+    margin:
+        10px auto 30px;
+
+}
+
+.range{
+
+    width:80%;
+
+    accent-color:
+        var(--blue-5);
+
+}
+
+.result{
+
+    margin-top:25px;
+
+    font-size:25px;
+
+    color:
+        var(--blue-6);
+
+    min-height:40px;
+
+}
+
+
+/* =========================================================
+   CURIOSIDADES
+========================================================= */
+
+.facts{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:45px;
+
+}
+
+.fact{
+
+    padding:25px;
+
+    background:
+        #03131d;
+
+    border:
+        1px solid
+        #064763;
+
+}
+
+.fact-number{
+
+    color:
+        var(--blue-5);
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.fact h3{
+
+    color:white;
+
+    margin:5px 0;
+
+}
+
+.fact p{
+
+    color:
+        var(--gray);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   REALIDADE
+========================================================= */
 
 .warning{
-    padding:25px;
-    border:1px solid #6c552e;
-    background:#17140d;
-    color:#b9aa8c;
-    margin:25px 0;
+
+    border:
+        1px solid
+        #006fae;
+
+    background:
+        rgba(0,53,82,.25);
+
+    padding:30px;
+
+    margin-top:45px;
+
 }
 
-.warning strong{
-    color:#e4c67f;
+.warning h3{
+
+    color:
+        var(--blue-6);
+
+    margin-bottom:10px;
+
 }
 
-/* =========================
+.warning p{
+
+    color:
+        var(--gray);
+
+}
+
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
-    border-top:1px solid var(--line);
-    background:#030507;
-    padding:70px 25px;
+
     text-align:center;
+
+    padding:
+        100px
+        25px;
+
+    border-top:
+        1px solid
+        #06445e;
+
+    background:
+        #00070b;
+
 }
 
-footer h2{
-    color:#65c9f4;
+.footer-logo{
+
+    color:
+        var(--blue-5);
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    text-shadow:
+        0 0 30px
+        rgba(0,168,255,.6);
+
 }
 
 footer p{
-    color:#65747d;
-    max-width:800px;
-    margin:15px auto;
+
+    max-width:750px;
+
+    margin:
+        15px
+        auto;
+
+    color:
+        #58717e;
+
+    font-size:12px;
+
 }
 
-footer a{
-    color:#4fbce8;
+.footer-line{
+
+    width:100px;
+
+    height:2px;
+
+    background:
+        var(--blue-5);
+
+    margin:
+        25px
+        auto;
+
 }
 
-/* =========================
+
+/* =========================================================
    RESPONSIVO
-========================= */
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-    .grid,
-    .creatures{
-        grid-template-columns:repeat(2,1fr);
+    .mutant-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .character-grid{
-        grid-template-columns:repeat(2,1fr);
+    .power-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-
-    .grid,
-    .episodes,
-    .character-grid,
-    .creatures,
-    .relationships{
+    .about-grid{
         grid-template-columns:1fr;
     }
 
-    .season-header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .moon{
-        width:250px;
-        height:250px;
-    }
-
-    section{
-        padding:65px 17px;
-    }
 }
+
+@media(max-width:700px){
+
+    .mutant-grid,
+    .power-grid,
+    .event-grid,
+    .myth-grid,
+    .facts{
+        grid-template-columns:1fr;
+    }
+
+    .character-row{
+        grid-template-columns:1fr;
+    }
+
+    .character-level{
+        text-align:left;
+    }
+
+    .dna{
+        right:-80px;
+    }
+
+    .section{
+        padding:
+            70px
+            18px;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
-<header class="hero">
+<header>
 
-<div class="moon"></div>
+<div class="hero-glow"></div>
+
+<div class="dna">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
 
 <div class="hero-content">
 
-<div class="kicker">
-Beacon Hills Archive
+<div class="system">
+MUTANT GENETICS DATABASE // CLASSIFIED
 </div>
 
 <h1>
-TEEN <span>WOLF</span>
+GENE <span>X</span>
 </h1>
 
-<p>
-O arquivo definitivo da série sobrenatural criada por Jeff Davis:
-seis temporadas, 100 episódios, personagens, criaturas,
-famílias, alianças, vilões, arcos e os principais acontecimentos
-de Beacon Hills.
+<p class="hero-subtitle">
+
+O arquivo definitivo sobre o conceito do
+<strong>X-Gene</strong> no universo dos X-Men:
+origem, manifestação, mutações, poderes,
+classificações, personagens e evolução da
+mitologia mutante.
+
 </p>
+
 
 <div class="hero-buttons">
 
-<a class="btn" href="#episodios">
-VER EPISÓDIOS
+<a href="#gene" class="btn">
+O Gene X
 </a>
 
-<a class="btn" href="#personagens">
-PERSONAGENS
+<a href="#mutantes" class="btn">
+Mutantes
 </a>
 
-<a class="btn" href="#criaturas">
-CRIATURAS
+<a href="#poderes" class="btn">
+Poderes
 </a>
+
+<a href="#historia" class="btn">
+História
+</a>
+
+</div>
+
+
+<div class="hero-stats">
+
+<div class="stat">
+<strong>X</strong>
+<span>Gene mutante</span>
+</div>
+
+<div class="stat">
+<strong>1963</strong>
+<span>Origem dos X-Men</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>Possibilidades</span>
+</div>
+
+<div class="stat">
+<strong>BLUE</strong>
+<span>Mutant Archive</span>
+</div>
 
 </div>
 
@@ -734,32 +1706,1723 @@ CRIATURAS
 </header>
 
 
-<!-- =========================
+<!-- =========================================================
      NAV
-========================= -->
+========================================================= -->
 
-<nav class="navbar">
+<nav>
 
-<ul>
+<div class="nav-inner">
 
-<li><a href="#inicio">Início</a></li>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#personagens">Personagens</a></li>
-<li><a href="#criaturas">Criaturas</a></li>
-<li><a href="#episodios">Episódios</a></li>
-<li><a href="#cronologia">Cronologia</a></li>
-<li><a href="#relacoes">Relações</a></li>
-<li><a href="#legado">Legado</a></li>
+<a href="#gene">Gene X</a>
+<a href="#genetica">Genética</a>
+<a href="#mutantes">Mutantes</a>
+<a href="#poderes">Poderes</a>
+<a href="#personagens">Personagens</a>
+<a href="#historia">História</a>
+<a href="#eventos">Eventos</a>
+<a href="#mitologia">Mitologia</a>
+<a href="#termos">Termos</a>
+<a href="#simulador">Simulador</a>
+<a href="#curiosidades">Curiosidades</a>
 
-</ul>
+</div>
 
 </nav>
 
 
-<!-- =========================
-     SOBRE
-========================= -->
+<!-- =========================================================
+     O GENE X
+========================================================= -->
 
-<section id="sobre">
+<section class="section" id="gene">
 
-<div> 
+<div class="label">
+01 — Arquivo Genético
+</div>
+
+<h2>
+O que é o Gene X?
+</h2>
+
+<p class="section-intro">
+
+No universo dos X-Men, o X-Gene é um elemento genético fictício
+associado à condição mutante. Ele diferencia os mutantes de
+humanos comuns e está relacionado ao desenvolvimento de
+habilidades extraordinárias.
+
+</p>
+
+
+<div class="about-grid">
+
+<div class="card about-main">
+
+<h3>
+Uma marca da evolução
+</h3>
+
+<p>
+
+O conceito dos X-Men apresenta os mutantes como seres humanos
+que possuem uma característica genética que pode produzir
+habilidades extraordinárias. Em muitas histórias, essas
+habilidades se manifestam durante a adolescência, embora
+existam diversas exceções.
+
+</p>
+
+<p>
+
+O poder de cada mutante pode ser completamente diferente.
+Alguns desenvolvem habilidades físicas, outros possuem
+poderes mentais, manipulação de energia, alteração da matéria,
+teletransporte ou capacidades extremamente específicas.
+
+</p>
+
+<p>
+
+A ideia é fundamental para a narrativa dos X-Men porque a
+mutação não é apenas uma fonte de poderes: ela também representa
+diferença, identidade, preconceito, evolução e pertencimento.
+
+</p>
+
+<p>
+
+Por isso, o Gene X funciona tanto como elemento de ficção
+científica quanto como uma ferramenta narrativa para discutir
+a relação entre indivíduos diferentes e a sociedade.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Ficha do conceito
+</h3>
+
+<ul class="info-list">
+
+<li>
+<b>Nome:</b>
+X-Gene / Gene X
+</li>
+
+<li>
+<b>Universo:</b>
+Marvel
+</li>
+
+<li>
+<b>Categoria:</b>
+Mutação fictícia
+</li>
+
+<li>
+<b>Portadores:</b>
+Mutantes
+</li>
+
+<li>
+<b>Resultado:</b>
+Habilidades variadas
+</li>
+
+<li>
+<b>Manifestação:</b>
+Variável
+</li>
+
+<li>
+<b>Natureza:</b>
+Ficção
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     GENÉTICA
+========================================================= -->
+
+<section class="section" id="genetica">
+
+<div class="label">
+02 — Estrutura
+</div>
+
+<h2>
+Como funcionaria o Gene X?
+</h2>
+
+<p class="section-intro">
+
+Dentro da ficção, o X-Gene pode ser imaginado como uma alteração
+genética extremamente complexa capaz de influenciar o
+desenvolvimento biológico de um indivíduo.
+
+</p>
+
+
+<div class="gene-diagram">
+
+<div class="gene-code">
+
+01 — DNA SEQUENCE ANALYSIS<br>
+02 — MUTANT MARKER DETECTED<br>
+03 — UNKNOWN GENETIC EXPRESSION<br>
+04 — CELLULAR RESPONSE: ACTIVE<br>
+05 — PHENOTYPE DEVELOPMENT: VARIABLE<br>
+06 — POWER EXPRESSION: DETECTED<br>
+07 — MUTANT STATUS: CONFIRMED
+
+</div>
+
+<div class="gene-line"></div>
+
+<div class="gene-center">
+
+<strong>
+X-GENE
+</strong>
+
+</div>
+
+<div class="gene-line"></div>
+
+<div class="gene-code">
+
+ABILITY → PHENOTYPE → POWER EXPRESSION<br>
+<br>
+TELEPATHY<br>
+TELEKINESIS<br>
+ENERGY MANIPULATION<br>
+SUPERHUMAN PHYSIOLOGY<br>
+MATTER MANIPULATION<br>
+REGENERATION<br>
+TELEPORTATION<br>
+ELEMENTAL CONTROL
+
+</div>
+
+</div>
+
+
+<div class="warning">
+
+<h3>
+⚠️ Ficção científica
+</h3>
+
+<p>
+
+O “Gene X” não corresponde a um gene humano real conhecido.
+A genética real envolve milhares de genes, variantes,
+regulação da expressão gênica e complexas interações
+biológicas. Os poderes dos X-Men são elementos fictícios.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MUTANTES
+========================================================= -->
+
+<section class="section" id="mutantes">
+
+<div class="label">
+03 — Portadores
+</div>
+
+<h2>
+Mutantes famosos
+</h2>
+
+<p class="section-intro">
+
+Alguns dos personagens mais conhecidos da Marvel são
+mutantes. Seus poderes demonstram como a manifestação
+do X-Gene pode assumir formas completamente diferentes.
+
+</p>
+
+
+<div class="mutant-grid">
+
+
+<div class="mutant">
+
+<div class="mutant-number">01</div>
+
+<div class="mutant-icon">🧠</div>
+
+<h3>Professor X</h3>
+
+<small>Telepatia</small>
+
+<p>
+Charles Xavier possui uma das mentes mais poderosas
+do universo mutante e é fundador dos X-Men.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">02</div>
+
+<div class="mutant-icon">🧲</div>
+
+<h3>Magneto</h3>
+
+<small>Magnetismo</small>
+
+<p>
+Erik Lehnsherr possui a capacidade de manipular
+campos magnéticos e metais.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">03</div>
+
+<div class="mutant-icon">⚡</div>
+
+<h3>Storm</h3>
+
+<small>Clima</small>
+
+<p>
+Ororo Munroe pode manipular fenômenos atmosféricos
+em escala extraordinária.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">04</div>
+
+<div class="mutant-icon">☄️</div>
+
+<h3>Jean Grey</h3>
+
+<small>Telepatia / Telecinese</small>
+
+<p>
+Jean possui enormes capacidades psíquicas e uma
+ligação histórica com a Força Fênix.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">05</div>
+
+<div class="mutant-icon">❄️</div>
+
+<h3>Iceman</h3>
+
+<small>Criocinese</small>
+
+<p>
+Bobby Drake controla gelo e temperatura de maneiras
+extremamente avançadas.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">06</div>
+
+<div class="mutant-icon">🐺</div>
+
+<h3>Wolverine</h3>
+
+<small>Regeneração</small>
+
+<p>
+Logan possui fator de cura e sentidos aprimorados,
+além de seu famoso esqueleto revestido de adamantium.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">07</div>
+
+<div class="mutant-icon">🌀</div>
+
+<h3>Nightcrawler</h3>
+
+<small>Teletransporte</small>
+
+<p>
+Kurt Wagner pode se teletransportar através de grandes
+e pequenas distâncias.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">08</div>
+
+<div class="mutant-icon">☀️</div>
+
+<h3>Cyclops</h3>
+
+<small>Energia óptica</small>
+
+<p>
+Scott Summers projeta poderosos feixes de energia
+através dos olhos.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">09</div>
+
+<div class="mutant-icon">🃏</div>
+
+<h3>Gambit</h3>
+
+<small>Energia cinética</small>
+
+<p>
+Remy LeBeau pode carregar objetos com energia cinética
+e utilizá-los como armas.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">10</div>
+
+<div class="mutant-icon">🖐️</div>
+
+<h3>Rogue</h3>
+
+<small>Absorção</small>
+
+<p>
+Rogue pode absorver energia, memórias e habilidades
+de outros seres através do contato físico.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">11</div>
+
+<div class="mutant-icon">💎</div>
+
+<h3>Emma Frost</h3>
+
+<small>Telepatia</small>
+
+<p>
+Emma é uma poderosa telepata e também consegue
+assumir uma forma cristalina.
+</p>
+
+</div>
+
+
+<div class="mutant">
+
+<div class="mutant-number">12</div>
+
+<div class="mutant-icon">🔮</div>
+
+<h3>Professor X</h3>
+
+<small>Psionismo</small>
+
+<p>
+Seu domínio telepático permite comunicação e influência
+mental em níveis extraordinários.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PODERES
+========================================================= -->
+
+<section class="section" id="poderes">
+
+<div class="label">
+04 — Classificação
+</div>
+
+<h2>
+Tipos de poderes
+</h2>
+
+<p class="section-intro">
+
+Não existe uma única forma de manifestação mutante.
+Os poderes podem ser físicos, mentais, energéticos,
+elementais, dimensionais ou extremamente específicos.
+
+</p>
+
+
+<div class="power-grid">
+
+
+<div class="power">
+
+<h3>Telepatia</h3>
+
+<p>
+Leitura, comunicação e manipulação mental.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:95%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Telecinese</h3>
+
+<p>
+Manipulação de objetos através da mente.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:90%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Controle de energia</h3>
+
+<p>
+Criação, absorção ou manipulação de energia.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:94%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Regeneração</h3>
+
+<p>
+Recuperação acelerada de danos físicos.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:85%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Manipulação elemental</h3>
+
+<p>
+Controle de elementos e fenômenos naturais.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:92%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Alteração corporal</h3>
+
+<p>
+Transformação física ou adaptação do organismo.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:80%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Teletransporte</h3>
+
+<p>
+Movimentação instantânea através do espaço.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:88%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Manipulação da matéria</h3>
+
+<p>
+Alteração de propriedades físicas da matéria.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:96%"></div>
+</div>
+
+</div>
+
+
+<div class="power">
+
+<h3>Percepção sobrenatural</h3>
+
+<p>
+Capacidades sensoriais muito acima do normal.
+</p>
+
+<div class="power-bar">
+<div class="power-fill" style="width:78%"></div>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PERSONAGENS
+========================================================= -->
+
+<section class="section" id="personagens">
+
+<div class="label">
+05 — Banco de dados
+</div>
+
+<h2>
+Perfis mutantes
+</h2>
+
+<div class="character-list">
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Jean Grey</div>
+<div class="character-type">Mutante / Psíquica</div>
+</div>
+
+<div class="character-power">
+Telepatia, telecinese e ligação com a Força Fênix.
+</div>
+
+<div class="character-level">
+OMEGA
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Magneto</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Manipulação de magnetismo e campos eletromagnéticos.
+</div>
+
+<div class="character-level">
+OMEGA
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Storm</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Manipulação de clima e fenômenos atmosféricos.
+</div>
+
+<div class="character-level">
+OMEGA
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Iceman</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Criocinese e manipulação de temperatura.
+</div>
+
+<div class="character-level">
+OMEGA
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Wolverine</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Fator de cura, sentidos aprimorados e longevidade.
+</div>
+
+<div class="character-level">
+ALTO
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Cyclops</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Emissão de rajadas ópticas de enorme força.
+</div>
+
+<div class="character-level">
+ALTO
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Rogue</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Absorção de energia, memórias e habilidades.
+</div>
+
+<div class="character-level">
+ALTO
+</div>
+
+</div>
+
+
+<div class="character-row">
+
+<div>
+<div class="character-name">Nightcrawler</div>
+<div class="character-type">Mutante</div>
+</div>
+
+<div class="character-power">
+Teletransporte e agilidade extraordinária.
+</div>
+
+<div class="character-level">
+ALTO
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     HISTÓRIA
+========================================================= -->
+
+<section class="section" id="historia">
+
+<div class="label">
+06 — Linha do tempo
+</div>
+
+<h2>
+A evolução dos X-Men
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+1963
+</div>
+
+<h3>
+Nascimento dos X-Men
+</h3>
+
+<p>
+Os X-Men estrearam nos quadrinhos em 1963, criados por
+Stan Lee e Jack Kirby. Desde então, a ideia dos mutantes
+se tornou uma das principais mitologias da Marvel.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+Era dos mutantes
+</div>
+
+<h3>
+Professor X e Magneto
+</h3>
+
+<p>
+Duas filosofias diferentes passam a representar visões
+opostas sobre a convivência entre humanos e mutantes:
+integração e coexistência de um lado, confronto e
+separação do outro.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+Expansão
+</div>
+
+<h3>
+Novos mutantes
+</h3>
+
+<p>
+A população mutante cresce e a Marvel apresenta dezenas
+de personagens com diferentes habilidades e origens.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+Era moderna
+</div>
+
+<h3>
+Novas sociedades mutantes
+</h3>
+
+<p>
+Histórias modernas ampliaram o conceito de sociedade
+mutante e exploraram novas formas de organização,
+identidade e sobrevivência.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+Dawn of X
+</div>
+
+<h3>
+Krakoa
+</h3>
+
+<p>
+A era de Krakoa reorganizou profundamente a sociedade
+mutante nos quadrinhos e introduziu novas ideias sobre
+nação, ressurreição e comunidade mutante.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     EVENTOS
+========================================================= -->
+
+<section class="section" id="eventos">
+
+<div class="label">
+07 — Grandes eventos
+</div>
+
+<h2>
+Eventos ligados aos mutantes
+</h2>
+
+
+<div class="event-grid">
+
+
+<div class="event">
+
+<h3>
+Dark Phoenix
+</h3>
+
+<p>
+A Força Fênix se torna um dos maiores elementos cósmicos
+relacionados a Jean Grey e à história dos X-Men.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<h3>
+Days of Future Past
+</h3>
+
+<p>
+Uma realidade futura dominada pela perseguição aos mutantes
+leva os X-Men a tentar alterar o passado.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<h3>
+Age of Apocalypse
+</h3>
+
+<p>
+Uma realidade alternativa apresenta um mundo transformado
+pela ascensão de Apocalypse.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<h3>
+House of M
+</h3>
+
+<p>
+Um evento envolvendo Wanda Maximoff altera drasticamente
+a situação demográfica dos mutantes.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<h3>
+Messiah Complex
+</h3>
+
+<p>
+O nascimento de uma criança mutante desencadeia uma corrida
+entre diferentes grupos e muda o futuro da espécie.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<h3>
+Dawn of X
+</h3>
+
+<p>
+A sociedade mutante entra em uma nova era centrada em Krakoa.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MITOLOGIA
+========================================================= -->
+
+<section class="section" id="mitologia">
+
+<div class="label">
+08 — Universo
+</div>
+
+<h2>
+Conceitos fundamentais
+</h2>
+
+
+<div class="myth-grid">
+
+
+<div class="myth">
+
+<div class="myth-icon">🧬</div>
+
+<h3>Mutação</h3>
+
+<p>
+A característica genética fictícia que diferencia os
+mutantes de humanos comuns.
+</p>
+
+</div>
+
+
+<div class="myth">
+
+<div class="myth-icon">⚛️</div>
+
+<h3>Evolução</h3>
+
+<p>
+Os mutantes são frequentemente apresentados como parte
+de uma possível próxima etapa da evolução humana.
+</p>
+
+</div>
+
+
+<div class="myth">
+
+<div class="myth-icon">🏫</div>
+
+<h3>Escola Xavier</h3>
+
+<p>
+Instituição criada para proteger e educar jovens mutantes.
+</p>
+
+</div>
+
+
+<div class="myth">
+
+<div class="myth-icon">🧲</div>
+
+<h3>Magneto</h3>
+
+<p>
+Representa uma filosofia mais radical sobre a sobrevivência
+mutante em diversas histórias.
+</p>
+
+</div>
+
+
+<div class="myth">
+
+<div class="myth-icon">🧠</div>
+
+<h3>Professor X</h3>
+
+<p>
+Defende a coexistência entre humanos e mutantes em grande
+parte de suas histórias.
+</p>
+
+</div>
+
+
+<div class="myth">
+
+<div class="myth-icon">🧬</div>
+
+<h3>Homo superior</h3>
+
+<p>
+Uma designação utilizada no universo Marvel para representar
+a ideia de uma humanidade mutante.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TERMINOLOGIA
+========================================================= -->
+
+<section class="section" id="termos">
+
+<div class="label">
+09 — Glossário
+</div>
+
+<h2>
+Dicionário mutante
+</h2>
+
+
+<div class="terms">
+
+
+<div class="term">
+
+<strong>X-Gene</strong>
+
+<span>
+Elemento genético fictício associado à condição mutante.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Mutante</strong>
+
+<span>
+Indivíduo que possui a característica genética mutante
+no universo Marvel.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Omega-Level Mutant</strong>
+
+<span>
+Classificação utilizada para mutantes cujas habilidades
+possuem potencial extraordinariamente elevado.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Homo superior</strong>
+
+<span>
+Termo usado no universo Marvel para a humanidade mutante.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Mutate</strong>
+
+<span>
+Personagem que adquiriu poderes através de algum evento,
+experimento ou exposição, em vez de nascer com uma mutação
+mutante tradicional.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Telepatia</strong>
+
+<span>
+Capacidade de perceber ou interagir com pensamentos e mentes.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Telecinese</strong>
+
+<span>
+Capacidade de mover ou manipular objetos através da mente.
+</span>
+
+</div>
+
+
+<div class="term">
+
+<strong>Psionismo</strong>
+
+<span>
+Categoria ampla de habilidades relacionadas à mente.
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SIMULADOR
+========================================================= -->
+
+<section class="section" id="simulador">
+
+<div class="label">
+10 — Laboratório
+</div>
+
+<h2>
+Simulador do Gene X
+</h2>
+
+<p class="section-intro">
+
+Um pequeno elemento interativo inspirado em um laboratório
+de análise mutante. Ele é apenas uma brincadeira baseada
+no universo fictício dos X-Men.
+
+</p>
+
+
+<div class="simulator">
+
+<h3>
+ANÁLISE GENÉTICA
+</h3>
+
+<p>
+Ajuste o nível de expressão fictícia do X-Gene.
+</p>
+
+
+<input
+type="range"
+min="0"
+max="100"
+value="50"
+class="range"
+id="geneRange"
+>
+
+
+<div class="result" id="geneResult">
+EXPRESSÃO: 50%
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CURIOSIDADES
+========================================================= -->
+
+<section class="section" id="curiosidades">
+
+<div class="label">
+11 — Arquivo extra
+</div>
+
+<h2>
+Curiosidades
+</h2>
+
+
+<div class="facts">
+
+
+<div class="fact">
+
+<div class="fact-number">
+01
+</div>
+
+<h3>
+Os X-Men começaram em 1963
+</h3>
+
+<p>
+A equipe foi criada por Stan Lee e Jack Kirby e estreou
+em X-Men #1.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+02
+</div>
+
+<h3>
+Os poderes variam muito
+</h3>
+
+<p>
+A mitologia apresenta poderes físicos, mentais,
+energéticos, dimensionais e muitos outros.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+03
+</div>
+
+<h3>
+Jean Grey é uma personagem central
+</h3>
+
+<p>
+Sua história conecta a equipe dos X-Men a algumas das
+maiores ameaças cósmicas da Marvel.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+04
+</div>
+
+<h3>
+Magneto possui uma filosofia própria
+</h3>
+
+<p>
+Sua relação com Xavier é uma das grandes rivalidades
+ideológicas da franquia.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+05
+</div>
+
+<h3>
+Storm é uma mutante de nível extraordinário
+</h3>
+
+<p>
+Seu controle climático é uma das habilidades mais
+visualmente impressionantes dos X-Men.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+06
+</div>
+
+<h3>
+Iceman possui enorme potencial
+</h3>
+
+<p>
+As histórias modernas ampliaram bastante a escala de
+suas habilidades criogênicas.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+07
+</div>
+
+<h3>
+Wolverine é um dos mutantes mais famosos</h3>
+
+<p>
+Seu fator de cura e sua longevidade são características
+centrais do personagem.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+08
+</div>
+
+<h3>
+Os mutantes são uma metáfora</h3>
+
+<p>
+Muitas histórias dos X-Men usam a condição mutante para
+explorar preconceito, diferença, identidade e inclusão.
+</p>
+
+</div>
+
+
+<div class="fact">
+
+<div class="fact-number">
+09
+</div>
+
+<h3>
+O universo continua evoluindo</h3>
+
+<p>
+A Marvel continua publicando histórias de X-Men e
+mutantes em diferentes séries e eras.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONCLUSÃO
+========================================================= -->
+
+<section class="section">
+
+<div class="card">
+
+<h3>
+O verdadeiro significado do Gene X
+</h3>
+
+<p>
+
+Dentro da ficção, o Gene X explica por que indivíduos humanos
+podem nascer com capacidades extraordinárias. Mas a importância
+dos X-Men vai muito além da genética fictícia.
+
+</p>
+
+<p style="margin-top:15px;">
+
+A franquia utiliza os mutantes para explorar perguntas sobre
+evolução, identidade, medo, preconceito, pertencimento,
+responsabilidade e convivência.
+
+</p>
+
+<p style="margin-top:15px;">
+
+Por isso, o X-Gene funciona como uma das ideias centrais que
+permitem que cada personagem tenha um poder diferente e,
+ao mesmo tempo, faça parte de uma mesma história.
+
+</p>
+
+</div>
+
+</section>
+
+
+</body>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="footer-logo">
+GENE X
+</div>
+
+<div class="footer-line"></div>
+
+<p>
+MUTANT GENETICS ARCHIVE
+</p>
+
+<p>
+Página de fã e projeto educacional sobre o conceito fictício
+do X-Gene no universo dos X-Men.
+</p>
+
+<p>
+X-Men e seus personagens são propriedades de seus respectivos
+detentores de direitos.
+</p>
+
+<p>
+Este site não representa oficialmente a Marvel.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   SIMULADOR DO GENE X
+========================================================= */
+
+const range =
+document.getElementById("geneRange");
+
+const result =
+document.getElementById("geneResult");
+
+
+range.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            Number(this.value);
+
+        let status = "";
+
+        if(value < 20){
+
+            status =
+                "LATENTE";
+
+        }
+
+        else if(value < 40){
+
+            status =
+                "BAIXA";
+
+        }
+
+        else if(value < 60){
+
+            status =
+                "MODERADA";
+
+        }
+
+        else if(value < 80){
+
+            status =
+                "ELEVADA";
+
+        }
+
+        else if(value < 95){
+
+            status =
+                "EXTREMA";
+
+        }
+
+        else{
+
+            status =
+                "NÍVEL OMEGA";
+
+        }
+
+        result.innerHTML =
+            `EXPRESSÃO: ${value}% — ${status}`;
+
+    }
+);
+
+
+/* =========================================================
+   ANIMAÇÃO DE SCROLL
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+    entries => {
+
+        entries.forEach(
+            entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.style.opacity =
+                        "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            }
+        );
+
+    },
+    {
+        threshold:.1
+    }
+);
+
+
+document
+.querySelectorAll(
+    ".card, .mutant, .power, .event, .myth, .fact, .character-row"
+)
+.forEach(
+    element => {
+
+        element.style.opacity =
+            "0";
+
+        element.style.transform =
+            "translateY(25px)";
+
+        element.style.transition =
+            "opacity .6s ease, transform .6s ease";
+
+        observer.observe(element);
+
+    }
+);
+
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+console.log(
+`
+========================================
+       GENE X DATABASE
+========================================
+
+STATUS: ONLINE
+
+MUTANT DATABASE: LOADED
+DNA ANALYSIS: READY
+X-GENE: FICTIONAL
+
+Welcome to the Mutant Archive.
+
+========================================
+`
+);
+
+</script>
+
+</html>
+
+
