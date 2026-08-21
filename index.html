@@ -1,17 +1,38 @@
-Posso fazer. Para não misturar alegações sobrenaturais com fatos comprovados, o HTML abaixo separa biografia, casos atribuídos aos Warren, controvérsias e informações dos filmes. Também inclui fotos com fontes identificadas: há registros no Wikimedia Commons de Lorraine em 2013 e de Ed e Lorraine juntos em 1978. 
-W
-Wikimedia Commons
+Claro. A série original Teen Wolf teve 6 temporadas e 100 episódios, exibidos de 2011 a 2017. As temporadas 1, 2 e 4 têm 12 episódios cada, enquanto 3, 5 e 6 têm 24, 20 e 20, respectivamente. 
+E
+Epguides
 +1
 
+Abaixo está uma versão longa e personalizada, com todas as temporadas, os 100 episódios, personagens, criaturas, poderes, famílias, vilões, cronologia, casais, divisão 3A/3B, 5A/5B e 6A/6B, além de busca e filtros. Os títulos dos episódios foram conferidos em guias de episódios. 
+S
+Springfield! Springfield!
++1
+
+Teen Wolf — Arquivo Completo da Série
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ed & Lorraine Warren — Arquivo Paranormal</title>
+<title>Teen Wolf — Arquivo Completo</title>
 
 <style>
+:root{
+    --bg:#05070a;
+    --bg2:#0b1015;
+    --card:#101820;
+    --card2:#151e27;
+    --blue:#35b8ff;
+    --blue2:#0879b8;
+    --red:#e53b45;
+    --gold:#d8b36a;
+    --text:#e9f1f5;
+    --muted:#8d9ba5;
+    --line:#26343e;
+    --green:#45d483;
+}
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -23,129 +44,179 @@ html{
 }
 
 body{
-    background:#080808;
-    color:#eee;
-    font-family:Georgia, "Times New Roman", serif;
-    line-height:1.7;
+    background:
+        radial-gradient(circle at 50% 0%,#142331 0,#05070a 45%);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.65;
 }
+
+a{
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+/* =========================
+   FUNDO
+========================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
+    opacity:.07;
     z-index:999;
-    opacity:.06;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            #fff 4px
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
         );
+    background-size:100% 5px;
 }
 
 /* =========================
    HEADER
 ========================= */
 
-header{
+.hero{
     min-height:100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:50px 20px;
+    padding:40px 20px;
+    position:relative;
+    overflow:hidden;
     background:
         linear-gradient(
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.92)
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.8)
         ),
         radial-gradient(
-            circle at center,
-            #3a3030,
-            #090909 70%
+            circle at 50% 45%,
+            #17334a,
+            #06090d 68%
         );
-    border-bottom:1px solid #493c32;
 }
 
-header .eyebrow{
-    color:#b99869;
+.moon{
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff 0,
+            #dce8ef 35%,
+            #7190a0 65%,
+            #2d404b 100%
+        );
+    opacity:.16;
+    right:7%;
+    top:9%;
+    box-shadow:0 0 80px #5ca4ca;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+}
+
+.kicker{
+    color:var(--blue);
+    letter-spacing:6px;
+    font-size:12px;
     text-transform:uppercase;
-    letter-spacing:5px;
-    font-family:Arial,sans-serif;
-    font-size:13px;
+    font-weight:bold;
 }
 
-header h1{
-    margin-top:20px;
-    font-size:clamp(55px,10vw,125px);
-    line-height:.95;
-    color:#f2e9d9;
+.hero h1{
+    font-size:clamp(70px,13vw,170px);
+    line-height:.85;
+    letter-spacing:-5px;
+    margin:25px 0;
     text-shadow:
-        4px 4px 0 #16100c,
-        0 0 35px rgba(190,150,90,.25);
+        0 0 15px #218bc1,
+        0 0 50px rgba(53,184,255,.3);
 }
 
-header h1 span{
-    display:block;
-    color:#b99869;
-    font-size:.42em;
-    letter-spacing:10px;
-    margin-top:20px;
+.hero h1 span{
+    color:var(--blue);
 }
 
-header p{
-    max-width:750px;
-    margin:35px auto;
-    color:#bdbdbd;
+.hero p{
+    max-width:780px;
+    margin:auto;
+    color:#b9c8d0;
     font-size:19px;
 }
 
-.scroll{
-    margin-top:30px;
-    color:#b99869;
-    font-family:Arial,sans-serif;
-    letter-spacing:3px;
-    font-size:12px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.btn{
+    border:1px solid var(--blue);
+    background:#07131c;
+    color:white;
+    padding:14px 24px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.2s;
+    box-shadow:0 0 20px rgba(53,184,255,.12);
+}
+
+.btn:hover{
+    background:var(--blue);
+    color:#001018;
+    transform:translateY(-2px);
 }
 
 /* =========================
    NAV
 ========================= */
 
-nav{
+.navbar{
     position:sticky;
     top:0;
     z-index:100;
-    background:rgba(5,5,5,.94);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #322a24;
+    background:rgba(4,7,10,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
 }
 
-nav ul{
+.navbar ul{
+    list-style:none;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    list-style:none;
 }
 
-nav a{
+.navbar a{
     display:block;
-    padding:16px 18px;
-    color:#aaa;
+    padding:15px 14px;
     text-decoration:none;
-    font-family:Arial,sans-serif;
-    font-size:12px;
+    color:#94a4ae;
     text-transform:uppercase;
     letter-spacing:1px;
-    transition:.2s;
+    font-size:11px;
 }
 
-nav a:hover{
-    color:#d2ad78;
-    background:#15110e;
+.navbar a:hover{
+    color:white;
+    background:#101a22;
 }
 
 /* =========================
@@ -153,126 +224,319 @@ nav a:hover{
 ========================= */
 
 section{
-    max-width:1100px;
+    max-width:1250px;
     margin:auto;
-    padding:100px 25px;
+    padding:90px 25px;
 }
 
-.section-title{
-    margin-bottom:50px;
+.section-head{
+    margin-bottom:45px;
 }
 
-.section-title small{
-    display:block;
-    color:#a9855b;
+.section-head small{
+    color:var(--blue);
     text-transform:uppercase;
     letter-spacing:4px;
-    font-family:Arial,sans-serif;
+    font-weight:bold;
     font-size:11px;
-    margin-bottom:10px;
 }
 
-.section-title h2{
-    color:#eee4d4;
-    font-size:clamp(34px,5vw,58px);
-    line-height:1.1;
+.section-head h2{
+    font-size:clamp(34px,5vw,60px);
+    margin-top:8px;
 }
 
-.section-title h2::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:3px;
-    background:#a9855b;
-    margin-top:20px;
-}
-
-p{
-    color:#c3c3c3;
-    margin-bottom:20px;
-}
-
-strong{
-    color:#eee;
+.section-head p{
+    color:var(--muted);
+    max-width:800px;
+    margin-top:12px;
 }
 
 /* =========================
-   HERO DO CASAL
+   CARDS
 ========================= */
 
-.couple{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.person{
-    background:#111;
-    border:1px solid #332c27;
-    padding:30px;
-    position:relative;
-}
-
-.person h3{
-    color:#d2ad78;
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.person .role{
-    color:#777;
-    font-family:Arial,sans-serif;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:11px;
-    margin-bottom:20px;
-}
-
-.fact{
-    border-left:3px solid #92704b;
-    padding-left:15px;
-    margin-top:25px;
-}
-
-/* =========================
-   GALERIA
-========================= */
-
-.gallery{
+.grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.photo{
-    background:#111;
-    border:1px solid #332c27;
-    overflow:hidden;
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.005)
+        ),
+        var(--card);
+    border:1px solid var(--line);
+    padding:25px;
+    transition:.25s;
 }
 
-.photo img{
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#3d718c;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.card h3{
+    color:#dff5ff;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#9eabb3;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid #31566a;
+    color:#65c9f4;
+    padding:4px 8px;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+/* =========================
+   ESTATÍSTICAS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.stat{
+    text-align:center;
+    background:#0b1117;
+    border:1px solid var(--line);
+    padding:25px;
+}
+
+.stat strong{
     display:block;
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    filter:grayscale(20%);
-    transition:.4s;
+    color:var(--blue);
+    font-size:38px;
 }
 
-.photo:hover img{
-    transform:scale(1.04);
-    filter:grayscale(0%);
+.stat span{
+    color:#788993;
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
-.photo figcaption{
-    padding:15px;
-    color:#999;
-    font-family:Arial,sans-serif;
+/* =========================
+   TEMPORADAS
+========================= */
+
+.season{
+    margin-bottom:55px;
+}
+
+.season-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    padding:25px;
+    background:
+        linear-gradient(
+            90deg,
+            #0d1b24,
+            #0a1117
+        );
+    border:1px solid var(--line);
+    border-bottom:3px solid var(--blue2);
+}
+
+.season-header h3{
+    font-size:34px;
+}
+
+.season-header p{
+    color:var(--muted);
+    max-width:600px;
+}
+
+.season-count{
+    color:var(--blue);
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.arc{
+    margin-top:20px;
+    color:var(--gold);
     font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
 }
 
-.photo a{
-    color:#b99869;
+.episodes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.episode{
+    background:#0b1116;
+    border:1px solid #1d2931;
+    padding:15px 18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    transition:.2s;
+}
+
+.episode:hover{
+    background:#101c24;
+    border-color:#31566a;
+}
+
+.ep-number{
+    min-width:55px;
+    color:#4ebfe9;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.ep-info{
+    flex:1;
+}
+
+.ep-title{
+    color:#e5edf1;
+    font-weight:bold;
+}
+
+.ep-date{
+    color:#697984;
+    font-size:11px;
+    margin-top:2px;
+}
+
+/* =========================
+   BUSCA
+========================= */
+
+.search-box{
+    position:sticky;
+    top:57px;
+    z-index:50;
+    padding:15px;
+    background:rgba(5,8,11,.95);
+    border:1px solid var(--line);
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:100%;
+    background:#090e13;
+    border:1px solid #29404d;
+    color:white;
+    padding:15px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:var(--blue);
+}
+
+.filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.filters button{
+    border:1px solid #29404d;
+    color:#9aaab3;
+    background:#0a1015;
+    padding:8px 13px;
+    cursor:pointer;
+}
+
+.filters button.active,
+.filters button:hover{
+    background:#123246;
+    color:#fff;
+    border-color:var(--blue);
+}
+
+/* =========================
+   PERSONAGENS
+========================= */
+
+.character-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.character{
+    background:#0d141a;
+    border:1px solid var(--line);
+    padding:22px;
+}
+
+.character .initial{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#102c3b;
+    border:1px solid #32657c;
+    color:var(--blue);
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.character h3{
+    margin-bottom:5px;
+}
+
+.character small{
+    color:var(--blue);
+}
+
+.character p{
+    color:#8999a3;
+    font-size:14px;
+    margin-top:10px;
+}
+
+/* =========================
+   CRIATURAS
+========================= */
+
+.creatures{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.creature{
+    padding:25px;
+    min-height:190px;
+    background:
+        radial-gradient(circle at 100% 0,#172c39,#0b1116 55%);
+    border:1px solid #253944;
+}
+
+.creature h3{
+    color:#78d2f5;
 }
 
 /* =========================
@@ -280,196 +544,70 @@ strong{
 ========================= */
 
 .timeline{
-    position:relative;
-    margin-top:30px;
+    border-left:2px solid #254454;
+    margin-left:20px;
 }
 
-.timeline::before{
+.timeline-item{
+    position:relative;
+    padding:0 0 35px 35px;
+}
+
+.timeline-item::before{
     content:"";
     position:absolute;
-    left:20px;
-    top:0;
-    bottom:0;
-    width:2px;
-    background:#4b3a2b;
-}
-
-.event{
-    position:relative;
-    padding-left:65px;
-    margin-bottom:45px;
-}
-
-.event::before{
-    content:"";
-    position:absolute;
-    left:12px;
-    top:8px;
-    width:18px;
-    height:18px;
+    width:13px;
+    height:13px;
     border-radius:50%;
-    background:#b99869;
-    box-shadow:0 0 0 5px #18130f;
+    background:var(--blue);
+    left:-8px;
+    top:5px;
+    box-shadow:0 0 12px var(--blue);
 }
 
-.year{
-    color:#b99869;
-    font-family:Arial,sans-serif;
+.timeline-item .year{
+    color:var(--gold);
     font-weight:bold;
-    letter-spacing:2px;
-    margin-bottom:5px;
-}
-
-.event h3{
-    font-size:25px;
-    color:#eee;
-    margin-bottom:8px;
+    margin-bottom:4px;
 }
 
 /* =========================
-   CASOS
+   RELAÇÕES
 ========================= */
 
-.cases{
+.relationships{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.case{
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #0d0d0d
-        );
-    border:1px solid #342b24;
-    padding:30px;
-    transition:.25s;
-}
-
-.case:hover{
-    transform:translateY(-4px);
-    border-color:#8e6b46;
-}
-
-.case-number{
-    color:#715538;
-    font-size:12px;
-    font-family:Arial,sans-serif;
-    letter-spacing:3px;
-}
-
-.case h3{
-    color:#d4b27f;
-    font-size:27px;
-    margin:10px 0 15px;
-}
-
-.case .status{
-    display:inline-block;
-    padding:4px 8px;
-    border:1px solid #59442f;
-    color:#ad8b60;
-    font-family:Arial,sans-serif;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   DESTAQUE
-========================= */
-
-.quote{
-    margin:60px 0;
-    padding:45px;
-    background:#110f0d;
-    border-left:5px solid #a9855b;
-    text-align:center;
-}
-
-.quote p{
-    font-size:25px;
-    font-style:italic;
-    color:#ddd;
-}
-
-.quote small{
-    color:#987b59;
-}
-
-/* =========================
-   FILMES
-========================= */
-
-.movies{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.movie{
-    padding:25px;
-    background:#121212;
-    border:1px solid #302922;
-}
-
-.movie h3{
-    color:#d4b27f;
-    margin-bottom:10px;
-}
-
-/* =========================
-   ALERTA FACTUAL
-========================= */
-
-.notice{
-    padding:25px;
-    margin:30px 0;
-    background:#17120e;
-    border:1px solid #62482e;
-}
-
-.notice h3{
-    color:#d3a86e;
-    margin-bottom:10px;
-}
-
-.notice p{
-    margin:0;
-}
-
-/* =========================
-   FICHA
-========================= */
-
-.profile{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
-.profile-box{
-    background:#111;
-    border:1px solid #302922;
+.relationship{
+    background:#0d1419;
+    border:1px solid var(--line);
     padding:20px;
 }
 
-.profile-box span{
-    display:block;
-    color:#806344;
-    font-family:Arial,sans-serif;
+.relationship span{
+    color:var(--red);
+    font-size:11px;
     text-transform:uppercase;
-    font-size:10px;
     letter-spacing:2px;
 }
 
-.profile-box strong{
-    display:block;
-    margin-top:5px;
-    font-size:18px;
+/* =========================
+   ALERTA
+========================= */
+
+.warning{
+    padding:25px;
+    border:1px solid #6c552e;
+    background:#17140d;
+    color:#b9aa8c;
+    margin:25px 0;
+}
+
+.warning strong{
+    color:#e4c67f;
 }
 
 /* =========================
@@ -477,75 +615,72 @@ strong{
 ========================= */
 
 footer{
-    background:#050505;
-    border-top:1px solid #302922;
-    padding:60px 25px;
+    border-top:1px solid var(--line);
+    background:#030507;
+    padding:70px 25px;
     text-align:center;
 }
 
 footer h2{
-    color:#b99869;
-    margin-bottom:15px;
+    color:#65c9f4;
 }
 
 footer p{
-    max-width:750px;
-    margin:10px auto;
-    font-size:13px;
-    color:#777;
+    color:#65747d;
+    max-width:800px;
+    margin:15px auto;
 }
 
-.sources{
-    margin-top:30px;
-}
-
-.sources a{
-    display:block;
-    color:#a9855b;
-    margin:8px;
+footer a{
+    color:#4fbce8;
 }
 
 /* =========================
    RESPONSIVO
 ========================= */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
-    .couple,
-    .cases{
-        grid-template-columns:1fr;
+    .grid,
+    .creatures{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .gallery{
-        grid-template-columns:1fr;
+    .character-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .movies{
-        grid-template-columns:1fr;
-    }
-
-    .profile{
-        grid-template-columns:1fr 1fr;
-    }
-
-    section{
-        padding:70px 20px;
-    }
-
-    nav a{
-        padding:12px 8px;
-        font-size:9px;
+    .stats{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:450px){
+@media(max-width:650px){
 
-    .profile{
+    .grid,
+    .episodes,
+    .character-grid,
+    .creatures,
+    .relationships{
         grid-template-columns:1fr;
     }
 
-    header h1{
-        letter-spacing:4px;
+    .season-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .moon{
+        width:250px;
+        height:250px;
+    }
+
+    section{
+        padding:65px 17px;
     }
 }
 </style>
@@ -553,977 +688,78 @@ footer p{
 
 <body>
 
-<header id="inicio">
+<!-- =========================
+     HERO
+========================= -->
 
-    <div class="eyebrow">
-        Arquivo histórico e cultural
-    </div>
+<header class="hero">
 
-    <h1>
-        ED & LORRAINE
-        <span>WARREN</span>
-    </h1>
+<div class="moon"></div>
 
-    <p>
-        A história do casal americano que ficou conhecido
-        mundialmente por investigar relatos de casas assombradas,
-        possessões e fenômenos paranormais.
-    </p>
+<div class="hero-content">
 
-    <div class="scroll">
-        ROLE PARA EXPLORAR ↓
-    </div>
+<div class="kicker">
+Beacon Hills Archive
+</div>
+
+<h1>
+TEEN <span>WOLF</span>
+</h1>
+
+<p>
+O arquivo definitivo da série sobrenatural criada por Jeff Davis:
+seis temporadas, 100 episódios, personagens, criaturas,
+famílias, alianças, vilões, arcos e os principais acontecimentos
+de Beacon Hills.
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn" href="#episodios">
+VER EPISÓDIOS
+</a>
+
+<a class="btn" href="#personagens">
+PERSONAGENS
+</a>
+
+<a class="btn" href="#criaturas">
+CRIATURAS
+</a>
+
+</div>
+
+</div>
 
 </header>
 
 
-<nav>
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="navbar">
 
 <ul>
-    <li><a href="#historia">História</a></li>
-    <li><a href="#ed">Ed</a></li>
-    <li><a href="#lorraine">Lorraine</a></li>
-    <li><a href="#fotos">Fotos</a></li>
-    <li><a href="#linha">Linha do tempo</a></li>
-    <li><a href="#casos">Casos</a></li>
-    <li><a href="#filmes">Filmes</a></li>
-    <li><a href="#fatos">Fatos</a></li>
+
+<li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#personagens">Personagens</a></li>
+<li><a href="#criaturas">Criaturas</a></li>
+<li><a href="#episodios">Episódios</a></li>
+<li><a href="#cronologia">Cronologia</a></li>
+<li><a href="#relacoes">Relações</a></li>
+<li><a href="#legado">Legado</a></li>
+
 </ul>
 
 </nav>
 
 
 <!-- =========================
-     HISTÓRIA
+     SOBRE
 ========================= -->
 
-<section id="historia">
+<section id="sobre">
 
-<div class="section-title">
-    <small>01 — O casal</small>
-    <h2>Quem foram Ed e Lorraine Warren?</h2>
-</div>
-
-<p>
-    Edward Warren Miney e Lorraine Rita Warren ficaram conhecidos
-    internacionalmente como investigadores de fenômenos paranormais.
-    O casal afirmava investigar relatos de fantasmas, assombrações,
-    possessões e outros acontecimentos considerados sobrenaturais.
-</p>
-
-<p>
-    De acordo com a organização New England Society for Psychic Research
-    (NESPR), associada ao legado dos Warren, Ed atuava como demonologista
-    e Lorraine era descrita pela organização como médium de transe.
-</p>
-
-<p>
-    É importante distinguir essas descrições das conclusões científicas:
-    alegações de fenômenos paranormais atribuídas aos Warren não constituem,
-    por si só, evidência científica de que fantasmas ou demônios existam.
-</p>
-
-<div class="notice">
-
-<h3>⚠️ Fato histórico x alegação paranormal</h3>
-
-<p>
-    Este site usa expressões como "segundo os Warren", "a família relatou"
-    ou "os investigadores afirmaram" quando trata de fenômenos sobrenaturais.
-    Isso significa que o acontecimento é apresentado como uma alegação
-    ou relato, e não como um fato científico comprovado.
-</p>
-
-</div>
-
-<div class="couple">
-
-<div class="person" id="ed">
-
-    <h3>Ed Warren</h3>
-
-    <div class="role">
-        Demonologista • Autor • Investigador
-    </div>
-
-    <p>
-        Edward Warren Miney nasceu em 7 de setembro de 1926,
-        em Bridgeport, Connecticut.
-    </p>
-
-    <p>
-        Antes de se tornar conhecido pelo trabalho paranormal,
-        Ed serviu na Marinha dos Estados Unidos durante a Segunda
-        Guerra Mundial. Depois da guerra, trabalhou como pintor.
-    </p>
-
-    <div class="fact">
-        Ed ficou especialmente conhecido por sua participação
-        nas investigações que o casal realizou ao longo de décadas.
-    </div>
-
-</div>
-
-
-<div class="person" id="lorraine">
-
-    <h3>Lorraine Warren</h3>
-
-    <div class="role">
-        Médium • Investigadora • Consultora
-    </div>
-
-    <p>
-        Lorraine Rita Moran Warren nasceu em 31 de janeiro de 1927,
-        em Bridgeport, Connecticut.
-    </p>
-
-    <p>
-        Segundo relatos biográficos, Lorraine conheceu Ed ainda
-        na adolescência, quando ele trabalhava como lanterninha
-        em um cinema frequentado por ela.
-    </p>
-
-    <div class="fact">
-        Lorraine permaneceu associada ao trabalho paranormal do casal
-        durante décadas e continuou aparecendo publicamente em eventos
-        mesmo após a morte de Ed.
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FOTOS
-========================= -->
-
-<section id="fotos">
-
-<div class="section-title">
-    <small>02 — Galeria</small>
-    <h2>Fotos históricas</h2>
-</div>
-
-<p>
-    As imagens abaixo são referências disponíveis no Wikimedia Commons.
-    Verifique sempre a licença indicada na página original antes de
-    reutilizar as fotografias em um projeto público.
-</p>
-
-<div class="gallery">
-
-<figure class="photo">
-
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/7/76/Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_%281978%29.jpg"
-alt="Ed e Lorraine Warren em 1978">
-
-<figcaption>
-    Ed e Lorraine Warren em uma apresentação no
-    Northern Essex Community College, outubro de 1978.
-    <br><br>
-    <a
-    href="https://commons.wikimedia.org/wiki/File:Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_(1978).jpg"
-    target="_blank">
-    Fonte e informações da fotografia
-    </a>
-</figcaption>
-
-</figure>
-
-
-<figure class="photo">
-
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Lorraine_Warren.jpg"
-alt="Lorraine Warren em 2013">
-
-<figcaption>
-    Lorraine Warren durante a WonderCon, em Anaheim,
-    Califórnia, em 2013.
-    <br><br>
-    Fotografia de Gage Skidmore.
-    <br><br>
-    <a
-    href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren.jpg"
-    target="_blank">
-    Fonte e licença
-    </a>
-</figcaption>
-
-</figure>
-
-
-<figure class="photo">
-
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/4/45/Lorraine_Warren_%288608455671%29_%28cropped%29.jpg"
-alt="Lorraine Warren">
-
-<figcaption>
-    Retrato de Lorraine Warren durante a WonderCon 2013.
-    <br><br>
-    Fotografia de Gage Skidmore.
-    <br><br>
-    <a
-    href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren_(8608455671)_(cropped).jpg"
-    target="_blank">
-    Ver detalhes e licença
-    </a>
-</figcaption>
-
-</figure>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PERFIL
-========================= -->
-
-<section>
-
-<div class="section-title">
-    <small>03 — Dados biográficos</small>
-    <h2>Ficha do casal</h2>
-</div>
-
-<div class="profile">
-
-<div class="profile-box">
-<span>Ed nasceu</span>
-<strong>1926</strong>
-</div>
-
-<div class="profile-box">
-<span>Lorraine nasceu</span>
-<strong>1927</strong>
-</div>
-
-<div class="profile-box">
-<span>Casamento</span>
-<strong>1945</strong>
-</div>
-
-<div class="profile-box">
-<span>Filha</span>
-<strong>Judy</strong>
-</div>
-
-<div class="profile-box">
-<span>Ed faleceu</span>
-<strong>2006</strong>
-</div>
-
-<div class="profile-box">
-<span>Lorraine faleceu</span>
-<strong>2019</strong>
-</div>
-
-<div class="profile-box">
-<span>Organização</span>
-<strong>NESPR</strong>
-</div>
-
-<div class="profile-box">
-<span>País</span>
-<strong>Estados Unidos</strong>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     LINHA DO TEMPO
-========================= -->
-
-<section id="linha">
-
-<div class="section-title">
-    <small>04 — Cronologia</small>
-    <h2>Uma vida juntos</h2>
-</div>
-
-<div class="timeline">
-
-<div class="event">
-
-<div class="year">1944</div>
-
-<h3>O primeiro encontro</h3>
-
-<p>
-    Segundo a NESPR, Ed e Lorraine se conheceram quando Ed,
-    então adolescente, trabalhava no Colonial Theater,
-    em Bridgeport, Connecticut.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">1945</div>
-
-<h3>O casamento</h3>
-
-<p>
-    Depois do serviço militar de Ed, o casal se casou.
-    A relação duraria mais de seis décadas.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">1950s</div>
-
-<h3>As primeiras investigações</h3>
-
-<p>
-    A NESPR relata que o interesse do casal por casas
-    supostamente assombradas cresceu durante os anos 1950.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">1952</div>
-
-<h3>Fundação da NESPR</h3>
-
-<p>
-    A New England Society for Psychic Research passou a
-    fazer parte da história associada aos Warren.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">1970s</div>
-
-<h3>Casos que ganharam notoriedade</h3>
-
-<p>
-    Casos como Amityville, Enfield e a família Perron
-    ajudaram a transformar o casal em figuras conhecidas
-    dentro da cultura paranormal.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">1978</div>
-
-<h3>Ed e Lorraine em palestra</h3>
-
-<p>
-    Uma fotografia preservada no Wikimedia Commons registra
-    os dois juntos no Northern Essex Community College.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">2006</div>
-
-<h3>Morte de Ed Warren</h3>
-
-<p>
-    Ed morreu em 23 de agosto de 2006.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">2013</div>
-
-<h3>O casal chega ao cinema</h3>
-
-<p>
-    O lançamento de "The Conjuring" levou uma versão
-    dramatizada de Ed e Lorraine a um público mundial.
-</p>
-
-</div>
-
-
-<div class="event">
-
-<div class="year">2019</div>
-
-<h3>Morte de Lorraine Warren</h3>
-
-<p>
-    Lorraine morreu em 18 de abril de 2019,
-    encerrando uma das fases mais conhecidas da história
-    do casal.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CASOS
-========================= -->
-
-<section id="casos">
-
-<div class="section-title">
-    <small>05 — Arquivos famosos</small>
-    <h2>Casos associados aos Warren</h2>
-</div>
-
-<div class="cases">
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 001</div>
-
-<h3>Amityville</h3>
-
-<div class="status">
-Relato controverso
-</div>
-
-<p>
-    Em 1974, Ronald DeFeo Jr. matou seis membros de sua família
-    na residência de Amityville, em Long Island.
-</p>
-
-<p>
-    No ano seguinte, George e Kathy Lutz se mudaram para a casa
-    e posteriormente relataram uma série de acontecimentos
-    sobrenaturais.
-</p>
-
-<p>
-    Os Warren investigaram a residência e defenderam a interpretação
-    paranormal do caso.
-</p>
-
-<p>
-    A história, porém, é altamente controversa e foi contestada
-    por investigadores e outras fontes.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 002</div>
-
-<h3>Família Perron</h3>
-
-<div class="status">
-Base de "Invocação do Mal"
-</div>
-
-<p>
-    A família Perron afirmou ter experimentado fenômenos estranhos
-    depois de se mudar para uma casa em Rhode Island.
-</p>
-
-<p>
-    O caso se tornou a principal inspiração para o filme
-    "The Conjuring", lançado em 2013.
-</p>
-
-<p>
-    A versão cinematográfica acrescentou e alterou vários elementos
-    para criar uma narrativa de terror.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 003</div>
-
-<h3>Enfield</h3>
-
-<div class="status">
-Caso britânico controverso
-</div>
-
-<p>
-    Em 1977, uma família em Enfield, Londres, relatou fenômenos
-    que ficaram conhecidos como o poltergeist de Enfield.
-</p>
-
-<p>
-    Os Warren estiveram envolvidos no caso e interpretaram
-    os acontecimentos como atividade demoníaca.
-</p>
-
-<p>
-    Outras pessoas envolvidas na investigação questionaram
-    os acontecimentos e algumas acusações de fraude foram feitas.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 004</div>
-
-<h3>Annabelle</h3>
-
-<div class="status">
-Objeto paranormal associado aos Warren
-</div>
-
-<p>
-    Annabelle é uma boneca Raggedy Ann que se tornou um dos
-    objetos mais famosos associados à coleção dos Warren.
-</p>
-
-<p>
-    Segundo o relato divulgado pelos Warren, uma estudante de
-    enfermagem teria recebido a boneca e acontecimentos estranhos
-    começaram a ocorrer.
-</p>
-
-<p>
-    A boneca ganhou enorme fama depois de aparecer na franquia
-    cinematográfica "The Conjuring".
-</p>
-
-</article>
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 005</div>
-
-<h3>Arne Cheyenne Johnson</h3>
-
-<div class="status">
-"The Devil Made Me Do It"
-</div>
-
-<p>
-    Em 1981, Arne Johnson matou Alan Bono em Connecticut.
-</p>
-
-<p>
-    O caso ganhou notoriedade porque a defesa tentou argumentar
-    que Johnson estava sob influência demoníaca.
-</p>
-
-<p>
-    A tese ficou conhecida popularmente como "The Devil Made Me Do It".
-</p>
-
-</article>
-
-
-<article class="case">
-
-<div class="case-number">ARQUIVO 006</div>
-
-<h3>Outros relatos</h3>
-
-<div class="status">
-Décadas de investigação
-</div>
-
-<p>
-    A NESPR afirma que os Warren investigaram mais de cem casos
-    conhecidos e reuniram relatos, objetos e outros materiais.
-</p>
-
-<p>
-    A quantidade exata de investigações e a natureza de suas
-    evidências são temas que dependem da fonte consultada.
-</p>
-
-</article>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CITAÇÃO
-========================= -->
-
-<section>
-
-<div class="quote">
-
-<p>
-    "A história dos Warren está na fronteira entre
-    investigação paranormal, religião, cultura popular
-    e entretenimento."
-</p>
-
-<small>
-    Síntese editorial — não uma citação atribuída ao casal
-</small>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FILMES
-========================= -->
-
-<section id="filmes">
-
-<div class="section-title">
-    <small>06 — Cultura pop</small>
-    <h2>Ed e Lorraine no cinema</h2>
-</div>
-
-<p>
-    O casal se tornou uma das principais inspirações para a franquia
-    "The Conjuring". Os filmes usam casos reais ou alegados como ponto
-    de partida, mas são obras de ficção e não documentários.
-</p>
-
-<div class="movies">
-
-<div class="movie">
-
-<h3>Invocação do Mal</h3>
-
-<p>
-    2013. Patrick Wilson interpreta Ed Warren e Vera Farmiga interpreta
-    Lorraine Warren.
-</p>
-
-<p>
-    A história é inspirada principalmente nos relatos da família Perron.
-</p>
-
-</div>
-
-
-<div class="movie">
-
-<h3>Invocação do Mal 2</h3>
-
-<p>
-    2016. O filme apresenta uma versão dramatizada da investigação
-    de Enfield, na Inglaterra.
-</p>
-
-</div>
-
-
-<div class="movie">
-
-<h3>Invocação do Mal 3</h3>
-
-<p>
-    2021. A história utiliza o caso de Arne Johnson como uma de suas
-    principais inspirações.
-</p>
-
-</div>
-
-
-<div class="movie">
-
-<h3>Annabelle</h3>
-
-<p>
-    A boneca associada aos Warren ganhou uma franquia própria.
-</p>
-
-</div>
-
-
-<div class="movie">
-
-<h3>Annabelle 2</h3>
-
-<p>
-    Expande a mitologia cinematográfica relacionada à boneca.
-</p>
-
-</div>
-
-
-<div class="movie">
-
-<h3>Annabelle 3</h3>
-
-<p>
-    Apresenta uma versão ficcionalizada da coleção de objetos
-    associados aos Warren.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FATOS
-========================= -->
-
-<section id="fatos">
-
-<div class="section-title">
-    <small>07 — Curiosidades</small>
-    <h2>Fatos importantes</h2>
-</div>
-
-<div class="cases">
-
-<article class="case">
-
-<h3>Mais de 60 anos juntos</h3>
-
-<p>
-    Ed e Lorraine se conheceram ainda adolescentes e permaneceram
-    casados até a morte de Ed em 2006.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<h3>Uma filha</h3>
-
-<p>
-    O casal teve uma filha chamada Judy, que posteriormente se
-    tornou parte da história pública associada à família Warren.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<h3>Ed era pintor</h3>
-
-<p>
-    Antes da fama paranormal, Ed tinha interesse artístico e
-    pintava casas consideradas assombradas.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<h3>Lorraine no cinema</h3>
-
-<p>
-    Lorraine participou da produção relacionada a "The Conjuring"
-    e apareceu em uma pequena participação no filme.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<h3>O museu</h3>
-
-<p>
-    Durante décadas, objetos associados às investigações dos Warren
-    foram mantidos em sua coleção conhecida como Occult Museum.
-</p>
-
-</article>
-
-
-<article class="case">
-
-<h3>Legado</h3>
-
-<p>
-    Após a morte de Ed e Lorraine, a NESPR continuou associando
-    sua atuação ao legado do casal.
-</p>
-
-</article>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CONTROVÉRSIAS
-========================= -->
-
-<section>
-
-<div class="section-title">
-    <small>08 — Análise crítica</small>
-    <h2>O que é fato e o que é alegação?</h2>
-</div>
-
-<p>
-    A existência de Ed e Lorraine Warren, seu casamento, suas aparições
-    públicas, seus livros, organizações e participação em determinados
-    casos são fatos históricos documentáveis.
-</p>
-
-<p>
-    Já as conclusões sobre demônios, possessões e espíritos pertencem
-    ao campo das crenças e alegações paranormais. Alguns dos casos
-    mais famosos atribuídos ao casal foram contestados por jornalistas,
-    investigadores, testemunhas ou outras pessoas envolvidas.
-</p>
-
-<div class="notice">
-
-<h3>Exemplo: Amityville</h3>
-
-<p>
-    A família Lutz afirmou ter experimentado fenômenos sobrenaturais.
-    Os Warren defenderam a interpretação paranormal, mas a história
-    posteriormente foi alvo de fortes contestações e acusações de fraude.
-    Portanto, é incorreto apresentar todos os acontecimentos do caso
-    como fatos comprovados.
-</p>
-
-</div>
-
-<div class="notice">
-
-<h3>Por que isso importa?</h3>
-
-<p>
-    Diferenciar "o Warren afirmou que aconteceu" de "foi comprovado
-    que aconteceu" torna a pesquisa histórica mais precisa e evita
-    transformar alegações em fatos.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     LEGADO
-========================= -->
-
-<section>
-
-<div class="section-title">
-    <small>09 — Legado</small>
-    <h2>O impacto cultural</h2>
-</div>
-
-<p>
-    Independentemente da interpretação dos fenômenos investigados,
-    Ed e Lorraine Warren tiveram um impacto enorme na cultura popular.
-</p>
-
-<p>
-    Seus relatos ajudaram a popularizar a figura do casal de investigadores
-    paranormais e forneceram material para livros, documentários,
-    programas televisivos e grandes produções de Hollywood.
-</p>
-
-<p>
-    O personagem cinematográfico de Ed, interpretado por Patrick Wilson,
-    e Lorraine, interpretada por Vera Farmiga, tornou-se uma das duplas
-    mais reconhecidas do cinema de terror contemporâneo.
-</p>
-
-</section>
-
-
-<!-- =========================
-     FONTES
-========================= -->
-
-<footer>
-
-<h2>Fontes e referências</h2>
-
-<p>
-    Este projeto é uma página informativa independente.
-    Para informações históricas, imagens e detalhes adicionais,
-    consulte as fontes abaixo.
-</p>
-
-<div class="sources">
-
-<a
-href="https://warrens.net/about/"
-target="_blank">
-NESPR — About / Ed & Lorraine Warren
-</a>
-
-<a
-href="https://warrens.net/"
-target="_blank">
-NESPR — New England Society for Psychic Research
-</a>
-
-<a
-href="https://commons.wikimedia.org/wiki/File:Ed_and_Lorraine_Warren_at_Northern_Essex_Community_College_(1978).jpg"
-target="_blank">
-Wikimedia Commons — Ed e Lorraine Warren, 1978
-</a>
-
-<a
-href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren.jpg"
-target="_blank">
-Wikimedia Commons — Lorraine Warren, 2013
-</a>
-
-<a
-href="https://commons.wikimedia.org/wiki/File:Lorraine_Warren_(8608455671)_(cropped).jpg"
-target="_blank">
-Wikimedia Commons — Lorraine Warren, 2013
-</a>
-
-</div>
-
-<p style="margin-top:40px;">
-    © Página educativa independente — Ed & Lorraine Warren
-</p>
-
-</footer>
-
-</body>
-</html>
-
-
-:::
-
-W
-Fontes
+<div>
