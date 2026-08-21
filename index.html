@@ -1,493 +1,1260 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level Devil — Mini Game</title>
 
-  <title>Teen Wolf — Player</title>
-
-  <style>
+<style>
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        user-select: none;
     }
 
     body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 20% 20%, #263238 0%, transparent 30%),
-        radial-gradient(circle at 80% 80%, #111827 0%, transparent 35%),
-        #050608;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
+        background: #070707;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
     }
 
-    header {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      background: rgba(0, 0, 0, .75);
-      border-bottom: 1px solid #252525;
-      backdrop-filter: blur(10px);
+    #game {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background:
+            radial-gradient(circle at 50% 20%, #222 0%, #0b0b0b 45%, #030303 100%);
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      color: #d9d9d9;
+    /* =========================
+       MENU
+    ========================= */
+
+    #menu {
+        position: absolute;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background:
+            linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.85)),
+            repeating-linear-gradient(
+                45deg,
+                #111 0px,
+                #111 20px,
+                #151515 20px,
+                #151515 40px
+            );
     }
 
-    .logo span {
-      color: #8b0000;
+    #menu h1 {
+        font-size: clamp(50px, 10vw, 110px);
+        color: #fff;
+        letter-spacing: 8px;
+        text-shadow:
+            5px 5px 0 #ff3030,
+            10px 10px 0 #000;
+        transform: rotate(-2deg);
+        margin-bottom: 15px;
     }
 
-    nav {
-      display: flex;
-      gap: 25px;
+    #menu p {
+        color: #aaa;
+        font-size: 18px;
+        margin-bottom: 35px;
+        text-align: center;
     }
 
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      transition: .3s;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      min-height: 420px;
-      padding: 80px 7%;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, #050608 0%, rgba(5,6,8,.8) 45%, transparent),
-        linear-gradient(0deg, #050608, transparent),
-        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-    }
-
-    .hero-content {
-      max-width: 650px;
-    }
-
-    .tag {
-      color: #b5b5b5;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: clamp(45px, 7vw, 90px);
-      line-height: .9;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .description {
-      color: #bbb;
-      font-size: 17px;
-      line-height: 1.7;
-      max-width: 600px;
-    }
-
-    .watch-area {
-      width: 86%;
-      max-width: 1250px;
-      margin: -40px auto 70px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .player {
-      background: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.7),
-        0 0 0 1px #222;
-    }
-
-    video {
-      width: 100%;
-      display: block;
-      background: #000;
-      aspect-ratio: 16 / 9;
-    }
-
-    .player-info {
-      padding: 25px 30px;
-      background: #0d0e10;
-    }
-
-    .player-info h2 {
-      margin-bottom: 8px;
-      font-size: 24px;
-    }
-
-    .meta {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .content {
-      width: 86%;
-      max-width: 1250px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: 25px;
-      margin-bottom: 25px;
-      border-left: 4px solid #8b0000;
-      padding-left: 15px;
-    }
-
-    .episode-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 70px;
-    }
-
-    .episode {
-      background: #111315;
-      border: 1px solid #222;
-      border-radius: 10px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform .25s, border-color .25s;
-    }
-
-    .episode:hover {
-      transform: translateY(-6px);
-      border-color: #8b0000;
-    }
-
-    .thumbnail {
-      height: 125px;
-      background:
-        linear-gradient(135deg, #191919, #353535);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 35px;
-      color: #888;
-    }
-
-    .episode-text {
-      padding: 15px;
-    }
-
-    .episode-text h3 {
-      font-size: 16px;
-      margin-bottom: 7px;
-    }
-
-    .episode-text p {
-      color: #777;
-      font-size: 13px;
-    }
-
-    .details {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-
-    .panel {
-      background: #0e1012;
-      border: 1px solid #202226;
-      border-radius: 12px;
-      padding: 30px;
-    }
-
-    .panel h2 {
-      margin-bottom: 18px;
-    }
-
-    .panel p {
-      color: #aaa;
-      line-height: 1.8;
-    }
-
-    .info-list {
-      list-style: none;
-    }
-
-    .info-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid #242424;
-      color: #aaa;
-    }
-
-    .info-list strong {
-      color: white;
-    }
-
-    footer {
-      padding: 40px 7%;
-      border-top: 1px solid #202020;
-      color: #666;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    @media (max-width: 750px) {
-      nav {
-        display: none;
-      }
-
-      .hero {
-        padding: 60px 6%;
-      }
-
-      .watch-area,
-      .content {
-        width: 94%;
-      }
-
-      .details {
-        grid-template-columns: 1fr;
-      }
-
-      .player-info {
+    .menu-button {
+        width: 250px;
         padding: 18px;
-      }
+        margin: 8px;
+        border: 3px solid white;
+        background: #111;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+        transition: .15s;
+        box-shadow: 5px 5px 0 #000;
     }
-  </style>
+
+    .menu-button:hover {
+        background: #ff3030;
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0 #000;
+    }
+
+    /* =========================
+       HUD
+    ========================= */
+
+    #hud {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+        pointer-events: none;
+        background: linear-gradient(
+            rgba(0,0,0,.8),
+            rgba(0,0,0,0)
+        );
+    }
+
+    .hud-box {
+        background: rgba(0,0,0,.7);
+        border: 2px solid #444;
+        padding: 10px 16px;
+        font-weight: bold;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    #levelName {
+        color: #ff4444;
+    }
+
+    #deaths {
+        color: #ff7777;
+    }
+
+    /* =========================
+       WORLD
+    ========================= */
+
+    #world {
+        position: absolute;
+        width: 5000px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transition: transform .05s linear;
+    }
+
+    #sky {
+        position: absolute;
+        width: 5000px;
+        height: 100%;
+        background:
+            radial-gradient(circle at 20% 30%, #202020 0, transparent 20%),
+            radial-gradient(circle at 70% 60%, #151515 0, transparent 25%);
+    }
+
+    .platform {
+        position: absolute;
+        background:
+            linear-gradient(#444, #222);
+        border: 3px solid #777;
+        box-shadow:
+            inset 0 -8px 0 rgba(0,0,0,.35),
+            0 8px 0 #000;
+    }
+
+    .platform::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -8px;
+        height: 5px;
+        background: #050505;
+    }
+
+    /* =========================
+       PLAYER
+    ========================= */
+
+    #player {
+        position: absolute;
+        width: 34px;
+        height: 42px;
+        background: white;
+        border: 3px solid #111;
+        z-index: 10;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.5);
+    }
+
+    #player::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        left: 6px;
+        top: 8px;
+        background: #111;
+        box-shadow: 12px 0 #111;
+    }
+
+    #player::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 4px;
+        left: 6px;
+        bottom: 7px;
+        background: #111;
+    }
+
+    /* =========================
+       SPIKES
+    ========================= */
+
+    .spikes {
+        position: absolute;
+        height: 35px;
+        display: flex;
+        z-index: 5;
+    }
+
+    .spike {
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 35px solid #ddd;
+        filter: drop-shadow(2px 3px 0 #000);
+    }
+
+    .ceiling-spikes .spike {
+        transform: rotate(180deg);
+    }
+
+    /* =========================
+       DOOR
+    ========================= */
+
+    .door {
+        position: absolute;
+        width: 60px;
+        height: 90px;
+        background: #751010;
+        border: 5px solid #ddd;
+        z-index: 4;
+        box-shadow: 7px 7px 0 #000;
+    }
+
+    .door::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ffdf60;
+        right: 8px;
+        top: 48px;
+    }
+
+    .door::after {
+        content: "EXIT";
+        position: absolute;
+        top: -28px;
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        color: #aaa;
+    }
+
+    /* =========================
+       MOVING BLOCKS
+    ========================= */
+
+    .moving {
+        background: #555;
+        border: 3px solid #aaa;
+    }
+
+    .falling {
+        background: #6d3030;
+        border-color: #ff5555;
+    }
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    .sign {
+        position: absolute;
+        color: #ddd;
+        font-weight: bold;
+        font-size: 15px;
+        background: #111;
+        padding: 8px 12px;
+        border: 2px solid #555;
+        box-shadow: 4px 4px 0 #000;
+    }
+
+    /* =========================
+       OVERLAYS
+    ========================= */
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 40;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(0,0,0,.82);
+        text-align: center;
+    }
+
+    .overlay h2 {
+        font-size: 65px;
+        color: #ff3030;
+        text-shadow: 5px 5px #000;
+        margin-bottom: 15px;
+    }
+
+    .overlay p {
+        color: #bbb;
+        margin-bottom: 25px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    #controls {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 30;
+        display: none;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    .control-group {
+        display: flex;
+        gap: 10px;
+        pointer-events: auto;
+    }
+
+    .control {
+        width: 65px;
+        height: 65px;
+        border: 2px solid white;
+        background: rgba(0,0,0,.65);
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 800px) {
+        #controls {
+            display: flex;
+        }
+
+        #hud {
+            padding: 0 10px;
+        }
+
+        .hud-box {
+            min-width: 80px;
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+
+    /* =========================
+       EFFECTS
+    ========================= */
+
+    #flash {
+        position: absolute;
+        inset: 0;
+        z-index: 60;
+        background: white;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .shake {
+        animation: shake .18s linear;
+    }
+
+    @keyframes shake {
+        0% { transform: translate(0); }
+        25% { transform: translate(8px,-5px); }
+        50% { transform: translate(-8px,5px); }
+        75% { transform: translate(5px,5px); }
+        100% { transform: translate(0); }
+    }
+
+    #message {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 25;
+        font-size: 25px;
+        font-weight: bold;
+        color: #fff;
+        opacity: 0;
+        transition: .3s;
+        text-shadow: 3px 3px #000;
+        pointer-events: none;
+    }
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      TEEN <span>WOLF</span>
+<div id="game">
+
+    <div id="menu">
+        <h1>LEVEL DEVIL</h1>
+        <p>Você só precisa chegar até a porta.<br>O problema é que o jogo não quer deixar.</p>
+
+        <button class="menu-button" onclick="startGame()">
+            JOGAR
+        </button>
+
+        <button class="menu-button" onclick="showHelp()">
+            COMO JOGAR
+        </button>
     </div>
 
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#episodios">Episódios</a>
-      <a href="#informacoes">Informações</a>
-    </nav>
-  </header>
+    <div id="hud">
+        <div class="hud-box">
+            FASE <span id="level">1</span>
+        </div>
 
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <div class="tag">Temporada 1 • Episódio 1</div>
+        <div class="hud-box" id="levelName">
+            NÃO CONFIE NO CHÃO
+        </div>
 
-      <h1>Teen Wolf</h1>
-
-      <p class="description">
-        Uma experiência de reprodução criada para você assistir
-        ao episódio utilizando um arquivo de vídeo que possui
-        autorização para reproduzir.
-      </p>
+        <div class="hud-box">
+            MORTES: <span id="deaths">0</span>
+        </div>
     </div>
-  </section>
 
-  <main>
+    <div id="message"></div>
 
-    <section class="watch-area">
+    <div id="world">
 
-      <div class="player">
+        <div id="sky"></div>
 
-        <!--
-          COLOQUE AQUI O SEU ARQUIVO DE VÍDEO AUTORIZADO.
+        <!-- CHÃO INICIAL -->
+        <div class="platform"
+             style="left:0;top:600px;width:650px;height:80px;"></div>
 
-          Exemplo:
-          <source src="videos/teen-wolf-episodio-01.mp4"
-                  type="video/mp4">
-        -->
+        <!-- PRIMEIRO BURACO -->
+        <div class="platform"
+             style="left:760px;top:600px;width:350px;height:80px;"></div>
 
-        <video
-          id="videoPlayer"
-          controls
-          preload="metadata"
-          poster="poster.jpg">
+        <!-- PLATAFORMA 3 -->
+        <div class="platform"
+             style="left:1220px;top:520px;width:400px;height:80px;"></div>
 
-          <source
-            src="videos/teen-wolf-episodio-01.mp4"
-            type="video/mp4">
+        <!-- PLATAFORMA 4 -->
+        <div class="platform"
+             style="left:1700px;top:600px;width:500px;height:80px;"></div>
 
-          Seu navegador não suporta reprodução de vídeo.
-        </video>
+        <!-- PLATAFORMA FINAL -->
+        <div class="platform"
+             style="left:2320px;top:600px;width:800px;height:80px;"></div>
 
-        <div class="player-info">
-          <h2>Temporada 1 — Episódio 1</h2>
-
-          <div class="meta">
-            Reprodução local • Arquivo autorizado
-          </div>
+        <!-- ESPINHOS 1 -->
+        <div class="spikes" style="left:300px;top:565px;">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
         </div>
 
-      </div>
-
-    </section>
-
-    <section class="content" id="episodios">
-
-      <h2 class="section-title">Episódios</h2>
-
-      <div class="episode-grid">
-
-        <article class="episode">
-          <div class="thumbnail">▶</div>
-          <div class="episode-text">
-            <h3>Episódio 1</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-        <article class="episode">
-          <div class="thumbnail">02</div>
-          <div class="episode-text">
-            <h3>Episódio 2</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-        <article class="episode">
-          <div class="thumbnail">03</div>
-          <div class="episode-text">
-            <h3>Episódio 3</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-        <article class="episode">
-          <div class="thumbnail">04</div>
-          <div class="episode-text">
-            <h3>Episódio 4</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-        <article class="episode">
-          <div class="thumbnail">05</div>
-          <div class="episode-text">
-            <h3>Episódio 5</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-        <article class="episode">
-          <div class="thumbnail">06</div>
-          <div class="episode-text">
-            <h3>Episódio 6</h3>
-            <p>Temporada 1</p>
-          </div>
-        </article>
-
-      </div>
-
-    </section>
-
-    <section class="content" id="informacoes">
-
-      <div class="details">
-
-        <div class="panel">
-          <h2>Sobre o episódio</h2>
-
-          <p>
-            Esta página funciona como uma interface de streaming
-            personalizada. O player utiliza o elemento HTML5
-            <strong>&lt;video&gt;</strong> e pode reproduzir um
-            arquivo MP4 armazenado localmente no seu computador
-            ou servidor.
-          </p>
-
-          <br>
-
-          <p>
-            Para utilizar seu próprio arquivo, crie uma pasta
-            chamada <strong>videos</strong> ao lado deste HTML e
-            coloque nela o vídeo autorizado. Depois, mantenha o
-            nome configurado no elemento
-            <strong>&lt;source&gt;</strong>.
-          </p>
+        <!-- ESPINHOS 2 -->
+        <div class="spikes" style="left:850px;top:565px;">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
         </div>
 
-        <div class="panel">
-
-          <h2>Informações</h2>
-
-          <ul class="info-list">
-            <li>
-              <strong>Série:</strong> Teen Wolf
-            </li>
-
-            <li>
-              <strong>Temporada:</strong> 1
-            </li>
-
-            <li>
-              <strong>Episódio:</strong> 1
-            </li>
-
-            <li>
-              <strong>Formato:</strong> MP4
-            </li>
-
-            <li>
-              <strong>Player:</strong> HTML5
-            </li>
-          </ul>
-
+        <!-- ESPINHOS 3 -->
+        <div class="spikes" style="left:1350px;top:485px;">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
         </div>
 
-      </div>
+        <!-- ESPINHOS FINAIS -->
+        <div class="spikes" style="left:1900px;top:565px;">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+        </div>
 
-    </section>
+        <!-- TETO SURPRESA -->
+        <div class="spikes ceiling-spikes"
+             style="left:1450px;top:130px;">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+        </div>
 
-  </main>
+        <!-- PORTA -->
+        <div class="door" style="left:2900px;top:510px;"></div>
 
-  <footer>
-    Página de reprodução pessoal para conteúdo que o usuário
-    possui autorização para reproduzir.
-  </footer>
+        <!-- SINAIS -->
+        <div class="sign" style="left:80px;top:500px;">
+            → SIGA EM FRENTE
+        </div>
 
-  <script>
-    const video = document.getElementById("videoPlayer");
+        <div class="sign" style="left:430px;top:470px;">
+            FÁCIL :)
+        </div>
 
-    // Salva automaticamente a posição do vídeo.
-    video.addEventListener("timeupdate", () => {
-      localStorage.setItem(
-        "teenWolfProgress",
-        video.currentTime
-      );
+        <div class="sign" style="left:780px;top:450px;">
+            NÃO PULE
+        </div>
+
+        <div class="sign" style="left:1260px;top:420px;">
+            QUASE LÁ
+        </div>
+
+        <div class="sign" style="left:1800px;top:500px;">
+            CUIDADO
+        </div>
+
+        <!-- BLOCOS MÓVEIS -->
+        <div id="movingBlock1"
+             class="platform moving"
+             style="left:1050px;top:400px;width:100px;height:35px;">
+        </div>
+
+        <div id="movingBlock2"
+             class="platform moving"
+             style="left:2200px;top:430px;width:120px;height:35px;">
+        </div>
+
+        <!-- ARMADILHA -->
+        <div id="trap"
+             class="platform falling"
+             style="left:2360px;top:500px;width:160px;height:35px;">
+        </div>
+
+        <!-- PLAYER -->
+        <div id="player"></div>
+    </div>
+
+    <div id="flash"></div>
+
+    <div id="deathScreen" class="overlay">
+        <h2>VOCÊ MORREU</h2>
+        <p>Esse jogo não estava brincando.</p>
+        <button class="menu-button" onclick="restartLevel()">
+            TENTAR NOVAMENTE
+        </button>
+    </div>
+
+    <div id="winScreen" class="overlay">
+        <h2>VOCÊ VENCEU!</h2>
+        <p>Você chegou à porta. Milagre.</p>
+        <p>Mortes: <strong id="finalDeaths">0</strong></p>
+        <button class="menu-button" onclick="restartGame()">
+            JOGAR NOVAMENTE
+        </button>
+    </div>
+
+    <div id="helpScreen" class="overlay">
+        <h2>COMO JOGAR</h2>
+        <p>
+            A/D ou ←/→ para andar<br>
+            W, ↑ ou Espaço para pular<br><br>
+            Evite os espinhos.<br>
+            Não confie nas plataformas.<br>
+            Chegue até a porta.
+        </p>
+        <button class="menu-button" onclick="closeHelp()">
+            VOLTAR
+        </button>
+    </div>
+
+    <div id="controls">
+        <div class="control-group">
+            <button class="control" id="leftBtn">←</button>
+            <button class="control" id="rightBtn">→</button>
+        </div>
+
+        <div class="control-group">
+            <button class="control" id="jumpBtn">↑</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+/* ============================================
+   CONFIGURAÇÃO
+============================================ */
+
+const player = document.getElementById("player");
+const world = document.getElementById("world");
+const menu = document.getElementById("menu");
+const deathScreen = document.getElementById("deathScreen");
+const winScreen = document.getElementById("winScreen");
+const helpScreen = document.getElementById("helpScreen");
+const flash = document.getElementById("flash");
+const game = document.getElementById("game");
+
+let playing = false;
+let dead = false;
+let won = false;
+
+let deaths = 0;
+let level = 1;
+
+let px = 80;
+let py = 540;
+
+let vx = 0;
+let vy = 0;
+
+const gravity = 0.8;
+const speed = 5.5;
+const jumpPower = 14;
+
+let grounded = false;
+
+const keys = {
+    left: false,
+    right: false,
+    jump: false
+};
+
+let cameraX = 0;
+
+/* ============================================
+   CONTROLES
+============================================ */
+
+document.addEventListener("keydown", e => {
+
+    if (
+        e.key === "ArrowLeft" ||
+        e.key.toLowerCase() === "a"
+    ) {
+        keys.left = true;
+    }
+
+    if (
+        e.key === "ArrowRight" ||
+        e.key.toLowerCase() === "d"
+    ) {
+        keys.right = true;
+    }
+
+    if (
+        e.key === "ArrowUp" ||
+        e.key.toLowerCase() === "w" ||
+        e.code === "Space"
+    ) {
+        if (!keys.jump) {
+            keys.jump = true;
+            jump();
+        }
+    }
+
+    if (e.key === "r" || e.key === "R") {
+        if (playing && dead) {
+            restartLevel();
+        }
+    }
+});
+
+document.addEventListener("keyup", e => {
+
+    if (
+        e.key === "ArrowLeft" ||
+        e.key.toLowerCase() === "a"
+    ) {
+        keys.left = false;
+    }
+
+    if (
+        e.key === "ArrowRight" ||
+        e.key.toLowerCase() === "d"
+    ) {
+        keys.right = false;
+    }
+
+    if (
+        e.key === "ArrowUp" ||
+        e.key.toLowerCase() === "w" ||
+        e.code === "Space"
+    ) {
+        keys.jump = false;
+    }
+});
+
+/* ============================================
+   CONTROLES MOBILE
+============================================ */
+
+function bindButton(id, property) {
+
+    const button = document.getElementById(id);
+
+    button.addEventListener("touchstart", e => {
+        e.preventDefault();
+
+        if (property === "jump") {
+            jump();
+        } else {
+            keys[property] = true;
+        }
     });
 
-    // Recupera a posição anterior.
-    window.addEventListener("load", () => {
-      const savedTime =
-        localStorage.getItem("teenWolfProgress");
+    button.addEventListener("touchend", e => {
+        e.preventDefault();
 
-      if (savedTime) {
-        video.currentTime = Number(savedTime);
-      }
+        if (property !== "jump") {
+            keys[property] = false;
+        }
     });
+}
 
-    // Duplo clique no vídeo para alternar tela cheia.
-    video.addEventListener("dblclick", () => {
+bindButton("leftBtn", "left");
+bindButton("rightBtn", "right");
+bindButton("jumpBtn", "jump");
 
-      if (!document.fullscreenElement) {
-        video.requestFullscreen?.();
-      } else {
-        document.exitFullscreen?.();
-      }
+/* ============================================
+   PLATAFORMAS
+============================================ */
 
-    });
-  </script>
+const platforms = [
+
+    {x:0, y:600, w:650, h:80},
+    {x:760, y:600, w:350, h:80},
+    {x:1220, y:520, w:400, h:80},
+    {x:1700, y:600, w:500, h:80},
+    {x:2320, y:600, w:800, h:80},
+
+    {x:1050, y:400, w:100, h:35},
+    {x:2200, y:430, w:120, h:35},
+    {x:2360, y:500, w:160, h:35}
+];
+
+const spikes = [
+
+    {x:300, y:565, w:120, h:35},
+    {x:850, y:565, w:72, h:35},
+    {x:1350, y:485, w:96, h:35},
+    {x:1900, y:565, w:120, h:35},
+
+    /* armadilha secreta */
+    {x:1560, y:565, w:70, h:35}
+];
+
+/* ============================================
+   COLISÃO
+============================================ */
+
+function overlap(a, b) {
+
+    return (
+        a.x < b.x + b.w &&
+        a.x + a.w > b.x &&
+        a.y < b.y + b.h &&
+        a.y + a.h > b.y
+    );
+}
+
+/* ============================================
+   PULO
+============================================ */
+
+function jump() {
+
+    if (!playing || dead || won) return;
+
+    if (grounded) {
+
+        vy = -jumpPower;
+        grounded = false;
+
+        /* pequeno efeito */
+        player.style.transform = "scaleY(.9)";
+        setTimeout(() => {
+            player.style.transform = "";
+        }, 80);
+    }
+}
+
+/* ============================================
+   MORTE
+============================================ */
+
+function die(reason = "") {
+
+    if (dead || won) return;
+
+    dead = true;
+    deaths++;
+
+    document.getElementById("deaths").textContent = deaths;
+
+    flash.style.opacity = "0.8";
+
+    setTimeout(() => {
+        flash.style.opacity = "0";
+    }, 80);
+
+    game.classList.add("shake");
+
+    setTimeout(() => {
+        game.classList.remove("shake");
+    }, 200);
+
+    deathScreen.style.display = "flex";
+}
+
+/* ============================================
+   VITÓRIA
+============================================ */
+
+function win() {
+
+    if (won || dead) return;
+
+    won = true;
+
+    document.getElementById("finalDeaths").textContent = deaths;
+
+    winScreen.style.display = "flex";
+}
+
+/* ============================================
+   RESET
+============================================ */
+
+function resetPlayer() {
+
+    px = 80;
+    py = 540;
+
+    vx = 0;
+    vy = 0;
+
+    grounded = false;
+
+    dead = false;
+
+    deathScreen.style.display = "none";
+
+    /* Resetar armadilha */
+    const trap = document.getElementById("trap");
+
+    trap.style.top = "500px";
+    trap.dataset.fallen = "false";
+
+    document.getElementById("movingBlock1").style.top = "400px";
+    document.getElementById("movingBlock2").style.top = "430px";
+}
+
+/* ============================================
+   REINICIAR FASE
+============================================ */
+
+function restartLevel() {
+
+    resetPlayer();
+
+    /* Pequeno atraso para evitar mortes instantâneas */
+    setTimeout(() => {
+        dead = false;
+    }, 100);
+}
+
+/* ============================================
+   REINICIAR JOGO
+============================================ */
+
+function restartGame() {
+
+    deaths = 0;
+    level = 1;
+
+    document.getElementById("deaths").textContent = "0";
+    document.getElementById("level").textContent = "1";
+
+    won = false;
+
+    winScreen.style.display = "none";
+
+    resetPlayer();
+}
+
+/* ============================================
+   COMEÇAR
+============================================ */
+
+function startGame() {
+
+    menu.style.display = "none";
+
+    playing = true;
+
+    resetPlayer();
+
+    showMessage("CHEGUE ATÉ A PORTA");
+}
+
+/* ============================================
+   AJUDA
+============================================ */
+
+function showHelp() {
+
+    helpScreen.style.display = "flex";
+}
+
+function closeHelp() {
+
+    helpScreen.style.display = "none";
+}
+
+/* ============================================
+   MENSAGENS
+============================================ */
+
+let messageTimer;
+
+function showMessage(text) {
+
+    const message = document.getElementById("message");
+
+    message.textContent = text;
+    message.style.opacity = "1";
+
+    clearTimeout(messageTimer);
+
+    messageTimer = setTimeout(() => {
+        message.style.opacity = "0";
+    }, 2000);
+}
+
+/* ============================================
+   ARMADILHAS SECRETAS
+============================================ */
+
+let trapTriggered = false;
+
+function secretTraps() {
+
+    /* Quando o jogador chega perto da primeira área,
+       o chão começa a cair */
+
+    if (px > 440 && px < 570 && !trapTriggered) {
+
+        trapTriggered = true;
+
+        showMessage("O CHÃO ESTÁ CAINDO!");
+
+        const trap = document.getElementById("trap");
+
+        trap.style.transition = "top .25s";
+
+        setTimeout(() => {
+            trap.style.top = "720px";
+        }, 250);
+    }
+
+    /* Plataforma que parece segura */
+    if (px > 1530 && px < 1650 && py > 450) {
+
+        if (Math.random() < 0.03) {
+            vy += 2;
+        }
+    }
+
+    /* Teto surpresa */
+    if (px > 1400 && px < 1550 && py < 250) {
+
+        if (Math.random() < 0.05) {
+            die("teto");
+        }
+    }
+}
+
+/* ============================================
+   MOVIMENTO DE PLATAFORMAS
+============================================ */
+
+let time = 0;
+
+function updateMovingPlatforms() {
+
+    time += 0.02;
+
+    const block1 = document.getElementById("movingBlock1");
+    const block2 = document.getElementById("movingBlock2");
+
+    const y1 = 400 + Math.sin(time * 2) * 90;
+    const y2 = 430 + Math.sin(time * 1.5 + 2) * 100;
+
+    block1.style.top = y1 + "px";
+    block2.style.top = y2 + "px";
+}
+
+/* ============================================
+   FÍSICA
+============================================ */
+
+function update() {
+
+    if (!playing || dead || won) return;
+
+    /* horizontal */
+
+    if (keys.left) {
+        vx -= 0.7;
+    }
+
+    if (keys.right) {
+        vx += 0.7;
+    }
+
+    if (!keys.left && !keys.right) {
+        vx *= 0.75;
+    }
+
+    vx = Math.max(-speed, Math.min(speed, vx));
+
+    px += vx;
+
+    /* limites */
+    if (px < 0) {
+        px = 0;
+        vx = 0;
+    }
+
+    /* gravidade */
+    vy += gravity;
+
+    if (vy > 20) {
+        vy = 20;
+    }
+
+    const previousY = py;
+
+    py += vy;
+
+    grounded = false;
+
+    const playerBox = {
+        x: px,
+        y: py,
+        w: 34,
+        h: 42
+    };
+
+    /* plataformas */
+
+    for (const p of platforms) {
+
+        const platformBox = {
+            x: p.x,
+            y: p.y,
+            w: p.w,
+            h: p.h
+        };
+
+        const wasAbove =
+            previousY + 42 <= p.y;
+
+        if (
+            overlap(playerBox, platformBox) &&
+            vy >= 0 &&
+            wasAbove
+        ) {
+
+            py = p.y - 42;
+            vy = 0;
+            grounded = true;
+        }
+    }
+
+    /* cair no abismo */
+
+    if (py > 750) {
+
+        die("queda");
+
+        return;
+    }
+
+    /* espinhos */
+
+    for (const s of spikes) {
+
+        const spikeBox = {
+            x: s.x,
+            y: s.y,
+            w: s.w,
+            h: s.h
+        };
+
+        if (overlap(playerBox, spikeBox)) {
+
+            die("espinho");
+
+            return;
+        }
+    }
+
+    /* porta */
+
+    const doorBox = {
+        x: 2900,
+        y: 510,
+        w: 60,
+        h: 90
+    };
+
+    if (overlap(playerBox, doorBox)) {
+
+        win();
+
+        return;
+    }
+
+    /* armadilhas */
+
+    secretTraps();
+
+    /* câmera */
+
+    updateCamera();
+
+    /* render */
+
+    render();
+}
+
+/* ============================================
+   CÂMERA
+============================================ */
+
+function updateCamera() {
+
+    const screenWidth = window.innerWidth;
+
+    const target =
+        px - screenWidth * 0.35;
+
+    cameraX +=
+        (target - cameraX) * 0.12;
+
+    if (cameraX < 0) {
+        cameraX = 0;
+    }
+
+    const maxCamera =
+        5000 - screenWidth;
+
+    if (cameraX > maxCamera) {
+        cameraX = maxCamera;
+    }
+
+    world.style.transform =
+        `translateX(${-cameraX}px)`;
+}
+
+/* ============================================
+   RENDER
+============================================ */
+
+function render() {
+
+    player.style.left = px + "px";
+    player.style.top = py + "px";
+}
+
+/* ============================================
+   LOOP
+============================================ */
+
+function loop() {
+
+    updateMovingPlatforms();
+    update();
+
+    requestAnimationFrame(loop);
+}
+
+loop();
+
+/* ============================================
+   EASTER EGGS
+============================================ */
+
+let secretMessageShown = false;
+
+setInterval(() => {
+
+    if (!playing || dead || won) return;
+
+    if (px > 1000 && !secretMessageShown) {
+
+        secretMessageShown = true;
+
+        setTimeout(() => {
+            showMessage("VOCÊ REALMENTE CONFIA NISSO?");
+        }, 800);
+    }
+
+}, 500);
+
+/* ============================================
+   RESIZE
+============================================ */
+
+window.addEventListener("resize", () => {
+    updateCamera();
+});
+
+/* ============================================
+   CLIQUE NA PORTA
+============================================ */
+
+document.querySelector(".door").addEventListener("click", () => {
+
+    if (playing && !dead) {
+        win();
+    }
+});
+
+/* ============================================
+   DUPLO CLIQUE = PULO
+============================================ */
+
+document.addEventListener("dblclick", () => {
+
+    if (playing && !dead) {
+        jump();
+    }
+});
+</script>
 
 </body>
 </html>
